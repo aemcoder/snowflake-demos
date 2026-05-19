@@ -105,3 +105,51 @@ DA cell images: already absolute → no special rewriting for Media Bus.
 8. Bundle cards: same pattern — `<article>` wraps img+h4+p+a; slot children individually.
 9. Impact badges: `<div>` wraps img+div; slot both children.
 10. Tweet cards: entirely placeholders → data-slot-skip, no slots inside.
+
+## Phase: Generate
+
+Produced:
+- templates/lemonade.html — 61 data-slot markers, 9 sections
+- fragments/lemonade/header.html — static header fragment
+- fragments/lemonade/footer.html — static footer fragment
+- styles/lemonade.css — 16,466 bytes extracted from inline <style>
+- da/a.html — DA divs-with-class doc
+
+Key decision: all sections use `ds-` prefixed first classes. DA block divs must match exactly
+(e.g. `<div class="ds-hero">` not `<div class="hero">`).
+
+## Phase: Wire
+
+Lint clean. Drafted test file at drafts/lemonade-a.html via transform-da-to-eds.mjs.
+Committed and pushed to sd-lemonade-a branch.
+
+## Phase: Round-trip (Production)
+
+Initial DA PUT succeeded. Initial POST preview failed with 409 — SVG images over 40KB
+failed DA Media Bus validation (images 1, 2, 8, 9, 10, 11, 13).
+
+**Affected images and sizes:**
+- illo-left: home-left SVG 45KB → removed from DA
+- illo-right: home-right SVG 76KB → removed from DA
+- logos: press_banner SVG 251KB → removed from DA
+- card-1.img: pet-renters SVG 81KB → removed from DA
+- card-2.img: car-renters SVG 98KB → removed from DA
+- card-3.img: car-home SVG 158KB → removed from DA
+- pizza: pizza diagram SVG 176KB → removed from DA
+
+**Under-limit images kept in DA (all pass):**
+- product tile SVGs: 8–18KB each ✓
+- app-sketch SVG: 14KB ✓
+- badge PNGs: all small ✓
+
+After removing oversized SVG slots, DA PUT + POST preview + POST live all succeeded.
+
+**Preview URL:** https://sd-lemonade-a--snowflake-demos--aemcoder.aem.page/lemonade/a
+**Live URL:** https://sd-lemonade-a--snowflake-demos--aemcoder.aem.live/lemonade/a
+
+## Phase: Reflect
+
+New learnings:
+1. DA block class must match template section's first class exactly (including ds- prefix)
+2. DA Media Bus rejects SVG > ~40KB at preview POST time — check sizes during Analyze phase
+Both promoted to bundled cross-project learnings.md.
