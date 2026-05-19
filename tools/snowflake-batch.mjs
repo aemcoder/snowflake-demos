@@ -48,3 +48,31 @@ function normalise({ url, branch, daPath }) {
   if (!daPath) throw new Error('Each run must have a daPath (or da=)');
   return { url, branch, daPath };
 }
+
+/**
+ * Create git worktrees from main and copy the DA token into each one.
+ * Idempotent — skips worktrees that already exist on disk.
+ *
+ * @param {{ url: string, branch: string, daPath: string }[]} runs
+ * @param {string} repoRoot  absolute path to the main repo
+ * @param {{ execSync?: Function }} [opts]  injectable for testing
+ * @returns {{ url: string, branch: string, daPath: string, worktreePath: string }[]}
+ */
+export function setupWorktrees(runs, repoRoot, opts = {}) {
+  const exec = opts.execSync ?? execSync;
+  return runs.map((run) => {
+    const worktreePath = join(repoRoot, '..', `${basename(repoRoot)}-${run.branch}`);
+    if (!existsSync(worktreePath)) {
+      exec(
+        `git -C "${repoRoot}" worktree add -b "${run.branch}" "${worktreePath}" main`,
+        { stdio: 'inherit' },
+      );
+    }
+    mkdirSync(join(worktreePath, '.hlx'), { recursive: true });
+    copyFileSync(
+      join(repoRoot, '.hlx', '.da-token.json'),
+      join(worktreePath, '.hlx', '.da-token.json'),
+    );
+    return { ...run, worktreePath };
+  });
+}

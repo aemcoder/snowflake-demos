@@ -1,6 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseBatchInput } from './snowflake-batch.mjs';
+import { mkdirSync, existsSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join as pathJoin, basename } from 'node:path';
+import { parseBatchInput, setupWorktrees } from './snowflake-batch.mjs';
 
 test('parseBatchInput: JSON array', () => {
   const input = '[{"url":"https://a.com/p","branch":"sd-a","daPath":"/a"}]';
@@ -57,4 +60,50 @@ test('parseBatchInput: throws on missing url', () => {
     () => parseBatchInput('[{"branch":"sd-x","daPath":"/x"}]'),
     /url/,
   );
+});
+
+test('setupWorktrees: creates worktree dir and copies token', () => {
+  const repoRoot = mkdtempSync(pathJoin(tmpdir(), 'snowflake-test-'));
+  const hlxDir = pathJoin(repoRoot, '.hlx');
+  mkdirSync(hlxDir, { recursive: true });
+  writeFileSync(pathJoin(hlxDir, '.da-token.json'), '{"access_token":"test"}');
+
+  const branch = `sd-test-${Date.now()}`;
+  const expectedWorktreePath = pathJoin(repoRoot, '..', `${basename(repoRoot)}-${branch}`);
+
+  const run = { url: 'https://x.com', branch, daPath: '/x' };
+  const results = setupWorktrees([run], repoRoot, {
+    execSync: (_cmd) => { mkdirSync(expectedWorktreePath, { recursive: true }); },
+  });
+
+  assert.equal(results.length, 1);
+  assert.equal(results[0].worktreePath, expectedWorktreePath);
+  assert.ok(
+    existsSync(pathJoin(expectedWorktreePath, '.hlx', '.da-token.json')),
+    'token should be copied into worktree',
+  );
+
+  rmSync(repoRoot, { recursive: true, force: true });
+  rmSync(expectedWorktreePath, { recursive: true, force: true });
+});
+
+test('setupWorktrees: skips git command when worktree already exists', () => {
+  const repoRoot = mkdtempSync(pathJoin(tmpdir(), 'snowflake-test-'));
+  mkdirSync(pathJoin(repoRoot, '.hlx'), { recursive: true });
+  writeFileSync(pathJoin(repoRoot, '.hlx', '.da-token.json'), '{"access_token":"test"}');
+
+  const branch = `sd-exists-${Date.now()}`;
+  const worktreePath = pathJoin(repoRoot, '..', `${basename(repoRoot)}-${branch}`);
+  mkdirSync(worktreePath, { recursive: true });
+
+  let execCalled = false;
+  const run = { url: 'https://y.com', branch, daPath: '/y' };
+  setupWorktrees([run], repoRoot, {
+    execSync: () => { execCalled = true; },
+  });
+
+  assert.equal(execCalled, false, 'execSync should not be called for existing worktree');
+
+  rmSync(repoRoot, { recursive: true, force: true });
+  rmSync(worktreePath, { recursive: true, force: true });
 });
