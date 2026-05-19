@@ -1,0 +1,179 @@
+{
+  "templateName": "lovesac-a",
+  "pageSlug": "a",
+  "pageTitle": "Lovesac Modern Furniture | Sectionals, Bean Bags, & Sofas",
+  "synthesizeMain": false,
+  "generator": "stardust-0.2.0",
+  "placeholderConvention": "data-placeholder=\"true\"",
+  "headLinks": [],
+  "inlineStyleLines": [29, 399],
+  "inlineScriptLines": [],
+  "externalLibs": [],
+  "assetStrategy": "absolute",
+  "assetBase": "https://paolomoz.github.io/stardust-site/samples/lovesac/",
+  "daAbsoluteBase": "https://paolomoz.github.io/stardust-site/samples/lovesac/",
+  "branch": "sd-lovesac-a",
+  "owner": "aemcoder",
+  "repo": "snowflake-demos",
+  "sections": [
+    {
+      "firstClass": "hero",
+      "dataSection": "hero",
+      "originalTag": "section",
+      "originalClassList": "hero",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".hero .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".hero h1" },
+        { "name": "subtitle", "type": "text", "selector": ".hero__sub" },
+        { "name": "image", "type": "image", "selector": ".hero__media img" },
+        { "name": "cta-primary", "type": "link", "selector": ".hero__ctas .btn-primary" },
+        { "name": "cta-secondary", "type": "link", "selector": ".hero__ctas .btn-secondary" }
+      ]
+    },
+    {
+      "firstClass": "shop-by-category",
+      "dataSection": "shop-by-category",
+      "originalTag": "section",
+      "originalClassList": "",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": "[data-section='shop-by-category'] .eyebrow" },
+        { "name": "title", "type": "text", "selector": "[data-section='shop-by-category'] h2" },
+        { "name": "cat-1.title", "type": "text", "selector": ".cat-tile:nth-child(1) h4" },
+        { "name": "cat-1.desc", "type": "text", "selector": ".cat-tile:nth-child(1) small" },
+        { "name": "cat-1.link", "type": "link", "selector": ".cat-tile:nth-child(1)" },
+        { "name": "cat-1.image", "type": "image", "selector": ".cat-tile:nth-child(1) img" },
+        { "name": "cat-2.title", "type": "text", "selector": ".cat-tile:nth-child(2) h4" },
+        { "name": "cat-2.desc", "type": "text", "selector": ".cat-tile:nth-child(2) small" },
+        { "name": "cat-2.link", "type": "link", "selector": ".cat-tile:nth-child(2)" },
+        { "name": "cat-2.image", "type": "image", "selector": ".cat-tile:nth-child(2) img" },
+        { "name": "cat-3.title", "type": "text", "selector": ".cat-tile:nth-child(3) h4" },
+        { "name": "cat-3.desc", "type": "text", "selector": ".cat-tile:nth-child(3) small" },
+        { "name": "cat-3.link", "type": "link", "selector": ".cat-tile:nth-child(3)" },
+        { "name": "cat-3.image", "type": "image", "selector": ".cat-tile:nth-child(3) img" },
+        { "name": "cat-4.title", "type": "text", "selector": ".cat-tile:nth-child(4) h4" },
+        { "name": "cat-4.desc", "type": "text", "selector": ".cat-tile:nth-child(4) small" },
+        { "name": "cat-4.link", "type": "link", "selector": ".cat-tile:nth-child(4)" },
+        { "name": "cat-4.image", "type": "image", "selector": ".cat-tile:nth-child(4) img" },
+        { "name": "cat-5.title", "type": "text", "selector": ".cat-tile:nth-child(5) h4" },
+        { "name": "cat-5.desc", "type": "text", "selector": ".cat-tile:nth-child(5) small" },
+        { "name": "cat-5.link", "type": "link", "selector": ".cat-tile:nth-child(5)" },
+        { "name": "cat-5.image", "type": "image", "selector": ".cat-tile:nth-child(5) img" },
+        { "name": "cat-6.title", "type": "text", "selector": ".cat-tile:nth-child(6) h4" },
+        { "name": "cat-6.desc", "type": "text", "selector": ".cat-tile:nth-child(6) small" },
+        { "name": "cat-6.link", "type": "link", "selector": ".cat-tile:nth-child(6)" },
+        { "name": "cat-6.image", "type": "image", "selector": ".cat-tile:nth-child(6) img" },
+        { "name": "cat-7.title", "type": "text", "selector": ".cat-tile:nth-child(7) h4" },
+        { "name": "cat-7.desc", "type": "text", "selector": ".cat-tile:nth-child(7) small" },
+        { "name": "cat-7.link", "type": "link", "selector": ".cat-tile:nth-child(7)" },
+        { "name": "cat-7.image", "type": "image", "selector": ".cat-tile:nth-child(7) img" },
+        { "name": "cat-8.title", "type": "text", "selector": ".cat-tile:nth-child(8) h4" },
+        { "name": "cat-8.desc", "type": "text", "selector": ".cat-tile:nth-child(8) small" },
+        { "name": "cat-8.link", "type": "link", "selector": ".cat-tile:nth-child(8)" },
+        { "name": "cat-8.image", "type": "image", "selector": ".cat-tile:nth-child(8) img" }
+      ],
+      "note": "cat-tile is <a>, slots on children only (container-vs-children rule)"
+    },
+    {
+      "firstClass": "build-your-sactional",
+      "dataSection": "build-your-sactional",
+      "originalTag": "section",
+      "originalClassList": "build",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".build__copy .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".build__copy h2" },
+        { "name": "body", "type": "text", "selector": ".build__copy p" },
+        { "name": "cta", "type": "link", "selector": ".build__copy .btn-primary" },
+        { "name": "piece-1.image", "type": "image", "selector": ".build__piece:nth-child(1) img" },
+        { "name": "piece-1.label", "type": "text", "selector": ".build__piece:nth-child(1) .build__piece-label" },
+        { "name": "piece-2.image", "type": "image", "selector": ".build__piece:nth-child(2) img" },
+        { "name": "piece-2.label", "type": "text", "selector": ".build__piece:nth-child(2) .build__piece-label" },
+        { "name": "piece-3.image", "type": "image", "selector": ".build__piece:nth-child(3) img" },
+        { "name": "piece-3.label", "type": "text", "selector": ".build__piece:nth-child(3) .build__piece-label" }
+      ]
+    },
+    {
+      "firstClass": "product-line-carousel",
+      "dataSection": "product-line-carousel",
+      "originalTag": "section",
+      "originalClassList": "carousel",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "slide-1.image", "type": "image", "selector": ".carousel__slide:nth-child(1) img" },
+        { "name": "slide-1.eyebrow", "type": "text", "selector": ".carousel__slide:nth-child(1) .eyebrow" },
+        { "name": "slide-1.title", "type": "text", "selector": ".carousel__slide:nth-child(1) h3" },
+        { "name": "slide-1.caption", "type": "text", "selector": ".carousel__slide:nth-child(1) .carousel__caption p" },
+        { "name": "slide-2.image", "type": "image", "selector": ".carousel__slide:nth-child(2) img" },
+        { "name": "slide-2.eyebrow", "type": "text", "selector": ".carousel__slide:nth-child(2) .eyebrow" },
+        { "name": "slide-2.title", "type": "text", "selector": ".carousel__slide:nth-child(2) h3" },
+        { "name": "slide-2.caption", "type": "text", "selector": ".carousel__slide:nth-child(2) .carousel__caption p" },
+        { "name": "slide-3.image", "type": "image", "selector": ".carousel__slide:nth-child(3) img" },
+        { "name": "slide-3.eyebrow", "type": "text", "selector": ".carousel__slide:nth-child(3) .eyebrow" },
+        { "name": "slide-3.title", "type": "text", "selector": ".carousel__slide:nth-child(3) h3" },
+        { "name": "slide-3.caption", "type": "text", "selector": ".carousel__slide:nth-child(3) .carousel__caption p" },
+        { "name": "slide-4.image", "type": "image", "selector": ".carousel__slide:nth-child(4) img" },
+        { "name": "slide-4.eyebrow", "type": "text", "selector": ".carousel__slide:nth-child(4) .eyebrow" },
+        { "name": "slide-4.title", "type": "text", "selector": ".carousel__slide:nth-child(4) h3" },
+        { "name": "slide-4.caption", "type": "text", "selector": ".carousel__slide:nth-child(4) .carousel__caption p" }
+      ]
+    },
+    {
+      "firstClass": "financing-line",
+      "dataSection": "financing-line",
+      "originalTag": "div",
+      "originalClassList": "fin-line",
+      "rewriteToSection": true,
+      "slots": [
+        { "name": "cta", "type": "link", "selector": ".fin-line a" }
+      ]
+    },
+    {
+      "firstClass": "lifestyle-grid",
+      "dataSection": "lifestyle-grid",
+      "originalTag": "section",
+      "originalClassList": "",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": "[data-section='lifestyle-grid'] .section-head .eyebrow" },
+        { "name": "title", "type": "text", "selector": "[data-section='lifestyle-grid'] .section-head h2" },
+        { "name": "card-1.image", "type": "image", "selector": ".lifestyle-card:nth-child(1) img" },
+        { "name": "card-1.eyebrow", "type": "text", "selector": ".lifestyle-card:nth-child(1) .eyebrow" },
+        { "name": "card-1.caption", "type": "text", "selector": ".lifestyle-card:nth-child(1) p" },
+        { "name": "card-2.image", "type": "image", "selector": ".lifestyle-card:nth-child(2) img" },
+        { "name": "card-2.eyebrow", "type": "text", "selector": ".lifestyle-card:nth-child(2) .eyebrow" },
+        { "name": "card-2.caption", "type": "text", "selector": ".lifestyle-card:nth-child(2) p" },
+        { "name": "card-3.image", "type": "image", "selector": ".lifestyle-card:nth-child(3) img" },
+        { "name": "card-3.eyebrow", "type": "text", "selector": ".lifestyle-card:nth-child(3) .eyebrow" },
+        { "name": "card-3.caption", "type": "text", "selector": ".lifestyle-card:nth-child(3) p" }
+      ]
+    },
+    {
+      "firstClass": "swatches-band",
+      "dataSection": "swatches-band",
+      "originalTag": "section",
+      "originalClassList": "swatches-band",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "image", "type": "image", "selector": ".swatches-band__media img" },
+        { "name": "eyebrow", "type": "text", "selector": ".swatches-band__copy .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".swatches-band__copy h3" },
+        { "name": "body", "type": "text", "selector": ".swatches-band__copy p" },
+        { "name": "cta", "type": "link", "selector": ".swatches-band__copy .btn-primary" }
+      ]
+    }
+  ],
+  "strip": [],
+  "notes": [
+    "Stardust 0.2.0 — placeholder-wordmark in header uses data-placeholder='true' (same as 0.3.0 marker)",
+    "All images use absolute CDN URLs from lovesac.com — no asset vendoring needed",
+    "No <link> elements in <head> — fonts are referenced via CSS variables only (miller-display, museo-sans via Adobe Fonts but not loaded via link in this prototype)",
+    "financing-line is a <div> not <section> — rewrite to <section>",
+    "shop-by-category and lifestyle-grid have no class attr — use data-section as first-class",
+    "build-your-sactional and product-line-carousel have different first-class vs data-section — use data-section values as first-class",
+    "Container-vs-children: cat-tiles are <a> links wrapping children — do NOT slot the <a> container, slot the inner img/h4/small individually",
+    "chat-widget <button> is outside <footer> — include in footer fragment",
+    "promo-strip has dismiss onclick referencing document.getElementById — include in header fragment as-is (no animation JS needed for this)"
+  ]
+}
