@@ -1,0 +1,151 @@
+{
+  "templateName": "digitalinnovation-a",
+  "synthesizeMain": true,
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "hero",
+      "slots": [
+        { "name": "stamp-num", "type": "text", "selector": ".hero-stamp__num" },
+        { "name": "stamp-label", "type": "text", "selector": ".hero-stamp__label" },
+        { "name": "title", "type": "text", "selector": "[data-section='hero'] h1" },
+        { "name": "lead", "type": "text", "selector": "[data-section='hero'] .lead" },
+        { "name": "cta-primary", "type": "link", "selector": ".cta-row .btn--primary" },
+        { "name": "cta-secondary", "type": "link", "selector": ".cta-row .text-link" }
+      ],
+      "skipPlaceholders": [
+        { "selector": ".lead[data-placeholder]", "reason": "Stardust placeholder: hero-lead-adapted" }
+      ]
+    },
+    {
+      "firstClass": "audience-router",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "audience-router",
+      "slots": [
+        { "name": "isv-eyebrow", "type": "text", "selector": ".half--isv .track__eyebrow" },
+        { "name": "isv-title", "type": "text", "selector": ".half--isv .track__title" },
+        { "name": "isv-lead", "type": "text", "selector": ".half--isv .track__lead" },
+        { "name": "isv-cta", "type": "link", "selector": ".half--isv .track__cta a" },
+        { "name": "si-eyebrow", "type": "text", "selector": ".half--si .track__eyebrow" },
+        { "name": "si-title", "type": "text", "selector": ".half--si .track__title" },
+        { "name": "si-lead", "type": "text", "selector": ".half--si .track__lead" },
+        { "name": "si-cta", "type": "link", "selector": ".half--si .track__cta a" }
+      ],
+      "note": "data-placeholder on .half--isv and .half--si covers the whole half; we slot the inner content but add data-slot-skip on the halves"
+    },
+    {
+      "firstClass": "featured-news",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "featured-news",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": "[data-section='featured-news'] .eyebrow--muted" },
+        { "name": "title", "type": "text", "selector": "[data-section='featured-news'] h2" },
+        { "name": "news-1.cat", "type": "text", "selector": ".editorial-list__item:nth-child(1) .editorial-list__cat" },
+        { "name": "news-1.title", "type": "link", "selector": ".editorial-list__item:nth-child(1) .editorial-list__title a" },
+        { "name": "news-1.dek", "type": "text", "selector": ".editorial-list__item:nth-child(1) .editorial-list__dek" },
+        { "name": "news-1.meta", "type": "text", "selector": ".editorial-list__item:nth-child(1) .editorial-list__meta" },
+        { "name": "news-1.thumb", "type": "image", "selector": ".editorial-list__item:nth-child(1) .editorial-list__inline-thumb img" },
+        { "name": "news-2.cat", "type": "text", "selector": ".editorial-list__item:nth-child(2) .editorial-list__cat" },
+        { "name": "news-2.title", "type": "link", "selector": ".editorial-list__item:nth-child(2) .editorial-list__title a" },
+        { "name": "news-2.pull", "type": "text", "selector": ".editorial-list__item:nth-child(2) .editorial-list__pull" },
+        { "name": "news-2.meta", "type": "text", "selector": ".editorial-list__item:nth-child(2) .editorial-list__meta" },
+        { "name": "news-3.cat", "type": "text", "selector": ".editorial-list__item:nth-child(3) .editorial-list__cat" },
+        { "name": "news-3.title", "type": "link", "selector": ".editorial-list__item:nth-child(3) .editorial-list__title a" },
+        { "name": "news-3.dek", "type": "text", "selector": ".editorial-list__item:nth-child(3) .editorial-list__dek" },
+        { "name": "news-3.meta", "type": "text", "selector": ".editorial-list__item:nth-child(3) .editorial-list__meta" },
+        { "name": "news-4.cat", "type": "text", "selector": ".editorial-list__item:nth-child(4) .editorial-list__cat" },
+        { "name": "news-4.title", "type": "link", "selector": ".editorial-list__item:nth-child(4) .editorial-list__title a" },
+        { "name": "news-4.pull", "type": "text", "selector": ".editorial-list__item:nth-child(4) .editorial-list__pull" },
+        { "name": "news-4.meta", "type": "text", "selector": ".editorial-list__item:nth-child(4) .editorial-list__meta" },
+        { "name": "news-5.cat", "type": "text", "selector": ".editorial-list__item:nth-child(5) .editorial-list__cat" },
+        { "name": "news-5.title", "type": "link", "selector": ".editorial-list__item:nth-child(5) .editorial-list__title a" },
+        { "name": "news-5.dek", "type": "text", "selector": ".editorial-list__item:nth-child(5) .editorial-list__dek" },
+        { "name": "news-5.meta", "type": "text", "selector": ".editorial-list__item:nth-child(5) .editorial-list__meta" },
+        { "name": "news-6.cat", "type": "text", "selector": ".editorial-list__item:nth-child(6) .editorial-list__cat" },
+        { "name": "news-6.title", "type": "link", "selector": ".editorial-list__item:nth-child(6) .editorial-list__title a" },
+        { "name": "news-6.dek", "type": "text", "selector": ".editorial-list__item:nth-child(6) .editorial-list__dek" },
+        { "name": "news-6.meta", "type": "text", "selector": ".editorial-list__item:nth-child(6) .editorial-list__meta" }
+      ],
+      "skipPlaceholders": [
+        { "selector": ".marginalia__group[data-placeholder]", "reason": "Stardust placeholder: marginalia-notes" }
+      ]
+    },
+    {
+      "firstClass": "topics",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "topics",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": "[data-section='topics'] .eyebrow--muted" },
+        { "name": "title", "type": "text", "selector": "[data-section='topics'] h2" },
+        { "name": "ai.count", "type": "text", "selector": ".tile--ai .tile__count" },
+        { "name": "azure.count", "type": "text", "selector": ".tile--azure .tile__count" },
+        { "name": "azure.latest-title", "type": "text", "selector": ".tile--azure .latest__title" },
+        { "name": "migration.big-num", "type": "text", "selector": ".tile--migration .big-num" },
+        { "name": "events.big-num", "type": "text", "selector": ".tile--events .big-num" },
+        { "name": "partner.count", "type": "text", "selector": ".tile--partner .tile__count" },
+        { "name": "partner.latest-title", "type": "text", "selector": ".tile--partner .latest__title" },
+        { "name": "apps.big-num", "type": "text", "selector": ".tile--apps .big-num" },
+        { "name": "mosaic-note", "type": "text", "selector": ".mosaic-note__text" }
+      ],
+      "skipPlaceholders": [
+        { "selector": ".latest[data-placeholder]", "reason": "Stardust placeholder: latest-azure / latest-partner" }
+      ]
+    },
+    {
+      "firstClass": "pull-quote",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "pull-quote",
+      "slots": [
+        { "name": "quote", "type": "text", "selector": ".pull-quote__text" },
+        { "name": "attr", "type": "text", "selector": ".pull-quote__attr span:last-child" },
+        { "name": "cta", "type": "link", "selector": ".pull-quote__more .text-link" }
+      ],
+      "skipPlaceholders": [
+        { "selector": "[data-placeholder='pull-quote-copy']", "reason": "Stardust placeholder: pull-quote-copy" }
+      ]
+    },
+    {
+      "firstClass": "resource-cta",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "resource-cta",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": "[data-section='resource-cta'] .eyebrow" },
+        { "name": "title", "type": "text", "selector": "[data-section='resource-cta'] h2" },
+        { "name": "body", "type": "text", "selector": "[data-section='resource-cta'] p" },
+        { "name": "cta", "type": "link", "selector": "[data-section='resource-cta'] .btn" }
+      ],
+      "skipPlaceholders": [
+        { "selector": "[data-placeholder='resource-cta-copy']", "reason": "Stardust placeholder: resource-cta-copy" }
+      ]
+    }
+  ],
+  "headLinks": [
+    { "rel": "preconnect", "href": "https://fonts.googleapis.com" },
+    { "rel": "preconnect", "href": "https://fonts.gstatic.com", "crossorigin": "" },
+    { "rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700;800;900&display=swap" }
+  ],
+  "inlineStyleLines": [61, 710],
+  "inlineScriptLines": [[1057, 1180]],
+  "externalLibs": [],
+  "assetStrategy": "absolute",
+  "assetBase": "https://paolomoz.github.io",
+  "headerBoundary": {
+    "start": "line 714",
+    "end": "line 740",
+    "elements": ["aside[data-section='sponsor-band']", "header[data-section='site-header']"]
+  },
+  "footerBoundary": {
+    "start": "line 1002",
+    "end": "line 1054",
+    "elements": ["footer[data-section='site-footer']"]
+  },
+  "strip": [],
+  "placeholderConvention": "Stardust 0.3.0 — data-placeholder attribute on elements"
+}

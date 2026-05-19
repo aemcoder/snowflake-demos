@@ -1,0 +1,266 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<main>
+
+<!-- Hero — asymmetric (cols 1-7 content, cols 10-12 mini-TOC) -->
+<section data-section="hero" class="hero" data-purpose="featured-story" aria-labelledby="hero-h1">
+  <canvas class="hero-dots" aria-hidden="true"></canvas>
+  <div class="hero-accent" aria-hidden="true"></div>
+  <div class="grid">
+    <div class="hero-main">
+      <div class="hero-stamp">
+        <span class="hero-stamp__num" data-slot="stamp-num">01</span>
+        <span class="hero-stamp__label" data-slot="stamp-label">Today's lead · Partner Programs</span>
+      </div>
+      <h1 id="hero-h1" data-slot="title">Microsoft unveils major investments for Azure partners in FY26</h1>
+      <p class="lead" data-slot="lead">
+        New partner programs, expanded marketplace incentives, and AI-led migration tooling — Microsoft is making the largest set of Azure-partner investments in years. Here's what ISV and SI partners need to know.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn--primary" href="/stardust-site/blog/microsoft-unveils-major-investments-for-azure-partners-in-fy-26" data-slot="cta-primary">Read the brief</a>
+        <a class="text-link" href="/stardust-site/blog/" data-slot="cta-secondary">All news</a>
+      </div>
+    </div>
+    <aside class="hero-toc" aria-label="In this issue">
+      <span class="toc__label">In this issue</span>
+      <nav class="toc">
+        <ol>
+          <li><a href="#audience">Choose your track</a></li>
+          <li><a href="#news">This week in Azure</a></li>
+          <li><a href="#topics">Browse by topic</a></li>
+          <li><a href="#voices">In partners' words</a></li>
+          <li><a href="/stardust-site/resources">Resources hub</a></li>
+        </ol>
+      </nav>
+    </aside>
+  </div>
+</section>
+
+<!-- Audience router — DIAGONAL SPLIT (variant B) -->
+<section id="audience" data-section="audience-router" class="audience-router" data-purpose="ia-routing" aria-label="Choose your partner track">
+  <div class="edge" aria-hidden="true"></div>
+  <div class="half half--isv" data-slot-skip="placeholder">
+    <div class="content">
+      <span class="eyebrow track__eyebrow" data-slot="isv-eyebrow">For ISV Partners</span>
+      <h2 class="track__title" data-slot="isv-title">Build &amp; sell on <em>Azure.</em></h2>
+      <p class="track__lead" data-slot="isv-lead">Marketplace incentives, AI Foundry, and customer-success playbooks for software vendors building on Azure.</p>
+      <ul class="track__links">
+        <li><a href="/stardust-site/blog/apps">Marketplace transactions</a></li>
+        <li><a href="/stardust-site/blog/ai">Azure AI Foundry</a></li>
+        <li><a href="/stardust-site/resources/isv-partners">ISV success stories</a></li>
+      </ul>
+      <div class="track__cta"><a class="btn--white" href="/stardust-site/resources/isv-partners" data-slot="isv-cta">Explore for ISVs</a></div>
+    </div>
+  </div>
+  <div class="half half--si" data-slot-skip="placeholder">
+    <div class="content">
+      <span class="eyebrow track__eyebrow" data-slot="si-eyebrow">For SI Partners</span>
+      <h2 class="track__title" data-slot="si-title">Migrate &amp; <em>modernize.</em></h2>
+      <p class="track__lead" data-slot="si-lead">MCAPS Start, Migrate-and-Modernize Summit recordings, and partner-economics updates for systems integrators.</p>
+      <ul class="track__links">
+        <li><a href="/stardust-site/blog/migration">Migration playbooks</a></li>
+        <li><a href="/stardust-site/blog/partner-offers">MCAPS &amp; co-sell</a></li>
+        <li><a href="/stardust-site/resources/si-partners">SI success stories</a></li>
+      </ul>
+      <div class="track__cta"><a class="btn btn--secondary" href="/stardust-site/resources/si-partners" data-slot="si-cta">Explore for SIs</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- News list + marginalia rail -->
+<section id="news" data-section="featured-news" class="featured-news" data-purpose="numbered-list" aria-labelledby="featured-news-h">
+  <div class="header-row">
+    <div>
+      <span class="eyebrow eyebrow--muted" data-slot="eyebrow">This week in Azure</span>
+      <h2 id="featured-news-h" data-slot="title">Latest news</h2>
+    </div>
+    <a class="text-link" href="/stardust-site/blog/">All articles</a>
+  </div>
+  <div class="news-stage">
+    <ol class="editorial-list">
+      <li class="editorial-list__item editorial-list__item--lead">
+        <div class="editorial-list__num">01</div>
+        <div class="editorial-list__body">
+          <span class="editorial-list__cat" data-slot="news-1.cat">Events</span>
+          <h3 class="editorial-list__title"><a href="/stardust-site/asset/Migrate%20And%20Modernize%20Summit:%20Accelerate%20And%20Simplify%20Cloud%20Transformation%20With%20AI" data-slot="news-1.title">Migrate &amp; Modernize Summit: Accelerate cloud transformation with AI</a></h3>
+          <p class="editorial-list__dek" data-slot="news-1.dek">Expert-led sessions, customer case studies, and AI-assisted migration demos. Free to register.</p>
+          <p class="editorial-list__meta" data-slot="news-1.meta">Featured event · September 2025</p>
+          <div class="editorial-list__inline-thumb"><img src="https://www.digitalinnovation.com/sites/microsoftdigitalinnovation/files/Untitled-1.jpg" alt="" data-slot="news-1.thumb"></div>
+        </div>
+      </li>
+      <li class="editorial-list__item">
+        <div class="editorial-list__num">02</div>
+        <div class="editorial-list__body">
+          <span class="editorial-list__cat" data-slot="news-2.cat">Recognition</span>
+          <h3 class="editorial-list__title"><a href="/stardust-site/blog/gartner-names-microsoft-as-cloud-application-platform-leader" data-slot="news-2.title">Microsoft named a Leader in 2025 Gartner® Magic Quadrant™ for iPaaS</a></h3>
+          <p class="editorial-list__pull" data-slot="news-2.pull">"Azure Integration Services placed at the top of Gartner's evaluation of cloud application platforms — what it means for partners selling Azure in regulated verticals."</p>
+          <p class="editorial-list__meta" data-slot="news-2.meta">By Alan Strakey · 2025</p>
+        </div>
+      </li>
+      <li class="editorial-list__item">
+        <div class="editorial-list__num">03</div>
+        <div class="editorial-list__body">
+          <span class="editorial-list__cat" data-slot="news-3.cat">AI</span>
+          <h3 class="editorial-list__title"><a href="/stardust-site/blog/what-s-new-in-azure-ai-foundry-powering-the-agentic-future" data-slot="news-3.title">What's new in Azure AI Foundry: powering the agentic future</a></h3>
+          <p class="editorial-list__dek" data-slot="news-3.dek">Updates to the Foundry tooling, agent-orchestration runtime, and the partner program that opens the new AI surface to ISVs first.</p>
+          <p class="editorial-list__meta" data-slot="news-3.meta">By Alan Strakey · 2025</p>
+        </div>
+      </li>
+      <li class="editorial-list__item">
+        <div class="editorial-list__num">04</div>
+        <div class="editorial-list__body">
+          <span class="editorial-list__cat" data-slot="news-4.cat">Partner Programs</span>
+          <h3 class="editorial-list__title"><a href="/stardust-site/blog/what-partners-must-know-about-mcaps-start-for-partners" data-slot="news-4.title">What partners must know about MCAPS Start for Partners</a></h3>
+          <p class="editorial-list__pull" data-slot="news-4.pull">"Microsoft's reshaped partner-engagement program — the rules for co-sell qualification, fast-track motion, and how SIs should restructure for FY26."</p>
+          <p class="editorial-list__meta" data-slot="news-4.meta">By Alan Strakey · 2025</p>
+        </div>
+      </li>
+      <li class="editorial-list__item">
+        <div class="editorial-list__num">05</div>
+        <div class="editorial-list__body">
+          <span class="editorial-list__cat" data-slot="news-5.cat">ISV Stories</span>
+          <h3 class="editorial-list__title"><a href="/stardust-site/blog/inspirational-stories-from-isvs-building-with-microsoft-azure" data-slot="news-5.title">Inspirational stories from ISVs building with Microsoft Azure</a></h3>
+          <p class="editorial-list__dek" data-slot="news-5.dek">Five software companies, five different paths through the Azure marketplace — from Series A to enterprise scale.</p>
+          <p class="editorial-list__meta" data-slot="news-5.meta">By Alan Strakey · 2025</p>
+        </div>
+      </li>
+      <li class="editorial-list__item">
+        <div class="editorial-list__num">06</div>
+        <div class="editorial-list__body">
+          <span class="editorial-list__cat" data-slot="news-6.cat">Channel</span>
+          <h3 class="editorial-list__title"><a href="/stardust-site/blog/azure-success-drives-revenue-growth-and-crn-recognition" data-slot="news-6.title">Azure success drives revenue growth — and CRN recognition</a></h3>
+          <p class="editorial-list__dek" data-slot="news-6.dek">Why Azure-focused partners are winning the year's CRN awards — and the practice patterns the top performers share.</p>
+          <p class="editorial-list__meta" data-slot="news-6.meta">By Alan Strakey · 2025</p>
+        </div>
+      </li>
+    </ol>
+    <aside class="marginalia" aria-label="Editor's notes">
+      <div class="marginalia__group" data-slot-skip="placeholder">
+        <span class="marginalia__label">Editor's pick</span>
+        <p class="marginalia__pick"><a href="/stardust-site/blog/what-partners-must-know-about-mcaps-start-for-partners" style="color:inherit">If you read one thing this week: MCAPS Start.</a></p>
+        <span class="marginalia__pick-meta">04 · Partner Programs</span>
+      </div>
+      <div class="marginalia__group" data-slot-skip="placeholder">
+        <span class="marginalia__label">Trending topics</span>
+        <ul class="marginalia__list">
+          <li><a href="/stardust-site/blog/ai"><span class="count">24</span>AI &amp; Foundry</a></li>
+          <li><a href="/stardust-site/blog/migration"><span class="count">18</span>Migration</a></li>
+          <li><a href="/stardust-site/blog/partner-offers"><span class="count">21</span>Partner Offers</a></li>
+        </ul>
+      </div>
+      <div class="marginalia__group">
+        <span class="marginalia__label">This week's contributor</span>
+        <p class="marginalia__byline"><strong>Alan Strakey</strong> covers partner programs and channel economics for The Channel Company. <a href="/stardust-site/users/astrakey">More by Alan</a></p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- Topic mosaic — broken grid -->
+<section id="topics" data-section="topics" class="topics" data-purpose="topic-nav" aria-labelledby="topics-h">
+  <div class="header-row">
+    <div>
+      <span class="eyebrow eyebrow--muted" data-slot="eyebrow">Browse by topic</span>
+      <h2 id="topics-h" data-slot="title">Six tracks. One ecosystem.</h2>
+    </div>
+    <a class="text-link" href="/stardust-site/blog/">All topics</a>
+  </div>
+  <div class="mosaic">
+    <!-- AI — shader treatment -->
+    <a class="tile tile--ai tile--shader" href="/stardust-site/blog/ai">
+      <div class="shader-conic" aria-hidden="true"></div>
+      <div class="shader-grain" aria-hidden="true"></div>
+      <span class="shader-corner" aria-hidden="true">Live</span>
+      <span class="tile__count" data-slot="ai.count">24 stories</span>
+      <h3 class="tile__name">AI<span>Foundry · Copilot · agents</span></h3>
+    </a>
+
+    <!-- Azure — latest-headline preview -->
+    <a class="tile tile--azure tile--story" href="/stardust-site/blog/azure">
+      <span class="tile__count" data-slot="azure.count">45 stories</span>
+      <div class="latest" data-slot-skip="placeholder">
+        <span class="latest__label">Latest</span>
+        <p class="latest__title" data-slot="azure.latest-title">"Microsoft named a Leader in 2025 Gartner® Magic Quadrant™ for iPaaS"</p>
+      </div>
+      <div class="tile__bottom"><h3 class="tile__name">Azure<span>Core platform · iPaaS</span></h3></div>
+    </a>
+
+    <!-- Migration — big-number stat -->
+    <a class="tile tile--migration tile--stat" href="/stardust-site/blog/migration">
+      <span class="tile__count">stories · all-time</span>
+      <p class="big-num" data-slot="migration.big-num">18</p>
+      <div class="stat-row">
+        <h3 class="tile__name">Migration</h3>
+        <span class="delta">+3 / mo</span>
+      </div>
+    </a>
+
+    <!-- Events — big-number stat -->
+    <a class="tile tile--events tile--stat" href="/stardust-site/blog/events">
+      <span class="tile__count">stories · all-time</span>
+      <p class="big-num" data-slot="events.big-num">12</p>
+      <div class="stat-row">
+        <h3 class="tile__name">Events</h3>
+        <span class="delta">+4 / mo</span>
+      </div>
+    </a>
+
+    <!-- Partner Offers — latest-headline preview -->
+    <a class="tile tile--partner tile--story" href="/stardust-site/blog/partner-offers">
+      <span class="tile__count" data-slot="partner.count">21 stories</span>
+      <div class="latest" data-slot-skip="placeholder">
+        <span class="latest__label">Latest</span>
+        <p class="latest__title" data-slot="partner.latest-title">"What partners must know about MCAPS Start for Partners"</p>
+      </div>
+      <div class="tile__bottom"><h3 class="tile__name">Partner Offers<span>MCAPS · co-sell · marketplace</span></h3></div>
+    </a>
+
+    <!-- Apps — big-number stat -->
+    <a class="tile tile--apps tile--stat" href="/stardust-site/blog/apps">
+      <span class="tile__count">stories · all-time</span>
+      <p class="big-num" data-slot="apps.big-num">9</p>
+      <div class="stat-row">
+        <h3 class="tile__name">Apps</h3>
+        <span class="delta">+1 / mo</span>
+      </div>
+    </a>
+
+    <div class="mosaic-note" aria-hidden="false">
+      <span class="mosaic-note__label">From the editor</span>
+      <p class="mosaic-note__text" data-slot="mosaic-note">New tracks coming this fall — security, sustainability, and partner-led AI deployment. Subscribe to the digest to get them in your inbox.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Pull-quote — heavily indented to right -->
+<section id="voices" data-section="pull-quote" class="pull-quote" data-purpose="testimonial" aria-label="In partners' words">
+  <div class="container">
+    <div class="pull-quote__sidenote">In partners' words</div>
+    <figure class="pull-quote">
+      <blockquote class="pull-quote__text" data-slot="quote">
+        Microsoft Azure has redefined how we approach customer migrations — and the partner economics finally match the technical opportunity.
+      </blockquote>
+      <figcaption class="pull-quote__attr" data-slot-skip="placeholder">
+        <span class="pull-quote__divider" aria-hidden="true"></span>
+        <span data-slot="attr"><strong>Partner testimonial</strong> · Systems Integrator · 2025</span>
+      </figcaption>
+      <div class="pull-quote__more"><a class="text-link" href="/stardust-site/testimonials" data-slot="cta">Read all testimonials</a></div>
+    </figure>
+  </div>
+</section>
+
+<!-- Resource CTA -->
+<section data-section="resource-cta" class="resource-cta" data-purpose="conversion-band" aria-labelledby="resource-cta-h">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow eyebrow--white" data-slot="eyebrow">Resources</span>
+      <h2 id="resource-cta-h" data-slot="title">Workshops, ebooks, summits — all in one place.</h2>
+      <p data-slot="body">Curated for ISV and SI partners building with Microsoft Azure. New resources every week.</p>
+    </div>
+    <a class="btn" href="/stardust-site/resources" data-slot="cta">Browse resources</a>
+  </div>
+</section>
+
+</main>
