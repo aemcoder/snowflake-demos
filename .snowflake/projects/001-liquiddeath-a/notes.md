@@ -119,6 +119,15 @@ None. No `<script>` blocks in body.
 
 Stardust 0.2.0 — looking for `<span class="placeholder-tag">` markers. None found in this page.
 
+## Phase: Round-trip
+
+### Production round-trip
+- DA PUT: 200 — doc stored at da.live/edit#/aemcoder/snowflake-demos/liquiddeath/a [verified]
+- POST preview on sd-liquiddeath-a: 200 — https://sd-liquiddeath-a--snowflake-demos--aemcoder.aem.page/liquiddeath/a [verified]
+- POST live on sd-liquiddeath-a: 200 — https://sd-liquiddeath-a--snowflake-demos--aemcoder.aem.live/liquiddeath/a [verified]
+- Code-bus probes: templates/liquiddeath-a.html 200, styles/liquiddeath-a.css 200, fragments/liquiddeath-a/header.html 200, fragments/liquiddeath-a/footer.html 200 [verified]
+- Local round-trip: skipped per autonomous mode instructions
+
 ### Decisions surfaced by analysis
 
 1. All sections already use `<section>` tags — no tag rewrites needed
