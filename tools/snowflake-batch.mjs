@@ -76,3 +76,16 @@ export function setupWorktrees(runs, repoRoot, opts = {}) {
     return { ...run, worktreePath };
   });
 }
+
+// CLI — only runs when executed directly (not when imported by tests)
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const input = process.argv[2];
+  if (!input) {
+    process.stderr.write('Usage: node tools/snowflake-batch.mjs \'<json-or-inline>\'\n');
+    process.exit(1);
+  }
+  const repoRoot = execSync('git rev-parse --show-toplevel').toString().trim();
+  const runs = parseBatchInput(input);
+  const worktrees = setupWorktrees(runs, repoRoot);
+  process.stdout.write(JSON.stringify(worktrees, null, 2) + '\n');
+}
