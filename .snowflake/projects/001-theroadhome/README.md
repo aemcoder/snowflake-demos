@@ -3,7 +3,7 @@
 Source: https://paolomoz.github.io/stardust-site/samples/theroadhome/proposed-A.html
 Captured: 2026-05-19
 Generator: Stardust 0.2.0 (Phase 2, variant A — Conservative refresh)
-Status: in-progress
+Status: Closed 2026-05-19 (tag sd-theroadhome-a-close)
 
 ## Page intent
 
