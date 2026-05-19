@@ -9,6 +9,32 @@
 - Two relative internal links: `/stardust-site/global` (country picker, kept as-is) — not a content slot, stays in template
 - Stardust placeholder convention: `data-placeholder="true"` — **NOT FOUND** in this page; no placeholder elements
 
+## Phase: Round-trip
+
+### Local round-trip
+Skipped per autonomous mode instructions — go straight to production.
+
+### Production round-trip
+- Branch pushed: `sd-ups-gb-a`
+- DA PUT: HTTP 201 — `https://admin.da.live/source/aemcoder/snowflake-demos/ups-gb/a.html`
+- Preview POST: HTTP 200 — `https://sd-ups-gb-a--snowflake-demos--aemcoder.aem.page/ups-gb/a`
+- Live POST: HTTP 200 — `https://sd-ups-gb-a--snowflake-demos--aemcoder.aem.live/ups-gb/a`
+- Sanity probes: all 4 code-bus paths returned 200 after 1s
+- Template meta: `<meta name="template" content="ups-gb-a">` confirmed in rendered HTML
+- Production URL: https://sd-ups-gb-a--snowflake-demos--aemcoder.aem.live/ups-gb/a
+
+## Phase: Reflect
+
+Source was clean — Stardust 0.3.0 output with all images on public CDN (assets.ups.com, www.ups.com).
+No asset migration required, no vendoring. Asset strategy: "absolute" (all images already absolute URLs).
+
+Key observations:
+1. All 8 sections already had `data-section` attributes and all used `<section>` tags — minimal work for disambiguation.
+2. Six of 8 sections had `band` or `band-surface` as first class — needed first-class rewrite using data-section value.
+3. No placeholders, no animations script, no external CDN libs — clean conversion.
+4. `quick-links` section: only header slots authored (label + headline); nav links remain static template content.
+5. `hero-sub` contained `<sup>®</sup>` which was included in the DA doc as plain text (sup stripped) — acceptable since the slot writer uses innerHTML.
+
 ## Phase: Analyze
 
 ### Structural map
