@@ -1,0 +1,88 @@
+{
+  "templateName": "liquiddeath-a",
+  "synthesizeMain": false,
+  "assetStrategy": "absolute",
+  "assetBase": "https://liquiddeath.com/",
+  "headLinks": [],
+  "inlineStyleLines": [32, 537],
+  "inlineScriptLines": [],
+  "externalLibs": [],
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSectionValue": "hero",
+      "rewriteFirstClass": false,
+      "slots": [
+        { "name": "hero.bg-image", "type": "image", "selector": ".hero__bg" },
+        { "name": "hero.sub", "type": "text", "selector": ".hero__sub" },
+        { "name": "hero.title", "type": "text", "selector": ".hero__head" },
+        { "name": "hero.cta-primary", "type": "link", "selector": ".hero__row .btn--primary-invert" },
+        { "name": "hero.cta-secondary", "type": "link", "selector": ".hero__row .btn--ghost-invert" }
+      ],
+      "staticElements": [".hero__scrim"]
+    },
+    {
+      "firstClass": "product-grid",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSectionValue": "product-grid",
+      "rewriteFirstClass": false,
+      "slots": [
+        { "name": "product-grid.title", "type": "text", "selector": ".section-head h2" },
+        { "name": "product-grid.meta", "type": "text", "selector": ".section-head__meta" }
+      ],
+      "notes": "Product cards kept as static template content (commerce-data-driven)"
+    },
+    {
+      "firstClass": "manifesto-strip",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSectionValue": "manifesto-strip",
+      "rewriteFirstClass": true,
+      "originalFirstClass": "manifesto",
+      "newFirstClass": "manifesto-strip",
+      "slots": [
+        { "name": "manifesto-strip.title", "type": "text", "selector": ".manifesto__head" },
+        { "name": "manifesto-strip.body", "type": "text", "selector": ".manifesto__sub" },
+        { "name": "manifesto-strip.cta", "type": "link", "selector": ".manifesto__cta a" }
+      ],
+      "staticElements": [".manifesto__skull"]
+    },
+    {
+      "firstClass": "merch-grid",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSectionValue": "merch-grid",
+      "rewriteFirstClass": true,
+      "originalFirstClass": "merch",
+      "newFirstClass": "merch-grid",
+      "slots": [
+        { "name": "merch-grid.title", "type": "text", "selector": ".section-head h2" },
+        { "name": "merch-grid.cta-all", "type": "link", "selector": ".section-head .btn--ghost" }
+      ],
+      "notes": "Merch cards kept as static template content"
+    },
+    {
+      "firstClass": "dual-end-cta",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSectionValue": "dual-end-cta",
+      "rewriteFirstClass": true,
+      "originalFirstClass": "dual-cta",
+      "newFirstClass": "dual-end-cta",
+      "slots": [
+        { "name": "dual-end-cta.left-eyebrow", "type": "text", "selector": ".dual-cta__half:first-child .dual-cta__eyebrow" },
+        { "name": "dual-end-cta.left-title", "type": "text", "selector": ".dual-cta__half:first-child .dual-cta__head" },
+        { "name": "dual-end-cta.left-body", "type": "text", "selector": ".dual-cta__half:first-child .dual-cta__body" },
+        { "name": "dual-end-cta.left-cta", "type": "link", "selector": ".dual-cta__half:first-child .btn--primary-invert" },
+        { "name": "dual-end-cta.right-eyebrow", "type": "text", "selector": ".dual-cta__half:last-child .dual-cta__eyebrow" },
+        { "name": "dual-end-cta.right-title", "type": "text", "selector": ".dual-cta__half:last-child .dual-cta__head" },
+        { "name": "dual-end-cta.right-body", "type": "text", "selector": ".dual-cta__half:last-child .dual-cta__body" },
+        { "name": "dual-end-cta.right-cta", "type": "link", "selector": ".dual-cta__half:last-child .btn--primary-invert" }
+      ]
+    }
+  ],
+  "strip": []
+}
