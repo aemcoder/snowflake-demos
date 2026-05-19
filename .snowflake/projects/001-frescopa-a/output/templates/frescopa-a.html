@@ -1,0 +1,114 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Martian+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@1,144,800..900&display=swap" rel="stylesheet">
+
+<main>
+
+<!-- 3. hero -->
+<section data-section="hero" data-intent="primary-action-quiz" data-layout="full-bleed" data-media="image" class="hero">
+  <div class="container">
+    <div class="content">
+      <span class="eyebrow" data-slot="eyebrow">MyBarista coffee quiz</span>
+      <h1 data-slot="title">Find your <em>perfect</em> coffee in four questions.</h1>
+      <p class="subhead" data-slot="subhead">Four questions, your roast.</p>
+      <div class="ctas">
+        <a href="/stardust-site/quiz" class="btn btn-primary-on-bay" data-slot="cta-primary">Take the quiz</a>
+        <a href="/stardust-site/coffee" class="btn btn-secondary" data-slot="cta-secondary">Browse coffee</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. shop-categories -->
+<section data-section="shop-categories" data-intent="discovery" data-layout="grid" data-items="5" data-media="image" class="shop-categories">
+  <div class="container">
+    <div class="header-row">
+      <span class="eyebrow" data-slot="eyebrow">Shop</span>
+      <h2 data-slot="title">Shop all Frescopa products.</h2>
+    </div>
+    <div class="grid">
+      <a href="/stardust-site/machines" class="category-card">
+        <div class="img-wrap"><img src="https://paolomoz.github.io/stardust-site/samples/frescopa/assets/media/339b7a58_media_18d90d06cb150321e2b7de19e82a9818c57b1eaaa.png" alt="A Frescopa coffee machine" data-slot="card-1.img"></div>
+        <span class="card-title" data-slot="card-1.title">Coffee Machines</span>
+        <span class="catalog-line" data-slot="card-1.catalog">MACHINES</span>
+      </a>
+      <a href="/stardust-site/coffee" class="category-card">
+        <div class="img-wrap"><img src="https://paolomoz.github.io/stardust-site/samples/frescopa/assets/media/c4251005_media_11f2acc820929d908638cf3f7f133c5ac9792a560.png" alt="A bag of Frescopa whole-bean coffee" data-slot="card-2.img"></div>
+        <span class="card-title" data-slot="card-2.title">Bagged Coffee</span>
+        <span class="catalog-line" data-slot="card-2.catalog">COFFEE · WHOLE BEAN</span>
+      </a>
+      <a href="/stardust-site/coffee" class="category-card">
+        <div class="img-wrap"><img src="https://paolomoz.github.io/stardust-site/samples/frescopa/assets/media/604aa0d1_media_1611a15fc05b259399fa254f961f08b9f7804cd23.png" alt="A box of Frescopa coffee pods" data-slot="card-3.img"></div>
+        <span class="card-title" data-slot="card-3.title">Coffee Pods</span>
+        <span class="catalog-line" data-slot="card-3.catalog">COFFEE · SINGLE-SERVE</span>
+      </a>
+      <a href="/stardust-site/coffee" class="category-card">
+        <div class="img-wrap"><img src="https://paolomoz.github.io/stardust-site/samples/frescopa/assets/media/bba1fdc3_media_1b4036e97de71a31f998526cf47deb2999dbaee87.png" alt="A Frescopa starter bundle" data-slot="card-4.img"></div>
+        <span class="card-title" data-slot="card-4.title">Bundles</span>
+        <span class="catalog-line" data-slot="card-4.catalog">CURATED SETS</span>
+      </a>
+      <a href="/stardust-site/accessories" class="category-card">
+        <div class="img-wrap"><img src="https://paolomoz.github.io/stardust-site/samples/frescopa/assets/media/5dcf858f_media_1ad953e2b8b4f9e3e3f11e8fb8cedeca7a5ab2343.png" alt="Frescopa brewing accessories" data-slot="card-5.img"></div>
+        <span class="card-title" data-slot="card-5.title">Accessories</span>
+        <span class="catalog-line" data-slot="card-5.catalog">BREWING TOOLS</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 5. subscription-card-on-bay -->
+<section data-section="subscription-card-on-bay" data-intent="drive-subscription" data-layout="split-media" data-media="image" class="subscription-card-on-bay">
+  <div class="container">
+    <div class="card">
+      <div class="content">
+        <span class="eyebrow" data-slot="eyebrow">Subscription</span>
+        <h3 class="editorial" data-slot="title">Coffee, every week.</h3>
+        <p data-slot="body">With a MyBarista subscription, you get hand-selected coffees delivered right to your door each week.</p>
+        <a href="/stardust-site/subscription" class="btn btn-primary-on-bay" data-slot="cta">Start your subscription</a>
+      </div>
+      <div class="photo-frame">
+        <img src="https://paolomoz.github.io/stardust-site/samples/frescopa/assets/media/4828596f_media_142bc7969dd6719789e5d13a853d6e6887c5311c5.png" alt="A MyBarista subscription delivery — coffee bags arriving at the doorstep" data-slot="photo">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. locations-finder -->
+<section data-section="locations-finder" data-intent="find-store" data-layout="contained" data-interactive="form" class="locations-finder">
+  <div class="container">
+    <span class="eyebrow" data-slot="eyebrow">Locations</span>
+    <h2 data-slot="title">Find a Frescopa near you.</h2>
+    <p data-slot="body">Visit a Frescopa for a fresh cup, a barista chat, or a bag to take home.</p>
+    <form class="search-row" action="/stardust-site/locations" method="get" role="search" aria-label="Find a Frescopa location">
+      <input type="text" name="q" placeholder="ZIP CODE · CITY · STATE" aria-label="Search by ZIP code, city, or state">
+      <button type="submit" class="btn btn-primary-on-bay" data-slot="cta">Browse all locations</button>
+    </form>
+  </div>
+</section>
+
+<!-- 7. featured-coffee -->
+<section data-section="featured-coffee" data-intent="merchandise" data-layout="split-media" data-media="image" class="featured-coffee">
+  <div class="container">
+    <div class="photo-frame">
+      <img src="https://paolomoz.github.io/stardust-site/samples/frescopa/assets/media/41cdb3eb_media_1990fe27244fdc5d261155cd983f85a56415baf1c.jpg" alt="A cup of Morning Muse Light Roast coffee" data-slot="photo">
+    </div>
+    <div class="content">
+      <span class="eyebrow" data-slot="eyebrow">Featured</span>
+      <h3 class="editorial" data-slot="title">Elevate your coffee game.</h3>
+      <p data-slot="body">Experience the bright, citrusy notes and smooth finish of Morning Muse Light Roast. A perfect start to any day.</p>
+      <a href="/stardust-site/coffee" class="btn btn-primary-on-porcelain" data-slot="cta">Shop coffee</a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. rewards-cta-band -->
+<section data-section="rewards-cta-band" data-intent="drive-signup" data-layout="full-bleed" class="rewards-cta-band">
+  <div class="container">
+    <span class="eyebrow" data-slot="eyebrow">Rewards</span>
+    <h2 class="editorial" data-slot="title">Rewards waiting.</h2>
+    <p data-slot="body">Surprise your loved ones with the ultimate coffee experience. Our gift cards are the perfect way to share the joy of Frescopa.</p>
+    <a href="/stardust-site/signup" class="btn btn-primary-on-bay" data-slot="cta">Claim rewards</a>
+  </div>
+</section>
+
+</main>

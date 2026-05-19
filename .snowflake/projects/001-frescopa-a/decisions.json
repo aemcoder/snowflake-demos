@@ -1,0 +1,107 @@
+{
+  "templateName": "frescopa-a",
+  "pageSlug": "a",
+  "synthesizeMain": true,
+  "assetStrategy": "absolute",
+  "assetBase": "https://paolomoz.github.io/stardust-site/samples/frescopa/",
+  "headLinks": [
+    { "rel": "preconnect", "href": "https://fonts.googleapis.com" },
+    { "rel": "preconnect", "href": "https://fonts.gstatic.com", "crossorigin": "" },
+    { "rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Martian+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@1,144,800..900&display=swap" }
+  ],
+  "inlineStyleLines": [40, 612],
+  "inlineScriptLines": [],
+  "externalLibs": [],
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSectionAttr": "hero",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".hero .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".hero h1" },
+        { "name": "subhead", "type": "text", "selector": ".hero .subhead" },
+        { "name": "cta-primary", "type": "link", "selector": ".hero .ctas .btn-primary-on-bay" },
+        { "name": "cta-secondary", "type": "link", "selector": ".hero .ctas .btn-secondary" }
+      ]
+    },
+    {
+      "firstClass": "shop-categories",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSectionAttr": "shop-categories",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".shop-categories .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".shop-categories h2" },
+        { "name": "card-1.img", "type": "image", "selector": ".shop-categories .category-card:nth-child(1) img" },
+        { "name": "card-1.title", "type": "text", "selector": ".shop-categories .category-card:nth-child(1) .card-title" },
+        { "name": "card-1.catalog", "type": "text", "selector": ".shop-categories .category-card:nth-child(1) .catalog-line" },
+        { "name": "card-2.img", "type": "image", "selector": ".shop-categories .category-card:nth-child(2) img" },
+        { "name": "card-2.title", "type": "text", "selector": ".shop-categories .category-card:nth-child(2) .card-title" },
+        { "name": "card-2.catalog", "type": "text", "selector": ".shop-categories .category-card:nth-child(2) .catalog-line" },
+        { "name": "card-3.img", "type": "image", "selector": ".shop-categories .category-card:nth-child(3) img" },
+        { "name": "card-3.title", "type": "text", "selector": ".shop-categories .category-card:nth-child(3) .card-title" },
+        { "name": "card-3.catalog", "type": "text", "selector": ".shop-categories .category-card:nth-child(3) .catalog-line" },
+        { "name": "card-4.img", "type": "image", "selector": ".shop-categories .category-card:nth-child(4) img" },
+        { "name": "card-4.title", "type": "text", "selector": ".shop-categories .category-card:nth-child(4) .card-title" },
+        { "name": "card-4.catalog", "type": "text", "selector": ".shop-categories .category-card:nth-child(4) .catalog-line" },
+        { "name": "card-5.img", "type": "image", "selector": ".shop-categories .category-card:nth-child(5) img" },
+        { "name": "card-5.title", "type": "text", "selector": ".shop-categories .category-card:nth-child(5) .card-title" },
+        { "name": "card-5.catalog", "type": "text", "selector": ".shop-categories .category-card:nth-child(5) .catalog-line" }
+      ]
+    },
+    {
+      "firstClass": "subscription-card-on-bay",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSectionAttr": "subscription-card-on-bay",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".subscription-card-on-bay .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".subscription-card-on-bay h3.editorial" },
+        { "name": "body", "type": "text", "selector": ".subscription-card-on-bay .card p" },
+        { "name": "cta", "type": "link", "selector": ".subscription-card-on-bay .card .btn" },
+        { "name": "photo", "type": "image", "selector": ".subscription-card-on-bay .photo-frame img" }
+      ]
+    },
+    {
+      "firstClass": "locations-finder",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSectionAttr": "locations-finder",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".locations-finder .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".locations-finder h2" },
+        { "name": "body", "type": "text", "selector": ".locations-finder p" },
+        { "name": "cta", "type": "text", "selector": ".locations-finder button[type=submit]" }
+      ]
+    },
+    {
+      "firstClass": "featured-coffee",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSectionAttr": "featured-coffee",
+      "slots": [
+        { "name": "photo", "type": "image", "selector": ".featured-coffee .photo-frame img" },
+        { "name": "eyebrow", "type": "text", "selector": ".featured-coffee .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".featured-coffee h3.editorial" },
+        { "name": "body", "type": "text", "selector": ".featured-coffee p" },
+        { "name": "cta", "type": "link", "selector": ".featured-coffee .btn" }
+      ]
+    },
+    {
+      "firstClass": "rewards-cta-band",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSectionAttr": "rewards-cta-band",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".rewards-cta-band .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".rewards-cta-band h2.editorial" },
+        { "name": "body", "type": "text", "selector": ".rewards-cta-band p" },
+        { "name": "cta", "type": "link", "selector": ".rewards-cta-band .btn" }
+      ]
+    }
+  ],
+  "strip": [],
+  "placeholderConvention": "none-present"
+}
