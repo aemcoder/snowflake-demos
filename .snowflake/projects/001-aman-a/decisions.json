@@ -1,0 +1,115 @@
+{
+  "templateName": "aman-a",
+  "pageSlug": "a",
+  "synthesizeMain": true,
+  "headLinks": [],
+  "inlineStyleLines": [25, 293],
+  "inlineScriptLines": [[477, 488]],
+  "externalLibs": [],
+  "assetStrategy": "absolute",
+  "assetBase": "https://paolomoz.github.io/stardust-site/samples/aman/",
+  "generatorVersion": "stardust-0.2.0",
+  "placeholderConvention": "none-detected",
+  "sections": [
+    {
+      "firstClass": "hero",
+      "dataSection": "hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [],
+      "notes": "Hero background is set via CSS selector on section[data-section='hero'], not inline style. No editable slots. Only .hero-anchor is a decorative span (static, aria-hidden)."
+    },
+    {
+      "firstClass": "seasonal-feature",
+      "dataSection": "seasonal-feature",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "originalClasses": ["section"],
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".seasonal .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".seasonal h2" },
+        { "name": "body", "type": "text", "selector": ".seasonal > p" },
+        { "name": "cta", "type": "link", "selector": ".seasonal .btn-secondary" }
+      ]
+    },
+    {
+      "firstClass": "twin-features",
+      "dataSection": "twin-features",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "originalClasses": ["section"],
+      "slots": [
+        { "name": "card-1.media", "type": "image", "selector": ".twin-card:nth-child(1) .twin-media img" },
+        { "name": "card-1.eyebrow", "type": "text", "selector": ".twin-card:nth-child(1) .eyebrow" },
+        { "name": "card-1.title", "type": "text", "selector": ".twin-card:nth-child(1) h3" },
+        { "name": "card-1.body", "type": "text", "selector": ".twin-card:nth-child(1) > p" },
+        { "name": "card-1.cta", "type": "link", "selector": ".twin-card:nth-child(1) .btn-secondary" },
+        { "name": "card-2.media", "type": "image", "selector": ".twin-card:nth-child(2) .twin-media img" },
+        { "name": "card-2.eyebrow", "type": "text", "selector": ".twin-card:nth-child(2) .eyebrow" },
+        { "name": "card-2.title", "type": "text", "selector": ".twin-card:nth-child(2) h3" },
+        { "name": "card-2.body", "type": "text", "selector": ".twin-card:nth-child(2) > p" },
+        { "name": "card-2.cta", "type": "link", "selector": ".twin-card:nth-child(2) .btn-secondary" }
+      ],
+      "notes": "twin-media wraps an <a> and <img>. Slot the <img> directly (not the <a>) to avoid container-vs-children conflict."
+    },
+    {
+      "firstClass": "audience-grid",
+      "dataSection": "audience-grid",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "originalClasses": ["section"],
+      "slots": [
+        { "name": "section-title", "type": "text", "selector": ".section-head h2" },
+        { "name": "section-body", "type": "text", "selector": ".section-head p" },
+        { "name": "card-1.media", "type": "image", "selector": ".audience-card:nth-child(1) .audience-media img" },
+        { "name": "card-1.eyebrow", "type": "text", "selector": ".audience-card:nth-child(1) .eyebrow" },
+        { "name": "card-1.title", "type": "text", "selector": ".audience-card:nth-child(1) h3" },
+        { "name": "card-1.body", "type": "text", "selector": ".audience-card:nth-child(1) > p" },
+        { "name": "card-1.cta", "type": "link", "selector": ".audience-card:nth-child(1) .btn-secondary" },
+        { "name": "card-2.media", "type": "image", "selector": ".audience-card:nth-child(2) .audience-media img" },
+        { "name": "card-2.eyebrow", "type": "text", "selector": ".audience-card:nth-child(2) .eyebrow" },
+        { "name": "card-2.title", "type": "text", "selector": ".audience-card:nth-child(2) h3" },
+        { "name": "card-2.body", "type": "text", "selector": ".audience-card:nth-child(2) > p" },
+        { "name": "card-2.cta", "type": "link", "selector": ".audience-card:nth-child(2) .btn-secondary" },
+        { "name": "card-3.media", "type": "image", "selector": ".audience-card:nth-child(3) .audience-media img" },
+        { "name": "card-3.eyebrow", "type": "text", "selector": ".audience-card:nth-child(3) .eyebrow" },
+        { "name": "card-3.title", "type": "text", "selector": ".audience-card:nth-child(3) h3" },
+        { "name": "card-3.body", "type": "text", "selector": ".audience-card:nth-child(3) > p" },
+        { "name": "card-3.cta", "type": "link", "selector": ".audience-card:nth-child(3) .btn-secondary" },
+        { "name": "card-4.media", "type": "image", "selector": ".audience-card:nth-child(4) .audience-media img" },
+        { "name": "card-4.eyebrow", "type": "text", "selector": ".audience-card:nth-child(4) .eyebrow" },
+        { "name": "card-4.title", "type": "text", "selector": ".audience-card:nth-child(4) h3" },
+        { "name": "card-4.body", "type": "text", "selector": ".audience-card:nth-child(4) > p" },
+        { "name": "card-4.cta", "type": "link", "selector": ".audience-card:nth-child(4) .btn-secondary" }
+      ],
+      "notes": "audience-media wraps <a> + <img>. Slot the <img>, not the <a>."
+    },
+    {
+      "firstClass": "world-of-aman",
+      "dataSection": "world-of-aman",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "originalClasses": ["section"],
+      "slots": [
+        { "name": "section-title", "type": "text", "selector": ".section-head h2" },
+        { "name": "card-1.media", "type": "image", "selector": ".world-card:nth-child(1) .world-media img" },
+        { "name": "card-1.eyebrow", "type": "text", "selector": ".world-card:nth-child(1) .eyebrow" },
+        { "name": "card-1.title", "type": "text", "selector": ".world-card:nth-child(1) h3" },
+        { "name": "card-1.body", "type": "text", "selector": ".world-card:nth-child(1) > p" },
+        { "name": "card-1.cta", "type": "link", "selector": ".world-card:nth-child(1) .btn-secondary" },
+        { "name": "card-2.media", "type": "image", "selector": ".world-card:nth-child(2) .world-media img" },
+        { "name": "card-2.eyebrow", "type": "text", "selector": ".world-card:nth-child(2) .eyebrow" },
+        { "name": "card-2.title", "type": "text", "selector": ".world-card:nth-child(2) h3" },
+        { "name": "card-2.body", "type": "text", "selector": ".world-card:nth-child(2) > p" },
+        { "name": "card-2.cta", "type": "link", "selector": ".world-card:nth-child(2) .btn-secondary" },
+        { "name": "card-3.media", "type": "image", "selector": ".world-card:nth-child(3) .world-media img" },
+        { "name": "card-3.eyebrow", "type": "text", "selector": ".world-card:nth-child(3) .eyebrow" },
+        { "name": "card-3.title", "type": "text", "selector": ".world-card:nth-child(3) h3" },
+        { "name": "card-3.body", "type": "text", "selector": ".world-card:nth-child(3) > p" },
+        { "name": "card-3.cta", "type": "link", "selector": ".world-card:nth-child(3) .btn-secondary" }
+      ],
+      "notes": "world-media wraps <a> + <img>. Slot the <img>, not the <a>."
+    }
+  ],
+  "strip": []
+}
