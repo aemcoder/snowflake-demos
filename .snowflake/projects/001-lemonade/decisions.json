@@ -1,0 +1,159 @@
+{
+  "templateName": "lemonade",
+  "pageSlug": "a",
+  "synthesizeMain": true,
+  "placeholderConvention": "css-class:ds-placeholder",
+  "sections": [
+    {
+      "id": "hero",
+      "firstClass": "ds-hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".ds-hero__copy h1" },
+        { "name": "lede", "type": "text", "selector": ".ds-hero__copy p" },
+        { "name": "cta", "type": "link", "selector": ".ds-hero__copy a.ds-btn-primary" },
+        { "name": "illo-left", "type": "image", "selector": ".ds-hero__illo--left img" },
+        { "name": "illo-right", "type": "image", "selector": ".ds-hero__illo--right img" }
+      ]
+    },
+    {
+      "id": "value-props",
+      "firstClass": "ds-valueprops",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".ds-valueprops__intro .ds-eyebrow" },
+        { "name": "title", "type": "text", "selector": ".ds-valueprops__intro .ds-h2" },
+        { "name": "body", "type": "text", "selector": ".ds-valueprops__intro p:last-child" },
+        { "name": "tile-1.img", "type": "image", "selector": ".ds-product-tile:nth-child(1) img" },
+        { "name": "tile-1.label", "type": "text", "selector": ".ds-product-tile:nth-child(1) .ds-product-tile__label" },
+        { "name": "tile-1.link", "type": "link", "selector": ".ds-product-tile:nth-child(1)" },
+        { "name": "tile-2.img", "type": "image", "selector": ".ds-product-tile:nth-child(2) img" },
+        { "name": "tile-2.label", "type": "text", "selector": ".ds-product-tile:nth-child(2) .ds-product-tile__label" },
+        { "name": "tile-2.link", "type": "link", "selector": ".ds-product-tile:nth-child(2)" },
+        { "name": "tile-3.img", "type": "image", "selector": ".ds-product-tile:nth-child(3) img" },
+        { "name": "tile-3.label", "type": "text", "selector": ".ds-product-tile:nth-child(3) .ds-product-tile__label" },
+        { "name": "tile-3.link", "type": "link", "selector": ".ds-product-tile:nth-child(3)" },
+        { "name": "tile-4.img", "type": "image", "selector": ".ds-product-tile:nth-child(4) img" },
+        { "name": "tile-4.label", "type": "text", "selector": ".ds-product-tile:nth-child(4) .ds-product-tile__label" },
+        { "name": "tile-4.link", "type": "link", "selector": ".ds-product-tile:nth-child(4)" },
+        { "name": "tile-5.img", "type": "image", "selector": ".ds-product-tile:nth-child(5) img" },
+        { "name": "tile-5.label", "type": "text", "selector": ".ds-product-tile:nth-child(5) .ds-product-tile__label" },
+        { "name": "tile-5.link", "type": "link", "selector": ".ds-product-tile:nth-child(5)" }
+      ]
+    },
+    {
+      "id": "press-strip",
+      "firstClass": "ds-press-strip",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "label", "type": "text", "selector": ".ds-press-strip__label" },
+        { "name": "logos", "type": "image", "selector": ".ds-press-strip img" }
+      ]
+    },
+    {
+      "id": "bundle-band",
+      "firstClass": "ds-bundle-band",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".ds-bundle-band__head .ds-eyebrow" },
+        { "name": "title", "type": "text", "selector": ".ds-bundle-band__head .ds-h2" },
+        { "name": "lede", "type": "text", "selector": ".ds-bundle-band__head .ds-lede" },
+        { "name": "card-1.img", "type": "image", "selector": ".ds-bundle-card:nth-child(1) img" },
+        { "name": "card-1.title", "type": "text", "selector": ".ds-bundle-card:nth-child(1) h4" },
+        { "name": "card-1.body", "type": "text", "selector": ".ds-bundle-card:nth-child(1) p" },
+        { "name": "card-1.cta", "type": "link", "selector": ".ds-bundle-card:nth-child(1) a" },
+        { "name": "card-2.img", "type": "image", "selector": ".ds-bundle-card:nth-child(2) img" },
+        { "name": "card-2.title", "type": "text", "selector": ".ds-bundle-card:nth-child(2) h4" },
+        { "name": "card-2.body", "type": "text", "selector": ".ds-bundle-card:nth-child(2) p" },
+        { "name": "card-2.cta", "type": "link", "selector": ".ds-bundle-card:nth-child(2) a" },
+        { "name": "card-3.img", "type": "image", "selector": ".ds-bundle-card:nth-child(3) img" },
+        { "name": "card-3.title", "type": "text", "selector": ".ds-bundle-card:nth-child(3) h4" },
+        { "name": "card-3.body", "type": "text", "selector": ".ds-bundle-card:nth-child(3) p" },
+        { "name": "card-3.cta", "type": "link", "selector": ".ds-bundle-card:nth-child(3) a" }
+      ]
+    },
+    {
+      "id": "social-proof",
+      "firstClass": "ds-social-proof",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".ds-social-proof__head .ds-eyebrow" },
+        { "name": "title", "type": "text", "selector": ".ds-social-proof__head .ds-h2" },
+        { "name": "rating", "type": "text", "selector": ".ds-social-proof__rating" },
+        { "name": "body", "type": "text", "selector": ".ds-social-proof__head > p:last-child" }
+      ],
+      "placeholders": [".ds-tweet.ds-placeholder"]
+    },
+    {
+      "id": "instant-ai",
+      "firstClass": "ds-instant",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".ds-instant__copy .ds-eyebrow" },
+        { "name": "title", "type": "text", "selector": ".ds-instant__copy .ds-h2" },
+        { "name": "lede", "type": "text", "selector": ".ds-instant__copy .ds-lede" },
+        { "name": "cta", "type": "link", "selector": ".ds-instant__copy a.ds-btn-primary" },
+        { "name": "illo", "type": "image", "selector": ".ds-instant__illo img" }
+      ]
+    },
+    {
+      "id": "switch-flow",
+      "firstClass": "ds-switch",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".ds-switch__copy .ds-eyebrow" },
+        { "name": "title", "type": "text", "selector": ".ds-switch__copy .ds-h2" },
+        { "name": "body", "type": "text", "selector": ".ds-switch__copy > p" },
+        { "name": "cta", "type": "link", "selector": ".ds-switch__copy a.ds-btn-primary" }
+      ]
+    },
+    {
+      "id": "how-it-works",
+      "firstClass": "ds-how",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".ds-how__head .ds-eyebrow" },
+        { "name": "title", "type": "text", "selector": ".ds-how__head .ds-h2" },
+        { "name": "body", "type": "text", "selector": ".ds-how__head > p" },
+        { "name": "pizza", "type": "image", "selector": ".ds-how__pizza img" }
+      ],
+      "placeholders": [".ds-how__caption.ds-placeholder"]
+    },
+    {
+      "id": "social-impact",
+      "firstClass": "ds-impact",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".ds-impact__head .ds-eyebrow" },
+        { "name": "title", "type": "text", "selector": ".ds-impact__head .ds-h2" },
+        { "name": "body", "type": "text", "selector": ".ds-impact__head > p" },
+        { "name": "badge-1.img", "type": "image", "selector": ".ds-impact__badge:nth-child(1) img" },
+        { "name": "badge-1.label", "type": "text", "selector": ".ds-impact__badge:nth-child(1) div" },
+        { "name": "badge-2.img", "type": "image", "selector": ".ds-impact__badge:nth-child(2) img" },
+        { "name": "badge-2.label", "type": "text", "selector": ".ds-impact__badge:nth-child(2) div" },
+        { "name": "badge-3.img", "type": "image", "selector": ".ds-impact__badge:nth-child(3) img" },
+        { "name": "badge-3.label", "type": "text", "selector": ".ds-impact__badge:nth-child(3) div" }
+      ]
+    }
+  ],
+  "headLinks": [
+    { "rel": "preconnect", "href": "https://fonts.googleapis.com" },
+    { "rel": "preconnect", "href": "https://fonts.gstatic.com", "crossorigin": "" },
+    { "rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Lato:wght@400;700;900&family=Merriweather:wght@400;700&display=swap" }
+  ],
+  "inlineStyleLines": [11, 628],
+  "inlineScriptLines": [],
+  "externalLibs": [],
+  "assetStrategy": "absolute",
+  "assetBase": "https://paolomoz.github.io/stardust-site/samples/lemonade/",
+  "strip": []
+}
