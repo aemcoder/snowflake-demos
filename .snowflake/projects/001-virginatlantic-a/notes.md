@@ -152,3 +152,90 @@ on substrate v1.0.4 to capture substrate gains:
 - heading-in-heading unwrap (writeSlot)
 - body > header/footer padding reset
 - background-image-before-`<a>` dispatch guard
+
+## Phase: Round-trip
+
+Skipped local round-trip per refresh policy; went straight to
+production round-trip.
+
+### Production round-trip outcome
+
+- DA version snapshot created (HTTP 201).
+- DA PUT succeeded (HTTP 200).
+- Force-push to origin/sd-virginatlantic-a accepted (replaced prior
+  closed-run tip 704201c with new tip 30a67a1).
+- Preview triggered: HTTP 200, preview.status 200.
+- Live triggered: HTTP 200, live.status 200.
+- Code-bus sanity probe: all 4 deployed paths return 200 within 1s.
+
+### Playwright verification
+
+- `main.dataset.overlay` === `virginatlantic-a` ✓
+- 7 sections with correct first-classes ✓
+- Hero bg image rewritten by Media Bus to `./media_<sha>.jpg` ✓
+- Header, footer, booking-section, pull-quote all visible ✓
+- All cabin names render: Upper Class / Premium / Economy ✓
+- 1 console error: 404 for `/scripts/virginatlantic-a-animations.js`.
+  Expected — substrate HEAD-probes this; no inline `<script>` in
+  source means no animations file. Browser logs the 404 even though
+  the HEAD response is handled silently. This is the substrate's
+  baseline behavior, not a regression.
+
+## Phase: Reflect
+
+### Branch-level fixes applied (substrate gaps NOT surfaced)
+
+1. **Booking form `<form>` → `<section class="booking-section">` rewrite**
+   with inner `.booking` card. Required because:
+   - The source had a `<form class="booking">` inside
+     `<div class="wrap">`, not inside a `<section>`. Substrate only
+     matches `section[class]`, so without a section the booking
+     block would never receive its DA cells.
+   - Naming the section `class="booking"` would have collided with
+     the `.booking` card's bg/border-radius/negative-margin styles
+     intended for the inner card, not the outer section. Renamed
+     section first-class to `booking-section` to avoid that
+     collision.
+
+2. **Destinations `<section>` had no class** — only `id="destinations"`.
+   Substrate only matches `section[class]`. Added `class="destinations"`
+   directly in the template. No DA-side change needed.
+
+3. **Section padding scoped to `main > section:not(.booking-section)`**
+   to preserve the booking card's negative-margin overlap with the
+   hero. Source had `section { padding: ... }` as a tag selector;
+   relying on that verbatim would have leaked into the EDS
+   landmark `<header>`/`<footer>` wrappers AND added unwanted padding
+   to `.booking-section`.
+
+4. **Hero title `<br>` and `<span class="accent">` not authored as
+   DA cells** — DA's HTML allow-list strips both. The DA cell sends
+   the plain "Take off to the UK and beyond." text; the slot writer
+   replaces innerHTML with that text. The template's default content
+   still has the accent span + `<br>`, but the slot value overrides
+   it. Acceptable trade-off for a demo. To preserve, the hero title
+   could be split into `title-line1` / `title-line2` slots — out of
+   scope for this refresh.
+
+### Substrate gaps NOT surfaced
+
+The four substrate v1.0.4 gains (heading-in-heading unwrap,
+body > header/footer padding reset, background-image-before-`<a>`
+guard, and the section-leak avoidance) all worked as expected. The
+overlay applied cleanly on first try, all 7 sections rendered, all
+78 slots populated correctly, no DA-cell HTML corruption.
+
+The only console error (404 on `-animations.js`) is the substrate's
+documented baseline HEAD-probe behavior and not a regression.
+
+### Timings (approximate)
+
+| phase | duration |
+|---|---|
+| capture | <5s |
+| analyze | ~10min |
+| generate | ~15min |
+| wire | <30s |
+| roundtrip-prod | ~30s |
+| reflect | ~5min |
+
