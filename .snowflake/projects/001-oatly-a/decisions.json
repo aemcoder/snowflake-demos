@@ -1,0 +1,50 @@
+{
+  "templateName": "oatly-a",
+  "synthesizeMain": false,
+  "stardustVersion": "0.2.0",
+  "placeholderConvention": "none",
+  "sections": [
+    {
+      "firstClass": "claim",
+      "originalTag": "div",
+      "rewriteToSection": true,
+      "slots": [
+        { "name": "claim", "type": "text", "selector": ".claim" }
+      ]
+    },
+    {
+      "firstClass": "folders",
+      "originalTag": "div",
+      "rewriteToSection": true,
+      "slots": [
+        { "name": "folder-1.label", "type": "text", "selector": ".folders .icon-tile:nth-child(1) .label" },
+        { "name": "folder-2.label", "type": "text", "selector": ".folders .icon-tile:nth-child(2) .label" },
+        { "name": "folder-3.label", "type": "text", "selector": ".folders .icon-tile:nth-child(3) .label" },
+        { "name": "folder-4.label", "type": "text", "selector": ".folders .icon-tile:nth-child(4) .label" },
+        { "name": "folder-5.label", "type": "text", "selector": ".folders .icon-tile:nth-child(5) .label" }
+      ]
+    },
+    {
+      "firstClass": "files",
+      "originalTag": "div",
+      "rewriteToSection": true,
+      "slots": [
+        { "name": "file-1.label", "type": "text", "selector": ".files .icon-tile:nth-child(1) .label" },
+        { "name": "file-2.label", "type": "text", "selector": ".files .icon-tile:nth-child(2) .label" }
+      ]
+    },
+    {
+      "firstClass": "trash",
+      "originalTag": "a",
+      "rewriteToSection": true,
+      "slots": []
+    }
+  ],
+  "headLinks": [],
+  "inlineStyleLines": [27, 342],
+  "inlineScriptLines": [],
+  "externalLibs": [],
+  "assetStrategy": "absolute",
+  "assetBase": "https://paolomoz.github.io/stardust-site/samples/oatly/",
+  "strip": []
+}
