@@ -2,7 +2,11 @@
 
 Source: https://paolomoz.github.io/stardust-site/samples/vanguard/proposed-A.html
 Captured: 2026-05-19
-Status: generating
+Status: ready-for-close
+
+Branch: sd-vanguard-a · Tag: sd-vanguard-a-close (pending)
+Demo URL: https://sd-vanguard-a--snowflake-demos--aemcoder.aem.live/vanguard/a
+DA editor: https://da.live/edit#/aemcoder/snowflake-demos/vanguard/a
 
 Generator: Stardust 0.2.0 (variant A · Conservative refresh)
 Notable: page has `<main>` already. All images absolute investor.vanguard.com URLs — no rewriting.
