@@ -106,6 +106,22 @@ function writeSlot(el, value) {
     }
     return;
   }
+  // Heading slot: when the DA cell wraps its content in a heading tag
+  // (e.g. <h2 id="...">text</h2>) and the target is a same-level heading,
+  // setting innerHTML directly would create an invalid nested heading.
+  // Browsers auto-close the outer heading before opening the inner one,
+  // producing an empty heading followed by a new one outside the template.
+  // Extract the heading's innerHTML instead to keep one clean element.
+  const HEADING_TAGS = new Set(['H1', 'H2', 'H3', 'H4', 'H5', 'H6']);
+  if (HEADING_TAGS.has(tagName)) {
+    const tmp2 = document.createElement('div');
+    tmp2.innerHTML = value;
+    const innerHeading = tmp2.querySelector(tagName.toLowerCase());
+    if (innerHeading) {
+      el.innerHTML = innerHeading.innerHTML;
+      return;
+    }
+  }
   // Default: text / inline-HTML slot
   el.innerHTML = value;
 }
