@@ -66,3 +66,78 @@ git add demos.md
 git commit -m "demos: add #<NNN> <slug>"
 git push origin main
 ```
+
+## Batch mode
+
+When the user asks to convert multiple URLs in one go, follow this protocol
+instead of the standard single-run flow.
+
+### Invocation
+
+Accept either format:
+
+**Inline text** (one run per line):
+```
+Run snowflake batch:
+- https://example.com/page-1  branch=sd-foo-a  da=/foo/a
+- https://example.com/page-2  branch=sd-bar-a  da=/bar/a
+```
+
+**JSON array:**
+```json
+[
+  { "url": "https://...", "branch": "sd-foo-a", "daPath": "/foo/a" },
+  { "url": "https://...", "branch": "sd-bar-a", "daPath": "/bar/a" }
+]
+```
+
+### Step 1 — Worktree setup (run sequentially in main repo)
+
+```bash
+git checkout main
+node tools/snowflake-batch.mjs '<json-input>'
+```
+
+The script creates one worktree per run from `main` and copies the DA token.
+It prints a JSON array of `{ url, branch, daPath, worktreePath }`.
+
+### Step 2 — Parallel Agent dispatch
+
+Send one message with N `Agent` tool calls (one per run). Each sub-agent prompt:
+
+```
+You are in git worktree at <worktreePath> on branch <branch>.
+
+Convert <url> to an EDS overlay page using the snowflake skill.
+- DA path: <daPath>
+- DA token: .hlx/.da-token.json (already present)
+- Skip local round-trip — go straight to production:
+    push branch → DA PUT → POST preview on <branch> → POST live on <branch>
+- Stop after Phase 6 reflect. Do NOT close the run or update demos.md.
+
+These operations are pre-approved — proceed without asking:
+  substrate install --force, git push to <branch> only,
+  DA admin API calls (PUT, POST preview, POST live).
+
+Return exactly this JSON on completion:
+{ "branch": "<branch>", "productionUrl": "<url>", "slotCount": N,
+  "sectionCount": N, "ok": true/false, "error": null/<message> }
+```
+
+### Step 3 — Result aggregation
+
+After all agents complete, present:
+
+```
+| Branch   | Sections | Slots | Status | Demo URL |
+|----------|----------|-------|--------|----------|
+| sd-foo-a | 9        | 80    | ✓      | https://sd-foo-a--... |
+| sd-bar-a | —        | —     | ✗      | <error> |
+```
+
+### Constraints
+
+- Never POST live or preview on `main` — branch-only publishing.
+- Never merge worktree branches to `main` — user closes manually.
+- If a run fails, continue the others — report failure in the result table.
+- If DA token is expired, all runs will fail — surface the shared cause.
