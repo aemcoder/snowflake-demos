@@ -1,5 +1,36 @@
 # Notes — 001 jfk-airport-a
 
+## Phase: Round-trip
+
+### Local round-trip
+Skipped per batch-mode instructions (no aem up).
+
+### Production round-trip
+- DA PUT `/jfk-airport/a.html` → 201 [verified]
+- POST preview on `sd-jfk-airport-a` → 200, url: `https://sd-jfk-airport-a--snowflake-demos--aemcoder.aem.page/jfk-airport/a` [verified]
+- POST live on `sd-jfk-airport-a` → 200, url: `https://sd-jfk-airport-a--snowflake-demos--aemcoder.aem.live/jfk-airport/a` [verified]
+- Code-bus sanity probe: all 4 paths (template, CSS, header fragment, animations JS) → 200 [verified]
+
+### Outcome
+Production deploy succeeded. All code-bus paths reachable, DA content published to preview and live.
+12 sections, 60 authorable slots.
+
+## Phase: Reflect
+
+### Project-specific findings
+
+1. **5 task panels sharing first class** — This is the first run with multiple audience-state panels (departing, arriving, pickup, connecting, visiting). Disambiguation using `data-audience` as a suffix to the first class works cleanly: `task-panel-departing`, `task-panel-arriving`, etc. CSS rule for `.task-panel` still applies to all five because they keep `task-panel` as the second class. [verified assumption — CSS works by specificity on class list]
+
+2. **Interactive JS-driven sections are static in template** — The audience router buttons and task panel widgets (flight search form, pickup status table, connecting table) are kept as static template content. Only the header text and description paragraph per panel are slotted. This is the correct approach for complex widget UIs that have their own JS state machine.
+
+3. **`herofeed` nested inside `brand-hero`** — The live news feed overlay is a nested `<aside>` inside the hero `<section>`. Treated as static template content (not a separate section). This keeps the overlay engine's section-matching simple.
+
+4. **Asset strategy: absolute (public source)** — All 16 assets (fonts + images) are on a public GitHub Pages host. Zero vendoring needed. Relative `assets/...` rewritten to `https://paolomoz.github.io/stardust-site/samples/jfk-airport/assets/...` in template/fragments/CSS/DA. [verified: DA cell img URLs pass the absolute-check; CSS @font-face URLs rewritten correctly]
+
+### Cross-project findings
+
+None new for this run — all patterns already documented in the bundled learnings.md (multiple colliding section classes, absolute DA img URLs, interactive widgets stay static).
+
 ## Phase: Capture
 
 Fetched 107060 bytes from https://paolomoz.github.io/stardust-site/samples/jfk-airport/proposed-A.html
