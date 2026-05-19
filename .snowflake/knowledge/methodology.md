@@ -173,3 +173,105 @@ with a thin grey divider. Both sides are scaled to 720 px wide.
 
 Save the comparison PNG to the project's `diff/` folder and commit it with the
 reflect commit so it's part of the run record.
+
+## Refresh — re-running a demo from scratch (mode B: snapshot-by-clone)
+
+This repo uses the **snapshot-by-clone** refresh strategy (see bundled
+methodology §"Refresh mode" option B). Each refresh creates an immutable
+dated snapshot AND refreshes the active branch in place, so both versions
+stay live at their own URLs.
+
+### Naming convention
+
+- **Active/latest:** branch `<branch>`, DA `<da-path>` (no suffix).
+- **Snapshot (immutable):** branch `<branch>-YYYY-MM-DD`, DA `<da-path>-YYYY-MM-DD`.
+- **Same-day collisions:** append `-N` starting at 2 (e.g. `<branch>-2026-05-19-2`).
+- **No close tag on snapshots** — the dated branch name IS the close marker.
+- **Close tag on active branch only:** `<branch>-close`, force-moved on each refresh.
+
+### Workflow per demo
+
+Given a demo to refresh (e.g. `sd-foo-a` / `/foo/a`):
+
+1. **Compute snapshot suffix.** Today's date `YYYY-MM-DD`; if
+   `git ls-remote origin 'refs/heads/<branch>-YYYY-MM-DD*'` shows
+   collisions, find the lowest free `-N` starting at 2.
+
+2. **Clone branch to snapshot.**
+   ```bash
+   git fetch origin <branch>
+   git push origin refs/remotes/origin/<branch>:refs/heads/<branch>-<date>
+   ```
+
+3. **Copy DA content to dated path.**
+   ```bash
+   TOKEN=$(jq -r .access_token .hlx/.da-token.json)
+   curl -sS -H "Authorization: Bearer $TOKEN" \
+     "https://admin.da.live/source/<owner>/<repo>/<da-path>.html" \
+     -o /tmp/da-snapshot.html
+   curl -sS -X PUT -H "Authorization: Bearer $TOKEN" \
+     -F "data=@/tmp/da-snapshot.html;type=text/html" \
+     "https://admin.da.live/source/<owner>/<repo>/<da-path>-<date>.html"
+   ```
+
+4. **Publish the snapshot (preview + live on the snapshot branch).**
+   ```bash
+   curl -sS -X POST -H "Authorization: Bearer $TOKEN" \
+     "https://admin.hlx.page/preview/<owner>/<repo>/<branch>-<date>/<da-path>-<date>"
+   curl -sS -X POST -H "Authorization: Bearer $TOKEN" \
+     "https://admin.hlx.page/live/<owner>/<repo>/<branch>-<date>/<da-path>-<date>"
+   ```
+   The snapshot demo URL: `https://<branch>-<date>--<repo>--<owner>.aem.live/<da-path>-<date>`
+
+5. **Rename the close tag** (archive prior close).
+   ```bash
+   git tag <branch>-<date>-close <branch>-close
+   git tag -d <branch>-close
+   git push origin <branch>-<date>-close :<branch>-close
+   ```
+
+6. **Reset the active branch tip to vanilla main** (in the worktree).
+   ```bash
+   cd <worktree-path-for-branch>
+   git fetch origin main
+   git reset --hard origin/main
+   # Clean leftover artifacts from prior run (none should be tracked, but be safe)
+   trash .snowflake/.backup .snowflake/projects 2>/dev/null || true
+   ```
+
+7. **Run snowflake phases 0–6 in the worktree** (autonomous, no prompts).
+   The bundled Phase 5.2.2a will create a labeled DA snapshot
+   automatically before the PUT, in addition to what we did in step 3.
+
+8. **Force-push the refreshed active branch** (it diverged from origin).
+   ```bash
+   git push --force-with-lease origin <branch>
+   ```
+
+9. **Re-tag the new close.**
+   ```bash
+   git tag <branch>-close
+   git push origin <branch>-close
+   ```
+
+10. **Update `demos.md` on main.** Add the snapshot to the demo's history
+    section (or column). Active row is unchanged — same branch, same URL.
+
+### Demos.md row format with history
+
+Each demo row gets an inline history column listing all snapshot URLs:
+
+```
+| # | Source | Latest | History |
+|---|---|---|---|
+| 011 | [Oatly proposed-A](...) | <https://sd-oatly-a--…/oatly/a> | <https://sd-oatly-a-2026-05-19--…/oatly/a-2026-05-19> |
+```
+
+If history grows beyond ~3 entries per row, switch to a separate
+`history/<demo-slug>.md` file linked from the row.
+
+### Refresh invocation
+
+Tell Claude: **"refresh sd-foo-a"** (or multiple: "refresh sd-foo-a sd-bar-a").
+Claude executes steps 1–9 per branch (parallel where independent) and updates
+demos.md on main once all are done.
