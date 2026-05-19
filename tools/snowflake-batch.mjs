@@ -63,19 +63,21 @@ export function parseBatchInput(input) {
  */
 export function setupWorktrees(runs, repoRoot, opts = {}) {
   const exec = opts.execSync ?? execSync;
+
+  function branchExists(branch) {
+    try {
+      exec(`git -C "${repoRoot}" rev-parse --verify "refs/heads/${branch}"`, { stdio: 'pipe' });
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
   return runs.map((run) => {
     // Worktrees are created as siblings of the repo dir: /parent/repo-name-branch
     const worktreePath = join(repoRoot, '..', `${basename(repoRoot)}-${run.branch}`);
     if (!existsSync(worktreePath)) {
-      const branchExists = (() => {
-        try {
-          exec(`git -C "${repoRoot}" rev-parse --verify "refs/heads/${run.branch}"`, { stdio: 'pipe' });
-          return true;
-        } catch {
-          return false;
-        }
-      })();
-      const cmd = branchExists
+      const cmd = branchExists(run.branch)
         ? `git -C "${repoRoot}" worktree add "${worktreePath}" "${run.branch}"`
         : `git -C "${repoRoot}" worktree add -b "${run.branch}" "${worktreePath}" main`;
       exec(cmd, { stdio: 'inherit' });
