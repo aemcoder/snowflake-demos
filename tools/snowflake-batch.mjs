@@ -3,11 +3,14 @@ import { copyFileSync, existsSync, mkdirSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-function normalise({ url, branch, daPath }) {
+function normalise(raw) {
+  const { url } = raw;
+  const b = raw.branch ?? raw.git_branch; // accept git_branch alias (stardust manifest format)
+  const d = raw.daPath ?? raw.da_path; // accept da_path alias
   if (!url) throw new Error('Each run must have a url');
-  if (!branch) throw new Error('Each run must have a branch');
-  if (!daPath) throw new Error('Each run must have a daPath (or da=)');
-  return { url, branch, daPath };
+  if (!b) throw new Error('Each run must have a branch');
+  if (!d) throw new Error('Each run must have a daPath (or da=)');
+  return { url, branch: b, daPath: d };
 }
 
 /**
