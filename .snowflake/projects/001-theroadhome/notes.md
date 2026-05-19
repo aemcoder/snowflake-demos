@@ -150,6 +150,16 @@ For DA cells: already absolute → Media Bus will process them correctly.
 
 None. No animations JS file needed.
 
+## Phase: Round-trip
+
+### Production round-trip outcome
+
+- DA PUT: 200 OK → https://content.da.live/aemcoder/snowflake-demos/theroadhome/a
+- Preview POST: 200 OK → https://sd-theroadhome-a--snowflake-demos--aemcoder.aem.page/theroadhome/a
+- Live POST: 200 OK → https://sd-theroadhome-a--snowflake-demos--aemcoder.aem.live/theroadhome/a
+- Code Sync probe: all 4 paths returned 200 immediately (< 1s)
+- Local round-trip: skipped per autonomous-mode instructions
+
 ### Decisions surfaced by analysis
 
 1. All 10 main sections use `data-section` attr as unique first-class discriminator.
