@@ -1,0 +1,156 @@
+{
+  "templateName": "theroadhome",
+  "pageSlug": "a",
+  "synthesizeMain": true,
+  "placeholderConvention": "data-placeholder (bare attribute, Stardust 0.2.0)",
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "hero.photo", "type": "background-image", "selector": ".hero__photo" },
+        { "name": "hero.eyebrow", "type": "text", "selector": ".hero__eyebrow" },
+        { "name": "hero.title", "type": "text", "selector": ".hero__h1" },
+        { "name": "hero.sub", "type": "text", "selector": ".hero__sub" },
+        { "name": "help-1.q", "type": "text", "selector": ".hero__help .help-card:nth-child(1) .help-card__q" },
+        { "name": "help-1.cta", "type": "link", "selector": ".hero__help .help-card:nth-child(1) .help-card__cta" },
+        { "name": "help-2.q", "type": "text", "selector": ".hero__help .help-card:nth-child(2) .help-card__q" },
+        { "name": "help-2.cta", "type": "link", "selector": ".hero__help .help-card:nth-child(2) .help-card__cta" },
+        { "name": "help-3.phone", "type": "link", "selector": ".help-card.is-phone .help-card__q a" }
+      ]
+    },
+    {
+      "firstClass": "join-our-team",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "reorderFirstClass": true,
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".section-banner__h2" },
+        { "name": "cta", "type": "link", "selector": ".section-banner__cta" }
+      ],
+      "skipSelectors": [".section-banner__sub"]
+    },
+    {
+      "firstClass": "get-involved",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "reorderFirstClass": true,
+      "slots": [
+        { "name": "heading", "type": "text", "selector": ".feature-3up__heading" },
+        { "name": "card-1.icon", "type": "image", "selector": ".feature-3up .feature-card:nth-child(1) .feature-card__icon img" },
+        { "name": "card-1.title", "type": "text", "selector": ".feature-3up .feature-card:nth-child(1) .feature-card__h3" },
+        { "name": "card-1.link", "type": "link", "selector": ".feature-3up .feature-card:nth-child(1) .feature-card__link" },
+        { "name": "card-2.icon", "type": "image", "selector": ".feature-3up .feature-card:nth-child(2) .feature-card__icon img" },
+        { "name": "card-2.title", "type": "text", "selector": ".feature-3up .feature-card:nth-child(2) .feature-card__h3" },
+        { "name": "card-2.link", "type": "link", "selector": ".feature-3up .feature-card:nth-child(2) .feature-card__link" },
+        { "name": "card-3.icon", "type": "image", "selector": ".feature-3up .feature-card:nth-child(3) .feature-card__icon img" },
+        { "name": "card-3.title", "type": "text", "selector": ".feature-3up .feature-card:nth-child(3) .feature-card__h3" },
+        { "name": "card-3.link", "type": "link", "selector": ".feature-3up .feature-card:nth-child(3) .feature-card__link" }
+      ],
+      "skipSelectors": [".feature-card__body"]
+    },
+    {
+      "firstClass": "impact",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "reorderFirstClass": true,
+      "slots": [
+        { "name": "heading", "type": "text", "selector": ".impact-row__h2" },
+        { "name": "stat-1.icon", "type": "image", "selector": ".impact-row .impact-stat:nth-child(1) .impact-stat__icon img" },
+        { "name": "stat-2.icon", "type": "image", "selector": ".impact-row .impact-stat:nth-child(2) .impact-stat__icon img" },
+        { "name": "stat-3.icon", "type": "image", "selector": ".impact-row .impact-stat:nth-child(3) .impact-stat__icon img" }
+      ],
+      "skipSelectors": [".impact-stat__n", ".impact-stat__label"]
+    },
+    {
+      "firstClass": "road-divider",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": []
+    },
+    {
+      "firstClass": "programs",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "reorderFirstClass": true,
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".section-banner__h2" },
+        { "name": "cta", "type": "link", "selector": ".section-banner__cta" }
+      ],
+      "skipSelectors": [".section-banner__sub"]
+    },
+    {
+      "firstClass": "housing-resources",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "reorderFirstClass": true,
+      "slots": [
+        { "name": "heading", "type": "text", "selector": ".housing-resources__h2" },
+        { "name": "card-1.icon", "type": "image", "selector": ".housing-resources__cards .resource-card:nth-child(1) .resource-card__icon img" },
+        { "name": "card-1.title", "type": "text", "selector": ".housing-resources__cards .resource-card:nth-child(1) .resource-card__h3" },
+        { "name": "card-1.link", "type": "link", "selector": ".housing-resources__cards .resource-card:nth-child(1) .resource-card__link" },
+        { "name": "card-2.icon", "type": "image", "selector": ".housing-resources__cards .resource-card:nth-child(2) .resource-card__icon img" },
+        { "name": "card-2.title", "type": "text", "selector": ".housing-resources__cards .resource-card:nth-child(2) .resource-card__h3" },
+        { "name": "card-2.link", "type": "link", "selector": ".housing-resources__cards .resource-card:nth-child(2) .resource-card__link" },
+        { "name": "card-3.icon", "type": "image", "selector": ".housing-resources__cards .resource-card:nth-child(3) .resource-card__icon img" },
+        { "name": "card-3.title", "type": "text", "selector": ".housing-resources__cards .resource-card:nth-child(3) .resource-card__h3" },
+        { "name": "card-3.link", "type": "link", "selector": ".housing-resources__cards .resource-card:nth-child(3) .resource-card__link" }
+      ],
+      "skipSelectors": [".resource-card__body"]
+    },
+    {
+      "firstClass": "heritage",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "reorderFirstClass": true,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".heritage__eyebrow" },
+        { "name": "title", "type": "text", "selector": ".heritage__h2" },
+        { "name": "body", "type": "text", "selector": ".heritage__body" },
+        { "name": "cn-logo", "type": "image", "selector": ".heritage__cn img" }
+      ]
+    },
+    {
+      "firstClass": "stories",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "reorderFirstClass": true,
+      "slots": [
+        { "name": "heading", "type": "text", "selector": ".stories__h2" },
+        { "name": "story-1.photo", "type": "background-image", "selector": ".stories__row .story-card:nth-child(1) .story-card__photo" },
+        { "name": "story-1.name", "type": "text", "selector": ".stories__row .story-card:nth-child(1) .story-card__name" },
+        { "name": "story-1.read", "type": "link", "selector": ".stories__row .story-card:nth-child(1) .story-card__read a" },
+        { "name": "story-2.photo", "type": "background-image", "selector": ".stories__row .story-card:nth-child(2) .story-card__photo" },
+        { "name": "story-2.name", "type": "text", "selector": ".stories__row .story-card:nth-child(2) .story-card__name" },
+        { "name": "story-3.photo", "type": "background-image", "selector": ".stories__row .story-card:nth-child(3) .story-card__photo" },
+        { "name": "story-3.name", "type": "text", "selector": ".stories__row .story-card:nth-child(3) .story-card__name" },
+        { "name": "story-4.photo", "type": "background-image", "selector": ".stories__row .story-card:nth-child(4) .story-card__photo" },
+        { "name": "story-4.name", "type": "text", "selector": ".stories__row .story-card:nth-child(4) .story-card__name" },
+        { "name": "story-5.photo", "type": "background-image", "selector": ".stories__row .story-card:nth-child(5) .story-card__photo" },
+        { "name": "story-5.name", "type": "text", "selector": ".stories__row .story-card:nth-child(5) .story-card__name" },
+        { "name": "story-6.photo", "type": "background-image", "selector": ".stories__row .story-card:nth-child(6) .story-card__photo" },
+        { "name": "story-6.name", "type": "text", "selector": ".stories__row .story-card:nth-child(6) .story-card__name" },
+        { "name": "more-cta", "type": "link", "selector": ".stories__more a" }
+      ],
+      "skipSelectors": [".stories__sub", ".story-card__quote"]
+    },
+    {
+      "firstClass": "newsletter",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "reorderFirstClass": true,
+      "slots": [
+        { "name": "heading", "type": "text", "selector": ".newsletter__h2" },
+        { "name": "sub", "type": "text", "selector": ".newsletter__sub" }
+      ]
+    }
+  ],
+  "headLinks": [],
+  "inlineStyleLines": [31, 525],
+  "inlineScriptLines": [],
+  "externalLibs": [],
+  "assetStrategy": "absolute",
+  "assetBase": "https://theroadhome.org/",
+  "strip": []
+}
