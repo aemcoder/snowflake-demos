@@ -216,6 +216,7 @@ footer[data-section="footer"]{
   border-top:var(--border-hairline);background:var(--color-bg);
 }
 footer[data-section="footer"]>.footer{
+  visibility:visible; /* substrate footer > .footer { visibility: hidden } fires here too */
   max-width:var(--max-width);margin:0 auto;padding:0 32px;
   display:grid;grid-template-columns:repeat(5,1fr);gap:48px;
 }
