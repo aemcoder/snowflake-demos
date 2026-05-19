@@ -18,7 +18,12 @@ import { fileURLToPath } from 'node:url';
 export function parseBatchInput(input) {
   const trimmed = input.trim();
   if (trimmed.startsWith('[') || trimmed.startsWith('{')) {
-    const parsed = JSON.parse(trimmed);
+    let parsed;
+    try {
+      parsed = JSON.parse(trimmed);
+    } catch {
+      throw new Error(`Invalid JSON batch input: ${trimmed.slice(0, 60)}`);
+    }
     return (Array.isArray(parsed) ? parsed : [parsed]).map(normalise);
   }
   return trimmed
@@ -31,7 +36,7 @@ export function parseBatchInput(input) {
       const params = Object.fromEntries(
         parts.slice(1)
           .filter((p) => p.includes('='))
-          .map((p) => p.split('=')),
+          .map((p) => { const eq = p.indexOf('='); return [p.slice(0, eq), p.slice(eq + 1)]; }),
       );
       return normalise({ url, branch: params.branch, daPath: params.da ?? params.daPath });
     });

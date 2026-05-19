@@ -51,3 +51,10 @@ test('parseBatchInput: single JSON object (not array)', () => {
   assert.equal(runs.length, 1);
   assert.equal(runs[0].branch, 'sd-e');
 });
+
+test('parseBatchInput: throws on missing url', () => {
+  assert.throws(
+    () => parseBatchInput('[{"branch":"sd-x","daPath":"/x"}]'),
+    /url/,
+  );
+});
