@@ -2,7 +2,7 @@
 
 Source: https://paolomoz.github.io/stardust-site/samples/stardust-whitepaper/proposed-A.html
 Captured: 2026-05-19
-Status: complete
+Status: Closed 2026-05-19 (tag sd-stardust-whitepaper-a-close)
 
 Branch: sd-stardust-whitepaper-a
 Preview: https://sd-stardust-whitepaper-a--snowflake-demos--aemcoder.aem.page/stardust-whitepaper/a
