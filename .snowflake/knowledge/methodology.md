@@ -141,3 +141,35 @@ After all agents complete, present:
 - Never merge worktree branches to `main` — user closes manually.
 - If a run fails, continue the others — report failure in the result table.
 - If DA token is expired, all runs will fail — surface the shared cause.
+
+## Side-by-side comparison
+
+After any round-trip (single run or batch), create a side-by-side PNG comparing the
+original source page and the converted EDS production page.
+
+### Take screenshots
+
+```
+playwright-cli open <source-url>
+playwright-cli resize 1280 800
+# wait 2–3s for fonts / overlay to settle
+playwright-cli screenshot --filename original.png
+playwright-cli goto <production-url>
+# wait 3s for overlay engine to apply
+playwright-cli screenshot --filename converted.png
+playwright-cli close
+```
+
+### Composite
+
+```bash
+node tools/compare-pages.mjs original.png converted.png \
+  .snowflake/projects/<NNN>-<slug>/diff/comparison.png
+```
+
+The script detects the available backend (ImageMagick or ffmpeg) automatically.
+Output is a side-by-side PNG: original on the left, EDS overlay on the right,
+with a thin grey divider. Both sides are scaled to 720 px wide.
+
+Save the comparison PNG to the project's `diff/` folder and commit it with the
+reflect commit so it's part of the run record.
