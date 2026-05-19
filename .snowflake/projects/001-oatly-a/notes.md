@@ -190,3 +190,50 @@ No inline `<script>` blocks. No animations JS needed.
 
 Total slots: 8
 Total sections: 4
+
+## Phase: Round-trip
+
+### Production round-trip
+
+- DA PUT: [verified] HTTP 200, contentUrl and editUrl confirmed
+- POST preview on `sd-oatly-a`: [verified] HTTP 200, preview.status 200
+- POST live on `sd-oatly-a`: [verified] HTTP 200, live.status 200
+- Code-bus sanity probes:
+  - `/templates/oatly-a.html` → 200 [verified]
+  - `/styles/oatly-a.css` → 200 [verified]
+  - `/fragments/oatly-a/header.html` → 200 [verified]
+  - `/fragments/oatly-a/footer.html` → 200 [verified]
+- Live page HTTP: 200 [verified]
+- `<meta name="template" content="oatly-a">` present in live page [verified]
+- Production URL: https://sd-oatly-a--snowflake-demos--aemcoder.aem.live/oatly/a
+- DA editor URL: https://da.live/edit#/aemcoder/snowflake-demos/oatly/a
+
+### Local round-trip
+
+Skipped per autonomous mode instructions (no aem up).
+
+### Notes
+
+1. **`.browser` wrapper split**: The source wraps all content in `<div class="browser">`.
+   Solved by putting opening tag in header fragment, closing `</div>` in footer fragment.
+   This is a pattern worth documenting — "wrapper that spans header/main/footer" requires
+   split injection at fragment boundaries.
+
+2. **`trash` section has zero slots**: The trash icon is purely decorative SVG. It still
+   needs to be a `<section>` in the template (renamed from `<a class="trash">`) to be
+   properly parsed by the overlay engine. The section appears in the DA doc as an empty block.
+   The original `<a>` is wrapped in a `<section class="trash">` containing a `<a class="trash-link">`.
+
+3. **CSS `.desktop` background-image**: The `.desktop` section uses a relative URL
+   `url("./grid-paper.svg")`. Rewrote to absolute `url("https://paolomoz.github.io/stardust-site/samples/oatly/grid-paper.svg")` in the extracted CSS.
+
+4. **Slot granularity decision**: Chose to slot only `.label` text spans on icon-tiles,
+   not the `<a>` link href. This keeps SVG folder/file shapes intact at render time.
+   Trade-off: URLs are static in the template, only visible text is authorable in DA.
+   For a demo this is acceptable; a real production site would need a different approach
+   (e.g., separate href slot + label slot, or restructure template to inject SVG via CSS).
+
+## Phase: Reflect
+
+Run complete. 8 slots, 4 sections. Page renders correctly in production with template meta tag.
+
