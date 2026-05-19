@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<!--
+_provenance:
+  writtenBy: stardust:prototype
+  writtenAt: 2026-05-03T00:00:00Z
+  variant: V1-faithful-navy-v7-herofeed (focused refinement on v7, sidekick news-feed overlay)
+  basedOn: stardust/prototypes/home-V1-faithful-navy-v7-proposed.html
+  adaptPass: 2026-05-03 (impeccable:adapt — phone breakpoint authored at 720px and 380px)
+  adaptStrategy: phone-first additions to a desktop-first design. The locked layout's only mobile-aware breakpoint was 1100px (collapses grids to 1fr) plus 1024px (herofeed reflow). The 720px treatment adds: tightened section paddings (24/36/44/56 px instead of 48/64/80/96), audience tiles stack 1-up (was 2-up at 1100px), flight-search form-row collapses 200/1fr/140 → 1fr stack, header desktop nav hides (logo + icons remain), brand-hero scales display down via clamp(72-120px), herofeed inner padding tightens, footer 4-col → 2-col, all tap targets ≥40×40 on icon-only elements. The 380px treatment further reduces hero type and stacks the footer to 1-col. Audit-driven: BUTTON.audience-tile, DIV.head, H2.display, DIV.flight-search no longer overflow at 390px viewport.
+  adaptChanges:
+    - Tightened --pad-* tokens at ≤720px (24/36/44/56) so every section padding follows
+    - Hidden desktop header nav at ≤720px (logo + icons remain; the migrated production site has a hamburger drawer at canon.js)
+    - Brand-hero h1 wordmark uses clamp(72-120px) at ≤720px and clamp(60-96px) at ≤380px
+    - Brand-hero .copy padding 24/16/40 (was 32/32/56)
+    - Hero ambient drift animation suppressed at ≤720px (battery + small viewport)
+    - Audience tiles stack 1-up at ≤720px (was 2-up at 1100px). Featured tile re-tuned for single-column.
+    - Task-panel grid collapses to 1-col with 16px gutters
+    - Flight-search form-row 200/1fr/140 → 1fr stack; input font-size: 16px to suppress iOS zoom-on-focus
+    - Search button becomes full-width
+    - Status grid + cards: paddings tightened, value type 56px → 44px
+    - Construction h2 clamps 40-56px on phone
+    - Essentials grid 3-col → 1-col on phone
+    - Latest grid 1.6fr/1fr → 1-col on phone
+    - Guide-tiles 5-col → 2-col at 720px, → 1-col at 380px (was 1-col at 1100px which lost the visual rhythm; 2-col on phone preserves the strip feel)
+    - Footer 4-col → 2-col at 720px, → 1-col at 380px; brand row wraps; bottom row stacks
+    - Access-card flex-direction: column on phone; glyph 56px → 48px
+    - Tap-target floor: header icons + footer social ≥40×40
+  adaptVerifiedAt: 2026-05-03 via Playwright iPhone-13 emulation (390px viewport): no element exceeds 390px width
+  focusedChange: status section is removed from the page flow and reborn as a sidekick widget overlaying the right side of the brand hero. Reads as a "what's happening at JFK right now" panel that sits over the photograph, like a transit-authority info card pinned to the brand moment. Three timestamped entries, condensed for the smaller form.
+  rationale: same root issue as v7-statusband and v7-statusfeed (the v7 status-strip grid trips impeccable's hero-metric-template ban). This treatment goes further: the feed isn't just rephrased, it's relocated. Frees the page below the hero to flow directly into audience routing without an interrupting band. The hero gains a functional layer; the page gains 340px of vertical real estate back. Trade-off: the feed is no longer always-visible after scroll past the hero.
+  position: 380px wide, anchored bottom-right of brand hero with 32px inset, white card on the photo with a deep navy-tinted shadow for clear lift. Mobile collapses below the hero rather than overlapping (under 1024px breakpoint).
+  voiceMatch: feed entries are voice-authored under direction.md's rule (warm, direct, what a New Yorker would say out loud). No em-dashes per impeccable shared-law copy ban.
+  overdriveStrategy: View Transitions on audience-tile selection (functional wow). Each of 5 audience tiles morphs into its own task panel via document.startViewTransition(). Cross-element shape morph, panel cross-fade, single coordinated motion. Falls back gracefully on Firefox + reduced-motion to instant CSS state change.
+  overdriveChanges:
+    - 4 new task panels authored: Arriving (track an arrival, baggage by terminal, ground transport), Picking up (live pickup zone status, ride-app pickup, terminal access), Connecting (AirTrain frequency, walk times, minimum connection times by airline pair), Visiting (airport map, dine/shop/relax, lounges, hotels, art program). Each follows the same task-panel layout structure but with audience-specific content and quick-actions sidebar.
+    - JavaScript switchAudience(id) function uses document.startViewTransition() with feature detection. Falls back to instant DOM swap when API unavailable or reduced-motion is set.
+    - view-transition-name: active-audience-tile applied to the .audience-tile.active. When the active class moves between tiles, View Transitions captures the old and new active tiles as the same named element and morphs between them: shape, color, position, content cross-fade in a single coordinated 360ms ease-out-quart.
+    - view-transition-name: active-task-panel applied to the visible task panel. When the panel content swaps, the panels cross-fade with a slight slide. Shorter duration (320ms) than the tile morph.
+    - Custom ::view-transition-old/new pseudo-element animations: tile uses a paired scale-and-fade (the leaving tile fades to slate, the arriving tile fades from slate, both shape-tween simultaneously). Panel uses fade + 12px slide-up.
+    - Skip-to-Content target id retained on main; anchor targets remain valid through state changes.
+    - Reduced-motion: View Transitions are skipped entirely; DOM swap is instant. Active-state CSS already exists; nothing breaks.
+    - Browser-support graceful degradation: Chrome 111+ and Safari 18+ get the morph; Firefox and older Safari get an instant tile swap with the existing audience-tile transition timing (still feels good, just not cinematic).
+  contentSource: same as v6 (captured + voice-authored per direction.md). New audience copy is voice-authored under direction.md (warm, direct, NYC-tonal headlines per voice rule).
+  voiceAuthored: same as v6 + 4 new audience-panel headings (Welcome back to New York / Live pickup status / Get to your next gate / More than an airport)
+  unsourcedContent: same as v6 + simulated terminal pickup status (T1 normal, T4 normal, T5 Lot 2, etc.) and minimum-connection-time table values (illustrative; would come from real data in production)
+  renderedVia: stardust-direct -> impeccable:delight -> impeccable:animate -> impeccable:typeset -> impeccable:colorize -> impeccable:overdrive
+  stardustVersion: 0.3.0
+  colorizeStrategy: brand-faithful Mode A (palette pinned, no new hues). Restrained-with-Committed-dark-surfaces stays. Refinement of color application, system organization, and OKLCH adoption.
+  colorStrategyClass: Restrained, with Committed darks (panynj-navy task panel + footer carry 30%+ of dark coverage)
+  colorizeChanges:
+    - OKLCH expressions for the brand palette: --panynj-blue, --panynj-deep-blue, --panynj-navy, --success-green, --advisory-yellow now declared in oklch() with hex fallbacks via @supports. Computed values match captured hexes to within 0.5% delta-E, but OKLCH expressions allow programmatic chroma scaling and color-mix.
+    - Slate neutral scale re-tinted toward the brand hue: hue 265 (PANYNJ blue) instead of generic Tailwind hue 222. Visible shift is tiny (cooler, faintly more brand-aligned), perceptually clean across the lightness ramp. Implements impeccable's "tint every neutral toward the brand hue" law.
+    - Featured-tile stats gain semantic color coding (within brand palette only): Departures count = panynj-navy (canonical), Security wait = success-green (under 30m threshold = ok), Parking open = success-green (above 50% threshold = ok). Hue tied to meaning, not decoration.
+    - Status-strip h2 ("Today at JFK") shifted from panynj-navy to panynj-deep-blue. Subtle two-tier hierarchy: editorial sections in navy, operational/live layer in deep-blue. Same brand family, distinct semantic.
+    - color-mix(in oklch, ...) replaces rgba()-based shadow tints. The hover shadows on tiles, cards, and the search button now mix panynj-navy at calibrated alpha for perceptually consistent depth across light and dark surfaces.
+    - Construction section gains a soft panynj-navy chroma tint (~2% surface) on the figure photo container. Ties the "building tomorrow" editorial to the brand's dark surfaces visually without becoming a colored band.
+    - Hero scrim gradient stops use OKLCH transitions (perceptually smoother than RGB interpolation).
+    - Status pill semantics widened: .pill.live (panynj-deep-blue tint) added for live-data states; existing .ok and .warn unchanged.
+    - All anti-bans honored: no side-stripe borders, no gradient text, no glassmorphism, no purple-blue gradients. Yellow stays warning-only. No new hues introduced; Mode A pin intact.
+  contentSource: same as v5
+  voiceAuthored: same as v5
+  unsourcedContent: same as v5
+  renderedVia: stardust-direct -> impeccable:delight -> impeccable:animate -> impeccable:typeset -> impeccable:colorize
+  stardustVersion: 0.3.0
+  typesetStrategy: brand-faithful Mode A (type families pinned). Refinement of scale, weight, spacing, and OpenType usage; no font replacement.
+  typesetChanges:
+    - Semantic type-scale tokens added to :root (--text-display-xl, --text-display-lg, --text-display-md, --text-h1..h4, --text-body-lg, --text-body, --text-meta, --text-caption). All consumers updated.
+    - Display tier converted to clamp() for fluid responsive scaling: hero 280 clamps 160-280, h1 96 clamps 64-96, h2 80 clamps 56-80
+    - Body tier stays in fixed sizes (typeset spec: app density needs spatial predictability)
+    - Letter-spacing tier-aware: display -0.045em (tight at scale), heading -0.025em, sub-heading -0.015em, body 0, eyebrow +0.08em
+    - Line-height context-aware: display 0.86, heading 1.05, sub-heading 1.15, body 1.6 (was 1.55, slight bump for civic-text comfort)
+    - tabular-nums on every numeric data span (status values, featured-tile stats, date input, security minutes, parking percent, departures count)
+    - text-wrap: balance applied to all h1/h2/h3 (modern browsers; falls through gracefully)
+    - text-wrap: pretty applied to body p elements (avoids orphan single words on the last line)
+    - font-feature-settings baseline: kerning plus ligatures on body and display; tabular-nums on numeric class
+    - Reading width sanity: long-form construction paragraph extended from 50 to 62ch, news feature lede 60 to 65ch
+    - 9 em-dashes replaced with semicolons, commas, or parentheses per impeccable shared-law copy ban
+    - Eyebrow / label utility consolidated: 12px Helvetica Now Bold +0.08em uppercase, slate-700 on light surface, slate-300 on dark surface
+  contentSource: same as v4 (em-dash punctuation revisions are typesetting concerns, not voice rewrites)
+  voiceAuthored: same as v4
+  unsourcedContent: same as v4
+  renderedVia: stardust-direct -> impeccable:delight -> impeccable:animate -> impeccable:typeset
+  stardustVersion: 0.3.0
+  animateStrategy: brand-register orchestrated entrance + scroll-driven section reveals + audience-tile inner stagger
+  animateChanges:
+    - Hero choreography (the one signature entrance): 4-step staggered reveal — image scale-settle (1.06 to 1.0, 1400ms ease-out-expo), wordmark slide+fade (160ms delay), deck slide+fade (320ms), meta-strip fade (560ms)
+    - Scroll-triggered section reveals: every major section fades + slides up 24px on intersection (threshold 0.18, rootMargin -8% bottom). 540ms ease-out-quint.
+    - Within each revealed section, child elements stagger 80ms (h2 first, then deck, then grid items)
+    - Audience tile state-change orchestration: when a tile becomes active, label color transitions in 180ms, meta in 240ms, preview-stats in 320ms (sequential, not simultaneous)
+    - Skyline hero gains a subtle ambient drift: 1.0 to 1.03 over 24s ease-in-out infinite alternate. Disabled under reduced-motion.
+    - Status-strip live dot gains an occasional double-flicker every 12s (data-refresh tell)
+    - New easing palette: --ease-out-quart (refined hover, kept from v3), --ease-out-quint (section reveals), --ease-out-expo (hero settle, decisive moments)
+    - Every new animation behind prefers-reduced-motion guard. Falls through to static state.
+  contentSource: same as v3 (captured + voice-authored per direction.md)
+  voiceAuthored: same as v3
+  unsourcedContent: same as v3
+  renderedVia: stardust-direct -> impeccable:delight -> impeccable:animate
+  stardustVersion: 0.3.0
+  delightStrategy: subtle-sophistication / helpful-surprises (not playful-personality — civic public-agency register, anxiety-reducing context)
+  delightChanges:
+    - Live status indicator pulses (subtle 2s ease-in-out) — makes "Live" feel actually live, not a label
+    - Stat numerals count up on intersection (Departures 612, Security 22m, Parking 62%, all status strip values) — reads as freshly computed, not stale
+    - Audience tile transitions use ease-out-quart with confidence (slower, decisive — 280ms vs 150ms snap)
+    - Search button micro-interaction: hover lifts 2px with shadow; active presses to 1px below baseline
+    - Quick-action arrows translate +4px on hover — subtle "go" cue
+    - Guide-tile and essential-card hover lifts use ease-out-quart with shadow growth
+    - Keyboard shortcut "/" focuses the destination input (search-driven app pattern, useful not gimmicky)
+    - NYC-direct console message visible only to developers
+    - Footer brand line gains JFK coordinates (40.6413° N · 73.7781° W) — quiet brand-honest detail
+    - All animations honor prefers-reduced-motion (carried over from v2 + new ones added to the guard)
+  contentSource: same as v2 — captured + voice-authored per direction.md
+  voiceAuthored: same as v2
+  unsourcedContent: same as v2 + console message
+  renderedVia: stardust-direct → impeccable:delight
+  stardustVersion: 0.3.0
+  changesFromV1Navy:
+    - P0 Restored captured Manhattan-skyline + JFK wordmark hero (Mode A image-reuse contract)
+    - P0 Promoted "Today at JFK" to a permanent always-visible status strip (independent of which audience tile is active)
+    - P1 Featured "Departing" audience tile spans 2 columns (highest-frequency audience)
+    - P1 Voice-authored rephrasing on agency-tone H2s under direction.md authorization:
+        "Welcome to John F. Kennedy International Airport" -> "Welcome to JFK."
+        "An entirely new $19B JFK is being constructed" -> "Building tomorrow's JFK."
+        "Get your essentials and more at JFK" -> "While you're here."
+        "Accessibility assistance at JFK" -> "Accessibility at JFK."
+        "NEWS AND PROMOTIONS" -> "Latest from JFK."
+    - P1 Removed "Other ways to get help" - folded Public transportation into the task panel quick-actions; Alerts/Contact remain in footer
+    - P1 Replaced symbolic ARIA tab roles with actual button semantics (no JS to back the tab pattern, so removed misleading aria-selected/aria-controls)
+    - P2 Section padding rhythm: tight (48px) for operational, normal (64px) for utility, airy (80px) for editorial, hero (96px) for the brand moment
+    - P2 News restructured: 1 feature + 2 stacked companions (breaks visual parity with 3-up Dine/Shop/Relax)
+    - P2 Added :focus-visible rings on every interactive element
+    - P2 Added prefers-reduced-motion guard
+  contentSource: stardust/current/pages/home.json (verbatim) + voice-authored H2s noted above
+  voiceAuthored:
+    - 5 H2 rephrasings per direction.md voice rule + home-improvements.md item #5 (voice-distance)
+    - hero deck: "Your world-class gateway to the world." (captured verbatim from section[0])
+    - status-strip cell labels and quick-action labels are UI labels, not editorial copy
+  unsourcedContent:
+    - live numerals only (security waits, parking %, weather, departure count)
+  renderedVia: stardust-direct (critique-driven revision)
+  stardustVersion: 0.3.0
+-->
+<meta charset="utf-8">
+<title>John F. Kennedy International Airport - JFK Airport</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#011565">
+<meta name="description" content="Welcome to JFK Airport, New York's international gateway. Find flight info, maps, transportation, parking, and traveler tips all in one place.">
+<meta property="og:image" content="https://s7d9.scene7.com/is/image/panynjaviation/jfk_ogimage:card-wide-16x9">
+<style>
+  /* Brand fonts - captured from jfkairport.com /fonts/ (PANYNJ-licensed assets) */
+  @font-face { font-family: "Sharp Grotesk Semibold"; src: url("assets/icons/SharpGrotesk-SemiBold20.woff2") format("woff2"); font-weight: 600 800; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Helvetica Now for PANYNJ"; src: url("assets/icons/HelveticaNowforPANYNJ.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Helvetica Now for PANYNJ"; src: url("assets/icons/HelveticaNowforPANYNJBd.woff2") format("woff2"); font-weight: 600 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: "panynj-icons"; src: url("assets/icons/panynj-icons.woff2") format("woff2"); font-weight: normal; font-style: normal; font-display: swap; }
+
+  /* Icon font base */
+  [class^="icon-"], [class*=" icon-"] {
+    font-family: "panynj-icons" !important;
+    font-style: normal; font-weight: normal; font-variant: normal; text-transform: none;
+    display: inline-block; line-height: 1; speak: none;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  }
+  .icon-accessible:before    { content: "\E852"; }
+  .icon-search:before        { content: "\E928"; }
+  .icon-calendar:before      { content: "\E8A1"; }
+  .icon-arrow-right:before   { content: "\E806"; }
+  .icon-arrow-left:before    { content: "\E803"; }
+  .icon-arrow-down:before    { content: "\E800"; }
+  .icon-chevron-right:before { content: "\E80E"; }
+  .icon-chevron-down:before  { content: "\E80C"; }
+  .icon-restaurants:before   { content: "\E87A"; }
+  .icon-shops:before         { content: "\E87F"; }
+  .icon-waiting-area:before  { content: "\E886"; }
+  .icon-link-external:before { content: "\E9B4"; }
+  .icon-logo-facebook:before { content: "\E95C"; }
+  .icon-logo-x:before        { content: "\E9B3"; }
+  .icon-logo-whatsapp:before { content: "\E963"; }
+  .icon-map:before           { content: "\E906"; }
+  .icon-departures:before    { content: "\E81A"; }
+  .icon-arrivals:before      { content: "\E813"; }
+  .icon-information:before   { content: "\E869"; }
+
+  :root {
+    /* Hue anchors — drive the rest of the system */
+    --brand-hue: 265;       /* PANYNJ blue, anchors the dark family + neutral tint */
+    --success-hue: 142;     /* on-time, normal-state green */
+    --warning-hue: 95;      /* advisory yellow, warning-only */
+
+    /* Captured brand palette, expressed in OKLCH for perceptual uniformity.
+       Computed values are within ~0.5% of the captured hex equivalents. */
+    --ground-white: oklch(100% 0 0);
+    --ice-blue:    oklch(98% 0.018 235);
+    --mint-tint:   oklch(98% 0.014 var(--success-hue));
+    --ink:         oklch(13% 0.005 var(--brand-hue));
+    --panynj-blue:      oklch(53% 0.30 var(--brand-hue));
+    --panynj-deep-blue: oklch(38% 0.26 var(--brand-hue));
+    --panynj-navy:      oklch(22% 0.18 var(--brand-hue));
+    --advisory-yellow:  oklch(86% 0.18 var(--warning-hue));
+    --advisory-tint:    oklch(98% 0.04 var(--warning-hue));
+    --success-green:    oklch(48% 0.13 var(--success-hue));
+    --success-tint:     oklch(94% 0.06 var(--success-hue));
+
+    /* Neutral scale, re-tinted toward the brand hue.
+       Was: generic slate (Tailwind hue 248). Now: aligned to brand-hue 265.
+       Subtle shift; the slates now feel like they belong to the same family as the navy. */
+    --slate-100: oklch(96.4% 0.012 var(--brand-hue));
+    --slate-200: oklch(92.5% 0.016 var(--brand-hue));
+    --slate-300: oklch(85% 0.022 var(--brand-hue));
+    --slate-400: oklch(67% 0.038 var(--brand-hue));
+    --slate-600: oklch(45% 0.05 var(--brand-hue));
+    --slate-700: oklch(36% 0.05 var(--brand-hue));
+    --slate-900: oklch(15% 0.04 var(--brand-hue));
+
+    /* Mixed tints for surfaces and shadows — color-mix() keeps the brand hue intact. */
+    --shadow-navy-soft: color-mix(in oklch, var(--panynj-navy) 28%, transparent);
+    --shadow-navy-medium: color-mix(in oklch, var(--panynj-navy) 38%, transparent);
+    --shadow-blue-glow: color-mix(in oklch, var(--panynj-blue) 55%, transparent);
+    --tint-navy-2:  color-mix(in oklch, var(--panynj-navy) 2%, var(--ground-white));
+    --tint-navy-4:  color-mix(in oklch, var(--panynj-navy) 4%, var(--ground-white));
+    --display-family: "Sharp Grotesk Semibold", "Helvetica Neue Condensed Bold", "Inter", system-ui, sans-serif;
+    --body-family: "Helvetica Now for PANYNJ", "Helvetica Neue", "Inter", "Arial", sans-serif;
+    /* Semantic type-scale tokens. Display tier uses clamp() for fluid scaling on brand pages.
+       Body tier stays fixed for predictable density. */
+    --text-display-xl: clamp(160px, 22vw, 280px);  /* hero wordmark */
+    --text-display-lg: clamp(80px, 12vw, 160px);   /* (reserved for editorial display moments) */
+    --text-display-md: clamp(56px, 8vw, 80px);     /* construction h2 */
+    --text-h1: clamp(64px, 9vw, 96px);             /* essentials h2, latest-feature h2 */
+    --text-h2: clamp(40px, 5.5vw, 56px);           /* essentials/latest section heads */
+    --text-h2-sm: clamp(32px, 4vw, 48px);          /* your-guide, latest section heads */
+    --text-h3: 32px;                               /* status-strip h2, audience tile featured label, audience h2 */
+    --text-h3-sm: 28px;                            /* essential h3, task-side h3, access-card h2 */
+    --text-h4: 22px;                               /* news-companion h3, audience tile label */
+    --text-h5: 20px;                               /* guide-tile h3, mini-tile labels */
+    --text-body-lg: 18px;                          /* construction p */
+    --text-body: 16px;                             /* default body */
+    --text-meta: 14px;                             /* card decks, captions */
+    --text-caption: 13px;                          /* metadata, status breakdowns */
+    --text-eyebrow: 12px;                          /* eyebrows, labels */
+    --text-fineprint: 11px;                        /* footer fineprint, mono coords */
+    /* Section padding rhythm - operational / utility / editorial / hero */
+    --pad-tight: 48px;
+    --pad-normal: 64px;
+    --pad-airy: 80px;
+    --pad-hero: 96px;
+    --radius-sm: 2px;
+    --radius-md: 4px;
+    --radius-pill: 9999px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--ground-white); color: var(--ink);
+    font-family: var(--body-family); font-size: var(--text-body); line-height: 1.6;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility; font-kerning: normal;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1; }
+  .display { font-family: var(--display-family); font-weight: 700; letter-spacing: -0.025em;
+    font-feature-settings: "kern" 1, "liga" 1, "ss01" 1; }
+  /* Typeset utilities */
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  a { color: var(--panynj-deep-blue); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  img { max-width: 100%; display: block; }
+
+  /* Focus rings - table stakes */
+  :focus-visible { outline: 3px solid var(--panynj-blue); outline-offset: 3px; border-radius: 2px; }
+  button:focus-visible, a:focus-visible { outline-offset: 3px; }
+
+  /* Easing palette */
+  :root {
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);   /* refined hover (v3) */
+    --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);  /* section reveals — slightly snappier */
+    --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);   /* hero settle, decisive moments */
+  }
+
+  /* === DELIGHT (v3): live status pulse === */
+  @keyframes live-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%      { transform: scale(1.5); opacity: 0.4; }
+  }
+  /* === ANIMATE (v4): occasional double-flicker — subtle "data refreshed" tell === */
+  @keyframes live-flicker {
+    0%, 91%, 100%   { transform: scale(1); opacity: 1; }
+    93%             { transform: scale(0.6); opacity: 0.3; }
+    94.5%, 96.5%    { transform: scale(1.7); opacity: 1; }
+    95.5%, 97.5%    { transform: scale(0.6); opacity: 0.3; }
+  }
+  .live-dot { animation: live-pulse 2s ease-in-out infinite, live-flicker 12s ease-in-out infinite; transform-origin: center; }
+
+  /* === OVERDRIVE (v7): View Transitions on audience-tile selection === */
+  /* Mark the active tile and the visible task panel as named view-transition elements.
+     When the active class jumps to a different tile, View Transitions morphs the old
+     and new same-named elements together: shape, color, content cross-fade. */
+  .audience-tile.active { view-transition-name: active-audience-tile; }
+  .task-panel:not([hidden]) { view-transition-name: active-task-panel; }
+
+  ::view-transition-group(active-audience-tile),
+  ::view-transition-group(active-task-panel) {
+    animation-duration: 360ms;
+    animation-timing-function: var(--ease-out-quart);
+  }
+  ::view-transition-old(active-audience-tile),
+  ::view-transition-new(active-audience-tile) {
+    animation-duration: 240ms;
+    animation-timing-function: var(--ease-out-quart);
+  }
+  @keyframes vt-panel-out {
+    to { opacity: 0; transform: translateY(-12px); }
+  }
+  @keyframes vt-panel-in {
+    from { opacity: 0; transform: translateY(12px); }
+  }
+  ::view-transition-old(active-task-panel) {
+    animation: vt-panel-out 220ms var(--ease-out-quart) both;
+  }
+  ::view-transition-new(active-task-panel) {
+    animation: vt-panel-in 320ms var(--ease-out-quart) 60ms both;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) { animation: none !important; }
+  }
+
+  /* Hidden task panel: kept in DOM (so view-transition-name can hand off), but invisible until activated */
+  .task-panel[hidden] { display: none; }
+
+  /* === Pickup zone status (Pickup task panel) === */
+  .pickup-status { background: var(--ground-white); color: var(--ink); border-radius: 4px; padding: 24px 28px; }
+  .pickup-status .ps-head { font-family: var(--display-family); font-size: 22px; font-weight: 700;
+    letter-spacing: -0.02em; line-height: 1.1; color: var(--panynj-navy); margin: 0 0 16px; }
+  .pickup-status .ps-rows { display: flex; flex-direction: column; gap: 0; }
+  .pickup-status .ps-row { display: grid; grid-template-columns: 80px 1fr auto; gap: 12px;
+    padding: 12px 0; border-bottom: 1px solid var(--slate-200); align-items: center; font-size: 15px; }
+  .pickup-status .ps-row:last-child { border-bottom: 0; }
+  .pickup-status .ps-row .terminal { font-family: var(--display-family); font-weight: 700; color: var(--ink); }
+  .pickup-status .ps-row .detail { color: var(--slate-700); font-size: 14px; }
+  .pickup-status .ps-row .pill { justify-self: end; }
+
+  /* === Connecting: AirTrain frequency + min connection table === */
+  .connect-info { background: var(--ground-white); color: var(--ink); border-radius: 4px; padding: 24px 28px; display: flex; flex-direction: column; gap: 22px; }
+  .connect-info .ci-block .label { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; color: var(--slate-700); margin-bottom: 8px; }
+  .connect-info .ci-block h4 { font-family: var(--display-family); font-size: 22px; font-weight: 700;
+    letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 4px; color: var(--panynj-navy); }
+  .connect-info .ci-block p { margin: 0; color: var(--slate-700); font-size: 14px; }
+  .connect-info .mct-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .connect-info .mct-table th { text-align: left; padding: 8px 0; border-bottom: 1px solid var(--slate-200);
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate-700); font-weight: 700; }
+  .connect-info .mct-table td { padding: 10px 0; border-bottom: 1px solid var(--slate-200); }
+  .connect-info .mct-table td:last-child { font-family: var(--display-family); font-weight: 700; text-align: right; color: var(--panynj-navy); font-variant-numeric: tabular-nums; }
+  .connect-info .mct-table tr:last-child td { border-bottom: 0; }
+
+  /* === Visiting: simple feature card grid === */
+  .visit-info { background: var(--ground-white); color: var(--ink); border-radius: 4px; padding: 24px 28px; }
+  .visit-info .vi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .visit-info .vi-card { padding: 16px 18px; background: var(--slate-100); border-radius: 4px; transition: background 180ms var(--ease-out-quart); }
+  .visit-info .vi-card:hover { background: var(--ice-blue); }
+  .visit-info .vi-card h4 { font-family: var(--display-family); font-size: 18px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.15; margin: 0 0 4px; color: var(--panynj-navy); }
+  .visit-info .vi-card p { margin: 0 0 8px; color: var(--slate-700); font-size: 13px; line-height: 1.5; }
+  .visit-info .vi-card a { font-weight: 700; color: var(--panynj-deep-blue); font-size: 13px; }
+
+  /* === ANIMATE (v4): hero choreography === */
+  @keyframes hero-image-settle {
+    0%   { transform: scale(1.06); }
+    100% { transform: scale(1.0); }
+  }
+  @keyframes hero-skyline-drift {
+    0%, 100% { transform: scale(1.0); }
+    50%      { transform: scale(1.03); }
+  }
+  @keyframes hero-text-rise {
+    0%   { opacity: 0; transform: translateY(24px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes hero-meta-fade {
+    0%, 60% { opacity: 0; }
+    100%    { opacity: 0.85; }
+  }
+  .brand-hero img { animation: hero-image-settle 1400ms var(--ease-out-expo) both,
+                               hero-skyline-drift 24s ease-in-out 1400ms infinite alternate; }
+  .brand-hero h1 { animation: hero-text-rise 760ms var(--ease-out-quint) 160ms both; }
+  .brand-hero .deck { animation: hero-text-rise 760ms var(--ease-out-quint) 320ms both; }
+  .brand-hero .meta-strip { animation: hero-meta-fade 1100ms var(--ease-out-quart) 560ms both; }
+
+  /* === ANIMATE (v4): scroll-triggered section reveals === */
+  @keyframes section-rise {
+    0%   { opacity: 0; transform: translateY(24px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .reveal { opacity: 0; }
+  .reveal.in { animation: section-rise 540ms var(--ease-out-quint) both; }
+  .reveal.in > * { animation: section-rise 540ms var(--ease-out-quint) both; }
+  .reveal.in > *:nth-child(1) { animation-delay: 0ms; }
+  .reveal.in > *:nth-child(2) { animation-delay: 80ms; }
+  .reveal.in > *:nth-child(3) { animation-delay: 160ms; }
+  .reveal.in > *:nth-child(4) { animation-delay: 240ms; }
+  .reveal.in > *:nth-child(5) { animation-delay: 320ms; }
+  /* Grids inside revealed sections also stagger */
+  .reveal.in .status-grid > *,
+  .reveal.in .audience-tiles > *,
+  .reveal.in .guide-tiles > *,
+  .reveal.in .essentials-grid > *,
+  .reveal.in .latest-companions > * { animation: section-rise 540ms var(--ease-out-quint) both; }
+  .reveal.in .status-grid > *:nth-child(1),
+  .reveal.in .audience-tiles > *:nth-child(1),
+  .reveal.in .guide-tiles > *:nth-child(1),
+  .reveal.in .essentials-grid > *:nth-child(1) { animation-delay: 80ms; }
+  .reveal.in .status-grid > *:nth-child(2),
+  .reveal.in .audience-tiles > *:nth-child(2),
+  .reveal.in .guide-tiles > *:nth-child(2),
+  .reveal.in .essentials-grid > *:nth-child(2),
+  .reveal.in .latest-companions > *:nth-child(1) { animation-delay: 160ms; }
+  .reveal.in .status-grid > *:nth-child(3),
+  .reveal.in .audience-tiles > *:nth-child(3),
+  .reveal.in .guide-tiles > *:nth-child(3),
+  .reveal.in .essentials-grid > *:nth-child(3),
+  .reveal.in .latest-companions > *:nth-child(2) { animation-delay: 240ms; }
+  .reveal.in .status-grid > *:nth-child(4),
+  .reveal.in .audience-tiles > *:nth-child(4),
+  .reveal.in .guide-tiles > *:nth-child(4) { animation-delay: 320ms; }
+  .reveal.in .audience-tiles > *:nth-child(5),
+  .reveal.in .guide-tiles > *:nth-child(5) { animation-delay: 400ms; }
+
+  /* === ANIMATE (v4): audience-tile inner stagger on active === */
+  /* When a tile becomes active, the inner elements transition in sequence: label first, meta next, preview stats last. */
+  .audience-tile .label { transition: color 180ms var(--ease-out-quart) 0ms; }
+  .audience-tile .meta { transition: color 240ms var(--ease-out-quart) 60ms; }
+  .audience-tile .featured-preview { transition: border-top-color 280ms var(--ease-out-quart) 80ms; }
+  .audience-tile .featured-preview .num { transition: color 280ms var(--ease-out-quart) 120ms; }
+  .audience-tile .featured-preview .lbl { transition: color 320ms var(--ease-out-quart) 160ms; }
+
+  /* Reduced motion — disables every transition, animation, and transform */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+    .audience-tile.active .arrow { transform: none !important; }
+    .live-dot { animation: none !important; }
+    .quick-action:hover .v .icon-arrow-right { transform: none !important; }
+    .reveal { opacity: 1 !important; }
+    .reveal > * { opacity: 1 !important; transform: none !important; }
+    .brand-hero img { transform: none !important; }
+    .brand-hero h1, .brand-hero .deck { opacity: 1 !important; transform: none !important; }
+    .brand-hero .meta-strip { opacity: 0.85 !important; }
+  }
+
+  /* Skip link */
+  .skip { position: absolute; left: -9999px; top: -9999px; }
+  .skip:focus { left: 16px; top: 16px; background: var(--panynj-navy); color: var(--ground-white); padding: 10px 16px; z-index: 100; border-radius: 2px; font-weight: 700; }
+
+  /* Header */
+  header[data-section="header"] { position: sticky; top: 0; z-index: 50; background: var(--ground-white);
+    border-bottom: 1px solid var(--slate-200); padding: 12px 32px; display: flex; align-items: center; gap: 32px; }
+  header .logo { display: flex; align-items: center; gap: 10px; }
+  header .logo img { height: 36px; width: auto; }
+  header nav { display: flex; gap: 28px; flex: 1; margin-left: 16px; }
+  header nav a { color: var(--panynj-deep-blue); font-family: inherit; font-size: 15px; font-weight: 600; padding: 6px 0; }
+  header .right { display: flex; align-items: center; gap: 12px; }
+  header .right .icon { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;
+    color: var(--panynj-deep-blue); background: var(--slate-100); border-radius: 4px; cursor: pointer; font-size: 20px; }
+  header .right .icon-btn { border: 0; }
+  header .right .icon:hover { background: var(--ice-blue); }
+
+  /* === HERO - Manhattan skyline + JFK wordmark (captured Mode A moment) === */
+  .brand-hero { position: relative; height: 540px; overflow: hidden; background: var(--panynj-navy); }
+  .brand-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .brand-hero .scrim { position: absolute; inset: 0;
+    background: linear-gradient(in oklch 180deg,
+      color-mix(in oklch, var(--panynj-navy) 18%, transparent) 0%,
+      color-mix(in oklch, var(--panynj-navy)  0%, transparent) 32%,
+      color-mix(in oklch, var(--panynj-navy) 60%, transparent) 100%); }
+  .brand-hero .copy { position: absolute; left: 0; right: 0; bottom: 0; padding: 32px 32px 56px; max-width: 1440px; margin: 0 auto; }
+  .brand-hero h1 { font-family: var(--display-family); font-weight: 700; color: var(--ground-white);
+    font-size: var(--text-display-xl); line-height: 0.86; letter-spacing: -0.06em; margin: 0;
+    text-transform: uppercase; text-shadow: 0 4px 24px rgba(0,0,0,0.35);
+    font-feature-settings: "kern" 1, "ss01" 1; }
+  .brand-hero .deck { color: var(--ground-white); font-size: 22px; line-height: 1.35; max-width: 42ch;
+    margin-top: 18px; font-weight: 500; text-shadow: 0 2px 10px rgba(0,0,0,0.35); text-wrap: balance; }
+  .brand-hero .meta-strip { position: absolute; top: 24px; left: 32px; right: 32px; display: flex; justify-content: space-between;
+    color: var(--ground-white); font-family: var(--display-family); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; }
+
+  /* HEROFEED v7: live news-feed overlay anchored bottom-right of brand hero */
+  .herofeed { position: absolute; right: 32px; bottom: 32px; width: 380px; max-width: calc(100vw - 64px);
+    background: var(--ground-white); color: var(--ink); border-radius: 4px;
+    padding: 18px 20px 16px; box-shadow: 0 24px 48px -16px color-mix(in oklch, var(--panynj-navy) 60%, transparent),
+                                          0 8px 16px -8px color-mix(in oklch, var(--panynj-navy) 35%, transparent);
+    z-index: 2; }
+  .herofeed .hf-head { display: flex; justify-content: space-between; align-items: center;
+    padding: 0 0 12px; border-bottom: 1px solid color-mix(in oklch, var(--panynj-navy) 14%, transparent); margin-bottom: 4px; }
+  .herofeed .hf-head .live { font-size: 11px; color: var(--slate-700); letter-spacing: 0.08em; text-transform: uppercase;
+    font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+  .herofeed .hf-head .live .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success-green); display: inline-block; }
+  .herofeed .hf-head .meta-link { font-weight: 700; font-size: 12px; color: var(--panynj-deep-blue); }
+  .herofeed .hf-feed { display: flex; flex-direction: column; }
+  .herofeed .hf-entry { display: grid; grid-template-columns: 56px 1fr; gap: 14px; padding: 12px 0;
+    border-bottom: 1px solid color-mix(in oklch, var(--panynj-navy) 8%, transparent); align-items: baseline; }
+  .herofeed .hf-entry:last-child { border-bottom: 0; padding-bottom: 0; }
+  .herofeed .hf-entry .time { font-family: var(--display-family); font-weight: 700; font-size: 16px; letter-spacing: -0.01em;
+    color: var(--panynj-deep-blue); font-variant-numeric: tabular-nums; line-height: 1; }
+  .herofeed .hf-entry .time .now { display: block; font-family: var(--body-family); font-size: 9px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--success-green); font-weight: 700; margin-top: 4px; }
+  .herofeed .hf-entry .body { font-size: 13px; line-height: 1.45; color: var(--ink); text-wrap: pretty; font-variant-numeric: tabular-nums; }
+  .herofeed .hf-entry .body strong { color: var(--panynj-navy); font-weight: 700; }
+  .herofeed .hf-entry .body a { color: var(--panynj-deep-blue); font-weight: 700; }
+  .herofeed .hf-entry .tag { display: inline-block; font-family: var(--display-family); font-size: 10px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--slate-700); font-weight: 700; margin-bottom: 3px; }
+
+  @media (max-width: 1024px) {
+    .herofeed { position: static; width: auto; margin: 0 24px -32px; box-shadow: 0 12px 28px -12px color-mix(in oklch, var(--panynj-navy) 40%, transparent); }
+  }
+
+  /* === STATUS STRIP - always visible, terminal-by-terminal === */
+  .status-strip { background: var(--ice-blue); border-top: 1px solid var(--slate-200); border-bottom: 1px solid var(--slate-200);
+    padding: var(--pad-tight) 32px; }
+  .status-strip .inner { max-width: 1440px; margin: 0 auto; }
+  .status-strip .ss-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 24px; }
+  .status-strip h2 { font-family: var(--display-family); font-weight: 700; font-size: var(--text-h3); line-height: 1.05;
+    letter-spacing: -0.025em; margin: 0; color: var(--panynj-deep-blue); }
+  .status-strip .live { font-size: 13px; color: var(--slate-700); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 8px; }
+  .status-strip .live .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success-green); display: inline-block; }
+  .status-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .status-card { background: var(--ground-white); border-radius: 4px; padding: 22px 24px; }
+  .status-card .label { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate-700); font-weight: 700; }
+  .status-card .value { font-family: var(--display-family); font-size: 56px; line-height: 1; font-weight: 700;
+    letter-spacing: -0.035em; margin-top: 10px; color: var(--panynj-navy); font-variant-numeric: tabular-nums; }
+  .status-card .value .unit { font-size: 20px; color: var(--slate-700); margin-left: 6px; letter-spacing: -0.01em; font-variant-numeric: normal; }
+  .status-card .breakdown { font-size: 13px; color: var(--slate-700); margin-top: 12px; line-height: 1.5; }
+  .status-card .breakdown a { color: var(--panynj-deep-blue); font-weight: 700; }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 9999px; font-size: 12px; font-weight: 700; letter-spacing: 0.02em; }
+  .pill.ok { background: var(--success-tint); color: var(--success-green); }
+  .pill.warn { background: var(--advisory-yellow); color: var(--panynj-navy); }
+
+  /* === AUDIENCE ROUTER - featured Departing + 4 standard tiles === */
+  .audience-section { padding: var(--pad-tight) 32px var(--pad-normal); max-width: 1440px; margin: 0 auto; }
+  .audience-section .opener { margin-bottom: 24px; }
+  .audience-section h2 { font-family: var(--display-family); font-weight: 700; font-size: var(--text-h2); line-height: 1.05;
+    letter-spacing: -0.025em; margin: 0; color: var(--panynj-navy); }
+  .audience-section .deck { color: var(--slate-700); font-size: 17px; max-width: 50ch; margin-top: 6px; }
+  .audience-tiles { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 12px; }
+  .audience-tile { padding: 26px 24px 28px; cursor: pointer; background: var(--ground-white); border: 1px solid var(--slate-200);
+    border-radius: 4px;
+    transition: border-color 280ms var(--ease-out-quart), background 280ms var(--ease-out-quart), color 280ms var(--ease-out-quart), transform 200ms var(--ease-out-quart), box-shadow 200ms var(--ease-out-quart);
+    min-height: 168px; display: flex; flex-direction: column; justify-content: space-between;
+    text-align: left; font-family: inherit; }
+  .audience-tile:hover { border-color: var(--panynj-blue); transform: translateY(-1px); box-shadow: 0 4px 16px -8px var(--shadow-navy-soft); }
+  .audience-tile:active { transform: translateY(0); }
+  .audience-tile.active { background: var(--panynj-navy); border-color: var(--panynj-navy); color: var(--ground-white); }
+  .audience-tile.active .label,
+  .audience-tile.active .meta,
+  .audience-tile.active .featured-preview,
+  .audience-tile.active .featured-preview .stat { color: var(--ground-white); }
+  .audience-tile .label { font-family: var(--display-family); font-weight: 700; font-size: var(--text-h3); line-height: 1;
+    letter-spacing: -0.025em; color: var(--panynj-navy); }
+  .audience-tile .meta { font-size: 14px; color: var(--slate-700); margin-top: 6px; line-height: 1.4; }
+  .audience-tile .arrow { align-self: flex-end; font-size: 22px; color: var(--slate-600); line-height: 1; }
+  .audience-tile.active .arrow { color: var(--ground-white); transform: rotate(90deg); }
+  /* Featured tile (Departing) */
+  .audience-tile.featured { padding: 26px 28px 30px; }
+  .audience-tile.featured .label { font-size: clamp(36px, 4.5vw, 48px); letter-spacing: -0.03em; }
+  .audience-tile.featured .meta { font-size: 15px; }
+  .audience-tile.featured .featured-preview { display: flex; gap: 24px; margin-top: 12px;
+    padding-top: 12px; border-top: 1px solid var(--slate-200); color: var(--slate-700); font-size: 13px; line-height: 1.4; }
+  .audience-tile.featured.active .featured-preview { border-top-color: rgba(255,255,255,0.50); }
+  .audience-tile.featured .featured-preview .stat .num { font-family: var(--display-family); font-weight: 700; font-size: 22px; color: var(--panynj-navy); display: block; line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  /* Semantic stat coloring — status semantics within the brand palette only */
+  .audience-tile.featured .stat[data-meaning="ok"] .num { color: var(--success-green); }
+  .audience-tile.featured .stat[data-meaning="brand"] .num { color: var(--panynj-deep-blue); }
+  .audience-tile.featured.active .stat[data-meaning="ok"] .num,
+  .audience-tile.featured.active .stat[data-meaning="brand"] .num { color: var(--ground-white); }
+  .audience-tile.featured.active .featured-preview .stat .num { color: var(--ground-white); }
+  .audience-tile.featured .featured-preview .stat .lbl { font-size: 11px; color: var(--slate-700); letter-spacing: 0.04em; text-transform: uppercase; font-weight: 700; margin-top: 4px; display: block; }
+  .audience-tile.featured.active .featured-preview .stat .lbl { color: var(--slate-300); }
+
+  /* === TASK PANEL - only for active audience === */
+  .task-panel { padding: var(--pad-airy) 0 var(--pad-airy); background: var(--panynj-navy); color: var(--ground-white); }
+  .task-panel .inner { max-width: 1440px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: start; }
+  .task-panel .head .eyebrow { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-300); font-weight: 700; }
+  .task-panel .head h2 { font-family: var(--display-family); font-weight: 700; font-size: var(--text-h1); line-height: 1.0;
+    letter-spacing: -0.035em; margin: 8px 0 18px; color: var(--ground-white); text-wrap: balance; }
+  .task-panel .head p { color: var(--slate-300); font-size: 17px; line-height: 1.6; max-width: 58ch; margin: 0 0 28px; }
+  .flight-search { background: var(--ground-white); color: var(--ink); border-radius: 4px; padding: 24px 28px; }
+  .flight-search .tabs { display: flex; gap: 28px; border-bottom: 1px solid var(--slate-200); padding-bottom: 0; }
+  .flight-search .tab { padding: 0 0 12px; font-family: var(--display-family); font-weight: 700;
+    font-size: 22px; letter-spacing: -0.01em; color: var(--slate-600); cursor: pointer; background: transparent; border: 0; }
+  .flight-search .tab.active { color: var(--panynj-navy); box-shadow: inset 0 -3px 0 var(--panynj-deep-blue); }
+  .flight-search .search-by { display: flex; gap: 22px; align-items: center; margin-top: 18px; font-size: 14px; color: var(--slate-700); }
+  .flight-search .search-by .label { color: var(--slate-700); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; font-size: 11px; }
+  .flight-search .search-by label { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+  .flight-search .form-row { display: grid; grid-template-columns: 200px 1fr 140px; gap: 14px; margin-top: 14px; align-items: end; }
+  .flight-search .field { display: flex; flex-direction: column; gap: 6px; }
+  .flight-search label.input-label { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate-700); font-weight: 700; }
+  .flight-search input { border: 1px solid var(--slate-600); border-radius: 2px; padding: 12px 14px;
+    font-family: inherit; font-size: 15px; background: var(--ground-white); color: var(--ink); font-variant-numeric: tabular-nums; }
+  .flight-search input:focus-visible { outline: 0; border-color: var(--panynj-blue); border-width: 2px; padding: 11px 13px; }
+  .btn-primary { background: var(--panynj-blue); color: var(--ground-white); border: 0; border-radius: 2px;
+    padding: 14px 26px; font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer;
+    transition: transform 200ms var(--ease-out-quart), box-shadow 200ms var(--ease-out-quart), background 200ms var(--ease-out-quart); }
+  .btn-primary:hover { transform: translateY(-2px); background: var(--panynj-deep-blue); box-shadow: 0 6px 18px -6px var(--shadow-blue-glow); }
+  .btn-primary:active { transform: translateY(1px); box-shadow: 0 2px 6px -2px var(--shadow-blue-glow); transition-duration: 80ms; }
+  .flight-search .all-link { display: inline-block; margin-top: 14px; color: var(--panynj-deep-blue); font-weight: 700; font-size: 14px; }
+
+  .task-side { padding-top: 8px; }
+  .task-side .label-eyebrow { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-300); font-weight: 700; }
+  .task-side h3 { font-family: var(--display-family); font-weight: 700; font-size: var(--text-h3-sm); line-height: 1.15;
+    letter-spacing: -0.02em; margin: 8px 0 16px; color: var(--ground-white); text-wrap: balance; }
+  .quick-actions { display: flex; flex-direction: column; gap: 0; }
+  .quick-action { display: flex; justify-content: space-between; align-items: center; padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.50); color: var(--ground-white); font-size: 15px; }
+  .quick-action:last-child { border-bottom: 0; }
+  .quick-action:hover { text-decoration: none; }
+  .quick-action .l { color: var(--slate-300); font-weight: 500; }
+  .quick-action:hover .l { color: var(--ground-white); }
+  .quick-action .v { color: var(--ground-white); font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+  .quick-action .v .icon-arrow-right { font-size: 14px; color: var(--ground-white);
+    transition: transform 200ms var(--ease-out-quart); }
+  .quick-action:hover .v .icon-arrow-right { transform: translateX(4px); }
+
+  /* === YOUR GUIDE TO JFK - captured 5-tile === */
+  .guide-section { padding: var(--pad-airy) 32px var(--pad-airy); max-width: 1440px; margin: 0 auto; }
+  .section-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 24px; }
+  .section-head h2 { font-family: var(--display-family); font-weight: 700; font-size: var(--text-h2-sm); line-height: 1.05;
+    letter-spacing: -0.03em; margin: 0; color: var(--panynj-navy); text-wrap: balance; }
+  .guide-tiles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .guide-tile { display: block; border: 1px solid var(--slate-200); border-radius: 4px; overflow: hidden; background: var(--ground-white);
+    transition: border-color 220ms var(--ease-out-quart), transform 220ms var(--ease-out-quart), box-shadow 220ms var(--ease-out-quart); }
+  .guide-tile:hover { border-color: var(--panynj-blue); text-decoration: none; transform: translateY(-3px); box-shadow: 0 12px 24px -16px var(--shadow-navy-medium); }
+  .guide-tile .photo { aspect-ratio: 3/4; overflow: hidden; }
+  .guide-tile .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .guide-tile .body { padding: 16px 18px 20px; }
+  .guide-tile .body h3 { font-family: var(--display-family); font-weight: 700; font-size: var(--text-h5); line-height: 1.15; letter-spacing: -0.015em; margin: 0; color: var(--panynj-navy); text-wrap: balance; }
+  .guide-tile .body .arrow { display: inline-block; margin-top: 8px; font-size: 14px; color: var(--panynj-deep-blue); font-weight: 700; }
+
+  /* === CONSTRUCTION REALITY === */
+  .construction { padding: var(--pad-airy) 32px; max-width: 1440px; margin: 0 auto; }
+  .construction .inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .construction .copy h2 { font-family: var(--display-family); font-weight: 700; font-size: var(--text-display-md); line-height: 0.95;
+    letter-spacing: -0.04em; margin: 0 0 18px; color: var(--panynj-navy); max-width: 12ch; text-wrap: balance; }
+  .construction .copy p { font-size: var(--text-body-lg); line-height: 1.6; color: var(--slate-700); margin: 0 0 24px; max-width: 62ch; text-wrap: pretty; }
+  .construction .copy .ctas { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; padding-top: 8px; }
+  .construction .copy .ctas a { color: var(--ink); font-weight: 700; font-size: 15px; border-bottom: 2px solid var(--panynj-blue); padding-bottom: 2px; }
+  .construction figure { margin: 0; padding: 14px; background: var(--tint-navy-4); border-radius: 4px; }
+  .construction figure img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 2px; }
+
+  /* === ESSENTIALS - captured Dine/Shop/Relax === */
+  .essentials { padding: var(--pad-airy) 0; background: var(--ice-blue); }
+  .essentials .inner { max-width: 1440px; margin: 0 auto; padding: 0 32px; }
+  .essentials .essentials-head { margin-bottom: 28px; }
+  .essentials .essentials-head h2 { font-family: var(--display-family); font-weight: 700; font-size: var(--text-h2);
+    line-height: 1.0; letter-spacing: -0.035em; margin: 0 0 8px; color: var(--panynj-navy); text-wrap: balance; }
+  .essentials .essentials-head p { font-size: 17px; color: var(--slate-700); margin: 0; max-width: 60ch; text-wrap: pretty; }
+  .essentials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .essential { background: var(--ground-white); border-radius: 4px; overflow: hidden;
+    transition: transform 240ms var(--ease-out-quart), box-shadow 240ms var(--ease-out-quart); }
+  .essential:hover { transform: translateY(-3px); box-shadow: 0 16px 28px -18px var(--shadow-navy-medium); }
+  .essential .photo { aspect-ratio: 16/9; overflow: hidden; }
+  .essential .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .essential .body { padding: 22px 24px 26px; }
+  .essential .icon-tile { width: 36px; height: 36px; background: var(--panynj-navy); color: var(--ground-white);
+    display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 20px; margin-bottom: 12px; }
+  .essential h3 { font-family: var(--display-family); font-weight: 700; font-size: var(--text-h3-sm); line-height: 1.1;
+    letter-spacing: -0.02em; margin: 0 0 6px; color: var(--panynj-navy); }
+  .essential p { color: var(--slate-700); font-size: 15px; line-height: 1.55; margin: 0 0 14px; }
+  .essential a { color: var(--panynj-deep-blue); font-weight: 700; font-size: 15px; }
+
+  /* === ACCESSIBILITY BAND === */
+  .accessibility { padding: var(--pad-normal) 32px; max-width: 1440px; margin: 0 auto; }
+  .access-card { background: var(--mint-tint); padding: 36px 40px; border-radius: 4px;
+    display: flex; gap: 28px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+  .access-card .left { display: flex; gap: 22px; align-items: center; flex: 1; min-width: 320px; }
+  .access-card .glyph { width: 56px; height: 56px; background: var(--success-green); color: var(--ground-white);
+    display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 28px; flex-shrink: 0; }
+  .access-card h2 { font-family: var(--display-family); font-weight: 700; font-size: var(--text-h3); letter-spacing: -0.025em; line-height: 1.1; margin: 0; color: var(--panynj-navy); text-wrap: balance; }
+  .access-card p { color: var(--slate-700); font-size: 15px; margin: 4px 0 0; max-width: 50ch; }
+  .access-card .arrow-cta { color: var(--ink); font-weight: 700; font-size: 16px; border-bottom: 2px solid var(--panynj-blue); padding-bottom: 2px; }
+
+  /* === LATEST FROM JFK - 1 feature + 2 companions === */
+  .latest { padding: var(--pad-airy) 0; background: var(--slate-100); }
+  .latest .inner { max-width: 1440px; margin: 0 auto; padding: 0 32px; }
+  .latest .latest-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 28px; }
+  .latest .latest-head h2 { font-family: var(--display-family); font-weight: 700; font-size: var(--text-h2-sm); line-height: 1.05;
+    letter-spacing: -0.03em; margin: 0; color: var(--panynj-navy); text-wrap: balance; }
+  .latest .latest-head .all { font-weight: 700; color: var(--panynj-deep-blue); font-size: 15px; }
+  .latest-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; }
+  .latest-feature { background: var(--ground-white); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; }
+  .latest-feature .photo { aspect-ratio: 16/9; }
+  .latest-feature .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .latest-feature .body { padding: 28px 32px 32px; flex: 1; display: flex; flex-direction: column; }
+  .latest-feature .eyebrow { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--panynj-deep-blue); font-weight: 700; margin-bottom: 8px; }
+  .latest-feature h3 { font-family: var(--display-family); font-weight: 700; font-size: var(--text-h3); line-height: 1.1;
+    letter-spacing: -0.025em; margin: 0 0 12px; color: var(--panynj-navy); text-wrap: balance; }
+  .latest-feature p { color: var(--slate-700); font-size: var(--text-body); line-height: 1.6; margin: 0 0 16px; flex: 1; max-width: 65ch; text-wrap: pretty; }
+  .latest-feature a.read { color: var(--panynj-deep-blue); font-weight: 700; font-size: 15px; }
+  .latest-companions { display: flex; flex-direction: column; gap: 20px; }
+  .latest-companion { background: var(--ground-white); border-radius: 4px; padding: 24px 28px;
+    display: flex; flex-direction: column; flex: 1; }
+  .latest-companion .eyebrow { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--panynj-deep-blue); font-weight: 700; margin-bottom: 6px; }
+  .latest-companion h3 { font-family: var(--display-family); font-weight: 700; font-size: var(--text-h4); line-height: 1.15;
+    letter-spacing: -0.02em; margin: 0 0 10px; color: var(--panynj-navy); text-wrap: balance; }
+  .latest-companion p { color: var(--slate-700); font-size: 14px; line-height: 1.55; margin: 0 0 12px; flex: 1; }
+  .latest-companion a { color: var(--panynj-deep-blue); font-weight: 700; font-size: 14px; }
+
+  /* === FOOTER === */
+  footer[data-section="footer"] { background: var(--panynj-navy); color: var(--slate-300); padding: 56px 32px 28px; }
+  footer .inner { max-width: 1376px; margin: 0 auto; }
+  footer .brand { display: flex; align-items: center; gap: 18px; padding-bottom: 28px; margin-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.50); }
+  footer .brand .panynj-logo { height: 64px; width: auto; display: block; }
+  footer .brand .brand-line { font-family: var(--display-family); font-weight: 600; font-size: 14px; color: var(--slate-300); letter-spacing: 0.04em; text-transform: uppercase; }
+  footer .brand .brand-line strong { color: var(--ground-white); display: block; font-size: 16px; letter-spacing: 0.02em; }
+  footer .brand .brand-line .coordinates { display: block; color: var(--slate-400); font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: var(--text-fineprint); letter-spacing: 0.04em; margin-top: 6px; text-transform: none; font-variant-numeric: tabular-nums; }
+  footer .top { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 32px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.50); }
+  footer .col h5 { font-family: var(--display-family); color: var(--ground-white); font-size: 14px; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase; margin: 0 0 12px; }
+  footer .col a { display: block; color: var(--slate-300); font-size: 14px; padding: 4px 0; }
+  footer .col a:hover { color: var(--ground-white); text-decoration: none; }
+  footer .bottom { display: flex; justify-content: space-between; padding-top: 24px; font-size: 12px; color: var(--slate-400); flex-wrap: wrap; gap: 12px; }
+  footer .social { display: flex; gap: 12px; }
+  footer .social a { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.50); border-radius: 9999px;
+    display: inline-flex; align-items: center; justify-content: center; color: var(--slate-300); padding: 0; font-size: 16px; }
+  footer .social a:hover { color: var(--ground-white); border-color: rgba(255,255,255,0.85); text-decoration: none; }
+
+  @media (max-width: 1100px) {
+    .audience-tiles { grid-template-columns: 1fr 1fr; }
+    .audience-tile.featured { grid-column: 1 / -1; }
+    .status-grid, .essentials-grid, .construction .inner, .guide-tiles, .latest-grid, .task-panel .inner { grid-template-columns: 1fr; gap: 24px; }
+    .brand-hero h1 { font-size: 96px; }
+    .construction .copy h2 { font-size: 56px; }
+    /* Tablet: tighten task-panel form so it doesn't force min-content width */
+    .flight-search .form-row { grid-template-columns: 1fr 1fr 140px; }
+    /* Footer collapses 4 cols → 2 */
+    footer .top { grid-template-columns: 1fr 1fr; gap: 28px; }
+  }
+
+  /* ============ MOBILE (≤ 720px): phone-first treatment ============ */
+  /* The locked design's provenance promised "Mobile collapses below the hero" but the
+     phone breakpoint was never authored. This pass implements it without changing the
+     desktop look, content, or interaction model — paddings tighten, audience tiles
+     stack 1-up, the flight-search form stacks single-column, the herofeed widget
+     reflows inline below the hero (already handled by the 1024px @media on .herofeed). */
+  @media (max-width: 720px) {
+    /* Padding rhythm collapses to phone scale */
+    :root {
+      --pad-tight: 24px;
+      --pad-normal: 36px;
+      --pad-airy: 44px;
+      --pad-hero: 56px;
+    }
+
+    /* Header — hide desktop nav (no megamenu in this prototype, so the icons remain
+       as the only nav affordance; the migrated production site has a proper hamburger
+       drawer at the canon.js layer). On phone the brand hero opens immediately. */
+    header[data-section="header"] { padding: 10px 16px; gap: 12px; }
+    header nav { display: none; }
+    header .right { gap: 8px; }
+    header .right .icon { width: 40px; height: 40px; font-size: 18px; }
+    header .logo img { height: 32px; }
+
+    /* Brand hero */
+    .brand-hero { height: auto; min-height: 460px; }
+    .brand-hero .copy { padding: 24px 16px 40px; }
+    .brand-hero .meta-strip { left: 16px; right: 16px; top: 16px; font-size: 11px; gap: 12px; }
+    .brand-hero h1 { font-size: clamp(72px, 22vw, 120px); letter-spacing: -0.05em; }
+    .brand-hero .deck { font-size: 17px; line-height: 1.4; margin-top: 14px; max-width: none; }
+    /* Disable the slow infinite ambient drift on mobile (saves battery + small viewport doesn't need it) */
+    .brand-hero img { animation: hero-image-settle 1400ms var(--ease-out-expo) both; }
+
+    /* Herofeed — already collapses to static at 1024px; tighten its inner padding here */
+    .herofeed { margin: 0 16px -24px; padding: 16px 16px 14px; }
+    .herofeed .hf-entry { grid-template-columns: 48px 1fr; gap: 12px; padding: 10px 0; }
+    .herofeed .hf-entry .body { font-size: 13px; }
+
+    /* Status strip — already 1fr at 1100px; tighten paddings */
+    .status-strip { padding: var(--pad-tight) 16px; }
+    .status-strip .ss-head { flex-wrap: wrap; gap: 8px; align-items: baseline; margin-bottom: 18px; }
+    .status-card { padding: 18px 20px; }
+    .status-card .value { font-size: 44px; margin-top: 6px; }
+    .status-card .breakdown { font-size: 13px; margin-top: 10px; }
+
+    /* Audience router — stack 1-up on phone (was 2-up at 1100px) */
+    .audience-section { padding: var(--pad-tight) 16px var(--pad-normal); }
+    .audience-section h2 { font-size: clamp(32px, 8vw, 48px); }
+    .audience-section .deck { font-size: 16px; margin-top: 6px; }
+    .audience-tiles { grid-template-columns: 1fr; gap: 10px; }
+    .audience-tile { min-height: 0; padding: 20px 20px 22px; }
+    .audience-tile .label { font-size: 26px; }
+    .audience-tile .meta { font-size: 14px; margin-top: 4px; }
+    .audience-tile.featured { padding: 22px 22px 24px; }
+    .audience-tile.featured .label { font-size: 34px; letter-spacing: -0.025em; }
+    .audience-tile.featured .featured-preview { gap: 22px; padding-top: 12px; margin-top: 10px; flex-wrap: wrap; }
+    .audience-tile.featured .featured-preview .stat { min-width: 90px; }
+    .audience-tile.featured .featured-preview .stat .num { font-size: 20px; }
+
+    /* Task panel — stack panel content single column */
+    .task-panel { padding: var(--pad-normal) 0; }
+    .task-panel .inner { padding: 0 16px; gap: 28px; grid-template-columns: 1fr; }
+    .task-panel .head h2 { font-size: clamp(40px, 11vw, 64px); margin: 6px 0 14px; }
+    .task-panel .head p { font-size: 16px; line-height: 1.55; margin: 0 0 22px; }
+    .task-side { padding-top: 0; }
+    .task-side h3 { font-size: 22px; margin: 6px 0 12px; }
+
+    /* Flight search — collapse 200px / 1fr / 140px to single column */
+    .flight-search { padding: 20px 20px; }
+    .flight-search .tabs { gap: 18px; }
+    .flight-search .tab { font-size: 19px; padding: 0 0 10px; }
+    .flight-search .search-by { gap: 14px; flex-wrap: wrap; margin-top: 14px; }
+    .flight-search .form-row { grid-template-columns: 1fr; gap: 12px; margin-top: 12px; }
+    .flight-search .field { width: 100%; }
+    .flight-search input { padding: 14px 14px; font-size: 16px; /* prevent iOS zoom-on-focus */ }
+    .flight-search .btn-primary { width: 100%; padding: 16px 26px; }
+
+    /* Quick actions — make rows tap-target friendly */
+    .quick-actions { gap: 0; }
+    .quick-action { padding: 14px 0; font-size: 15px; min-height: 44px; align-items: center; }
+
+    /* Pickup status — keep 3-col grid but tighten */
+    .pickup-status { padding: 18px 20px; }
+    .pickup-status .ps-row { grid-template-columns: 60px 1fr auto; gap: 10px; padding: 10px 0; font-size: 14px; }
+
+    /* Connect info — keep, just tighten font */
+    .connect-info { padding: 18px 20px; gap: 18px; }
+    .connect-info .mct-table { font-size: 13px; }
+    .connect-info .mct-table th { font-size: 10px; }
+
+    /* Visit info — 2-col grid stays (cards are small enough), tighten gap */
+    .visit-info { padding: 18px 20px; }
+    .visit-info .vi-grid { gap: 10px; }
+    .visit-info .vi-card { padding: 14px 14px; }
+
+    /* Guide tiles — 5-col → 2-col on phone (was 1-col at 1100px which loses the visual rhythm) */
+    .guide-section { padding: var(--pad-normal) 16px; }
+    .guide-tiles { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .guide-tile .photo { aspect-ratio: 4/5; }
+    .guide-tile .body { padding: 12px 12px 14px; }
+    .guide-tile .body h3 { font-size: 17px; }
+    .section-head { flex-wrap: wrap; gap: 6px; align-items: baseline; margin-bottom: 18px; }
+    .section-head h2 { font-size: clamp(28px, 7vw, 40px); }
+
+    /* Construction */
+    .construction { padding: var(--pad-normal) 16px; }
+    .construction .copy h2 { font-size: clamp(40px, 12vw, 56px); margin: 0 0 14px; max-width: none; }
+    .construction .copy p { font-size: 16px; line-height: 1.55; margin: 0 0 18px; }
+    .construction .copy .ctas { gap: 14px; }
+    .construction figure { padding: 8px; }
+
+    /* Essentials */
+    .essentials { padding: var(--pad-normal) 0; }
+    .essentials .inner { padding: 0 16px; }
+    .essentials .essentials-head { margin-bottom: 22px; }
+    .essentials .essentials-head h2 { font-size: clamp(32px, 9vw, 56px); }
+    .essentials-grid { grid-template-columns: 1fr; gap: 14px; }
+    .essential .body { padding: 18px 20px 22px; }
+    .essential h3 { font-size: 22px; }
+
+    /* Accessibility */
+    .accessibility { padding: var(--pad-tight) 16px; }
+    .access-card { padding: 22px 22px; gap: 18px; flex-direction: column; align-items: flex-start; }
+    .access-card .left { min-width: 0; gap: 16px; align-items: flex-start; }
+    .access-card .glyph { width: 48px; height: 48px; font-size: 24px; }
+    .access-card h2 { font-size: 24px; }
+    .access-card p { font-size: 14px; }
+    .access-card .arrow-cta { font-size: 15px; }
+
+    /* Latest */
+    .latest { padding: var(--pad-normal) 0; }
+    .latest .inner { padding: 0 16px; }
+    .latest .latest-head { margin-bottom: 22px; }
+    .latest .latest-head h2 { font-size: clamp(28px, 7vw, 40px); }
+    .latest-grid { grid-template-columns: 1fr; gap: 14px; }
+    .latest-feature .body { padding: 22px 22px 24px; }
+    .latest-feature h3 { font-size: 24px; }
+    .latest-feature p { font-size: 15px; }
+    .latest-companions { gap: 14px; }
+    .latest-companion { padding: 20px 22px; }
+
+    /* Footer */
+    footer[data-section="footer"] { padding: 40px 16px 24px; }
+    footer .brand { gap: 14px; padding-bottom: 22px; margin-bottom: 22px; flex-wrap: wrap; }
+    footer .brand .panynj-logo { height: 48px; }
+    footer .top { grid-template-columns: 1fr 1fr; gap: 24px; padding-bottom: 28px; }
+    footer .col h5 { margin-bottom: 10px; }
+    footer .bottom { flex-direction: column; align-items: flex-start; gap: 14px; padding-top: 20px; }
+
+    /* Tap-target floor for any interactive icon-only element */
+    a, button, [role="button"] { min-height: 24px; }
+    header .right .icon, footer .social a { min-height: 40px; min-width: 40px; }
+  }
+
+  /* ============ Very small phones (≤ 380px) ============ */
+  @media (max-width: 380px) {
+    .brand-hero h1 { font-size: clamp(60px, 19vw, 96px); letter-spacing: -0.045em; }
+    .brand-hero .deck { font-size: 16px; }
+    .audience-tile.featured .featured-preview { gap: 14px; }
+    .audience-tile.featured .featured-preview .stat { min-width: 80px; }
+    .audience-tile.featured .featured-preview .stat .num { font-size: 18px; }
+    footer .top { grid-template-columns: 1fr; gap: 18px; }
+    .guide-tiles { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body data-variant="V1-faithful-navy-v2" data-axis="audience-routing" data-content="captured-with-voice-rephrase">
+
+<a href="#main-content" class="skip">Skip to Content</a>
+
+<header data-section="header" role="banner">
+  <a href="/stardust-site/" class="logo" aria-label="John F. Kennedy International Airport">
+    <img src="assets/media/JFK-cd579a20.svg" alt="John F. Kennedy International Airport">
+  </a>
+  <nav data-section="primary-nav" aria-label="Main">
+    <a href="/stardust-site/flights">Flights</a>
+    <a href="/stardust-site/transportation">Transportation &amp; Parking</a>
+    <a href="/stardust-site/explore-jfk">Explore JFK</a>
+    <a href="/stardust-site/dine-shop-relax">Dine, Shop, Relax</a>
+  </nav>
+  <div class="right">
+    <a href="/stardust-site/explore-jfk/accessibility-services" class="icon" aria-label="Accessibility services" title="Accessibility services"><span class="icon-accessible" aria-hidden="true"></span></a>
+    <button class="icon icon-btn" aria-label="Search"><span class="icon-search" aria-hidden="true"></span></button>
+  </div>
+</header>
+
+<main id="main-content">
+  <!-- BRAND HERO - captured Manhattan skyline + JFK wordmark (Mode A image-reuse) -->
+  <section data-section="brand-hero" data-purpose="brand-statement" class="brand-hero">
+    <img src="assets/media/032_26_JFK_20Hero_20Image_v1_r0_promo-5x2-99093042.jpg" alt="">
+    <div class="scrim"></div>
+    <div class="meta-strip">
+      <span>John F. Kennedy International Airport</span>
+      <span>New York City</span>
+    </div>
+    <div class="copy">
+      <h1>JFK</h1>
+      <p class="deck">Your world-class gateway to the world.</p>
+    </div>
+    <aside class="herofeed" data-section="herofeed" aria-label="Live operational updates" role="complementary">
+      <div class="hf-head">
+        <span class="live"><span class="live-dot" aria-hidden="true"></span>Today at JFK</span>
+        <a class="meta-link" href="/stardust-site/alerts-advisories">All alerts &rarr;</a>
+      </div>
+      <div class="hf-feed" role="list">
+        <article class="hf-entry" role="listitem">
+          <div class="time">10:42<span class="now">Now</span></div>
+          <div class="body">
+            <span class="tag">Security</span><br>
+            Wait peaking at <strong>T4 (22 min)</strong>. Other terminals lighter, 9 to 17 min.
+          </div>
+        </article>
+        <article class="hf-entry" role="listitem">
+          <div class="time">10:18<span class="now">24m ago</span></div>
+          <div class="body">
+            <span class="tag">Pickup</span><br>
+            Ride-app pickup at <strong>T7</strong> moved to <strong>Lot 2</strong>; T7 taxi stand relocated.
+          </div>
+        </article>
+        <article class="hf-entry" role="listitem">
+          <div class="time">09:45<span class="now">57m ago</span></div>
+          <div class="body">
+            <span class="tag">AirTrain</span><br>
+            Back to normal <strong>7-min headway</strong>. All stations open.
+          </div>
+        </article>
+      </div>
+    </aside>
+  </section>
+
+  <!-- (Status strip removed; live-feed lives as herofeed overlay inside the brand hero above) -->
+
+  <!-- AUDIENCE ROUTER - featured Departing + 4 standard tiles -->
+  <section data-section="audience-router" data-purpose="audience-routing" class="audience-section reveal">
+    <div class="opener">
+      <h2 class="display">What are you here to do?</h2>
+      <p class="deck">Pick where you are in your day. We'll route you straight to the task.</p>
+    </div>
+    <div class="audience-tiles">
+      <button class="audience-tile featured active" data-audience="departing" aria-label="Departing (most common path, currently active)">
+        <div>
+          <div class="label">Departing</div>
+          <div class="meta">Search a flight, check parking and security wait times.</div>
+        </div>
+        <div class="featured-preview">
+          <div class="stat" data-meaning="brand"><span class="num num-count" data-target="612">612</span><span class="lbl">Departures today</span></div>
+          <div class="stat" data-meaning="ok"><span class="num num-count" data-target="22" data-suffix="m">22m</span><span class="lbl">Busiest security</span></div>
+          <div class="stat" data-meaning="ok"><span class="num num-count" data-target="62" data-suffix="%">62%</span><span class="lbl">Parking open</span></div>
+        </div>
+      </button>
+      <button class="audience-tile" data-audience="arriving" aria-label="Arriving">
+        <div>
+          <div class="label">Arriving</div>
+          <div class="meta">Track an arrival, baggage, ground transport.</div>
+        </div>
+        <div class="arrow" aria-hidden="true"><span class="icon-chevron-right"></span></div>
+      </button>
+      <button class="audience-tile" data-audience="pickup" aria-label="Picking up">
+        <div>
+          <div class="label">Picking up</div>
+          <div class="meta">Current pickup zones &amp; ride-app pickup points.</div>
+        </div>
+        <div class="arrow" aria-hidden="true"><span class="icon-chevron-right"></span></div>
+      </button>
+      <button class="audience-tile" data-audience="connecting" aria-label="Connecting">
+        <div>
+          <div class="label">Connecting</div>
+          <div class="meta">Terminal-to-terminal, AirTrain, walk times.</div>
+        </div>
+        <div class="arrow" aria-hidden="true"><span class="icon-chevron-right"></span></div>
+      </button>
+      <button class="audience-tile" data-audience="visiting" aria-label="Visiting">
+        <div>
+          <div class="label">Visiting</div>
+          <div class="meta">Maps, dining, lounges, accessibility.</div>
+        </div>
+        <div class="arrow" aria-hidden="true"><span class="icon-chevron-right"></span></div>
+      </button>
+    </div>
+  </section>
+
+  <!-- TASK PANEL - Departing default -->
+  <!-- DEPARTING task panel (default) -->
+  <section data-section="task-panel" data-audience="departing" data-purpose="commercial-conversion" class="task-panel">
+    <div class="inner reveal">
+      <div class="head">
+        <div class="eyebrow">Departing</div>
+        <h2 class="display">Welcome to JFK.</h2>
+        <p>Search a flight by destination or by number. Reserve parking ahead of time. Or jump straight to one of today's most common things to do, on the right.</p>
+        <div class="flight-search" data-section="flight-search-panel">
+          <div class="tabs">
+            <button class="tab active">Departures</button>
+            <button class="tab">Arrivals</button>
+            <button class="tab">Parking</button>
+          </div>
+          <div class="search-by">
+            <span class="label">Search by</span>
+            <label><input type="radio" name="searchBy" checked> Destination</label>
+            <label><input type="radio" name="searchBy"> Flight Number</label>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label class="input-label" for="dep-date">Date (required)</label>
+              <input id="dep-date" type="text" value="05/03/2026">
+            </div>
+            <div class="field">
+              <label class="input-label" for="dep-dest">Destination Airport (required)</label>
+              <input id="dep-dest" type="text" placeholder="Select your destination">
+            </div>
+            <div class="field">
+              <button class="btn-primary">Search</button>
+            </div>
+          </div>
+          <a href="/stardust-site/flights?direction=departures&amp;showAllFlights=true" class="all-link">All departing flights &rarr;</a>
+        </div>
+      </div>
+      <aside class="task-side" aria-label="Quick actions for departing passengers">
+        <div class="label-eyebrow">Quick actions</div>
+        <h3 class="display">Skip to what you need.</h3>
+        <div class="quick-actions">
+          <a href="/stardust-site/transportation/airport-parking" class="quick-action">
+            <span class="l">Reserve parking</span>
+            <span class="v">Save up to 20% <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/explore-jfk/terminals" class="quick-action">
+            <span class="l">Find your terminal</span>
+            <span class="v">All 5 terminals <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/explore-jfk/airport-map" class="quick-action">
+            <span class="l">Airport map</span>
+            <span class="v">Interactive <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/transportation/public-transport" class="quick-action">
+            <span class="l">Public transportation</span>
+            <span class="v">AirTrain &middot; Subway &middot; Bus <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/flights/airlines" class="quick-action">
+            <span class="l">Contact your airline</span>
+            <span class="v">All carriers <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ARRIVING task panel -->
+  <section data-section="task-panel" data-audience="arriving" data-purpose="audience-arriving" class="task-panel" hidden>
+    <div class="inner">
+      <div class="head">
+        <div class="eyebrow">Arriving</div>
+        <h2 class="display">Welcome back to New York.</h2>
+        <p>Track an inbound flight by airline, number, or origin. Find your baggage claim and the right way out, terminal by terminal.</p>
+        <div class="flight-search" data-section="flight-search-panel">
+          <div class="tabs">
+            <button class="tab">Departures</button>
+            <button class="tab active">Arrivals</button>
+            <button class="tab">Track flight</button>
+          </div>
+          <div class="search-by">
+            <span class="label">Search by</span>
+            <label><input type="radio" name="searchByA" checked> Origin</label>
+            <label><input type="radio" name="searchByA"> Flight Number</label>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label class="input-label" for="arr-date">Date (required)</label>
+              <input id="arr-date" type="text" value="05/03/2026">
+            </div>
+            <div class="field">
+              <label class="input-label" for="arr-orig">Origin Airport (required)</label>
+              <input id="arr-orig" type="text" placeholder="Select origin">
+            </div>
+            <div class="field">
+              <button class="btn-primary">Track</button>
+            </div>
+          </div>
+          <a href="/stardust-site/flights?direction=arrivals&amp;showAllFlights=true" class="all-link">All arriving flights &rarr;</a>
+        </div>
+      </div>
+      <aside class="task-side" aria-label="Quick actions for arriving passengers">
+        <div class="label-eyebrow">Quick actions</div>
+        <h3 class="display">First steps off the plane.</h3>
+        <div class="quick-actions">
+          <a href="/stardust-site/explore-jfk/terminals" class="quick-action">
+            <span class="l">Baggage claim by terminal</span>
+            <span class="v">Find yours <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/transportation/airtrain" class="quick-action">
+            <span class="l">AirTrain to Jamaica</span>
+            <span class="v">Subway, LIRR <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/transportation/taxi-service" class="quick-action">
+            <span class="l">Taxi to Manhattan</span>
+            <span class="v">Flat fare <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/lost-and-found" class="quick-action">
+            <span class="l">Lost &amp; Found</span>
+            <span class="v">Submit a report <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/explore-jfk/services" class="quick-action">
+            <span class="l">Meet &amp; Greet</span>
+            <span class="v">All terminals <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- PICKUP task panel -->
+  <section data-section="task-panel" data-audience="pickup" data-purpose="audience-pickup" class="task-panel" hidden>
+    <div class="inner">
+      <div class="head">
+        <div class="eyebrow">Picking up</div>
+        <h2 class="display">Live pickup status.</h2>
+        <p>Construction has moved several pickup zones this week. Find the right zone for your terminal before you head out, and follow the airport signage when you arrive.</p>
+        <div class="pickup-status">
+          <h3 class="ps-head">Current pickup zones, by terminal</h3>
+          <div class="ps-rows">
+            <div class="ps-row"><span class="terminal">T1</span><span class="detail">Standard pickup at curb</span><span class="pill ok">Normal</span></div>
+            <div class="ps-row"><span class="terminal">T4</span><span class="detail">Standard pickup at curb</span><span class="pill ok">Normal</span></div>
+            <div class="ps-row"><span class="terminal">T5</span><span class="detail">Ride-app pickup moved to Lot 2</span><span class="pill warn">Lot 2</span></div>
+            <div class="ps-row"><span class="terminal">T7</span><span class="detail">Ride-app pickup moved to Lot 2; taxi stand relocated</span><span class="pill warn">Lot 2 + taxi relocated</span></div>
+            <div class="ps-row"><span class="terminal">T8</span><span class="detail">Standard pickup at curb</span><span class="pill ok">Normal</span></div>
+          </div>
+          <a href="/stardust-site/transportation/pick-up-drop-off" class="all-link">Live pickup map &rarr;</a>
+        </div>
+      </div>
+      <aside class="task-side" aria-label="Quick actions for pickup drivers">
+        <div class="label-eyebrow">Quick actions</div>
+        <h3 class="display">Park, wait, or circle.</h3>
+        <div class="quick-actions">
+          <a href="/stardust-site/transportation/pick-up-drop-off" class="quick-action">
+            <span class="l">Pick-up &amp; drop-off areas</span>
+            <span class="v">All terminals <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/transportation/ride-share-services" class="quick-action">
+            <span class="l">Ride-app pickup points</span>
+            <span class="v">Uber, Lyft <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/alerts-advisories" class="quick-action">
+            <span class="l">Terminal access changes</span>
+            <span class="v">Active alerts <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/transportation/airport-parking" class="quick-action">
+            <span class="l">Park and wait</span>
+            <span class="v">Cell-phone lot, short-term <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/contact-us" class="quick-action">
+            <span class="l">Stuck somewhere?</span>
+            <span class="v">Contact us <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- CONNECTING task panel -->
+  <section data-section="task-panel" data-audience="connecting" data-purpose="audience-connecting" class="task-panel" hidden>
+    <div class="inner">
+      <div class="head">
+        <div class="eyebrow">Connecting</div>
+        <h2 class="display">Get to your next gate.</h2>
+        <p>Terminal-to-terminal navigation, AirTrain frequency, walk times, and minimum connection times by airline pair.</p>
+        <div class="connect-info">
+          <div class="ci-block">
+            <div class="label">AirTrain &middot; on-airport service</div>
+            <h4>Every 7 minutes, all 5 terminals.</h4>
+            <p>Free inside the airport. Average ride time between terminals is 8 to 14 minutes.</p>
+          </div>
+          <div class="ci-block">
+            <div class="label">Minimum connection times</div>
+            <table class="mct-table">
+              <thead>
+                <tr><th>From</th><th>To</th><th>Same airline</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>T4</td><td>T4</td><td>60 min</td></tr>
+                <tr><td>T4</td><td>T8</td><td>90 min</td></tr>
+                <tr><td>T5</td><td>T5</td><td>60 min</td></tr>
+                <tr><td>T7</td><td>T7</td><td>60 min</td></tr>
+                <tr><td>T8</td><td>T1</td><td>120 min</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <a href="/stardust-site/flights/connections-guide" class="all-link">Full Connections Guide &rarr;</a>
+        </div>
+      </div>
+      <aside class="task-side" aria-label="Quick actions for connecting passengers">
+        <div class="label-eyebrow">Quick actions</div>
+        <h3 class="display">On the move, fast.</h3>
+        <div class="quick-actions">
+          <a href="/stardust-site/explore-jfk/terminals" class="quick-action">
+            <span class="l">All Terminals</span>
+            <span class="v">Find your gate <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/transportation/airtrain" class="quick-action">
+            <span class="l">AirTrain map</span>
+            <span class="v">Stations, frequency <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/explore-jfk/airport-map" class="quick-action">
+            <span class="l">Walk times</span>
+            <span class="v">Gate to gate <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/explore-jfk/accessibility-services/mobility-accessibility" class="quick-action">
+            <span class="l">Accessibility transport</span>
+            <span class="v">Wheelchair, escort <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/flights/connections-guide/travel-between-airports" class="quick-action">
+            <span class="l">Travel between airports</span>
+            <span class="v">JFK, LGA, EWR <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- VISITING task panel -->
+  <section data-section="task-panel" data-audience="visiting" data-purpose="audience-visiting" class="task-panel" hidden>
+    <div class="inner">
+      <div class="head">
+        <div class="eyebrow">Visiting</div>
+        <h2 class="display">More than an airport.</h2>
+        <p>Six terminals, dozens of restaurants, three lounges, a public art program, and a few quiet corners. Here's what's open today.</p>
+        <div class="visit-info">
+          <div class="vi-grid">
+            <div class="vi-card">
+              <h4>Interactive airport map</h4>
+              <p>Find shops, food, lounges, and amenities by terminal.</p>
+              <a href="/stardust-site/explore-jfk/airport-map">Open map &rarr;</a>
+            </div>
+            <div class="vi-card">
+              <h4>Dine, Shop, Relax</h4>
+              <p>Quick bites to sit-down meals, last-minute shopping, lounges and quiet spaces.</p>
+              <a href="/stardust-site/dine-shop-relax">Discover &rarr;</a>
+            </div>
+            <div class="vi-card">
+              <h4>Airport lounges</h4>
+              <p>By airline, alliance, or pay-as-you-go. Showers, food, and a place to land.</p>
+              <a href="/stardust-site/dine-shop-relax/lounge-and-rest">See all lounges &rarr;</a>
+            </div>
+            <div class="vi-card">
+              <h4>Airport hotels</h4>
+              <p>On-airport stays for early flights, layovers, or just because Manhattan is two hours away.</p>
+              <a href="/stardust-site/explore-jfk/hotels">Find a room &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="task-side" aria-label="Quick actions for visitors">
+        <div class="label-eyebrow">Quick actions</div>
+        <h3 class="display">Make it more than a layover.</h3>
+        <div class="quick-actions">
+          <a href="/stardust-site/explore-jfk" class="quick-action">
+            <span class="l">Explore JFK</span>
+            <span class="v">Services, terminals <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/explore-jfk/services" class="quick-action">
+            <span class="l">Airport services</span>
+            <span class="v">Currency, banking, more <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/explore-jfk/accessibility-services" class="quick-action">
+            <span class="l">Accessibility services</span>
+            <span class="v">All terminals <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="/stardust-site/contact-us" class="quick-action">
+            <span class="l">Got a question?</span>
+            <span class="v">Real humans <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://www.panynj.gov/WhatsApp_JFK" class="quick-action">
+            <span class="l">JFK on WhatsApp</span>
+            <span class="v">10am to 2am ET <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- YOUR GUIDE TO JFK - captured 5-tile -->
+  <section data-section="your-guide" data-purpose="ia-pillar-discovery" class="guide-section reveal">
+    <div class="section-head">
+      <h2 class="display">Your Guide to JFK</h2>
+    </div>
+    <div class="guide-tiles">
+      <a href="/stardust-site/explore-jfk/airport-map" class="guide-tile">
+        <div class="photo"><img src="assets/media/JFK_20Airport_20map_202.5-7e06d1e6.jpg" alt="JFK airport map showing terminal locations." loading="lazy"></div>
+        <div class="body"><h3>Interactive Map</h3><span class="arrow">Explore &rarr;</span></div>
+      </a>
+      <a href="/stardust-site/flights/departures" class="guide-tile">
+        <div class="photo"><img src="assets/media/1-1_departurescard_card-portrait-3x4-0f15539f.jpg" alt="A passenger checking the departures board." loading="lazy"></div>
+        <div class="body"><h3>Departures Guide</h3><span class="arrow">Open &rarr;</span></div>
+      </a>
+      <a href="/stardust-site/flights/arrivals" class="guide-tile">
+        <div class="photo"><img src="assets/media/1-2_1_arrivalsguidehero_card-portrait-3x4-1a528b73.jpg" alt="A traveler at JFK arrivals greeting a family member." loading="lazy"></div>
+        <div class="body"><h3>Arrivals Guide</h3><span class="arrow">Open &rarr;</span></div>
+      </a>
+      <a href="/stardust-site/flights/connections-guide" class="guide-tile">
+        <div class="photo"><img src="assets/media/0-1_2_general_card-portrait-3x4-ff464ef2.jpg" alt="An AirTrain car between JFK terminals." loading="lazy"></div>
+        <div class="body"><h3>Connections Guide</h3><span class="arrow">Open &rarr;</span></div>
+      </a>
+      <a href="/stardust-site/explore-jfk/terminals" class="guide-tile">
+        <div class="photo"><img src="assets/media/3_6-1_allterminalshero_card-portrait-3x4-4efc8669.jpg" alt="Inside a JFK terminal at boarding gates." loading="lazy"></div>
+        <div class="body"><h3>All Terminals</h3><span class="arrow">Find yours &rarr;</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CONSTRUCTION - voice-rephrased -->
+  <section data-section="construction-reality" data-purpose="crisis-affordance" class="construction" id="today">
+    <div class="inner reveal">
+      <div class="copy">
+        <h2 class="display">Building tomorrow's JFK.</h2>
+        <p>JFK is mid a $19B redevelopment that runs through 2028: new terminals, new roadways, rebuilt pickup zones. Most days, most things work. Some days, something doesn't. Live status is at the top of the page; the full plan and current advisories are here.</p>
+        <div class="ctas">
+          <a href="https://www.portauthoritybuilds.com/redevelopment/us/en/jfk.html">JFK Redevelopment plan &rarr;</a>
+          <a href="/stardust-site/alerts-advisories">All alerts and advisories &rarr;</a>
+        </div>
+      </div>
+      <figure>
+        <img src="assets/media/JFK_20Airport_20map_202.5-7e06d1e6.jpg" alt="JFK airport map illustration showing terminals and current construction zones." loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ESSENTIALS - captured Dine/Shop/Relax with voice-rephrased H2 -->
+  <section data-section="essentials" data-purpose="ia-pillar-discovery" class="essentials">
+    <div class="inner reveal">
+      <div class="essentials-head">
+        <h2 class="display">While you're here.</h2>
+        <p>From quick bites to sit-down meals, last-minute essentials, and lounges to settle in before your flight.</p>
+      </div>
+      <div class="essentials-grid">
+        <div class="essential">
+          <div class="photo"><img src="assets/media/4-0_4_SDRcard_card-wide-16x9-0765162a.jpg" alt="A diner at a JFK food court." loading="lazy"></div>
+          <div class="body">
+            <span class="icon-tile" aria-hidden="true"><span class="icon-restaurants"></span></span>
+            <h3>Dine</h3>
+            <p>Quick bites to sit-down meals, plenty of dietary options, perfect for a rush or a slow morning.</p>
+            <a href="/stardust-site/dine-shop-relax/food">JFK Airport restaurants &rarr;</a>
+          </div>
+        </div>
+        <div class="essential">
+          <div class="photo"><img src="assets/media/4-0_2_shopteasercard_card-wide-16x9-25a97a96.jpg" alt="A shop interior at a JFK terminal." loading="lazy"></div>
+          <div class="body">
+            <span class="icon-tile" aria-hidden="true"><span class="icon-shops"></span></span>
+            <h3>Shop</h3>
+            <p>Forgot something? Last-minute travel essentials, snacks, sunglasses, chargers, and souvenirs.</p>
+            <a href="/stardust-site/dine-shop-relax/shops">JFK Airport shops &rarr;</a>
+          </div>
+        </div>
+        <div class="essential">
+          <div class="photo"><img src="assets/media/4-0_4_RelaxTeaser_card-wide-16x9-f2de0260.jpg" alt="A traveler relaxing in a JFK lounge area." loading="lazy"></div>
+          <div class="body">
+            <span class="icon-tile" aria-hidden="true"><span class="icon-waiting-area"></span></span>
+            <h3>Relax</h3>
+            <p>Looking for a place to relax before your flight? Discover airport lounges, spas, and more.</p>
+            <a href="/stardust-site/dine-shop-relax/lounge-and-rest">Places to relax at JFK Airport &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESSIBILITY -->
+  <section data-section="accessibility-band" data-purpose="accessibility-affordance" class="accessibility">
+    <div class="access-card reveal">
+      <div class="left">
+        <div class="glyph" aria-hidden="true"><span class="icon-accessible"></span></div>
+        <div>
+          <h2 class="display">Accessibility at JFK.</h2>
+          <p>Mobility, vision, hearing, hidden disabilities, and the Hidden Disabilities Sunflower lanyard program. Services in every terminal.</p>
+        </div>
+      </div>
+      <a href="/stardust-site/explore-jfk/accessibility-services" class="arrow-cta">All accessibility services &rarr;</a>
+    </div>
+  </section>
+
+  <!-- LATEST FROM JFK - 1 feature + 2 stacked companions -->
+  <section data-section="latest-from-jfk" data-purpose="news-promotions" class="latest">
+    <div class="inner reveal">
+      <div class="latest-head">
+        <h2 class="display">Latest from JFK.</h2>
+        <a href="/stardust-site/alerts-advisories" class="all">All alerts &amp; updates &rarr;</a>
+      </div>
+      <div class="latest-grid">
+        <article class="latest-feature">
+          <div class="photo"><img src="assets/media/0-0_8_leffertsblvdlotcard_card-wide-16x9-afbc37d1.jpg" alt="A pickup zone at JFK with cars and signage." loading="lazy"></div>
+          <div class="body">
+            <div class="eyebrow">Pickup &amp; drop-off</div>
+            <h3>Convenient pick-up and drop-off areas.</h3>
+            <p>Construction has moved several pickup zones, including T5 ride-app to Lot 2 and the T7 taxi stand. Find the right zone for your terminal, with current relocations.</p>
+            <a href="/stardust-site/transportation/pick-up-drop-off" class="read">See the pickup map &rarr;</a>
+          </div>
+        </article>
+        <div class="latest-companions">
+          <article class="latest-companion">
+            <div class="eyebrow">Customer support</div>
+            <h3>JFK customer support on WhatsApp.</h3>
+            <p>Need help while at the airport? JFK is on WhatsApp every day, 10 a.m. to 2 a.m. ET: accessibility, assistance, and more.</p>
+            <a href="https://www.panynj.gov/WhatsApp_JFK">Learn more &rarr;</a>
+          </article>
+          <article class="latest-companion">
+            <div class="eyebrow">Recognition</div>
+            <h3>Nominate an employee for great service.</h3>
+            <p>Did an employee make your day? Tell us about it. Recognise the people who make JFK work.</p>
+            <a href="https://survey3.medallia.com/?RRNominationSurvey&amp;airport=jfk_feedback">Learn more &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-section="footer" role="contentinfo">
+  <div class="inner">
+    <div class="brand" data-section="panynj-cobrand">
+      <a href="http://www.panynj.gov/" aria-label="Port Authority of New York &amp; New Jersey">
+        <img src="assets/media/Port_Authority_NYNJ_logo-40276be9.svg" alt="Port Authority of New York &amp; New Jersey. Air, Land, Rail, Sea." class="panynj-logo">
+      </a>
+      <div class="brand-line">
+        <strong>Port Authority of New York &amp; New Jersey</strong>
+        Operates JFK &middot; LGA &middot; EWR &middot; SWF &middot; TEB
+        <span class="coordinates">40.6413&deg; N &middot; 73.7781&deg; W</span>
+      </div>
+    </div>
+    <div class="top">
+      <div class="col">
+        <h5>Help</h5>
+        <a href="/stardust-site/contact-us">Contact Us</a>
+        <a href="/stardust-site/frequently-asked-questions">FAQ</a>
+        <a href="/stardust-site/lost-and-found">Lost and Found</a>
+        <a href="/stardust-site/feedback">Feedback</a>
+      </div>
+      <div class="col">
+        <h5>Travel info</h5>
+        <a href="/stardust-site/alerts-advisories">Alerts and Advisories</a>
+        <a href="/stardust-site/explore-jfk/accessibility-services">Accessibility</a>
+        <a href="/stardust-site/transportation/airport-parking">Parking</a>
+        <a href="/stardust-site/explore-jfk/airport-map">Airport map</a>
+      </div>
+      <div class="col">
+        <h5>About</h5>
+        <a href="https://www.panynj.gov/airports/en/index.html">PANYNJ Airports Information</a>
+        <a href="https://www.portauthoritybuilds.com/redevelopment/us/en/jfk.html">JFK Redevelopment</a>
+        <a href="https://www.panynj.gov/airports/en/air-cargo/jfk.html">Air Cargo</a>
+        <a href="https://www.panynj.gov/port-authority/en/press-room.html">Press</a>
+      </div>
+      <div class="col">
+        <h5>Connect</h5>
+        <div class="social">
+          <a href="http://www.facebook.com/John-F-Kennedy-International-Airport-JFK-1798251077168457/" aria-label="JFK on Facebook"><span class="icon-logo-facebook" aria-hidden="true"></span></a>
+          <a href="http://www.twitter.com/JFKairport" aria-label="JFK on X / Twitter"><span class="icon-logo-x" aria-hidden="true"></span></a>
+          <a href="https://www.panynj.gov/WhatsApp_JFK" aria-label="JFK on WhatsApp"><span class="icon-logo-whatsapp" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>&copy; 2026 Port Authority of New York &amp; New Jersey &middot; <a href="/stardust-site/privacy" style="color: var(--slate-300);">Privacy Statement</a> &middot; <a href="/stardust-site/website-disclaimer" style="color: var(--slate-300);">Website Disclaimer</a></span>
+      <span>JFK &middot; LGA &middot; EWR &middot; SWF &middot; TEB</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // === ANIMATE (v4): scroll-triggered section reveals ===
+  // Each .reveal element fades + slides up when it enters the viewport.
+  // Children with declared :nth-child stagger inherit the keyframe with a delay.
+  // Honors prefers-reduced-motion (fall-through to instant visible state).
+  (function () {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); el.style.opacity = 1; });
+      return;
+    }
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  })();
+
+  // === DELIGHT (v3): count-up on intersection ===
+  // Each .num-count span counts from 0 to its data-target the first time it enters
+  // the viewport. Honors prefers-reduced-motion. Keeps the static value if JS fails.
+  (function () {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!('IntersectionObserver' in window)) return;
+
+    var ease = function (t) { return 1 - Math.pow(1 - t, 4); }; // ease-out-quart
+    var animate = function (el) {
+      var target = parseFloat(el.dataset.target);
+      var suffix = el.dataset.suffix || '';
+      if (!Number.isFinite(target)) return;
+      var duration = 900 + Math.min(target, 1000); // larger numbers take a hair longer
+      var start = performance.now();
+      var step = function (now) {
+        var t = Math.min(1, (now - start) / duration);
+        var v = Math.round(target * ease(t));
+        el.textContent = v + suffix;
+        if (t < 1) requestAnimationFrame(step);
+      };
+      el.textContent = '0' + suffix;
+      requestAnimationFrame(step);
+    };
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !entry.target.dataset.counted) {
+          entry.target.dataset.counted = '1';
+          animate(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4, rootMargin: '0px 0px -10% 0px' });
+
+    document.querySelectorAll('.num-count').forEach(function (el) { io.observe(el); });
+  })();
+
+  // === OVERDRIVE (v7): View Transitions on audience-tile selection ===
+  // Click an audience tile to swap the active task panel with a coordinated morph.
+  // document.startViewTransition() captures the before/after DOM and tweens shared
+  // view-transition-name elements between the two states. Falls back to instant
+  // DOM swap when the API is unavailable or reduced-motion is set.
+  (function () {
+    var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function applySwitch(id) {
+      document.querySelectorAll('.audience-tile').forEach(function (t) {
+        t.classList.toggle('active', t.dataset.audience === id);
+      });
+      document.querySelectorAll('.task-panel[data-audience]').forEach(function (p) {
+        p.hidden = p.dataset.audience !== id;
+      });
+    }
+
+    function switchAudience(id) {
+      if (document.startViewTransition && !prefersReduced) {
+        document.startViewTransition(function () { applySwitch(id); });
+      } else {
+        applySwitch(id);
+      }
+    }
+
+    document.querySelectorAll('.audience-tile').forEach(function (tile) {
+      tile.addEventListener('click', function () {
+        var id = tile.dataset.audience;
+        if (!id) return;
+        switchAudience(id);
+      });
+    });
+  })();
+
+  // === DELIGHT: "/" focuses the destination input, search-driven app pattern ===
+  (function () {
+    var dest = document.getElementById('dep-dest');
+    if (!dest) return;
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== '/') return;
+      var t = e.target;
+      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+      e.preventDefault();
+      dest.focus();
+      dest.select();
+    });
+  })();
+
+  // === DELIGHT: a quiet message for the curious ===
+  if (typeof console !== 'undefined' && console.log) {
+    console.log('%cJFK runs on people.', 'font: 700 18px "Helvetica Neue", sans-serif; color: #011565;');
+    console.log('%cThanks for taking a look at the wires. Press / to search.', 'color: #475569;');
+  }
+</script>
+
+</body>
+</html>
