@@ -1,0 +1,183 @@
+{
+  "templateName": "polestar-a",
+  "pageSlug": "a",
+  "pageTitle": "Polestar – Electric cars | Polestar US",
+  "synthesizeMain": false,
+  "headLinks": [],
+  "assetStrategy": "absolute",
+  "assetBase": "https://paolomoz.github.io/stardust-site/samples/polestar/",
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "hero",
+      "slots": [
+        {
+          "name": "hero-media",
+          "type": "background-image",
+          "selector": ".hero__media"
+        },
+        {
+          "name": "title",
+          "type": "text",
+          "selector": ".hero__title"
+        },
+        {
+          "name": "cta-primary",
+          "type": "link",
+          "selector": ".btn--primary"
+        },
+        {
+          "name": "cta-secondary",
+          "type": "link",
+          "selector": ".btn--tertiary"
+        }
+      ]
+    },
+    {
+      "firstClass": "incentive",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "incentive",
+      "slots": [
+        {
+          "name": "heading",
+          "type": "text",
+          "selector": ".incentive__head"
+        },
+        {
+          "name": "body",
+          "type": "text",
+          "selector": ".incentive__body"
+        },
+        {
+          "name": "footnote",
+          "type": "text",
+          "selector": ".incentive__foot"
+        }
+      ]
+    },
+    {
+      "firstClass": "model-grid",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "model-grid",
+      "slots": [
+        {
+          "name": "card-1.media",
+          "type": "background-image",
+          "selector": ".card:nth-child(1) .card__media"
+        },
+        {
+          "name": "card-1.title",
+          "type": "text",
+          "selector": ".card:nth-child(1) .card__title"
+        },
+        {
+          "name": "card-1.cta",
+          "type": "link",
+          "selector": ".card:nth-child(1) .card__cta"
+        },
+        {
+          "name": "card-2.media",
+          "type": "background-image",
+          "selector": ".card:nth-child(2) .card__media"
+        },
+        {
+          "name": "card-2.title",
+          "type": "text",
+          "selector": ".card:nth-child(2) .card__title"
+        },
+        {
+          "name": "card-2.cta",
+          "type": "link",
+          "selector": ".card:nth-child(2) .card__cta"
+        },
+        {
+          "name": "card-3.media",
+          "type": "background-image",
+          "selector": ".card:nth-child(3) .card__media"
+        },
+        {
+          "name": "card-3.title",
+          "type": "text",
+          "selector": ".card:nth-child(3) .card__title"
+        },
+        {
+          "name": "card-3.cta",
+          "type": "link",
+          "selector": ".card:nth-child(3) .card__cta"
+        }
+      ]
+    },
+    {
+      "firstClass": "sustainability",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "sustainability",
+      "slots": [
+        {
+          "name": "media",
+          "type": "background-image",
+          "selector": ".sus__media"
+        },
+        {
+          "name": "title",
+          "type": "text",
+          "selector": ".sus__title"
+        },
+        {
+          "name": "sub",
+          "type": "text",
+          "selector": ".sus__sub"
+        },
+        {
+          "name": "cta",
+          "type": "link",
+          "selector": ".sus__body .btn--tertiary"
+        }
+      ]
+    },
+    {
+      "firstClass": "charging",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "charging",
+      "slots": [
+        {
+          "name": "eyebrow",
+          "type": "text",
+          "selector": ".eyebrow"
+        },
+        {
+          "name": "body",
+          "type": "text",
+          "selector": ".charging p"
+        },
+        {
+          "name": "cta",
+          "type": "link",
+          "selector": ".charging .btn--tertiary"
+        }
+      ]
+    },
+    {
+      "firstClass": "newsletter",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "newsletter",
+      "slots": [
+        {
+          "name": "title",
+          "type": "text",
+          "selector": ".nl__title"
+        }
+      ]
+    }
+  ],
+  "inlineStyleLines": [33, 290],
+  "inlineScriptLines": [],
+  "externalLibs": [],
+  "strip": []
+}
