@@ -1,5 +1,29 @@
 # Notes — 001 frescopa-a
 
+## Phase: Round-trip
+
+### Production round-trip
+
+- DA PUT: 200 OK — doc stored at `https://content.da.live/aemcoder/snowflake-demos/frescopa/a`
+- POST preview on `sd-frescopa-a`: 200 OK — `https://sd-frescopa-a--snowflake-demos--aemcoder.aem.page/frescopa/a`
+- POST live on `sd-frescopa-a`: 200 OK — `https://sd-frescopa-a--snowflake-demos--aemcoder.aem.live/frescopa/a`
+- Code-bus sanity probe: all 4 paths returned 200 (templates, styles, both fragments)
+- Local round-trip: skipped per autonomous batch-mode instructions
+
+### Phase: Reflect
+
+No new generic findings surfaced. All patterns were handled by existing learnings:
+- Stardust 0.2.0 page with no placeholders
+- Asset strategy: absolute (public source host)
+- No `<main>` in source → synthesized correctly
+- All section first-classes unique → no disambiguation needed
+- Hero background-image is CSS-only (not an inline style) → correctly left in CSS, not a slot
+- `<em>` inside h1 for gilt accent → kept in template and DA cell value
+
+Run result: 6 sections, 40 slots, clean lint, all artifacts deployed.
+
+
+
 ## Phase: Capture
 
 Fetched 30,968 bytes from https://paolomoz.github.io/stardust-site/samples/frescopa/proposed-A.html
