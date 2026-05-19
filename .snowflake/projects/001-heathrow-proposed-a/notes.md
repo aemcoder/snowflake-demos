@@ -98,3 +98,48 @@ Original classes preserved in the class list afterwards so CSS rules still match
 ### Strip list
 
 - None. The source has no dev-tool overlays, no debug markup, no Stardust provenance comments to remove.
+
+## Phase: Generate
+
+- 4 sections, 57 `[data-slot]` markers across them.
+- Template HTML wraps the four body-level sections in synthesized `<main>` with 3 head-level `<link>` elements at the top (2 preconnects + Open Sans stylesheet).
+- DA doc uses divs-with-class shape; metadata block inside `<main>`. All `<img>` srcs absolute (`https://paolomoz.github.io/...`). No `<table>`, `<span class>`, `<br>`, `<b>`, `<i>`, `<u>`, `<mark>` in cell content.
+- Self-checks: all clean (no relative `assets/` refs, no forbidden tags, all DA `<img>` srcs absolute, 4 unique section first-classes).
+
+## Phase: Wire
+
+- 5 files written to deployed paths: `templates/heathrow-proposed-a.html`, `fragments/heathrow-proposed-a/{header,footer}.html`, `styles/heathrow-proposed-a.css`, `drafts/proposed-a.html` (built by `transform-da-to-eds.mjs`).
+- No animations script written (no inline `<script>` in source).
+- Lint clean.
+
+## Phase: Round-trip
+
+**Local** (`http://localhost:3000/drafts/proposed-a.html`):
+- overlay applies (`main.dataset.overlay === 'heathrow-proposed-a'`).
+- 4 sections present with correct first-classes (`hero`, `pillars`, `phased-expansion`, `cta-band`).
+- Header + footer fragments loaded.
+- All slot writers execute cleanly: text, image, link, background-image.
+- DOM equality vs source: identical modulo +4 `<span>` introduced in the phases section for the `phase-N.detail` slot.
+- Console: 1 expected 404 from the substrate's HEAD-probe for the missing `scripts/heathrow-proposed-a-animations.js` — cosmetic.
+- Visual: per-section screenshots match source. "Respond to the consultation" button appears unstyled in `cta-band` (both `.btn` and `.cta-band` use `--brand-purple`) — same in source.
+
+**Production** (`https://snowflake-001--snowflake-demos--aemcoder.aem.page/heathrow/proposed-a`):
+- All 4 deployed artifact paths return 200 (templates, styles, header fragment, footer fragment).
+- DA PUT returned 201; preview API returned 200.
+- overlay applies, section count and classes match local.
+- `<meta name="template">` resolves to `heathrow-proposed-a` (metadata block was picked up by the pipeline).
+- **Media Bus is rewriting both `<img src>` and background-image URLs** to optimised `./media_<sha>.jpg?width=750&format=jpg&optimize=medium` paths. Confirms DA cells used absolute URLs correctly (the `about:error` failure mode documented in `learnings.md` 2026-05-19 Media-Bus entry did NOT trigger).
+
+### Decisions surfaced by Round-trip
+
+- The choice to rename the phases section to `phased-expansion` (rather than `phases`) avoided a CSS collision that would have applied a horizontal-grid layout to the outer section.
+- Splitting `.phase__copy` into `<strong> + <span>` (introduced) rather than `<strong> + <br> + textNode` was the right call — DA stripped `<br>` in cells, so the slot needed its own element.
+
+## Phase: Reflect
+
+No new cross-project findings worth promoting to the skill knowledge base — the run exercised already-documented rules and matched expectations. The first-class-collision-via-eyebrow rule worked perfectly, the Media Bus absolute-URL rule worked perfectly, and the container-vs-children rule for the pillar cards held.
+
+One existing learning was reinforced and could be added as an example:
+
+- **Eyebrow slug must avoid CSS class collisions with inner elements.** Picking `phases` for the section first-class would have collided with the inner `.phases` grid container — silently breaking the layout. The discriminator hierarchy in `learnings.md` should mention "verify the chosen slug doesn't appear elsewhere in the section's CSS scope." (This is implicit but worth making explicit.)
+
