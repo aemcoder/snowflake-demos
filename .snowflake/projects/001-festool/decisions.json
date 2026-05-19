@@ -1,0 +1,181 @@
+{
+  "templateName": "festool",
+  "synthesizeMain": false,
+  "addClassFromDataSection": true,
+  "assetStrategy": "absolute",
+  "assetBase": "https://paolomoz.github.io/stardust-site/samples/festool/",
+  "headLinks": [],
+  "inlineStyleLines": [24, 452],
+  "inlineScriptLines": [],
+  "externalLibs": [],
+  "strip": [],
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "addClassFromDataSection": true,
+      "slots": [
+        { "name": "hero-bg", "type": "background-image", "selector": ".hero-img" },
+        { "name": "eyebrow", "type": "text", "selector": ".container > .eyebrow" },
+        { "name": "title", "type": "text", "selector": "h1" },
+        { "name": "lead", "type": "text", "selector": ".lead" },
+        { "name": "cta-primary", "type": "link", "selector": ".hero-actions .btn--primary" },
+        { "name": "cta-secondary", "type": "link", "selector": ".hero-actions .link" }
+      ]
+    },
+    {
+      "firstClass": "new-products",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "addClassFromDataSection": true,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".section-head .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".section-head h2" },
+        { "name": "link-all", "type": "link", "selector": ".section-head .link" },
+        { "name": "card-1.img", "type": "image", "selector": ".product-card:nth-child(1) .pc-img img" },
+        { "name": "card-1.meta", "type": "text", "selector": ".product-card:nth-child(1) .pc-meta" },
+        { "name": "card-1.title", "type": "text", "selector": ".product-card:nth-child(1) h3" },
+        { "name": "card-1.link", "type": "link", "selector": ".product-card:nth-child(1) .pc-link" },
+        { "name": "card-2.img", "type": "image", "selector": ".product-card:nth-child(2) .pc-img img" },
+        { "name": "card-2.meta", "type": "text", "selector": ".product-card:nth-child(2) .pc-meta" },
+        { "name": "card-2.title", "type": "text", "selector": ".product-card:nth-child(2) h3" },
+        { "name": "card-2.link", "type": "link", "selector": ".product-card:nth-child(2) .pc-link" },
+        { "name": "card-3.img", "type": "image", "selector": ".product-card:nth-child(3) .pc-img img" },
+        { "name": "card-3.meta", "type": "text", "selector": ".product-card:nth-child(3) .pc-meta" },
+        { "name": "card-3.title", "type": "text", "selector": ".product-card:nth-child(3) h3" },
+        { "name": "card-3.link", "type": "link", "selector": ".product-card:nth-child(3) .pc-link" },
+        { "name": "card-4.img", "type": "image", "selector": ".product-card:nth-child(4) .pc-img img" },
+        { "name": "card-4.meta", "type": "text", "selector": ".product-card:nth-child(4) .pc-meta" },
+        { "name": "card-4.title", "type": "text", "selector": ".product-card:nth-child(4) h3" },
+        { "name": "card-4.link", "type": "link", "selector": ".product-card:nth-child(4) .pc-link" },
+        { "name": "cta", "type": "link", "selector": ".section-foot .btn--secondary" }
+      ]
+    },
+    {
+      "firstClass": "brand-teaser",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "addClassFromDataSection": true,
+      "slots": [
+        { "name": "card-1.bg", "type": "background-image", "selector": ".bt-card:nth-child(1) .bt-img" },
+        { "name": "card-1.eyebrow", "type": "text", "selector": ".bt-card:nth-child(1) .eyebrow" },
+        { "name": "card-1.title", "type": "text", "selector": ".bt-card:nth-child(1) h3" },
+        { "name": "card-1.body", "type": "text", "selector": ".bt-card:nth-child(1) > p" },
+        { "name": "card-1.link", "type": "link", "selector": ".bt-card:nth-child(1) .link" },
+        { "name": "card-2.bg", "type": "background-image", "selector": ".bt-card:nth-child(2) .bt-img" },
+        { "name": "card-2.eyebrow", "type": "text", "selector": ".bt-card:nth-child(2) .eyebrow" },
+        { "name": "card-2.title", "type": "text", "selector": ".bt-card:nth-child(2) h3" },
+        { "name": "card-2.body", "type": "text", "selector": ".bt-card:nth-child(2) > p" },
+        { "name": "card-2.link", "type": "link", "selector": ".bt-card:nth-child(2) .link" }
+      ]
+    },
+    {
+      "firstClass": "discover",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "addClassFromDataSection": true,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".section-head .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".section-head h2" },
+        { "name": "link-all", "type": "link", "selector": ".section-head .link" },
+        { "name": "tile-1.bg", "type": "background-image", "selector": ".discover-tile.feature .dt-img" },
+        { "name": "tile-1.eyebrow", "type": "text", "selector": ".discover-tile.feature .eyebrow" },
+        { "name": "tile-1.title", "type": "text", "selector": ".discover-tile.feature h3" },
+        { "name": "tile-1.body", "type": "text", "selector": ".discover-tile.feature p:not(.eyebrow)" },
+        { "name": "tile-1.link", "type": "link", "selector": ".discover-tile.feature .dt-link" },
+        { "name": "tile-2.bg", "type": "background-image", "selector": ".discover-tile:not(.feature):nth-child(2) .dt-img" },
+        { "name": "tile-2.title", "type": "text", "selector": ".discover-tile:not(.feature):nth-child(2) h3" },
+        { "name": "tile-2.link", "type": "link", "selector": ".discover-tile:not(.feature):nth-child(2) .dt-link" },
+        { "name": "tile-3.bg", "type": "background-image", "selector": ".discover-tile:not(.feature):nth-child(3) .dt-img" },
+        { "name": "tile-3.title", "type": "text", "selector": ".discover-tile:not(.feature):nth-child(3) h3" },
+        { "name": "tile-3.link", "type": "link", "selector": ".discover-tile:not(.feature):nth-child(3) .dt-link" },
+        { "name": "tile-4.bg", "type": "background-image", "selector": ".discover-tile:not(.feature):nth-child(4) .dt-img" },
+        { "name": "tile-4.title", "type": "text", "selector": ".discover-tile:not(.feature):nth-child(4) h3" },
+        { "name": "tile-4.link", "type": "link", "selector": ".discover-tile:not(.feature):nth-child(4) .dt-link" },
+        { "name": "tile-5.bg", "type": "background-image", "selector": ".discover-tile:not(.feature):nth-child(5) .dt-img" },
+        { "name": "tile-5.title", "type": "text", "selector": ".discover-tile:not(.feature):nth-child(5) h3" },
+        { "name": "tile-5.link", "type": "link", "selector": ".discover-tile:not(.feature):nth-child(5) .dt-link" }
+      ]
+    },
+    {
+      "firstClass": "festoolme",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "addClassFromDataSection": true,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".section-head .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".section-head h2" },
+        { "name": "link-all", "type": "link", "selector": ".section-head .link" },
+        { "name": "tile-1.bg", "type": "background-image", "selector": ".fm-tile:nth-child(1)" },
+        { "name": "tile-2.bg", "type": "background-image", "selector": ".fm-tile:nth-child(2)" },
+        { "name": "tile-3.bg", "type": "background-image", "selector": ".fm-tile:nth-child(3)" },
+        { "name": "tile-4.bg", "type": "background-image", "selector": ".fm-tile:nth-child(4)" },
+        { "name": "tile-5.bg", "type": "background-image", "selector": ".fm-tile:nth-child(5)" },
+        { "name": "tile-6.bg", "type": "background-image", "selector": ".fm-tile:nth-child(6)" },
+        { "name": "foot-text", "type": "text", "selector": ".fm-foot span" },
+        { "name": "foot-link", "type": "link", "selector": ".fm-foot .link" }
+      ]
+    },
+    {
+      "firstClass": "cta-band-service",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "addClassFromDataSection": true,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".svc-grid > div:first-child .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".svc-grid > div:first-child h2" },
+        { "name": "body", "type": "text", "selector": ".svc-grid > div:first-child > p:not(:has(a))" },
+        { "name": "cta", "type": "link", "selector": ".btn--on-green" },
+        { "name": "svc-tile-1.title", "type": "text", "selector": ".svc-tile:nth-child(1) strong" },
+        { "name": "svc-tile-1.label", "type": "text", "selector": ".svc-tile:nth-child(1) span" },
+        { "name": "svc-tile-2.title", "type": "text", "selector": ".svc-tile:nth-child(2) strong" },
+        { "name": "svc-tile-2.label", "type": "text", "selector": ".svc-tile:nth-child(2) span" },
+        { "name": "svc-tile-3.title", "type": "text", "selector": ".svc-tile:nth-child(3) strong" },
+        { "name": "svc-tile-3.label", "type": "text", "selector": ".svc-tile:nth-child(3) span" },
+        { "name": "svc-tile-4.title", "type": "text", "selector": ".svc-tile:nth-child(4) strong" },
+        { "name": "svc-tile-4.label", "type": "text", "selector": ".svc-tile:nth-child(4) span" }
+      ]
+    },
+    {
+      "firstClass": "service-tile-strip",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "addClassFromDataSection": true,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".section-head .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".section-head h2" },
+        { "name": "tile-1.title", "type": "text", "selector": ".sts-tile:nth-child(1) h4" },
+        { "name": "tile-1.body", "type": "text", "selector": ".sts-tile:nth-child(1) p" },
+        { "name": "tile-2.title", "type": "text", "selector": ".sts-tile:nth-child(2) h4" },
+        { "name": "tile-2.body", "type": "text", "selector": ".sts-tile:nth-child(2) p" },
+        { "name": "tile-3.title", "type": "text", "selector": ".sts-tile:nth-child(3) h4" },
+        { "name": "tile-3.body", "type": "text", "selector": ".sts-tile:nth-child(3) p" },
+        { "name": "tile-4.title", "type": "text", "selector": ".sts-tile:nth-child(4) h4" },
+        { "name": "tile-4.body", "type": "text", "selector": ".sts-tile:nth-child(4) p" },
+        { "name": "tile-5.title", "type": "text", "selector": ".sts-tile:nth-child(5) h4" },
+        { "name": "tile-5.body", "type": "text", "selector": ".sts-tile:nth-child(5) p" },
+        { "name": "tile-6.title", "type": "text", "selector": ".sts-tile:nth-child(6) h4" },
+        { "name": "tile-6.body", "type": "text", "selector": ".sts-tile:nth-child(6) p" },
+        { "name": "tile-7.title", "type": "text", "selector": ".sts-tile:nth-child(7) h4" },
+        { "name": "tile-7.body", "type": "text", "selector": ".sts-tile:nth-child(7) p" },
+        { "name": "tile-8.title", "type": "text", "selector": ".sts-tile:nth-child(8) h4" },
+        { "name": "tile-8.body", "type": "text", "selector": ".sts-tile:nth-child(8) p" }
+      ]
+    },
+    {
+      "firstClass": "brand-copy",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "addClassFromDataSection": true,
+      "slots": [
+        { "name": "block-1.eyebrow", "type": "text", "selector": ".bc-block:nth-child(1) .eyebrow" },
+        { "name": "block-1.title", "type": "text", "selector": ".bc-block:nth-child(1) h2" },
+        { "name": "block-1.body", "type": "text", "selector": ".bc-block:nth-child(1) p:not(.eyebrow)" },
+        { "name": "block-2.eyebrow", "type": "text", "selector": ".bc-block:nth-child(3) .eyebrow" },
+        { "name": "block-2.title", "type": "text", "selector": ".bc-block:nth-child(3) h2" },
+        { "name": "block-2.body", "type": "text", "selector": ".bc-block:nth-child(3) p:not(.eyebrow)" }
+      ]
+    }
+  ]
+}
