@@ -1,0 +1,146 @@
+{
+  "templateName": "virginatlantic-a",
+  "pageSlug": "a",
+  "synthesizeMain": false,
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".hero__eyebrow" },
+        { "name": "title", "type": "text", "selector": ".hero__title" },
+        { "name": "lede", "type": "text", "selector": ".hero__lede" },
+        { "name": "cta-primary", "type": "link", "selector": ".hero__cta a.btn--primary" },
+        { "name": "cta-secondary", "type": "link", "selector": ".hero__cta a.btn--ghost" },
+        { "name": "bg", "type": "background-image", "selector": ".hero__media" }
+      ]
+    },
+    {
+      "firstClass": "booking-section",
+      "originalTag": "form",
+      "rewriteToSection": true,
+      "unwrapOuterWrap": true,
+      "note": "renamed first-class from 'booking' to 'booking-section' to avoid collision with .booking inner card",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".booking__title" },
+        { "name": "from-label", "type": "text", "selector": ".booking__field:nth-of-type(1) label" },
+        { "name": "from-value", "type": "text", "selector": ".booking__field:nth-of-type(1) .v" },
+        { "name": "to-label", "type": "text", "selector": ".booking__field:nth-of-type(2) label" },
+        { "name": "to-value", "type": "text", "selector": ".booking__field:nth-of-type(2) .v" },
+        { "name": "journey-label", "type": "text", "selector": ".booking__field:nth-of-type(3) label" },
+        { "name": "journey-value", "type": "text", "selector": ".booking__field:nth-of-type(3) .v" },
+        { "name": "when-label", "type": "text", "selector": ".booking__field:nth-of-type(4) label" },
+        { "name": "when-value", "type": "text", "selector": ".booking__field:nth-of-type(4) .v" },
+        { "name": "who-label", "type": "text", "selector": ".booking__field:nth-of-type(5) label" },
+        { "name": "who-value", "type": "text", "selector": ".booking__field:nth-of-type(5) .v" },
+        { "name": "submit-label", "type": "text", "selector": ".booking__cta .btn" }
+      ]
+    },
+    {
+      "firstClass": "destinations",
+      "originalTag": "section",
+      "addClass": "destinations",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".eyebrow" },
+        { "name": "title", "type": "text", "selector": ".section-title" },
+        { "name": "lede", "type": "text", "selector": ".section-lede" },
+        { "name": "dest-lead.image", "type": "image", "selector": ".dest--lead .dest__img" },
+        { "name": "dest-lead.city", "type": "text", "selector": ".dest--lead .dest__city" },
+        { "name": "dest-lead.sub", "type": "text", "selector": ".dest--lead .dest__sub" },
+        { "name": "dest-2.image", "type": "image", "selector": ".dest__row .dest:nth-of-type(1) .dest__img" },
+        { "name": "dest-2.city", "type": "text", "selector": ".dest__row .dest:nth-of-type(1) .dest__city" },
+        { "name": "dest-2.sub", "type": "text", "selector": ".dest__row .dest:nth-of-type(1) .dest__sub" },
+        { "name": "dest-3.image", "type": "image", "selector": ".dest__row .dest:nth-of-type(2) .dest__img" },
+        { "name": "dest-3.city", "type": "text", "selector": ".dest__row .dest:nth-of-type(2) .dest__city" },
+        { "name": "dest-3.sub", "type": "text", "selector": ".dest__row .dest:nth-of-type(2) .dest__sub" },
+        { "name": "dest-4.image", "type": "image", "selector": ".dest__rail .dest:nth-of-type(1) .dest__img" },
+        { "name": "dest-4.city", "type": "text", "selector": ".dest__rail .dest:nth-of-type(1) .dest__city" },
+        { "name": "dest-5.image", "type": "image", "selector": ".dest__rail .dest:nth-of-type(2) .dest__img" },
+        { "name": "dest-5.city", "type": "text", "selector": ".dest__rail .dest:nth-of-type(2) .dest__city" },
+        { "name": "dest-6.image", "type": "image", "selector": ".dest__rail .dest:nth-of-type(3) .dest__img" },
+        { "name": "dest-6.city", "type": "text", "selector": ".dest__rail .dest:nth-of-type(3) .dest__city" },
+        { "name": "dest-7.image", "type": "image", "selector": ".dest__rail .dest:nth-of-type(4) .dest__img" },
+        { "name": "dest-7.city", "type": "text", "selector": ".dest__rail .dest:nth-of-type(4) .dest__city" },
+        { "name": "dest-8.image", "type": "image", "selector": ".dest__rail .dest:nth-of-type(5) .dest__img" },
+        { "name": "dest-8.city", "type": "text", "selector": ".dest__rail .dest:nth-of-type(5) .dest__city" }
+      ]
+    },
+    {
+      "firstClass": "pull",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "quote", "type": "text", "selector": ".pull__text" },
+        { "name": "cite", "type": "text", "selector": ".pull__cite" }
+      ]
+    },
+    {
+      "firstClass": "cabin",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".eyebrow" },
+        { "name": "title", "type": "text", "selector": ".section-title" },
+        { "name": "cabin-1.image", "type": "image", "selector": ".cabin__row:nth-of-type(2) .cabin__media img" },
+        { "name": "cabin-1.name", "type": "text", "selector": ".cabin__row:nth-of-type(2) .cabin__name" },
+        { "name": "cabin-1.title", "type": "text", "selector": ".cabin__row:nth-of-type(2) .cabin__title" },
+        { "name": "cabin-1.body", "type": "text", "selector": ".cabin__row:nth-of-type(2) .cabin__body" },
+        { "name": "cabin-1.cta", "type": "link", "selector": ".cabin__row:nth-of-type(2) a.btn" },
+        { "name": "cabin-2.image", "type": "image", "selector": ".cabin__row:nth-of-type(3) .cabin__media img" },
+        { "name": "cabin-2.name", "type": "text", "selector": ".cabin__row:nth-of-type(3) .cabin__name" },
+        { "name": "cabin-2.title", "type": "text", "selector": ".cabin__row:nth-of-type(3) .cabin__title" },
+        { "name": "cabin-2.body", "type": "text", "selector": ".cabin__row:nth-of-type(3) .cabin__body" },
+        { "name": "cabin-2.cta", "type": "link", "selector": ".cabin__row:nth-of-type(3) a.btn" },
+        { "name": "cabin-3.image", "type": "image", "selector": ".cabin__row:nth-of-type(4) .cabin__media img" },
+        { "name": "cabin-3.name", "type": "text", "selector": ".cabin__row:nth-of-type(4) .cabin__name" },
+        { "name": "cabin-3.title", "type": "text", "selector": ".cabin__row:nth-of-type(4) .cabin__title" },
+        { "name": "cabin-3.body", "type": "text", "selector": ".cabin__row:nth-of-type(4) .cabin__body" },
+        { "name": "cabin-3.cta", "type": "link", "selector": ".cabin__row:nth-of-type(4) a.btn" }
+      ]
+    },
+    {
+      "firstClass": "rewards",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".eyebrow" },
+        { "name": "title", "type": "text", "selector": ".rewards__title" },
+        { "name": "body-1", "type": "text", "selector": ".rewards__body:nth-of-type(1)" },
+        { "name": "body-2", "type": "text", "selector": ".rewards__body:nth-of-type(2)" },
+        { "name": "cta-primary", "type": "link", "selector": ".rewards__inner a.btn--primary" },
+        { "name": "cta-secondary", "type": "link", "selector": ".rewards__inner a.btn--ghost" },
+        { "name": "image", "type": "image", "selector": ".rewards__visual img" }
+      ]
+    },
+    {
+      "firstClass": "help",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".eyebrow" },
+        { "name": "title", "type": "text", "selector": ".section-title" },
+        { "name": "card-1.num", "type": "text", "selector": ".help__card:nth-of-type(1) .help__num" },
+        { "name": "card-1.title", "type": "text", "selector": ".help__card:nth-of-type(1) .help__h" },
+        { "name": "card-1.body", "type": "text", "selector": ".help__card:nth-of-type(1) .help__b" },
+        { "name": "card-1.link-1", "type": "link", "selector": ".help__card:nth-of-type(1) .help__list li:nth-of-type(1) a" },
+        { "name": "card-1.link-2", "type": "link", "selector": ".help__card:nth-of-type(1) .help__list li:nth-of-type(2) a" },
+        { "name": "card-1.link-3", "type": "link", "selector": ".help__card:nth-of-type(1) .help__list li:nth-of-type(3) a" },
+        { "name": "card-2.num", "type": "text", "selector": ".help__card:nth-of-type(2) .help__num" },
+        { "name": "card-2.title", "type": "text", "selector": ".help__card:nth-of-type(2) .help__h" },
+        { "name": "card-2.body", "type": "text", "selector": ".help__card:nth-of-type(2) .help__b" },
+        { "name": "card-2.link-1", "type": "link", "selector": ".help__card:nth-of-type(2) .help__list li:nth-of-type(1) a" },
+        { "name": "card-2.link-2", "type": "link", "selector": ".help__card:nth-of-type(2) .help__list li:nth-of-type(2) a" },
+        { "name": "card-2.link-3", "type": "link", "selector": ".help__card:nth-of-type(2) .help__list li:nth-of-type(3) a" }
+      ]
+    }
+  ],
+  "headLinks": [],
+  "inlineStyleLines": [[8, 279]],
+  "inlineScriptLines": [],
+  "externalLibs": [],
+  "assetStrategy": "absolute",
+  "assetBase": "https://paolomoz.github.io/stardust-site/samples/virginatlantic/",
+  "strip": []
+}
