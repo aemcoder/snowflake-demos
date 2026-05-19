@@ -1,0 +1,151 @@
+{
+  "templateName": "onemedical",
+  "synthesizeMain": true,
+  "stardustVersion": "0.2.0",
+  "assetStrategy": "absolute",
+  "assetBase": "https://www.onemedical.com/",
+  "headLinks": [],
+  "inlineStyleLines": [24, 482],
+  "inlineScriptLines": [[719, 723]],
+  "externalLibs": [],
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalTag": "section",
+      "originalClass": "hero",
+      "dataSection": "hero",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "title", "type": "text", "selector": "h1" },
+        { "name": "promo-line", "type": "text", "selector": "p.promo-line" },
+        { "name": "cta-primary", "type": "link", "selector": ".hero-cta-row a.btn" },
+        { "name": "terms", "type": "text", "selector": "p.terms" }
+      ]
+    },
+    {
+      "firstClass": "preview-cards",
+      "originalTag": "section",
+      "originalClass": "preview-section",
+      "dataSection": "preview-cards",
+      "rewriteToSection": false,
+      "notes": "First class rewritten from preview-section to preview-cards. Container <a> NOT slotted — slot inner items only.",
+      "slots": [
+        { "name": "card-1.photo", "type": "background-image", "selector": ".preview-card:nth-of-type(1) .photo" },
+        { "name": "card-1.eyebrow", "type": "text", "selector": ".preview-card:nth-of-type(1) .eyebrow" },
+        { "name": "card-1.title", "type": "text", "selector": ".preview-card:nth-of-type(1) h3" },
+        { "name": "card-1.body", "type": "text", "selector": ".preview-card:nth-of-type(1) p:not(.eyebrow)" },
+        { "name": "card-2.photo", "type": "background-image", "selector": ".preview-card:nth-of-type(2) .photo" },
+        { "name": "card-2.eyebrow", "type": "text", "selector": ".preview-card:nth-of-type(2) .eyebrow" },
+        { "name": "card-2.title", "type": "text", "selector": ".preview-card:nth-of-type(2) h3" },
+        { "name": "card-2.body", "type": "text", "selector": ".preview-card:nth-of-type(2) p:not(.eyebrow)" },
+        { "name": "card-3.photo", "type": "background-image", "selector": ".preview-card:nth-of-type(3) .photo" },
+        { "name": "card-3.eyebrow", "type": "text", "selector": ".preview-card:nth-of-type(3) .eyebrow" },
+        { "name": "card-3.title", "type": "text", "selector": ".preview-card:nth-of-type(3) h3" },
+        { "name": "card-3.body", "type": "text", "selector": ".preview-card:nth-of-type(3) p:not(.eyebrow)" }
+      ]
+    },
+    {
+      "firstClass": "rotating-services",
+      "originalTag": "section",
+      "originalClass": "rotating-section",
+      "dataSection": "rotating-services",
+      "rewriteToSection": false,
+      "notes": "h2 rotator is CSS animation — static template content. Only lead and footer-line are slots.",
+      "slots": [
+        { "name": "lead", "type": "text", "selector": "p.lead" },
+        { "name": "footer-link", "type": "text", "selector": "p.footer-line" }
+      ]
+    },
+    {
+      "firstClass": "benefits",
+      "originalTag": "section",
+      "originalClass": "icon-grid-section",
+      "dataSection": "benefits",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".header-row .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".header-row h2" },
+        { "name": "sub", "type": "text", "selector": ".header-row .sub" },
+        { "name": "item-1.icon", "type": "image", "selector": ".icon-grid .item:nth-child(1) .icon img" },
+        { "name": "item-1.text", "type": "text", "selector": ".icon-grid .item:nth-child(1) h3" },
+        { "name": "item-2.icon", "type": "image", "selector": ".icon-grid .item:nth-child(2) .icon img" },
+        { "name": "item-2.text", "type": "text", "selector": ".icon-grid .item:nth-child(2) h3" },
+        { "name": "item-3.icon", "type": "image", "selector": ".icon-grid .item:nth-child(3) .icon img" },
+        { "name": "item-3.text", "type": "text", "selector": ".icon-grid .item:nth-child(3) h3" },
+        { "name": "item-4.icon", "type": "image", "selector": ".icon-grid .item:nth-child(4) .icon img" },
+        { "name": "item-4.text", "type": "text", "selector": ".icon-grid .item:nth-child(4) h3" },
+        { "name": "item-5.icon", "type": "image", "selector": ".icon-grid .item:nth-child(5) .icon img" },
+        { "name": "item-5.text", "type": "text", "selector": ".icon-grid .item:nth-child(5) h3" },
+        { "name": "item-6.icon", "type": "image", "selector": ".icon-grid .item:nth-child(6) .icon img" },
+        { "name": "item-6.text", "type": "text", "selector": ".icon-grid .item:nth-child(6) h3" }
+      ]
+    },
+    {
+      "firstClass": "app-services",
+      "originalTag": "section",
+      "originalClass": "app-section",
+      "dataSection": "app-services",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".app-text .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".app-text h2" },
+        { "name": "list-item-1", "type": "text", "selector": ".app-text li:nth-child(1)" },
+        { "name": "list-item-2", "type": "text", "selector": ".app-text li:nth-child(2)" },
+        { "name": "list-item-3", "type": "text", "selector": ".app-text li:nth-child(3)" },
+        { "name": "list-item-4", "type": "text", "selector": ".app-text li:nth-child(4)" },
+        { "name": "app-photo", "type": "image", "selector": ".app-photo img" }
+      ]
+    },
+    {
+      "firstClass": "cta-band",
+      "originalTag": "section",
+      "originalClass": "membership-callout",
+      "dataSection": "cta-band",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".membership-grid h3" },
+        { "name": "body", "type": "text", "selector": ".membership-grid p" },
+        { "name": "cta", "type": "link", "selector": ".membership-grid a.btn-melon" }
+      ]
+    },
+    {
+      "firstClass": "video",
+      "originalTag": "section",
+      "originalClass": "video-section",
+      "dataSection": "video",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".video-section h2" },
+        { "name": "poster", "type": "image", "selector": ".video-stage img" }
+      ]
+    },
+    {
+      "firstClass": "employer-benefit",
+      "originalTag": "section",
+      "originalClass": "employer-strip",
+      "dataSection": "employer-benefit",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".employer-grid .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".employer-grid h2" },
+        { "name": "sub", "type": "text", "selector": ".employer-grid .sub" },
+        { "name": "cta", "type": "link", "selector": ".employer-grid a.btn-ghost" },
+        { "name": "logo-1", "type": "image", "selector": ".logo-row img:nth-child(1)" },
+        { "name": "logo-2", "type": "image", "selector": ".logo-row img:nth-child(2)" },
+        { "name": "logo-3", "type": "image", "selector": ".logo-row img:nth-child(3)" }
+      ]
+    },
+    {
+      "firstClass": "cta-band-final",
+      "originalTag": "section",
+      "originalClass": "signup-footer",
+      "dataSection": "cta-band-final",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".signup-footer .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".signup-footer h2" },
+        { "name": "cta", "type": "link", "selector": ".signup-footer a.btn-melon" }
+      ]
+    }
+  ]
+}
