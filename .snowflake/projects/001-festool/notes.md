@@ -171,6 +171,30 @@ NOTE: sts-icon content (◎, ◇, etc.) is decorative Unicode → static, NOT a 
 - block-2.title: second `article h2` → "Simply clever – the Festool 18-volt system."
 - block-2.body: second `article p:not(.eyebrow)` → body text
 
+## Phase: Round-trip
+
+### Production round-trip
+
+- DA PUT: 200 OK, editUrl: https://da.live/edit#/aemcoder/snowflake-demos/festool/a
+- Preview POST (sd-festool-a): 200 OK, url: https://sd-festool-a--snowflake-demos--aemcoder.aem.page/festool/a
+- Live POST (sd-festool-a): 200 OK, url: https://sd-festool-a--snowflake-demos--aemcoder.aem.live/festool/a
+- Code-bus sanity probe: all 4 paths returned 200
+
+### Local round-trip
+Skipped per batch-mode instructions (autonomous mode, no local server).
+
+### Findings
+- Festool uses data-section attributes (not class attributes) for CSS targeting. The overlay engine
+  needs class on section elements. Added data-section value as first class to each section.
+- No external assets to vendor — all absolute CDN URLs (festool.com and media.cdn.festool.io).
+- No animation JS in source (Stardust 0.2.0, conservative static page).
+- 90 data-slot markers across 8 sections is on the higher end; this is a content-rich homepage.
+
+## Phase: Reflect
+
+No cross-project learnings to promote beyond what's already in the skill knowledge.
+The data-section-as-first-class pattern was already in the methodology.
+
 ### Decisions
 
 1. All 8 sections use `data-section` attribute for CSS targeting, no class attribute.
