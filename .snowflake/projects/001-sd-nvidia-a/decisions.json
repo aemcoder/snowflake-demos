@@ -1,0 +1,153 @@
+{
+  "templateName": "sd-nvidia-a",
+  "pageSlug": "a",
+  "pageTitle": "World Leader in Artificial Intelligence Computing | NVIDIA",
+  "synthesizeMain": false,
+  "headerBoundary": {
+    "startLine": 1043,
+    "endLine": 1066,
+    "elements": ["header.site-header (1043-1060)", "aside.geo-banner (1062-1066)"]
+  },
+  "footerBoundary": {
+    "startLine": 2112,
+    "endLine": 2165
+  },
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalFirstClass": "hero-carousel",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "firstClassNote": "hero-carousel is already unique — keep as-is",
+      "slots": [
+        { "name": "slide-1.photo", "type": "picture", "selector": "#hero-slide-0 .hero-photo" },
+        { "name": "slide-1.eyebrow", "type": "text", "selector": "#hero-slide-0 .hero-eyebrow" },
+        { "name": "slide-1.headline", "type": "text", "selector": "#hero-slide-0 .hero-headline" },
+        { "name": "slide-1.description", "type": "text", "selector": "#hero-slide-0 .hero-description" },
+        { "name": "slide-1.cta", "type": "link", "selector": "#hero-slide-0 .btn-primary" },
+        { "name": "slide-2.photo", "type": "picture", "selector": "#hero-slide-1 .hero-photo" },
+        { "name": "slide-2.eyebrow", "type": "text", "selector": "#hero-slide-1 .hero-eyebrow" },
+        { "name": "slide-2.headline", "type": "text", "selector": "#hero-slide-1 .hero-headline" },
+        { "name": "slide-2.description", "type": "text", "selector": "#hero-slide-1 .hero-description" },
+        { "name": "slide-2.cta", "type": "link", "selector": "#hero-slide-1 .btn-primary" },
+        { "name": "slide-3.photo", "type": "picture", "selector": "#hero-slide-2 .hero-photo" },
+        { "name": "slide-3.eyebrow", "type": "text", "selector": "#hero-slide-2 .hero-eyebrow" },
+        { "name": "slide-3.headline", "type": "text", "selector": "#hero-slide-2 .hero-headline" },
+        { "name": "slide-3.description", "type": "text", "selector": "#hero-slide-2 .hero-description" },
+        { "name": "slide-3.cta", "type": "link", "selector": "#hero-slide-2 .btn-primary" },
+        { "name": "slide-4.photo", "type": "picture", "selector": "#hero-slide-3 .hero-photo" },
+        { "name": "slide-4.eyebrow", "type": "text", "selector": "#hero-slide-3 .hero-eyebrow" },
+        { "name": "slide-4.headline", "type": "text", "selector": "#hero-slide-3 .hero-headline" },
+        { "name": "slide-4.description", "type": "text", "selector": "#hero-slide-3 .hero-description" },
+        { "name": "slide-4.cta", "type": "link", "selector": "#hero-slide-3 .btn-primary" },
+        { "name": "slide-5.photo", "type": "picture", "selector": "#hero-slide-4 .hero-photo" },
+        { "name": "slide-5.eyebrow", "type": "text", "selector": "#hero-slide-4 .hero-eyebrow" },
+        { "name": "slide-5.headline", "type": "text", "selector": "#hero-slide-4 .hero-headline" },
+        { "name": "slide-5.description", "type": "text", "selector": "#hero-slide-4 .hero-description" },
+        { "name": "slide-5.cta", "type": "link", "selector": "#hero-slide-4 .btn-primary" },
+        { "name": "slide-6.photo", "type": "picture", "selector": "#hero-slide-5 .hero-photo" },
+        { "name": "slide-6.eyebrow", "type": "text", "selector": "#hero-slide-5 .hero-eyebrow" },
+        { "name": "slide-6.headline", "type": "text", "selector": "#hero-slide-5 .hero-headline" },
+        { "name": "slide-6.description", "type": "text", "selector": "#hero-slide-5 .hero-description" },
+        { "name": "slide-6.cta", "type": "link", "selector": "#hero-slide-5 .btn-primary" }
+      ]
+    },
+    {
+      "firstClass": "theme-ai",
+      "originalFirstClass": "theme-section",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "theme-ai",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".theme-header h2" },
+        { "name": "description", "type": "text", "selector": ".theme-description" }
+      ]
+    },
+    {
+      "firstClass": "theme-design-sim",
+      "originalFirstClass": "theme-section",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "theme-design-sim",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".theme-header h2" },
+        { "name": "description", "type": "text", "selector": ".theme-description" }
+      ]
+    },
+    {
+      "firstClass": "theme-hpc",
+      "originalFirstClass": "theme-section",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "theme-hpc",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".theme-header h2" },
+        { "name": "description", "type": "text", "selector": ".theme-description" }
+      ]
+    },
+    {
+      "firstClass": "theme-gaming-creating",
+      "originalFirstClass": "theme-section",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "theme-gaming-creating",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".theme-header h2" },
+        { "name": "description", "type": "text", "selector": ".theme-description" }
+      ]
+    },
+    {
+      "firstClass": "theme-automotive",
+      "originalFirstClass": "theme-section",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "theme-automotive",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".theme-header h2" },
+        { "name": "description", "type": "text", "selector": ".theme-description" }
+      ]
+    },
+    {
+      "firstClass": "theme-robotics-edge",
+      "originalFirstClass": "theme-section",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "theme-robotics-edge",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".theme-header h2" },
+        { "name": "description", "type": "text", "selector": ".theme-description" }
+      ]
+    },
+    {
+      "firstClass": "theme-data-center-cloud",
+      "originalFirstClass": "theme-section",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "theme-data-center-cloud",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".theme-header h2" },
+        { "name": "description", "type": "text", "selector": ".theme-description" }
+      ]
+    },
+    {
+      "firstClass": "theme-about-nvidia",
+      "originalFirstClass": "theme-section",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "theme-about-nvidia",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".theme-header h2" },
+        { "name": "description", "type": "text", "selector": ".theme-description" }
+      ]
+    }
+  ],
+  "headLinks": [],
+  "inlineStyleLines": [86, 1037],
+  "inlineScriptLines": [[2167, 2379]],
+  "externalLibs": [],
+  "assetStrategy": "absolute",
+  "assetBase": "https://www.nvidia.com/",
+  "strip": [],
+  "placeholderConvention": "stardust-0.3.0",
+  "placeholderNote": "Footer links use data-placeholder attribute on span elements — stay in static footer fragment, not slots"
+}
