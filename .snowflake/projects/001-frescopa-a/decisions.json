@@ -1,0 +1,101 @@
+{
+  "templateName": "frescopa-a",
+  "synthesizeMain": true,
+  "sourceAssetBase": "https://paolomoz.github.io/stardust-site/samples/frescopa/",
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".hero .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".hero h1" },
+        { "name": "subhead", "type": "text", "selector": ".hero .subhead" },
+        { "name": "cta-primary", "type": "link", "selector": ".hero .btn-primary-on-bay" },
+        { "name": "cta-secondary", "type": "link", "selector": ".hero .btn-secondary" }
+      ]
+    },
+    {
+      "firstClass": "shop-categories",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".shop-categories .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".shop-categories h2" },
+        { "name": "card-1.image", "type": "image", "selector": ".category-card:nth-child(1) img" },
+        { "name": "card-1.title", "type": "text", "selector": ".category-card:nth-child(1) .card-title" },
+        { "name": "card-1.catalog", "type": "text", "selector": ".category-card:nth-child(1) .catalog-line" },
+        { "name": "card-2.image", "type": "image", "selector": ".category-card:nth-child(2) img" },
+        { "name": "card-2.title", "type": "text", "selector": ".category-card:nth-child(2) .card-title" },
+        { "name": "card-2.catalog", "type": "text", "selector": ".category-card:nth-child(2) .catalog-line" },
+        { "name": "card-3.image", "type": "image", "selector": ".category-card:nth-child(3) img" },
+        { "name": "card-3.title", "type": "text", "selector": ".category-card:nth-child(3) .card-title" },
+        { "name": "card-3.catalog", "type": "text", "selector": ".category-card:nth-child(3) .catalog-line" },
+        { "name": "card-4.image", "type": "image", "selector": ".category-card:nth-child(4) img" },
+        { "name": "card-4.title", "type": "text", "selector": ".category-card:nth-child(4) .card-title" },
+        { "name": "card-4.catalog", "type": "text", "selector": ".category-card:nth-child(4) .catalog-line" },
+        { "name": "card-5.image", "type": "image", "selector": ".category-card:nth-child(5) img" },
+        { "name": "card-5.title", "type": "text", "selector": ".category-card:nth-child(5) .card-title" },
+        { "name": "card-5.catalog", "type": "text", "selector": ".category-card:nth-child(5) .catalog-line" }
+      ]
+    },
+    {
+      "firstClass": "subscription-card-on-bay",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".subscription-card-on-bay .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".subscription-card-on-bay .editorial" },
+        { "name": "body", "type": "text", "selector": ".subscription-card-on-bay .content p" },
+        { "name": "cta", "type": "link", "selector": ".subscription-card-on-bay .btn" },
+        { "name": "image", "type": "image", "selector": ".subscription-card-on-bay .photo-frame img" }
+      ]
+    },
+    {
+      "firstClass": "locations-finder",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".locations-finder .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".locations-finder h2" },
+        { "name": "body", "type": "text", "selector": ".locations-finder p" }
+      ]
+    },
+    {
+      "firstClass": "featured-coffee",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "image", "type": "image", "selector": ".featured-coffee .photo-frame img" },
+        { "name": "eyebrow", "type": "text", "selector": ".featured-coffee .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".featured-coffee .editorial" },
+        { "name": "body", "type": "text", "selector": ".featured-coffee .content p" },
+        { "name": "cta", "type": "link", "selector": ".featured-coffee .btn" }
+      ]
+    },
+    {
+      "firstClass": "rewards-cta-band",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".rewards-cta-band .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".rewards-cta-band .editorial" },
+        { "name": "body", "type": "text", "selector": ".rewards-cta-band p" },
+        { "name": "cta", "type": "link", "selector": ".rewards-cta-band .btn" }
+      ]
+    }
+  ],
+  "headLinks": [
+    { "rel": "preconnect", "href": "https://fonts.googleapis.com" },
+    { "rel": "preconnect", "href": "https://fonts.gstatic.com", "crossorigin": "" },
+    { "rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Martian+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@1,144,800..900&display=swap" }
+  ],
+  "headerBoundary": { "fromLine": 617, "toLine": 645 },
+  "footerBoundary": { "fromLine": 755, "toLine": 812 },
+  "inlineStyleRange": [40, 612],
+  "metadata": {
+    "template": "frescopa-a",
+    "title": "Frescopa — Coffee, Tea & Accessories",
+    "description": "Experience the bright, citrusy notes and smooth finish of Morning Muse Light Roast. A perfect start to any day."
+  }
+}
