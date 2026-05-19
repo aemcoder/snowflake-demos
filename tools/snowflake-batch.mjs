@@ -3,6 +3,13 @@ import { copyFileSync, existsSync, mkdirSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+function normalise({ url, branch, daPath }) {
+  if (!url) throw new Error('Each run must have a url');
+  if (!branch) throw new Error('Each run must have a branch');
+  if (!daPath) throw new Error('Each run must have a daPath (or da=)');
+  return { url, branch, daPath };
+}
+
 /**
  * Parse batch input — accepts a JSON array/object or inline text.
  *
@@ -42,13 +49,6 @@ export function parseBatchInput(input) {
     });
 }
 
-function normalise({ url, branch, daPath }) {
-  if (!url) throw new Error('Each run must have a url');
-  if (!branch) throw new Error('Each run must have a branch');
-  if (!daPath) throw new Error('Each run must have a daPath (or da=)');
-  return { url, branch, daPath };
-}
-
 /**
  * Create git worktrees from main and copy the DA token into each one.
  * Idempotent — skips worktrees that already exist on disk.
@@ -61,12 +61,21 @@ function normalise({ url, branch, daPath }) {
 export function setupWorktrees(runs, repoRoot, opts = {}) {
   const exec = opts.execSync ?? execSync;
   return runs.map((run) => {
+    // Worktrees are created as siblings of the repo dir: /parent/repo-name-branch
     const worktreePath = join(repoRoot, '..', `${basename(repoRoot)}-${run.branch}`);
     if (!existsSync(worktreePath)) {
-      exec(
-        `git -C "${repoRoot}" worktree add -b "${run.branch}" "${worktreePath}" main`,
-        { stdio: 'inherit' },
-      );
+      const branchExists = (() => {
+        try {
+          exec(`git -C "${repoRoot}" rev-parse --verify "refs/heads/${run.branch}"`, { stdio: 'pipe' });
+          return true;
+        } catch {
+          return false;
+        }
+      })();
+      const cmd = branchExists
+        ? `git -C "${repoRoot}" worktree add "${worktreePath}" "${run.branch}"`
+        : `git -C "${repoRoot}" worktree add -b "${run.branch}" "${worktreePath}" main`;
+      exec(cmd, { stdio: 'inherit' });
     }
     mkdirSync(join(worktreePath, '.hlx'), { recursive: true });
     copyFileSync(
@@ -87,5 +96,5 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const repoRoot = execSync('git rev-parse --show-toplevel').toString().trim();
   const runs = parseBatchInput(input);
   const worktrees = setupWorktrees(runs, repoRoot);
-  process.stdout.write(JSON.stringify(worktrees, null, 2) + '\n');
+  process.stdout.write(`${JSON.stringify(worktrees, null, 2)}\n`);
 }

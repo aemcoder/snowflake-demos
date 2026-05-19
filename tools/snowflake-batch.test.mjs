@@ -1,6 +1,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdirSync, existsSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
+import {
+  mkdirSync,
+  existsSync,
+  writeFileSync,
+  mkdtempSync,
+  rmSync,
+} from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join as pathJoin, basename } from 'node:path';
 import { parseBatchInput, setupWorktrees } from './snowflake-batch.mjs';
@@ -73,7 +79,7 @@ test('setupWorktrees: creates worktree dir and copies token', () => {
 
   const run = { url: 'https://x.com', branch, daPath: '/x' };
   const results = setupWorktrees([run], repoRoot, {
-    execSync: (_cmd) => { mkdirSync(expectedWorktreePath, { recursive: true }); },
+    execSync: () => { mkdirSync(expectedWorktreePath, { recursive: true }); },
   });
 
   assert.equal(results.length, 1);
@@ -85,6 +91,39 @@ test('setupWorktrees: creates worktree dir and copies token', () => {
 
   rmSync(repoRoot, { recursive: true, force: true });
   rmSync(expectedWorktreePath, { recursive: true, force: true });
+});
+
+test('setupWorktrees: uses existing branch without -b flag', () => {
+  const repoRoot = mkdtempSync(pathJoin(tmpdir(), 'snowflake-test-'));
+  mkdirSync(pathJoin(repoRoot, '.hlx'), { recursive: true });
+  writeFileSync(pathJoin(repoRoot, '.hlx', '.da-token.json'), '{"access_token":"test"}');
+
+  const branch = `sd-branch-exists-${Date.now()}`;
+  const worktreePath = pathJoin(repoRoot, '..', `${basename(repoRoot)}-${branch}`);
+
+  const capturedCmds = [];
+  const run = { url: 'https://z.com', branch, daPath: '/z' };
+
+  // First call: rev-parse returns success (branch "exists"), second: worktree add
+  let callCount = 0;
+  setupWorktrees([run], repoRoot, {
+    execSync: (cmd) => {
+      capturedCmds.push(cmd);
+      callCount += 1;
+      if (callCount === 1) return ''; // rev-parse succeeds = branch exists
+      mkdirSync(worktreePath, { recursive: true }); // simulate worktree add
+      return undefined;
+    },
+  });
+
+  assert.ok(capturedCmds.some((c) => c.includes('rev-parse')), 'should check branch existence');
+  assert.ok(
+    capturedCmds.some((c) => c.includes('worktree add') && !c.includes('-b ')),
+    'should use worktree add WITHOUT -b when branch exists',
+  );
+
+  rmSync(repoRoot, { recursive: true, force: true });
+  rmSync(worktreePath, { recursive: true, force: true });
 });
 
 test('setupWorktrees: skips git command when worktree already exists', () => {
