@@ -1,0 +1,139 @@
+{
+  "templateName": "virginatlantic-a",
+  "pageSlug": "a",
+  "pageTitle": "Virgin Atlantic — Take off to the UK and beyond",
+  "synthesizeMain": false,
+  "assetStrategy": "absolute",
+  "assetBase": "https://vaabrowse.virginatlantic.com/",
+  "headLinks": [],
+  "inlineStyleLines": [8, 279],
+  "inlineScriptLines": [],
+  "externalLibs": [],
+  "placeholderConvention": "data-placeholder attribute (boolean, no value)",
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "notes": "Already a <section>. Hero background image is CSS class rule (not inline style), so no bg-image slot.",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".hero__eyebrow" },
+        { "name": "title", "type": "text", "selector": "h1.hero__title" },
+        { "name": "lede", "type": "text", "selector": "p.hero__lede" },
+        { "name": "cta-primary", "type": "link", "selector": ".hero__cta a.btn--primary" },
+        { "name": "cta-secondary", "type": "link", "selector": ".hero__cta a.btn--ghost" }
+      ]
+    },
+    {
+      "firstClass": "booking",
+      "originalTag": "form",
+      "rewriteToSection": true,
+      "notes": "Booking widget inside div.wrap — rewrite outermost wrapper to <section class='booking'>. Static form UI, no content slots.",
+      "slots": []
+    },
+    {
+      "firstClass": "destinations",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".eyebrow" },
+        { "name": "title", "type": "text", "selector": "h2.section-title" },
+        { "name": "lede", "type": "text", "selector": "p.section-lede" },
+        { "name": "dest-lead.img", "type": "image", "selector": "a.dest--lead img.dest__img" },
+        { "name": "dest-lead.city", "type": "text", "selector": "a.dest--lead h3.dest__city" },
+        { "name": "dest-lead.sub", "type": "text", "selector": "a.dest--lead span.dest__sub" },
+        { "name": "dest-2.img", "type": "image", "selector": ".dest__row a:nth-child(1) img.dest__img" },
+        { "name": "dest-2.city", "type": "text", "selector": ".dest__row a:nth-child(1) h3.dest__city" },
+        { "name": "dest-2.sub", "type": "text", "selector": ".dest__row a:nth-child(1) span.dest__sub" },
+        { "name": "dest-3.img", "type": "image", "selector": ".dest__row a:nth-child(2) img.dest__img" },
+        { "name": "dest-3.city", "type": "text", "selector": ".dest__row a:nth-child(2) h3.dest__city" },
+        { "name": "dest-3.sub", "type": "text", "selector": ".dest__row a:nth-child(2) span.dest__sub" },
+        { "name": "dest-rail-1.img", "type": "image", "selector": ".dest__rail a:nth-child(1) img.dest__img" },
+        { "name": "dest-rail-1.city", "type": "text", "selector": ".dest__rail a:nth-child(1) h3.dest__city" },
+        { "name": "dest-rail-2.img", "type": "image", "selector": ".dest__rail a:nth-child(2) img.dest__img" },
+        { "name": "dest-rail-2.city", "type": "text", "selector": ".dest__rail a:nth-child(2) h3.dest__city" },
+        { "name": "dest-rail-3.img", "type": "image", "selector": ".dest__rail a:nth-child(3) img.dest__img" },
+        { "name": "dest-rail-3.city", "type": "text", "selector": ".dest__rail a:nth-child(3) h3.dest__city" },
+        { "name": "dest-rail-4.img", "type": "image", "selector": ".dest__rail a:nth-child(4) img.dest__img" },
+        { "name": "dest-rail-4.city", "type": "text", "selector": ".dest__rail a:nth-child(4) h3.dest__city" },
+        { "name": "dest-rail-5.img", "type": "image", "selector": ".dest__rail a:nth-child(5) img.dest__img" },
+        { "name": "dest-rail-5.city", "type": "text", "selector": ".dest__rail a:nth-child(5) h3.dest__city" }
+      ]
+    },
+    {
+      "firstClass": "editorial-pullquote",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "notes": "Pull-quote section. Cite element has data-placeholder -> data-slot-skip.",
+      "slots": [
+        { "name": "text", "type": "text", "selector": "blockquote.pull__text" }
+      ],
+      "placeholders": [
+        { "selector": ".pull__cite[data-placeholder]" }
+      ]
+    },
+    {
+      "firstClass": "cabin",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": "span.eyebrow" },
+        { "name": "title", "type": "text", "selector": "h2.section-title" },
+        { "name": "cabin-1.img", "type": "image", "selector": ".cabin__row:nth-child(1) .cabin__media img" },
+        { "name": "cabin-1.name", "type": "text", "selector": ".cabin__row:nth-child(1) p.cabin__name" },
+        { "name": "cabin-1.title", "type": "text", "selector": ".cabin__row:nth-child(1) h3.cabin__title" },
+        { "name": "cabin-1.body", "type": "text", "selector": ".cabin__row:nth-child(1) p.cabin__body" },
+        { "name": "cabin-1.cta", "type": "link", "selector": ".cabin__row:nth-child(1) a.btn" },
+        { "name": "cabin-2.img", "type": "image", "selector": ".cabin__row:nth-child(2) .cabin__media img" },
+        { "name": "cabin-2.name", "type": "text", "selector": ".cabin__row:nth-child(2) p.cabin__name" },
+        { "name": "cabin-2.title", "type": "text", "selector": ".cabin__row:nth-child(2) h3.cabin__title" },
+        { "name": "cabin-2.body", "type": "text", "selector": ".cabin__row:nth-child(2) p.cabin__body" },
+        { "name": "cabin-2.cta", "type": "link", "selector": ".cabin__row:nth-child(2) a.btn" },
+        { "name": "cabin-3.img", "type": "image", "selector": ".cabin__row:nth-child(3) .cabin__media img" },
+        { "name": "cabin-3.name", "type": "text", "selector": ".cabin__row:nth-child(3) p.cabin__name" },
+        { "name": "cabin-3.title", "type": "text", "selector": ".cabin__row:nth-child(3) h3.cabin__title" },
+        { "name": "cabin-3.body", "type": "text", "selector": ".cabin__row:nth-child(3) p.cabin__body" },
+        { "name": "cabin-3.cta", "type": "link", "selector": ".cabin__row:nth-child(3) a.btn" }
+      ]
+    },
+    {
+      "firstClass": "rewards",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "notes": "Rewards section. Pricing span has data-placeholder -> data-slot-skip.",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": "span.eyebrow" },
+        { "name": "title", "type": "text", "selector": "h2.rewards__title" },
+        { "name": "body", "type": "text", "selector": "p.rewards__body:first-of-type" },
+        { "name": "cta-primary", "type": "link", "selector": "a.btn--primary" },
+        { "name": "cta-secondary", "type": "link", "selector": "a.btn--ghost" },
+        { "name": "img", "type": "image", "selector": ".rewards__visual img" }
+      ],
+      "placeholders": [
+        { "selector": "span[data-placeholder]" }
+      ]
+    },
+    {
+      "firstClass": "help",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": "span.eyebrow" },
+        { "name": "title", "type": "text", "selector": "h2.section-title" },
+        { "name": "help-1.num", "type": "text", "selector": "article.help__card:nth-child(1) span.help__num" },
+        { "name": "help-1.heading", "type": "text", "selector": "article.help__card:nth-child(1) h3.help__h" },
+        { "name": "help-1.body", "type": "text", "selector": "article.help__card:nth-child(1) p.help__b" },
+        { "name": "help-1.link1", "type": "link", "selector": "article.help__card:nth-child(1) ul.help__list li:nth-child(1) a" },
+        { "name": "help-1.link2", "type": "link", "selector": "article.help__card:nth-child(1) ul.help__list li:nth-child(2) a" },
+        { "name": "help-1.link3", "type": "link", "selector": "article.help__card:nth-child(1) ul.help__list li:nth-child(3) a" },
+        { "name": "help-2.num", "type": "text", "selector": "article.help__card:nth-child(2) span.help__num" },
+        { "name": "help-2.heading", "type": "text", "selector": "article.help__card:nth-child(2) h3.help__h" },
+        { "name": "help-2.body", "type": "text", "selector": "article.help__card:nth-child(2) p.help__b" },
+        { "name": "help-2.link1", "type": "link", "selector": "article.help__card:nth-child(2) ul.help__list li:nth-child(1) a" },
+        { "name": "help-2.link2", "type": "link", "selector": "article.help__card:nth-child(2) ul.help__list li:nth-child(2) a" },
+        { "name": "help-2.link3", "type": "link", "selector": "article.help__card:nth-child(2) ul.help__list li:nth-child(3) a" }
+      ]
+    }
+  ],
+  "strip": []
+}
