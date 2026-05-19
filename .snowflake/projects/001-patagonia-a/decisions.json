@@ -1,0 +1,124 @@
+{
+  "templateName": "patagonia-a",
+  "pageSlug": "a",
+  "synthesizeMain": true,
+  "assetStrategy": "absolute",
+  "assetBase": "https://paolomoz.github.io/stardust-site/samples/patagonia/",
+  "headLinks": [
+    {
+      "rel": "stylesheet",
+      "href": "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700&display=swap"
+    }
+  ],
+  "inlineStyleLines": [31, 307],
+  "inlineScriptLines": [],
+  "externalLibs": [],
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "hero",
+      "slots": [
+        { "name": "media", "type": "background-image", "selector": ".hero__media" },
+        { "name": "eyebrow", "type": "text", "selector": ".hero__eyebrow" },
+        { "name": "title", "type": "text", "selector": "h1.hero__title" },
+        { "name": "sub", "type": "text", "selector": "p.hero__sub" },
+        { "name": "cta", "type": "link", "selector": ".hero__cta a" }
+      ]
+    },
+    {
+      "firstClass": "activity-tile-grid",
+      "originalFirstClass": "section",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "activity-tile-grid",
+      "slots": [
+        { "name": "title", "type": "text", "selector": "h2.section__title" },
+        { "name": "more-link", "type": "link", "selector": "a.section__more" },
+        { "name": "tile-1.bg", "type": "background-image", "selector": "a.tile:nth-child(1)" },
+        { "name": "tile-1.label", "type": "text", "selector": "a.tile:nth-child(1) .tile__label" },
+        { "name": "tile-2.bg", "type": "background-image", "selector": "a.tile:nth-child(2)" },
+        { "name": "tile-2.label", "type": "text", "selector": "a.tile:nth-child(2) .tile__label" },
+        { "name": "tile-3.bg", "type": "background-image", "selector": "a.tile:nth-child(3)" },
+        { "name": "tile-3.label", "type": "text", "selector": "a.tile:nth-child(3) .tile__label" },
+        { "name": "tile-4.bg", "type": "background-image", "selector": "a.tile:nth-child(4)" },
+        { "name": "tile-4.label", "type": "text", "selector": "a.tile:nth-child(4) .tile__label" },
+        { "name": "tile-5.bg", "type": "background-image", "selector": "a.tile:nth-child(5)" },
+        { "name": "tile-5.label", "type": "text", "selector": "a.tile:nth-child(5) .tile__label" },
+        { "name": "tile-6.bg", "type": "background-image", "selector": "a.tile:nth-child(6)" },
+        { "name": "tile-6.label", "type": "text", "selector": "a.tile:nth-child(6) .tile__label" }
+      ]
+    },
+    {
+      "firstClass": "secondary-photo-hero",
+      "originalFirstClass": "sec-hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "secondary-photo-hero",
+      "slots": [
+        { "name": "media", "type": "background-image", "selector": ".sec-hero__media" },
+        { "name": "title", "type": "text", "selector": "h2.sec-hero__title" },
+        { "name": "sub", "type": "text", "selector": "p.sec-hero__sub" },
+        { "name": "cta", "type": "link", "selector": ".sec-hero__inner > div a" }
+      ]
+    },
+    {
+      "firstClass": "category-tile-grid",
+      "originalFirstClass": "section",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "category-tile-grid",
+      "slots": [
+        { "name": "title", "type": "text", "selector": "h2.section__title" },
+        { "name": "more-link", "type": "link", "selector": "a.section__more" },
+        { "name": "cat-1.bg", "type": "background-image", "selector": "a.cat:nth-child(1)" },
+        { "name": "cat-1.label", "type": "text", "selector": "a.cat:nth-child(1) .cat__caption" },
+        { "name": "cat-2.bg", "type": "background-image", "selector": "a.cat:nth-child(2)" },
+        { "name": "cat-2.label", "type": "text", "selector": "a.cat:nth-child(2) .cat__caption" },
+        { "name": "cat-3.bg", "type": "background-image", "selector": "a.cat:nth-child(3)" },
+        { "name": "cat-3.label", "type": "text", "selector": "a.cat:nth-child(3) .cat__caption" },
+        { "name": "cat-4.bg", "type": "background-image", "selector": "a.cat:nth-child(4)" },
+        { "name": "cat-4.label", "type": "text", "selector": "a.cat:nth-child(4) .cat__caption" },
+        { "name": "cat-5.bg", "type": "background-image", "selector": "a.cat:nth-child(5)" },
+        { "name": "cat-5.label", "type": "text", "selector": "a.cat:nth-child(5) .cat__caption" },
+        { "name": "cat-6.bg", "type": "background-image", "selector": "a.cat:nth-child(6)" },
+        { "name": "cat-6.label", "type": "text", "selector": "a.cat:nth-child(6) .cat__caption" }
+      ]
+    },
+    {
+      "firstClass": "tertiary-photo-hero",
+      "originalFirstClass": "sec-hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "tertiary-photo-hero",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".sec-hero__inner > div:first-child" },
+        { "name": "title", "type": "text", "selector": "h2.sec-hero__title" },
+        { "name": "sub", "type": "text", "selector": "p.sec-hero__sub" },
+        { "name": "cta", "type": "link", "selector": ".sec-hero__inner > div:last-child a" }
+      ]
+    },
+    {
+      "firstClass": "values-row",
+      "originalFirstClass": "section",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "values-row",
+      "slots": [
+        { "name": "value-1.title", "type": "text", "selector": ".value:nth-child(1) h3.value__title" },
+        { "name": "value-1.link", "type": "link", "selector": ".value:nth-child(1) a.value__link" },
+        { "name": "value-2.title", "type": "text", "selector": ".value:nth-child(2) h3.value__title" },
+        { "name": "value-2.link", "type": "link", "selector": ".value:nth-child(2) a.value__link" },
+        { "name": "value-3.title", "type": "text", "selector": ".value:nth-child(3) h3.value__title" },
+        { "name": "value-3.link", "type": "link", "selector": ".value:nth-child(3) a.value__link" },
+        { "name": "value-4.title", "type": "text", "selector": ".value:nth-child(4) h3.value__title" },
+        { "name": "value-4.link", "type": "link", "selector": ".value:nth-child(4) a.value__link" },
+        { "name": "value-5.title", "type": "text", "selector": ".value:nth-child(5) h3.value__title" },
+        { "name": "value-5.link", "type": "link", "selector": ".value:nth-child(5) a.value__link" }
+      ]
+    }
+  ],
+  "strip": [],
+  "notes": "Stardust 0.2.0 page. No placeholders. All images use absolute CDN URLs - no asset vendoring needed. No JS animations. Activity tile <a> elements have both background-image AND inner text slots - background-image writer does not clobber innerHTML so nested slots are safe here. Same for category tiles."
+}
