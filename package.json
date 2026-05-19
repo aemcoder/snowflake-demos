@@ -8,7 +8,8 @@
     "lint:css": "stylelint \"blocks/**/*.css\" \"styles/*.css\"",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix",
-    "test:batch": "node --test tools/snowflake-batch.test.mjs"
+    "test:batch": "node --test tools/snowflake-batch.test.mjs",
+    "test:compare": "node --test tools/compare-pages.test.mjs"
   },
   "repository": {
     "type": "git",
