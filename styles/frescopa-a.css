@@ -274,6 +274,11 @@ section, header, footer { padding: var(--section-padding) var(--spacing-lg); }
 .hero .photo-frame {
   overflow: hidden;
 }
+.hero .photo-frame picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 .hero .photo-frame img {
   width: 100%;
   height: 100%;
