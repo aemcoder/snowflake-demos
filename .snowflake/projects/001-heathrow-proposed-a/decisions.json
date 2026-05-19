@@ -1,0 +1,120 @@
+{
+  "templateName": "heathrow-proposed-a",
+  "synthesizeMain": true,
+  "assetStrategy": "rewrite-to-source-absolute",
+  "assetBase": "https://paolomoz.github.io/stardust-site/samples/heathrow/",
+  "headLinks": [
+    { "rel": "preconnect", "href": "https://fonts.googleapis.com" },
+    { "rel": "preconnect", "href": "https://fonts.gstatic.com", "crossorigin": "" },
+    { "rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap" }
+  ],
+  "inlineStyleBlocks": [],
+  "inlineScriptBlocks": [],
+  "externalLibs": [],
+  "externalCss": [
+    {
+      "href": "assets/css/site.css",
+      "strategy": "extract-into-template-css",
+      "outputPath": "styles/heathrow-proposed-a.css"
+    }
+  ],
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalClassList": "hero hero--photo",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "renameFirstClass": false,
+      "slots": [
+        { "name": "hero.image", "type": "img", "selector": ".hero__media" },
+        { "name": "hero.eyebrow", "type": "text", "selector": ".hero__inner > .label" },
+        { "name": "hero.title", "type": "text", "selector": ".hero__title" },
+        { "name": "hero.lead", "type": "text", "selector": ".hero__lead" },
+        { "name": "hero.cta-primary", "type": "link", "selector": ".hero__meta > a.btn:not(.btn--inverse)" },
+        { "name": "hero.cta-secondary", "type": "link", "selector": ".hero__meta > a.btn.btn--inverse" }
+      ]
+    },
+    {
+      "firstClass": "pillars",
+      "originalClassList": "section",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "renameFirstClass": true,
+      "newClassList": "pillars section",
+      "slots": [
+        { "name": "pillars.eyebrow", "type": "text", "selector": ".section__head > .label" },
+        { "name": "pillars.title", "type": "text", "selector": ".section__head > h2" },
+        { "name": "pillars.intro", "type": "text", "selector": ".section__head > p:not(.label)" },
+        { "name": "card-1.image", "type": "background-image", "selector": ".pillar-card:nth-child(1) .pillar-card__photo" },
+        { "name": "card-1.label", "type": "text", "selector": ".pillar-card:nth-child(1) .pillar-card__label" },
+        { "name": "card-1.title", "type": "text", "selector": ".pillar-card:nth-child(1) .pillar-card__title" },
+        { "name": "card-1.copy", "type": "text", "selector": ".pillar-card:nth-child(1) .pillar-card__copy" },
+        { "name": "card-2.image", "type": "background-image", "selector": ".pillar-card:nth-child(2) .pillar-card__photo" },
+        { "name": "card-2.label", "type": "text", "selector": ".pillar-card:nth-child(2) .pillar-card__label" },
+        { "name": "card-2.title", "type": "text", "selector": ".pillar-card:nth-child(2) .pillar-card__title" },
+        { "name": "card-2.copy", "type": "text", "selector": ".pillar-card:nth-child(2) .pillar-card__copy" },
+        { "name": "card-3.image", "type": "background-image", "selector": ".pillar-card:nth-child(3) .pillar-card__photo" },
+        { "name": "card-3.label", "type": "text", "selector": ".pillar-card:nth-child(3) .pillar-card__label" },
+        { "name": "card-3.title", "type": "text", "selector": ".pillar-card:nth-child(3) .pillar-card__title" },
+        { "name": "card-3.copy", "type": "text", "selector": ".pillar-card:nth-child(3) .pillar-card__copy" },
+        { "name": "card-4.image", "type": "background-image", "selector": ".pillar-card:nth-child(4) .pillar-card__photo" },
+        { "name": "card-4.label", "type": "text", "selector": ".pillar-card:nth-child(4) .pillar-card__label" },
+        { "name": "card-4.title", "type": "text", "selector": ".pillar-card:nth-child(4) .pillar-card__title" },
+        { "name": "card-4.copy", "type": "text", "selector": ".pillar-card:nth-child(4) .pillar-card__copy" },
+        { "name": "card-5.image", "type": "background-image", "selector": ".pillar-card:nth-child(5) .pillar-card__photo" },
+        { "name": "card-5.label", "type": "text", "selector": ".pillar-card:nth-child(5) .pillar-card__label" },
+        { "name": "card-5.title", "type": "text", "selector": ".pillar-card:nth-child(5) .pillar-card__title" },
+        { "name": "card-5.copy", "type": "text", "selector": ".pillar-card:nth-child(5) .pillar-card__copy" },
+        { "name": "card-6.image", "type": "background-image", "selector": ".pillar-card:nth-child(6) .pillar-card__photo" },
+        { "name": "card-6.label", "type": "text", "selector": ".pillar-card:nth-child(6) .pillar-card__label" },
+        { "name": "card-6.title", "type": "text", "selector": ".pillar-card:nth-child(6) .pillar-card__title" },
+        { "name": "card-6.copy", "type": "text", "selector": ".pillar-card:nth-child(6) .pillar-card__copy" }
+      ]
+    },
+    {
+      "firstClass": "phased-expansion",
+      "originalClassList": "section section--tint",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "renameFirstClass": true,
+      "newClassList": "phased-expansion section section--tint",
+      "slots": [
+        { "name": "phases.eyebrow", "type": "text", "selector": ".section__head > .label" },
+        { "name": "phases.title", "type": "text", "selector": ".section__head > h2" },
+        { "name": "phases.intro", "type": "text", "selector": ".section__head > p:not(.label)" },
+        { "name": "phase-1.label", "type": "text", "selector": ".phase:nth-child(1) .phase__label" },
+        { "name": "phase-1.year", "type": "text", "selector": ".phase:nth-child(1) .phase__year" },
+        { "name": "phase-1.headline", "type": "text", "selector": ".phase:nth-child(1) .phase__copy strong" },
+        { "name": "phase-1.detail", "type": "text", "selector": ".phase:nth-child(1) .phase__copy > span" },
+        { "name": "phase-2.label", "type": "text", "selector": ".phase:nth-child(2) .phase__label" },
+        { "name": "phase-2.year", "type": "text", "selector": ".phase:nth-child(2) .phase__year" },
+        { "name": "phase-2.headline", "type": "text", "selector": ".phase:nth-child(2) .phase__copy strong" },
+        { "name": "phase-2.detail", "type": "text", "selector": ".phase:nth-child(2) .phase__copy > span" },
+        { "name": "phase-3.label", "type": "text", "selector": ".phase:nth-child(3) .phase__label" },
+        { "name": "phase-3.year", "type": "text", "selector": ".phase:nth-child(3) .phase__year" },
+        { "name": "phase-3.headline", "type": "text", "selector": ".phase:nth-child(3) .phase__copy strong" },
+        { "name": "phase-3.detail", "type": "text", "selector": ".phase:nth-child(3) .phase__copy > span" },
+        { "name": "phase-4.label", "type": "text", "selector": ".phase:nth-child(4) .phase__label" },
+        { "name": "phase-4.year", "type": "text", "selector": ".phase:nth-child(4) .phase__year" },
+        { "name": "phase-4.headline", "type": "text", "selector": ".phase:nth-child(4) .phase__copy strong" },
+        { "name": "phase-4.detail", "type": "text", "selector": ".phase:nth-child(4) .phase__copy > span" }
+      ]
+    },
+    {
+      "firstClass": "cta-band",
+      "originalClassList": "cta-band",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "renameFirstClass": false,
+      "preserveAttributes": { "id": "have-your-say" },
+      "slots": [
+        { "name": "cta.eyebrow", "type": "text", "selector": ".cta-band__inner > div:nth-child(1) > .label" },
+        { "name": "cta.title", "type": "text", "selector": ".cta-band__inner > div:nth-child(1) > h2" },
+        { "name": "cta.copy", "type": "text", "selector": ".cta-band__inner > div:nth-child(1) > p:not(.label)" },
+        { "name": "cta.primary", "type": "link", "selector": ".cta-band__inner > div:nth-child(2) > a.btn:not(.btn--inverse)" },
+        { "name": "cta.secondary", "type": "link", "selector": ".cta-band__inner > div:nth-child(2) > a.btn.btn--inverse" }
+      ]
+    }
+  ],
+  "strip": []
+}
