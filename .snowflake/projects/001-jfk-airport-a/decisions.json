@@ -1,0 +1,182 @@
+{
+  "templateName": "jfk-airport-a",
+  "pageSlug": "a",
+  "pageTitle": "John F. Kennedy International Airport - JFK Airport",
+  "synthesizeMain": false,
+  "assetStrategy": "absolute",
+  "assetBase": "https://paolomoz.github.io/stardust-site/samples/jfk-airport/",
+  "headLinks": [],
+  "inlineStyleLines": [150, 898],
+  "inlineScriptLines": [[1496, 1611]],
+  "externalLibs": [],
+  "placeholderConvention": "none",
+  "sections": [
+    {
+      "firstClass": "brand-hero",
+      "dataSection": "brand-hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "hero-image", "type": "image", "selector": ".brand-hero > img" },
+        { "name": "meta-left", "type": "text", "selector": ".brand-hero .meta-strip span:first-child" },
+        { "name": "meta-right", "type": "text", "selector": ".brand-hero .meta-strip span:last-child" },
+        { "name": "title", "type": "text", "selector": ".brand-hero .copy h1" },
+        { "name": "deck", "type": "text", "selector": ".brand-hero .copy .deck" }
+      ]
+    },
+    {
+      "firstClass": "audience-section",
+      "dataSection": "audience-router",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".audience-section h2" },
+        { "name": "deck", "type": "text", "selector": ".audience-section .deck" }
+      ]
+    },
+    {
+      "firstClass": "task-panel-departing",
+      "dataSection": "task-panel",
+      "dataAudience": "departing",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "classListOriginal": "task-panel",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": "[data-audience='departing'] .head .eyebrow" },
+        { "name": "title", "type": "text", "selector": "[data-audience='departing'] .head h2" },
+        { "name": "body", "type": "text", "selector": "[data-audience='departing'] .head > p" }
+      ]
+    },
+    {
+      "firstClass": "task-panel-arriving",
+      "dataSection": "task-panel",
+      "dataAudience": "arriving",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "classListOriginal": "task-panel",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": "[data-audience='arriving'] .head .eyebrow" },
+        { "name": "title", "type": "text", "selector": "[data-audience='arriving'] .head h2" },
+        { "name": "body", "type": "text", "selector": "[data-audience='arriving'] .head > p" }
+      ]
+    },
+    {
+      "firstClass": "task-panel-pickup",
+      "dataSection": "task-panel",
+      "dataAudience": "pickup",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "classListOriginal": "task-panel",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": "[data-audience='pickup'] .head .eyebrow" },
+        { "name": "title", "type": "text", "selector": "[data-audience='pickup'] .head h2" },
+        { "name": "body", "type": "text", "selector": "[data-audience='pickup'] .head > p" }
+      ]
+    },
+    {
+      "firstClass": "task-panel-connecting",
+      "dataSection": "task-panel",
+      "dataAudience": "connecting",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "classListOriginal": "task-panel",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": "[data-audience='connecting'] .head .eyebrow" },
+        { "name": "title", "type": "text", "selector": "[data-audience='connecting'] .head h2" },
+        { "name": "body", "type": "text", "selector": "[data-audience='connecting'] .head > p" }
+      ]
+    },
+    {
+      "firstClass": "task-panel-visiting",
+      "dataSection": "task-panel",
+      "dataAudience": "visiting",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "classListOriginal": "task-panel",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": "[data-audience='visiting'] .head .eyebrow" },
+        { "name": "title", "type": "text", "selector": "[data-audience='visiting'] .head h2" },
+        { "name": "body", "type": "text", "selector": "[data-audience='visiting'] .head > p" }
+      ]
+    },
+    {
+      "firstClass": "guide-section",
+      "dataSection": "your-guide",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".guide-section h2" },
+        { "name": "tile-1.photo", "type": "image", "selector": ".guide-tile:nth-child(1) .photo img" },
+        { "name": "tile-1.title", "type": "text", "selector": ".guide-tile:nth-child(1) .body h3" },
+        { "name": "tile-2.photo", "type": "image", "selector": ".guide-tile:nth-child(2) .photo img" },
+        { "name": "tile-2.title", "type": "text", "selector": ".guide-tile:nth-child(2) .body h3" },
+        { "name": "tile-3.photo", "type": "image", "selector": ".guide-tile:nth-child(3) .photo img" },
+        { "name": "tile-3.title", "type": "text", "selector": ".guide-tile:nth-child(3) .body h3" },
+        { "name": "tile-4.photo", "type": "image", "selector": ".guide-tile:nth-child(4) .photo img" },
+        { "name": "tile-4.title", "type": "text", "selector": ".guide-tile:nth-child(4) .body h3" },
+        { "name": "tile-5.photo", "type": "image", "selector": ".guide-tile:nth-child(5) .photo img" },
+        { "name": "tile-5.title", "type": "text", "selector": ".guide-tile:nth-child(5) .body h3" }
+      ]
+    },
+    {
+      "firstClass": "construction",
+      "dataSection": "construction-reality",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".construction h2" },
+        { "name": "body", "type": "text", "selector": ".construction .copy p" },
+        { "name": "image", "type": "image", "selector": ".construction figure img" }
+      ]
+    },
+    {
+      "firstClass": "essentials",
+      "dataSection": "essentials",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".essentials h2" },
+        { "name": "deck", "type": "text", "selector": ".essentials .essentials-head p" },
+        { "name": "card-1.photo", "type": "image", "selector": ".essential:nth-child(1) .photo img" },
+        { "name": "card-1.title", "type": "text", "selector": ".essential:nth-child(1) h3" },
+        { "name": "card-1.body", "type": "text", "selector": ".essential:nth-child(1) p" },
+        { "name": "card-2.photo", "type": "image", "selector": ".essential:nth-child(2) .photo img" },
+        { "name": "card-2.title", "type": "text", "selector": ".essential:nth-child(2) h3" },
+        { "name": "card-2.body", "type": "text", "selector": ".essential:nth-child(2) p" },
+        { "name": "card-3.photo", "type": "image", "selector": ".essential:nth-child(3) .photo img" },
+        { "name": "card-3.title", "type": "text", "selector": ".essential:nth-child(3) h3" },
+        { "name": "card-3.body", "type": "text", "selector": ".essential:nth-child(3) p" }
+      ]
+    },
+    {
+      "firstClass": "accessibility",
+      "dataSection": "accessibility-band",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".accessibility h2" },
+        { "name": "body", "type": "text", "selector": ".accessibility p" }
+      ]
+    },
+    {
+      "firstClass": "latest",
+      "dataSection": "latest-from-jfk",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".latest h2" },
+        { "name": "feature.photo", "type": "image", "selector": ".latest-feature .photo img" },
+        { "name": "feature.eyebrow", "type": "text", "selector": ".latest-feature .eyebrow" },
+        { "name": "feature.title", "type": "text", "selector": ".latest-feature h3" },
+        { "name": "feature.body", "type": "text", "selector": ".latest-feature p" },
+        { "name": "companion-1.eyebrow", "type": "text", "selector": ".latest-companion:nth-child(1) .eyebrow" },
+        { "name": "companion-1.title", "type": "text", "selector": ".latest-companion:nth-child(1) h3" },
+        { "name": "companion-1.body", "type": "text", "selector": ".latest-companion:nth-child(1) p" },
+        { "name": "companion-2.eyebrow", "type": "text", "selector": ".latest-companion:nth-child(2) .eyebrow" },
+        { "name": "companion-2.title", "type": "text", "selector": ".latest-companion:nth-child(2) h3" },
+        { "name": "companion-2.body", "type": "text", "selector": ".latest-companion:nth-child(2) p" }
+      ]
+    }
+  ],
+  "strip": []
+}

@@ -1,0 +1,522 @@
+<main id="main-content">
+  <!-- BRAND HERO - captured Manhattan skyline + JFK wordmark (Mode A image-reuse) -->
+  <section data-section="brand-hero" data-purpose="brand-statement" class="brand-hero">
+    <img data-slot="hero-image" src="https://paolomoz.github.io/stardust-site/samples/jfk-airport/assets/media/032_26_JFK_20Hero_20Image_v1_r0_promo-5x2-99093042.jpg" alt="">
+    <div class="scrim"></div>
+    <div class="meta-strip">
+      <span data-slot="meta-left">John F. Kennedy International Airport</span>
+      <span data-slot="meta-right">New York City</span>
+    </div>
+    <div class="copy">
+      <h1 data-slot="title">JFK</h1>
+      <p class="deck" data-slot="deck">Your world-class gateway to the world.</p>
+    </div>
+    <aside class="herofeed" data-section="herofeed" aria-label="Live operational updates" role="complementary">
+      <div class="hf-head">
+        <span class="live"><span class="live-dot" aria-hidden="true"></span>Today at JFK</span>
+        <a class="meta-link" href="https://paolomoz.github.io/stardust-site/alerts-advisories">All alerts &rarr;</a>
+      </div>
+      <div class="hf-feed" role="list">
+        <article class="hf-entry" role="listitem">
+          <div class="time">10:42<span class="now">Now</span></div>
+          <div class="body">
+            <span class="tag">Security</span><br>
+            Wait peaking at <strong>T4 (22 min)</strong>. Other terminals lighter, 9 to 17 min.
+          </div>
+        </article>
+        <article class="hf-entry" role="listitem">
+          <div class="time">10:18<span class="now">24m ago</span></div>
+          <div class="body">
+            <span class="tag">Pickup</span><br>
+            Ride-app pickup at <strong>T7</strong> moved to <strong>Lot 2</strong>; T7 taxi stand relocated.
+          </div>
+        </article>
+        <article class="hf-entry" role="listitem">
+          <div class="time">09:45<span class="now">57m ago</span></div>
+          <div class="body">
+            <span class="tag">AirTrain</span><br>
+            Back to normal <strong>7-min headway</strong>. All stations open.
+          </div>
+        </article>
+      </div>
+    </aside>
+  </section>
+
+  <!-- AUDIENCE ROUTER - featured Departing + 4 standard tiles -->
+  <section data-section="audience-router" data-purpose="audience-routing" class="audience-section reveal">
+    <div class="opener">
+      <h2 class="display" data-slot="title">What are you here to do?</h2>
+      <p class="deck" data-slot="deck">Pick where you are in your day. We'll route you straight to the task.</p>
+    </div>
+    <div class="audience-tiles">
+      <button class="audience-tile featured active" data-audience="departing" aria-label="Departing (most common path, currently active)">
+        <div>
+          <div class="label">Departing</div>
+          <div class="meta">Search a flight, check parking and security wait times.</div>
+        </div>
+        <div class="featured-preview">
+          <div class="stat" data-meaning="brand"><span class="num num-count" data-target="612">612</span><span class="lbl">Departures today</span></div>
+          <div class="stat" data-meaning="ok"><span class="num num-count" data-target="22" data-suffix="m">22m</span><span class="lbl">Busiest security</span></div>
+          <div class="stat" data-meaning="ok"><span class="num num-count" data-target="62" data-suffix="%">62%</span><span class="lbl">Parking open</span></div>
+        </div>
+      </button>
+      <button class="audience-tile" data-audience="arriving" aria-label="Arriving">
+        <div>
+          <div class="label">Arriving</div>
+          <div class="meta">Track an arrival, baggage, ground transport.</div>
+        </div>
+        <div class="arrow" aria-hidden="true"><span class="icon-chevron-right"></span></div>
+      </button>
+      <button class="audience-tile" data-audience="pickup" aria-label="Picking up">
+        <div>
+          <div class="label">Picking up</div>
+          <div class="meta">Current pickup zones &amp; ride-app pickup points.</div>
+        </div>
+        <div class="arrow" aria-hidden="true"><span class="icon-chevron-right"></span></div>
+      </button>
+      <button class="audience-tile" data-audience="connecting" aria-label="Connecting">
+        <div>
+          <div class="label">Connecting</div>
+          <div class="meta">Terminal-to-terminal, AirTrain, walk times.</div>
+        </div>
+        <div class="arrow" aria-hidden="true"><span class="icon-chevron-right"></span></div>
+      </button>
+      <button class="audience-tile" data-audience="visiting" aria-label="Visiting">
+        <div>
+          <div class="label">Visiting</div>
+          <div class="meta">Maps, dining, lounges, accessibility.</div>
+        </div>
+        <div class="arrow" aria-hidden="true"><span class="icon-chevron-right"></span></div>
+      </button>
+    </div>
+  </section>
+
+  <!-- TASK PANEL - Departing default -->
+  <section data-section="task-panel" data-audience="departing" data-purpose="commercial-conversion" class="task-panel-departing task-panel">
+    <div class="inner reveal">
+      <div class="head">
+        <div class="eyebrow" data-slot="eyebrow">Departing</div>
+        <h2 class="display" data-slot="title">Welcome to JFK.</h2>
+        <p data-slot="body">Search a flight by destination or by number. Reserve parking ahead of time. Or jump straight to one of today's most common things to do, on the right.</p>
+        <div class="flight-search" data-section="flight-search-panel">
+          <div class="tabs">
+            <button class="tab active">Departures</button>
+            <button class="tab">Arrivals</button>
+            <button class="tab">Parking</button>
+          </div>
+          <div class="search-by">
+            <span class="label">Search by</span>
+            <label><input type="radio" name="searchBy" checked> Destination</label>
+            <label><input type="radio" name="searchBy"> Flight Number</label>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label class="input-label" for="dep-date">Date (required)</label>
+              <input id="dep-date" type="text" value="05/03/2026">
+            </div>
+            <div class="field">
+              <label class="input-label" for="dep-dest">Destination Airport (required)</label>
+              <input id="dep-dest" type="text" placeholder="Select your destination">
+            </div>
+            <div class="field">
+              <button class="btn-primary">Search</button>
+            </div>
+          </div>
+          <a href="https://paolomoz.github.io/stardust-site/flights?direction=departures&amp;showAllFlights=true" class="all-link">All departing flights &rarr;</a>
+        </div>
+      </div>
+      <aside class="task-side" aria-label="Quick actions for departing passengers">
+        <div class="label-eyebrow">Quick actions</div>
+        <h3 class="display">Skip to what you need.</h3>
+        <div class="quick-actions">
+          <a href="https://paolomoz.github.io/stardust-site/transportation/airport-parking" class="quick-action">
+            <span class="l">Reserve parking</span>
+            <span class="v">Save up to 20% <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/explore-jfk/terminals" class="quick-action">
+            <span class="l">Find your terminal</span>
+            <span class="v">All 5 terminals <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/explore-jfk/airport-map" class="quick-action">
+            <span class="l">Airport map</span>
+            <span class="v">Interactive <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/transportation/public-transport" class="quick-action">
+            <span class="l">Public transportation</span>
+            <span class="v">AirTrain &middot; Subway &middot; Bus <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/flights/airlines" class="quick-action">
+            <span class="l">Contact your airline</span>
+            <span class="v">All carriers <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ARRIVING task panel -->
+  <section data-section="task-panel" data-audience="arriving" data-purpose="audience-arriving" class="task-panel-arriving task-panel" hidden>
+    <div class="inner">
+      <div class="head">
+        <div class="eyebrow" data-slot="eyebrow">Arriving</div>
+        <h2 class="display" data-slot="title">Welcome back to New York.</h2>
+        <p data-slot="body">Track an inbound flight by airline, number, or origin. Find your baggage claim and the right way out, terminal by terminal.</p>
+        <div class="flight-search" data-section="flight-search-panel">
+          <div class="tabs">
+            <button class="tab">Departures</button>
+            <button class="tab active">Arrivals</button>
+            <button class="tab">Track flight</button>
+          </div>
+          <div class="search-by">
+            <span class="label">Search by</span>
+            <label><input type="radio" name="searchByA" checked> Origin</label>
+            <label><input type="radio" name="searchByA"> Flight Number</label>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label class="input-label" for="arr-date">Date (required)</label>
+              <input id="arr-date" type="text" value="05/03/2026">
+            </div>
+            <div class="field">
+              <label class="input-label" for="arr-orig">Origin Airport (required)</label>
+              <input id="arr-orig" type="text" placeholder="Select origin">
+            </div>
+            <div class="field">
+              <button class="btn-primary">Track</button>
+            </div>
+          </div>
+          <a href="https://paolomoz.github.io/stardust-site/flights?direction=arrivals&amp;showAllFlights=true" class="all-link">All arriving flights &rarr;</a>
+        </div>
+      </div>
+      <aside class="task-side" aria-label="Quick actions for arriving passengers">
+        <div class="label-eyebrow">Quick actions</div>
+        <h3 class="display">First steps off the plane.</h3>
+        <div class="quick-actions">
+          <a href="https://paolomoz.github.io/stardust-site/explore-jfk/terminals" class="quick-action">
+            <span class="l">Baggage claim by terminal</span>
+            <span class="v">Find yours <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/transportation/airtrain" class="quick-action">
+            <span class="l">AirTrain to Jamaica</span>
+            <span class="v">Subway, LIRR <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/transportation/taxi-service" class="quick-action">
+            <span class="l">Taxi to Manhattan</span>
+            <span class="v">Flat fare <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/lost-and-found" class="quick-action">
+            <span class="l">Lost &amp; Found</span>
+            <span class="v">Submit a report <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/explore-jfk/services" class="quick-action">
+            <span class="l">Meet &amp; Greet</span>
+            <span class="v">All terminals <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- PICKUP task panel -->
+  <section data-section="task-panel" data-audience="pickup" data-purpose="audience-pickup" class="task-panel-pickup task-panel" hidden>
+    <div class="inner">
+      <div class="head">
+        <div class="eyebrow" data-slot="eyebrow">Picking up</div>
+        <h2 class="display" data-slot="title">Live pickup status.</h2>
+        <p data-slot="body">Construction has moved several pickup zones this week. Find the right zone for your terminal before you head out, and follow the airport signage when you arrive.</p>
+        <div class="pickup-status">
+          <h3 class="ps-head">Current pickup zones, by terminal</h3>
+          <div class="ps-rows">
+            <div class="ps-row"><span class="terminal">T1</span><span class="detail">Standard pickup at curb</span><span class="pill ok">Normal</span></div>
+            <div class="ps-row"><span class="terminal">T4</span><span class="detail">Standard pickup at curb</span><span class="pill ok">Normal</span></div>
+            <div class="ps-row"><span class="terminal">T5</span><span class="detail">Ride-app pickup moved to Lot 2</span><span class="pill warn">Lot 2</span></div>
+            <div class="ps-row"><span class="terminal">T7</span><span class="detail">Ride-app pickup moved to Lot 2; taxi stand relocated</span><span class="pill warn">Lot 2 + taxi relocated</span></div>
+            <div class="ps-row"><span class="terminal">T8</span><span class="detail">Standard pickup at curb</span><span class="pill ok">Normal</span></div>
+          </div>
+          <a href="https://paolomoz.github.io/stardust-site/transportation/pick-up-drop-off" class="all-link">Live pickup map &rarr;</a>
+        </div>
+      </div>
+      <aside class="task-side" aria-label="Quick actions for pickup drivers">
+        <div class="label-eyebrow">Quick actions</div>
+        <h3 class="display">Park, wait, or circle.</h3>
+        <div class="quick-actions">
+          <a href="https://paolomoz.github.io/stardust-site/transportation/pick-up-drop-off" class="quick-action">
+            <span class="l">Pick-up &amp; drop-off areas</span>
+            <span class="v">All terminals <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/transportation/ride-share-services" class="quick-action">
+            <span class="l">Ride-app pickup points</span>
+            <span class="v">Uber, Lyft <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/alerts-advisories" class="quick-action">
+            <span class="l">Terminal access changes</span>
+            <span class="v">Active alerts <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/transportation/airport-parking" class="quick-action">
+            <span class="l">Park and wait</span>
+            <span class="v">Cell-phone lot, short-term <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/contact-us" class="quick-action">
+            <span class="l">Stuck somewhere?</span>
+            <span class="v">Contact us <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- CONNECTING task panel -->
+  <section data-section="task-panel" data-audience="connecting" data-purpose="audience-connecting" class="task-panel-connecting task-panel" hidden>
+    <div class="inner">
+      <div class="head">
+        <div class="eyebrow" data-slot="eyebrow">Connecting</div>
+        <h2 class="display" data-slot="title">Get to your next gate.</h2>
+        <p data-slot="body">Terminal-to-terminal navigation, AirTrain frequency, walk times, and minimum connection times by airline pair.</p>
+        <div class="connect-info">
+          <div class="ci-block">
+            <div class="label">AirTrain &middot; on-airport service</div>
+            <h4>Every 7 minutes, all 5 terminals.</h4>
+            <p>Free inside the airport. Average ride time between terminals is 8 to 14 minutes.</p>
+          </div>
+          <div class="ci-block">
+            <div class="label">Minimum connection times</div>
+            <table class="mct-table">
+              <thead>
+                <tr><th>From</th><th>To</th><th>Same airline</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>T4</td><td>T4</td><td>60 min</td></tr>
+                <tr><td>T4</td><td>T8</td><td>90 min</td></tr>
+                <tr><td>T5</td><td>T5</td><td>60 min</td></tr>
+                <tr><td>T7</td><td>T7</td><td>60 min</td></tr>
+                <tr><td>T8</td><td>T1</td><td>120 min</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <a href="https://paolomoz.github.io/stardust-site/flights/connections-guide" class="all-link">Full Connections Guide &rarr;</a>
+        </div>
+      </div>
+      <aside class="task-side" aria-label="Quick actions for connecting passengers">
+        <div class="label-eyebrow">Quick actions</div>
+        <h3 class="display">On the move, fast.</h3>
+        <div class="quick-actions">
+          <a href="https://paolomoz.github.io/stardust-site/explore-jfk/terminals" class="quick-action">
+            <span class="l">All Terminals</span>
+            <span class="v">Find your gate <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/transportation/airtrain" class="quick-action">
+            <span class="l">AirTrain map</span>
+            <span class="v">Stations, frequency <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/explore-jfk/airport-map" class="quick-action">
+            <span class="l">Walk times</span>
+            <span class="v">Gate to gate <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/explore-jfk/accessibility-services/mobility-accessibility" class="quick-action">
+            <span class="l">Accessibility transport</span>
+            <span class="v">Wheelchair, escort <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/flights/connections-guide/travel-between-airports" class="quick-action">
+            <span class="l">Travel between airports</span>
+            <span class="v">JFK, LGA, EWR <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- VISITING task panel -->
+  <section data-section="task-panel" data-audience="visiting" data-purpose="audience-visiting" class="task-panel-visiting task-panel" hidden>
+    <div class="inner">
+      <div class="head">
+        <div class="eyebrow" data-slot="eyebrow">Visiting</div>
+        <h2 class="display" data-slot="title">More than an airport.</h2>
+        <p data-slot="body">Six terminals, dozens of restaurants, three lounges, a public art program, and a few quiet corners. Here's what's open today.</p>
+        <div class="visit-info">
+          <div class="vi-grid">
+            <div class="vi-card">
+              <h4>Interactive airport map</h4>
+              <p>Find shops, food, lounges, and amenities by terminal.</p>
+              <a href="https://paolomoz.github.io/stardust-site/explore-jfk/airport-map">Open map &rarr;</a>
+            </div>
+            <div class="vi-card">
+              <h4>Dine, Shop, Relax</h4>
+              <p>Quick bites to sit-down meals, last-minute shopping, lounges and quiet spaces.</p>
+              <a href="https://paolomoz.github.io/stardust-site/dine-shop-relax">Discover &rarr;</a>
+            </div>
+            <div class="vi-card">
+              <h4>Airport lounges</h4>
+              <p>By airline, alliance, or pay-as-you-go. Showers, food, and a place to land.</p>
+              <a href="https://paolomoz.github.io/stardust-site/dine-shop-relax/lounge-and-rest">See all lounges &rarr;</a>
+            </div>
+            <div class="vi-card">
+              <h4>Airport hotels</h4>
+              <p>On-airport stays for early flights, layovers, or just because Manhattan is two hours away.</p>
+              <a href="https://paolomoz.github.io/stardust-site/explore-jfk/hotels">Find a room &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="task-side" aria-label="Quick actions for visitors">
+        <div class="label-eyebrow">Quick actions</div>
+        <h3 class="display">Make it more than a layover.</h3>
+        <div class="quick-actions">
+          <a href="https://paolomoz.github.io/stardust-site/explore-jfk" class="quick-action">
+            <span class="l">Explore JFK</span>
+            <span class="v">Services, terminals <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/explore-jfk/services" class="quick-action">
+            <span class="l">Airport services</span>
+            <span class="v">Currency, banking, more <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/explore-jfk/accessibility-services" class="quick-action">
+            <span class="l">Accessibility services</span>
+            <span class="v">All terminals <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://paolomoz.github.io/stardust-site/contact-us" class="quick-action">
+            <span class="l">Got a question?</span>
+            <span class="v">Real humans <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+          <a href="https://www.panynj.gov/WhatsApp_JFK" class="quick-action">
+            <span class="l">JFK on WhatsApp</span>
+            <span class="v">10am to 2am ET <span class="icon-arrow-right" aria-hidden="true"></span></span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- YOUR GUIDE TO JFK - captured 5-tile -->
+  <section data-section="your-guide" data-purpose="ia-pillar-discovery" class="guide-section reveal">
+    <div class="section-head">
+      <h2 class="display" data-slot="title">Your Guide to JFK</h2>
+    </div>
+    <div class="guide-tiles">
+      <a href="https://paolomoz.github.io/stardust-site/explore-jfk/airport-map" class="guide-tile">
+        <div class="photo"><img data-slot="tile-1.photo" src="https://paolomoz.github.io/stardust-site/samples/jfk-airport/assets/media/JFK_20Airport_20map_202.5-7e06d1e6.jpg" alt="JFK airport map showing terminal locations." loading="lazy"></div>
+        <div class="body"><h3 data-slot="tile-1.title">Interactive Map</h3><span class="arrow">Explore &rarr;</span></div>
+      </a>
+      <a href="https://paolomoz.github.io/stardust-site/flights/departures" class="guide-tile">
+        <div class="photo"><img data-slot="tile-2.photo" src="https://paolomoz.github.io/stardust-site/samples/jfk-airport/assets/media/1-1_departurescard_card-portrait-3x4-0f15539f.jpg" alt="A passenger checking the departures board." loading="lazy"></div>
+        <div class="body"><h3 data-slot="tile-2.title">Departures Guide</h3><span class="arrow">Open &rarr;</span></div>
+      </a>
+      <a href="https://paolomoz.github.io/stardust-site/flights/arrivals" class="guide-tile">
+        <div class="photo"><img data-slot="tile-3.photo" src="https://paolomoz.github.io/stardust-site/samples/jfk-airport/assets/media/1-2_1_arrivalsguidehero_card-portrait-3x4-1a528b73.jpg" alt="A traveler at JFK arrivals greeting a family member." loading="lazy"></div>
+        <div class="body"><h3 data-slot="tile-3.title">Arrivals Guide</h3><span class="arrow">Open &rarr;</span></div>
+      </a>
+      <a href="https://paolomoz.github.io/stardust-site/flights/connections-guide" class="guide-tile">
+        <div class="photo"><img data-slot="tile-4.photo" src="https://paolomoz.github.io/stardust-site/samples/jfk-airport/assets/media/0-1_2_general_card-portrait-3x4-ff464ef2.jpg" alt="An AirTrain car between JFK terminals." loading="lazy"></div>
+        <div class="body"><h3 data-slot="tile-4.title">Connections Guide</h3><span class="arrow">Open &rarr;</span></div>
+      </a>
+      <a href="https://paolomoz.github.io/stardust-site/explore-jfk/terminals" class="guide-tile">
+        <div class="photo"><img data-slot="tile-5.photo" src="https://paolomoz.github.io/stardust-site/samples/jfk-airport/assets/media/3_6-1_allterminalshero_card-portrait-3x4-4efc8669.jpg" alt="Inside a JFK terminal at boarding gates." loading="lazy"></div>
+        <div class="body"><h3 data-slot="tile-5.title">All Terminals</h3><span class="arrow">Find yours &rarr;</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CONSTRUCTION - voice-rephrased -->
+  <section data-section="construction-reality" data-purpose="crisis-affordance" class="construction" id="today">
+    <div class="inner reveal">
+      <div class="copy">
+        <h2 class="display" data-slot="title">Building tomorrow's JFK.</h2>
+        <p data-slot="body">JFK is mid a $19B redevelopment that runs through 2028: new terminals, new roadways, rebuilt pickup zones. Most days, most things work. Some days, something doesn't. Live status is at the top of the page; the full plan and current advisories are here.</p>
+        <div class="ctas">
+          <a href="https://www.portauthoritybuilds.com/redevelopment/us/en/jfk.html">JFK Redevelopment plan &rarr;</a>
+          <a href="https://paolomoz.github.io/stardust-site/alerts-advisories">All alerts and advisories &rarr;</a>
+        </div>
+      </div>
+      <figure>
+        <img data-slot="image" src="https://paolomoz.github.io/stardust-site/samples/jfk-airport/assets/media/JFK_20Airport_20map_202.5-7e06d1e6.jpg" alt="JFK airport map illustration showing terminals and current construction zones." loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ESSENTIALS - captured Dine/Shop/Relax with voice-rephrased H2 -->
+  <section data-section="essentials" data-purpose="ia-pillar-discovery" class="essentials">
+    <div class="inner reveal">
+      <div class="essentials-head">
+        <h2 class="display" data-slot="title">While you're here.</h2>
+        <p data-slot="deck">From quick bites to sit-down meals, last-minute essentials, and lounges to settle in before your flight.</p>
+      </div>
+      <div class="essentials-grid">
+        <div class="essential">
+          <div class="photo"><img data-slot="card-1.photo" src="https://paolomoz.github.io/stardust-site/samples/jfk-airport/assets/media/4-0_4_SDRcard_card-wide-16x9-0765162a.jpg" alt="A diner at a JFK food court." loading="lazy"></div>
+          <div class="body">
+            <span class="icon-tile" aria-hidden="true"><span class="icon-restaurants"></span></span>
+            <h3 data-slot="card-1.title">Dine</h3>
+            <p data-slot="card-1.body">Quick bites to sit-down meals, plenty of dietary options, perfect for a rush or a slow morning.</p>
+            <a href="https://paolomoz.github.io/stardust-site/dine-shop-relax/food">JFK Airport restaurants &rarr;</a>
+          </div>
+        </div>
+        <div class="essential">
+          <div class="photo"><img data-slot="card-2.photo" src="https://paolomoz.github.io/stardust-site/samples/jfk-airport/assets/media/4-0_2_shopteasercard_card-wide-16x9-25a97a96.jpg" alt="A shop interior at a JFK terminal." loading="lazy"></div>
+          <div class="body">
+            <span class="icon-tile" aria-hidden="true"><span class="icon-shops"></span></span>
+            <h3 data-slot="card-2.title">Shop</h3>
+            <p data-slot="card-2.body">Forgot something? Last-minute travel essentials, snacks, sunglasses, chargers, and souvenirs.</p>
+            <a href="https://paolomoz.github.io/stardust-site/dine-shop-relax/shops">JFK Airport shops &rarr;</a>
+          </div>
+        </div>
+        <div class="essential">
+          <div class="photo"><img data-slot="card-3.photo" src="https://paolomoz.github.io/stardust-site/samples/jfk-airport/assets/media/4-0_4_RelaxTeaser_card-wide-16x9-f2de0260.jpg" alt="A traveler relaxing in a JFK lounge area." loading="lazy"></div>
+          <div class="body">
+            <span class="icon-tile" aria-hidden="true"><span class="icon-waiting-area"></span></span>
+            <h3 data-slot="card-3.title">Relax</h3>
+            <p data-slot="card-3.body">Looking for a place to relax before your flight? Discover airport lounges, spas, and more.</p>
+            <a href="https://paolomoz.github.io/stardust-site/dine-shop-relax/lounge-and-rest">Places to relax at JFK Airport &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESSIBILITY -->
+  <section data-section="accessibility-band" data-purpose="accessibility-affordance" class="accessibility">
+    <div class="access-card reveal">
+      <div class="left">
+        <div class="glyph" aria-hidden="true"><span class="icon-accessible"></span></div>
+        <div>
+          <h2 class="display" data-slot="title">Accessibility at JFK.</h2>
+          <p data-slot="body">Mobility, vision, hearing, hidden disabilities, and the Hidden Disabilities Sunflower lanyard program. Services in every terminal.</p>
+        </div>
+      </div>
+      <a href="https://paolomoz.github.io/stardust-site/explore-jfk/accessibility-services" class="arrow-cta">All accessibility services &rarr;</a>
+    </div>
+  </section>
+
+  <!-- LATEST FROM JFK - 1 feature + 2 stacked companions -->
+  <section data-section="latest-from-jfk" data-purpose="news-promotions" class="latest">
+    <div class="inner reveal">
+      <div class="latest-head">
+        <h2 class="display" data-slot="title">Latest from JFK.</h2>
+        <a href="https://paolomoz.github.io/stardust-site/alerts-advisories" class="all">All alerts &amp; updates &rarr;</a>
+      </div>
+      <div class="latest-grid">
+        <article class="latest-feature">
+          <div class="photo"><img data-slot="feature.photo" src="https://paolomoz.github.io/stardust-site/samples/jfk-airport/assets/media/0-0_8_leffertsblvdlotcard_card-wide-16x9-afbc37d1.jpg" alt="A pickup zone at JFK with cars and signage." loading="lazy"></div>
+          <div class="body">
+            <div class="eyebrow" data-slot="feature.eyebrow">Pickup &amp; drop-off</div>
+            <h3 data-slot="feature.title">Convenient pick-up and drop-off areas.</h3>
+            <p data-slot="feature.body">Construction has moved several pickup zones, including T5 ride-app to Lot 2 and the T7 taxi stand. Find the right zone for your terminal, with current relocations.</p>
+            <a href="https://paolomoz.github.io/stardust-site/transportation/pick-up-drop-off" class="read">See the pickup map &rarr;</a>
+          </div>
+        </article>
+        <div class="latest-companions">
+          <article class="latest-companion">
+            <div class="eyebrow" data-slot="companion-1.eyebrow">Customer support</div>
+            <h3 data-slot="companion-1.title">JFK customer support on WhatsApp.</h3>
+            <p data-slot="companion-1.body">Need help while at the airport? JFK is on WhatsApp every day, 10 a.m. to 2 a.m. ET: accessibility, assistance, and more.</p>
+            <a href="https://www.panynj.gov/WhatsApp_JFK">Learn more &rarr;</a>
+          </article>
+          <article class="latest-companion">
+            <div class="eyebrow" data-slot="companion-2.eyebrow">Recognition</div>
+            <h3 data-slot="companion-2.title">Nominate an employee for great service.</h3>
+            <p data-slot="companion-2.body">Did an employee make your day? Tell us about it. Recognise the people who make JFK work.</p>
+            <a href="https://survey3.medallia.com/?RRNominationSurvey&amp;airport=jfk_feedback">Learn more &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
