@@ -1,4 +1,3 @@
-<style>
 :root{
   --ground:#FFFFFF;
   --ink:#040505;
@@ -267,4 +266,3 @@ a:focus-visible,button:focus-visible,
   .social__strip{grid-template-columns:repeat(2,1fr)}
   .site-footer__top{grid-template-columns:1fr 1fr;gap:24px}
 }
-</style>
