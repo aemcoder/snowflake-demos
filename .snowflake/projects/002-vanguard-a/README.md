@@ -2,7 +2,7 @@
 
 Source: https://paolomoz.github.io/stardust-site/samples/vanguard/proposed-A.html
 Captured: 2026-05-19
-Status: ready-for-close (fixed: <style> wrapper stripped from CSS)
+Status: Closed 2026-05-19 (tag sd-vanguard-a-close)
 
 Branch: sd-vanguard-a · Tag: sd-vanguard-a-close (pending)
 Demo URL: https://sd-vanguard-a--snowflake-demos--aemcoder.aem.live/vanguard/a
