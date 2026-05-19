@@ -15,7 +15,7 @@ on `main`.
 > the table below.
 
 | # | Source | Branch | Tag | Demo URL | History |
-|---|---|---|---|------|
+|---|---|---|---|---|---|
 | 001 | [Heathrow proposed-A](https://paolomoz.github.io/stardust-site/samples/heathrow/proposed-A.html) | [`snowflake-001`](https://github.com/aemcoder/snowflake-demos/tree/snowflake-001) | `snowflake-001-close` | <https://snowflake-001--snowflake-demos--aemcoder.aem.live/heathrow/proposed-a> | — |
 | 002 | [Vanguard proposed-A](https://paolomoz.github.io/stardust-site/samples/vanguard/proposed-A.html) | [`sd-vanguard-a`](https://github.com/aemcoder/snowflake-demos/tree/sd-vanguard-a) | `sd-vanguard-a-close` | <https://sd-vanguard-a--snowflake-demos--aemcoder.aem.live/vanguard/a> | — |
 | 003 | [Stardust Whitepaper proposed-A](https://paolomoz.github.io/stardust-site/samples/stardust-whitepaper/proposed-A.html) | [`sd-stardust-whitepaper-a`](https://github.com/aemcoder/snowflake-demos/tree/sd-stardust-whitepaper-a) | `sd-stardust-whitepaper-a-close` | <https://sd-stardust-whitepaper-a--snowflake-demos--aemcoder.aem.live/stardust-whitepaper/a> | — |
