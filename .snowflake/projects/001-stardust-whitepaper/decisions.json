@@ -1,0 +1,175 @@
+{
+  "templateName": "stardust-whitepaper",
+  "synthesizeMain": true,
+  "assetStrategy": "absolute",
+  "assetBase": "https://paolomoz.github.io/stardust-site/samples/stardust-whitepaper/",
+  "headLinks": [],
+  "inlineStyleLines": [8, 237],
+  "inlineScriptLines": [[537, 545]],
+  "externalLibs": [],
+  "sections": [
+    {
+      "id": "hero",
+      "firstClass": "hero",
+      "originalTag": "header",
+      "rewriteToSection": true,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".hero .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".hero h1" },
+        { "name": "lede", "type": "text", "selector": ".hero .lede" },
+        { "name": "chip-1", "type": "text", "selector": ".hero-meta .chip:nth-child(1)" },
+        { "name": "chip-2", "type": "text", "selector": ".hero-meta .chip:nth-child(2)" },
+        { "name": "chip-3", "type": "text", "selector": ".hero-meta .chip:nth-child(3)" },
+        { "name": "before-img", "type": "image", "selector": ".ba figure:nth-child(1) img" },
+        { "name": "after-img", "type": "image", "selector": ".ba figure:nth-child(2) img" }
+      ]
+    },
+    {
+      "id": "the-shift",
+      "firstClass": "the-shift",
+      "originalTag": "section",
+      "originalFirstClass": "b",
+      "rewriteToSection": false,
+      "eyebrow": "01 The shift",
+      "slots": [
+        { "name": "heading", "type": "text", "selector": ".the-shift h2" },
+        { "name": "intro", "type": "text", "selector": ".the-shift > .container > p" },
+        { "name": "card-1.label", "type": "text", "selector": ".the-shift .three .card:nth-child(1) .lbl" },
+        { "name": "card-1.title", "type": "text", "selector": ".the-shift .three .card:nth-child(1) h4" },
+        { "name": "card-1.body", "type": "text", "selector": ".the-shift .three .card:nth-child(1) p" },
+        { "name": "card-2.label", "type": "text", "selector": ".the-shift .three .card:nth-child(2) .lbl" },
+        { "name": "card-2.title", "type": "text", "selector": ".the-shift .three .card:nth-child(2) h4" },
+        { "name": "card-2.body", "type": "text", "selector": ".the-shift .three .card:nth-child(2) p" },
+        { "name": "card-3.label", "type": "text", "selector": ".the-shift .three .card:nth-child(3) .lbl" },
+        { "name": "card-3.title", "type": "text", "selector": ".the-shift .three .card:nth-child(3) h4" },
+        { "name": "card-3.body", "type": "text", "selector": ".the-shift .three .card:nth-child(3) p" }
+      ]
+    },
+    {
+      "id": "what-brands-gain",
+      "firstClass": "what-brands-gain",
+      "originalTag": "section",
+      "originalFirstClass": "b",
+      "rewriteToSection": false,
+      "eyebrow": "02 What brands gain",
+      "slots": [
+        { "name": "heading", "type": "text", "selector": ".what-brands-gain h2" },
+        { "name": "intro", "type": "text", "selector": ".what-brands-gain > .container > p" },
+        { "name": "card-1.label", "type": "text", "selector": ".what-brands-gain .three .card:nth-child(1) .lbl" },
+        { "name": "card-1.title", "type": "text", "selector": ".what-brands-gain .three .card:nth-child(1) h4" },
+        { "name": "card-1.body", "type": "text", "selector": ".what-brands-gain .three .card:nth-child(1) p" },
+        { "name": "card-2.label", "type": "text", "selector": ".what-brands-gain .three .card:nth-child(2) .lbl" },
+        { "name": "card-2.title", "type": "text", "selector": ".what-brands-gain .three .card:nth-child(2) h4" },
+        { "name": "card-2.body", "type": "text", "selector": ".what-brands-gain .three .card:nth-child(2) p" },
+        { "name": "card-3.label", "type": "text", "selector": ".what-brands-gain .three .card:nth-child(3) .lbl" },
+        { "name": "card-3.title", "type": "text", "selector": ".what-brands-gain .three .card:nth-child(3) h4" },
+        { "name": "card-3.body", "type": "text", "selector": ".what-brands-gain .three .card:nth-child(3) p" }
+      ]
+    },
+    {
+      "id": "strategy",
+      "firstClass": "strategy",
+      "originalTag": "section",
+      "originalFirstClass": "b",
+      "rewriteToSection": false,
+      "eyebrow": "03 Strategy",
+      "slots": [
+        { "name": "heading", "type": "text", "selector": ".strategy h2" },
+        { "name": "body", "type": "text", "selector": ".strategy > .container > p" }
+      ]
+    },
+    {
+      "id": "technical-solution",
+      "firstClass": "technical-solution",
+      "originalTag": "section",
+      "originalFirstClass": "b",
+      "rewriteToSection": false,
+      "eyebrow": "04 Technical solution",
+      "slots": [
+        { "name": "heading", "type": "text", "selector": ".technical-solution h2" },
+        { "name": "card-1.label", "type": "text", "selector": ".technical-solution .three .card:nth-child(1) .lbl" },
+        { "name": "card-1.title", "type": "text", "selector": ".technical-solution .three .card:nth-child(1) h4" },
+        { "name": "card-1.body", "type": "text", "selector": ".technical-solution .three .card:nth-child(1) p" },
+        { "name": "card-2.label", "type": "text", "selector": ".technical-solution .three .card:nth-child(2) .lbl" },
+        { "name": "card-2.title", "type": "text", "selector": ".technical-solution .three .card:nth-child(2) h4" },
+        { "name": "card-2.body", "type": "text", "selector": ".technical-solution .three .card:nth-child(2) p" },
+        { "name": "card-3.label", "type": "text", "selector": ".technical-solution .three .card:nth-child(3) .lbl" },
+        { "name": "card-3.title", "type": "text", "selector": ".technical-solution .three .card:nth-child(3) h4" },
+        { "name": "card-3.body", "type": "text", "selector": ".technical-solution .three .card:nth-child(3) p" }
+      ]
+    },
+    {
+      "id": "system-at-a-glance",
+      "firstClass": "system-at-a-glance",
+      "originalTag": "section",
+      "originalFirstClass": "b",
+      "rewriteToSection": false,
+      "eyebrow": "· System at a glance",
+      "slots": []
+    },
+    {
+      "id": "first-steps",
+      "firstClass": "first-steps",
+      "originalTag": "section",
+      "originalFirstClass": "b",
+      "rewriteToSection": false,
+      "eyebrow": "05 First steps",
+      "slots": [
+        { "name": "heading", "type": "text", "selector": ".first-steps h2" },
+        { "name": "step-1", "type": "text", "selector": ".first-steps .steps li:nth-child(1)" },
+        { "name": "step-2", "type": "text", "selector": ".first-steps .steps li:nth-child(2)" },
+        { "name": "step-3", "type": "text", "selector": ".first-steps .steps li:nth-child(3)" },
+        { "name": "step-4", "type": "text", "selector": ".first-steps .steps li:nth-child(4)" }
+      ]
+    },
+    {
+      "id": "plg-end-state",
+      "firstClass": "plg-end-state",
+      "originalTag": "section",
+      "originalFirstClass": "b",
+      "rewriteToSection": false,
+      "eyebrow": "06 The PLG end state",
+      "slots": [
+        { "name": "heading", "type": "text", "selector": ".plg-end-state h2" },
+        { "name": "body-1", "type": "text", "selector": ".plg-end-state .plg > p:nth-child(1)" },
+        { "name": "ask", "type": "text", "selector": ".plg-end-state .ask" },
+        { "name": "body-2", "type": "text", "selector": ".plg-end-state .plg > p:nth-child(3)" },
+        { "name": "body-3", "type": "text", "selector": ".plg-end-state .plg > p:nth-child(4)" }
+      ]
+    },
+    {
+      "id": "why-aem",
+      "firstClass": "why-aem",
+      "originalTag": "section",
+      "originalFirstClass": "b",
+      "rewriteToSection": false,
+      "eyebrow": "07 Why this matters for AEM",
+      "slots": [
+        { "name": "heading", "type": "text", "selector": ".why-aem h2" },
+        { "name": "card-1.pre", "type": "text", "selector": ".why-aem .aem .card:nth-child(1) .pre" },
+        { "name": "card-1.label", "type": "text", "selector": ".why-aem .aem .card:nth-child(1) .lbl" },
+        { "name": "card-1.title", "type": "text", "selector": ".why-aem .aem .card:nth-child(1) h3" },
+        { "name": "card-1.body", "type": "text", "selector": ".why-aem .aem .card:nth-child(1) p" },
+        { "name": "card-2.pre", "type": "text", "selector": ".why-aem .aem .card:nth-child(2) .pre" },
+        { "name": "card-2.label", "type": "text", "selector": ".why-aem .aem .card:nth-child(2) .lbl" },
+        { "name": "card-2.title", "type": "text", "selector": ".why-aem .aem .card:nth-child(2) h3" },
+        { "name": "card-2.body", "type": "text", "selector": ".why-aem .aem .card:nth-child(2) p" },
+        { "name": "card-3.pre", "type": "text", "selector": ".why-aem .aem .card:nth-child(3) .pre" },
+        { "name": "card-3.label", "type": "text", "selector": ".why-aem .aem .card:nth-child(3) .lbl" },
+        { "name": "card-3.title", "type": "text", "selector": ".why-aem .aem .card:nth-child(3) h3" },
+        { "name": "card-3.body", "type": "text", "selector": ".why-aem .aem .card:nth-child(3) p" }
+      ]
+    },
+    {
+      "id": "logos",
+      "firstClass": "logos",
+      "originalTag": "section",
+      "originalFirstClass": "logos",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "caption", "type": "text", "selector": ".logos .caption" }
+      ]
+    }
+  ],
+  "strip": []
+}
