@@ -1,0 +1,337 @@
+<main id="main">
+
+  <!-- ============================================================
+       2. TRACKING-HERO (the workhorse — first viewport)
+       ============================================================ -->
+  <section class="tracking-hero" data-section="tracking-hero" data-intent="primary-action" data-layout="centered-form" data-items="4">
+    <div class="container">
+      <div class="hero-grid">
+
+        <div class="copy">
+          <p class="hero-eyebrow" data-slot="eyebrow">Self-service</p>
+          <h1 class="hero-h1">
+            <span class="tab-title is-active" data-tab="track" data-slot="h1-track">Track a Parcel</span>
+            <span class="tab-title" data-tab="quote" data-slot="h1-quote">Get a Quote</span>
+            <span class="tab-title" data-tab="ship" data-slot="h1-ship">Start Shipping</span>
+            <span class="tab-title" data-tab="billing" data-slot="h1-billing">View Billing</span>
+          </h1>
+          <p class="hero-sub" data-slot="hero-sub">Enter one tracking or UPS InfoNotice<sup>®</sup> number for the latest delivery status — or switch tab to get a quote, start a shipment, or check billing.</p>
+
+          <!-- Hidden radios (driven by the CSS :checked sibling selector). Track is checked by default. -->
+          <input type="radio" name="hero-tab" id="tab-track" class="tab-radio" checked>
+          <input type="radio" name="hero-tab" id="tab-quote" class="tab-radio">
+          <input type="radio" name="hero-tab" id="tab-ship" class="tab-radio">
+          <input type="radio" name="hero-tab" id="tab-billing" class="tab-radio">
+
+          <div class="tabs" role="tablist" aria-label="Self-service">
+            <label for="tab-track"   class="tab-label" role="tab" aria-controls="panel-track"   tabindex="0">Track</label>
+            <label for="tab-quote"   class="tab-label" role="tab" aria-controls="panel-quote"   tabindex="0">Quote</label>
+            <label for="tab-ship"    class="tab-label" role="tab" aria-controls="panel-ship"    tabindex="0">Ship</label>
+            <label for="tab-billing" class="tab-label" role="tab" aria-controls="panel-billing" tabindex="0">Billing</label>
+          </div>
+
+          <div class="panels">
+            <div class="tab-panel" data-panel="track" id="panel-track" role="tabpanel" aria-labelledby="tab-track">
+              <form class="tab-form" action="https://www.ups.com/track" method="get">
+                <input type="hidden" name="loc" value="en_GB">
+                <input type="hidden" name="requester" value="ST">
+                <div class="field">
+                  <label class="field-label" for="tracknum">Tracking number or InfoNotice<sup>®</sup></label>
+                  <input id="tracknum" type="search" name="tracknum" inputmode="text" autocomplete="off" placeholder="e.g. 1Z 999 AA1 0123 4567 84">
+                </div>
+                <button class="btn btn-primary btn-large" type="submit">Track</button>
+              </form>
+              <p class="hero-help">Need help changing your delivery? <a href="https://www.ups.com/gb/en/track/change-delivery">Get help</a></p>
+            </div>
+
+            <div class="tab-panel" data-panel="quote" id="panel-quote" role="tabpanel" aria-labelledby="tab-quote">
+              <form class="tab-form" action="https://www.ups.com/lasso/login" method="get">
+                <input type="hidden" name="loc" value="en_GB">
+                <input type="hidden" name="returnto" value="https://www.ups.com/rates">
+                <div class="field">
+                  <label class="field-label" for="quote-from">From and To (Postcodes)</label>
+                  <input id="quote-from" type="text" name="from" autocomplete="postal-code" placeholder="EC1A 1BB → SW1A 1AA">
+                </div>
+                <button class="btn btn-primary btn-large" type="submit">Get a Quote</button>
+              </form>
+              <p class="hero-help">Need an account? <a href="https://www.ups.com/gb/en/business-solutions/open-an-account">Open an account and save</a></p>
+            </div>
+
+            <div class="tab-panel" data-panel="ship" id="panel-ship" role="tabpanel" aria-labelledby="tab-ship">
+              <form class="tab-form" action="https://www.ups.com/ship" method="get">
+                <input type="hidden" name="loc" value="en_GB">
+                <div class="field">
+                  <label class="field-label" for="ship-to">Send a Parcel — Where to?</label>
+                  <input id="ship-to" type="text" name="destination" autocomplete="off" placeholder="Country or postcode">
+                </div>
+                <button class="btn btn-primary btn-large" type="submit">Start Shipping</button>
+              </form>
+              <p class="hero-help">First time? <a href="https://www.ups.com/gb/en/shipping/how-to-ship-package">How to ship a parcel</a></p>
+            </div>
+
+            <div class="tab-panel" data-panel="billing" id="panel-billing" role="tabpanel" aria-labelledby="tab-billing">
+              <form class="tab-form" action="https://www.ups.com/lasso/login" method="get">
+                <input type="hidden" name="loc" value="en_GB">
+                <input type="hidden" name="returnto" value="https://www.ups.com/billing">
+                <div class="field">
+                  <label class="field-label" for="billing-acct">Account Number</label>
+                  <input id="billing-acct" type="text" name="account" autocomplete="off" placeholder="e.g. 999AA9">
+                </div>
+                <button class="btn btn-primary btn-large" type="submit">View Billing</button>
+              </form>
+              <p class="hero-help">No account yet? <a href="https://www.ups.com/gb/en/business-solutions/ups-billing">Understand and pay bills</a></p>
+            </div>
+          </div>
+        </div>
+
+        <figure class="hero-photo">
+          <img data-slot="hero-photo"
+               src="https://assets.ups.com/adobe/assets/urn:aaid:aem:83b6a362-769f-4a3c-af7e-f7b5b13aae29/as/Post-Peak_V3_JTBD-US-G-1401321960-Q423.avif?assetname=Post-Peak_V3_JTBD-US-G-1401321960-Q423.webp"
+               alt="Two business owners smiling while holding a tablet.">
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. REGULATIONS CROSS-PROMO (3-up cards)
+       ============================================================ -->
+  <section class="regulations-cross-promo band band-surface" data-section="regulations-cross-promo" data-intent="cross-promo" data-layout="grid-3" data-items="3">
+    <div class="container">
+      <div class="band-header">
+        <p class="label" data-slot="label">Regulations &amp; Tariffs</p>
+        <h2 class="headline" data-slot="headline">Regulations Change. UPS Can Help You Keep Moving.</h2>
+        <p class="lede" data-slot="lede">From shifting tariffs to evolving compliance rules, UPS stays ahead so you don't fall behind. Our digital solutions and global logistics expertise turn complexity into clarity, so you can focus on delivering for your customers.</p>
+      </div>
+
+      <div class="cards-3">
+        <a class="card" href="https://www.ups.com/gb/en/shipping/international-shipping/tariffs">
+          <p class="card-eyebrow" data-slot="card-1.eyebrow">Tariff Impacts</p>
+          <h3 class="title" data-slot="card-1.title">Get the Latest Tariff Updates</h3>
+          <p data-slot="card-1.body">Resources to help you navigate shifting tariffs, IEEPA refunds, and de minimis changes affecting US-bound shipments.</p>
+          <span class="card-cta" data-slot="card-1.cta">See Tariff Updates →</span>
+        </a>
+        <a class="card" href="https://www.ups.com/gb/en/shipping/how-to-ship-internationally">
+          <p class="card-eyebrow" data-slot="card-2.eyebrow">International Shipping Basics</p>
+          <h3 class="title" data-slot="card-2.title">Ship Beyond the UK with Confidence</h3>
+          <p data-slot="card-2.body">Customs paperwork, restricted items, prohibited destinations, and what you need to declare — explained simply.</p>
+          <span class="card-cta" data-slot="card-2.cta">Read the Basics →</span>
+        </a>
+        <a class="card" href="https://www.ups.com/gb/en/business-solutions/grow-your-business-solutions/expand-internationally/regulatory-compliance">
+          <p class="card-eyebrow" data-slot="card-3.eyebrow">Country-Specific Regulations</p>
+          <h3 class="title" data-slot="card-3.title">Rules That Vary by Destination</h3>
+          <p data-slot="card-3.body">From Germany's compliance changes to Ireland's documentation requirements, get country-by-country guidance.</p>
+          <span class="card-cta" data-slot="card-3.cta">Explore by Country →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. MARKETING ROW — ASIA (image-left)
+       ============================================================ -->
+  <section class="marketing-row-asia band" data-section="marketing-row-asia" data-intent="promote" data-layout="split-6-6-image-left">
+    <div class="container">
+      <div class="row-6-6">
+        <div class="pic">
+          <img data-slot="photo" src="https://assets.ups.com/adobe/assets/urn:aaid:aem:f08a197a-7c5f-4096-b54c-dc3c146f3e1b/as/exports-1186928-q1-GLOBAL.avif?assetname=exports-1186928-q1-GLOBAL.png" alt="UPS driver walks down stairs with a package in hand.">
+        </div>
+        <div class="copy">
+          <p class="label" data-slot="label">Promotional Offer</p>
+          <h2 class="headline" data-slot="headline">Save 25% When You Ship to Asia</h2>
+          <p class="lede" data-slot="lede">Shipping to Asia just got more cost-effective. Open an account and unlock a 25% discount on UPS Worldwide Express services — full transit-time visibility included.</p>
+          <div class="actions">
+            <a class="btn btn-primary" data-slot="cta-primary" href="https://www.ups.com/gb/en/business-solutions/open-an-account">Get a Quote</a>
+            <a class="text-link" data-slot="cta-secondary" href="https://www.ups.com/gb/en/shipping/how-to-ship-internationally">See International Services →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. MARKETING ROW — APP (image-right / centered)
+       ============================================================ -->
+  <section class="marketing-row-app band band-surface app-band" data-section="marketing-row-app" data-intent="promote" data-layout="centered-text">
+    <div class="container">
+      <div class="app-band-inner">
+        <p class="label" data-slot="label">UPS App</p>
+        <h2 class="headline" data-slot="headline">Skip the Trip With One‑Time Pickups, Now in the UPS App</h2>
+        <p class="lede" data-slot="lede">Schedule a one-off collection from your address — no recurring contract, no extra trip. Available now in the UPS App for iOS and Android.</p>
+        <a class="text-link" data-slot="cta" href="https://www.ups.com/gb/en/business-solutions/pickup-dropoff-options/ups-on-call-pickup">Open the UPS App →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. DIGITAL EDGE (dark band)
+       ============================================================ -->
+  <section class="digital-edge band band-deep" data-section="digital-edge" data-intent="feature-grid" data-layout="grid-3-dark" data-items="3">
+    <div class="container">
+      <div class="band-header">
+        <p class="label" style="color: var(--color-primary)" data-slot="label">Logged-in Tools</p>
+        <h2 class="headline" data-slot="headline">Your Digital Edge for Smarter Shipping</h2>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="icon-tile">
+            <img data-slot="feature-1.icon" src="https://assets.ups.com/adobe/assets/urn:aaid:aem:e1139c1c-54c3-4f4d-91ef-be751c0482b2/as/ups-package-location.avif?assetname=ups-package-location.png" alt="">
+          </div>
+          <div class="feature-body">
+            <h3 class="title" data-slot="feature-1.title">Control Over Your Deliveries</h3>
+            <p data-slot="feature-1.body">Reschedule a delivery, redirect a parcel mid-transit, or hold at a UPS Access Point. All from your account.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="icon-tile">
+            <img data-slot="feature-2.icon" src="https://assets.ups.com/adobe/assets/urn:aaid:aem:a14d81a8-9159-42ac-b872-7ce7cedafa6b/as/ups-payment-options-cc.avif?assetname=ups-payment-options-cc.png" alt="">
+          </div>
+          <div class="feature-body">
+            <h3 class="title" data-slot="feature-2.title">Faster, More Convenient Billing</h3>
+            <p data-slot="feature-2.body">Consolidated invoices, multiple payment methods, and automated payment options that fit how your business operates.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="icon-tile">
+            <img data-slot="feature-3.icon" src="https://assets.ups.com/adobe/assets/urn:aaid:aem:a1d826cb-50a1-4f48-8875-35f931928a14/as/ups-dashboard.avif?assetname=ups-dashboard.png" alt="">
+          </div>
+          <div class="feature-body">
+            <h3 class="title" data-slot="feature-3.title">Exclusive Shipping Discounts</h3>
+            <p data-slot="feature-3.body">Account holders unlock published rate discounts, surcharge waivers, and tiered pricing as your volume grows.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="deep-cta">
+        <a class="btn btn-primary" data-slot="cta-primary" href="https://www.ups.com/lasso/login?loc=en_GB&returnto=https%3A%2F%2Fwww.ups.com%2Fgb%2Fen%2Fhome">Log In</a>
+        <a class="text-link-on-dark" data-slot="cta-secondary" href="https://www.ups.com/gb/en/business-solutions/open-an-account">Don't have an account? Open one →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. SERVICES / CASE STUDIES (2-up)
+       ============================================================ -->
+  <section class="services-case-studies band" data-section="services-case-studies" data-intent="testimony" data-layout="grid-2" data-items="2">
+    <div class="container">
+      <div class="band-header">
+        <p class="label" data-slot="label">Customer Stories</p>
+        <h2 class="headline" data-slot="headline">World-Class Services You Can Count On</h2>
+      </div>
+
+      <div class="cards-2">
+        <a class="case-card" href="https://www.ups.com/gb/en/business-solutions/grow-your-business-solutions/expand-internationally">
+          <div class="pic">
+            <img data-slot="card-1.photo" src="https://www.ups.com/gb/en/media_1ff4c184a4de66246aa59c0ae2039e8ac47ab2c47.avif?width=2000&format=webply&optimize=medium" alt="Three business owners having a lively conversation in a workspace.">
+          </div>
+          <div class="body">
+            <span class="eyebrow" data-slot="card-1.eyebrow">Customer Story</span>
+            <h3 class="title" data-slot="card-1.title">From Bulgaria to Global Success</h3>
+            <p data-slot="card-1.body">How small Bulgarian exporters are using UPS to compete in markets they couldn't reach before.</p>
+            <span class="case-cta" data-slot="card-1.cta">Read the Case Study →</span>
+          </div>
+        </a>
+        <a class="case-card" href="https://www.ups.com/gb/en/business-solutions/inbound-outbound-shipments">
+          <div class="pic">
+            <img data-slot="card-2.photo" src="https://www.ups.com/gb/en/media_16da6d5a4c298c7c5672b2240639c1b35403ab87d.avif?width=2000&format=webply&optimize=medium" alt="A Henry Schein box on a conveyor in a warehouse.">
+          </div>
+          <div class="body">
+            <span class="eyebrow" data-slot="card-2.eyebrow">Customer Story</span>
+            <h3 class="title" data-slot="card-2.title">Building Smarter Supply Chains</h3>
+            <p data-slot="card-2.body">How healthcare distributor Henry Schein cut transit variability by partnering with UPS on inbound visibility.</p>
+            <span class="case-cta" data-slot="card-2.cta">Read the Case Study →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. LFC SPONSORSHIP (slim warm strip)
+       ============================================================ -->
+  <section class="lfc-sponsorship lfc-strip" data-section="lfc-sponsorship" data-intent="brand-story" data-layout="band-warm">
+    <div class="container">
+      <div class="row">
+        <div class="pic">
+          <img data-slot="photo" src="https://assets.ups.com/adobe/assets/urn:aaid:aem:89de499e-d015-46d3-85db-93d924f536f4/as/lfc-promo.avif?assetname=lfc-promo.png" alt="Liverpool Football Club partners with UPS.">
+        </div>
+        <div class="copy">
+          <h2 class="headline" data-slot="headline">UPS Is Proud to Be on the LFC Team</h2>
+          <p data-slot="body">Official Logistics Partner of Liverpool Football Club.</p>
+        </div>
+        <div class="actions">
+          <a data-slot="cta" href="https://about.ups.com/gb/en/our-stories/sponsorships.html">Learn More About the Partnership →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. QUICK LINKS (4-column nav grid)
+       ============================================================ -->
+  <section class="quick-links band band-surface" data-section="quick-links" data-intent="navigate" data-layout="grid-4" data-items="4">
+    <div class="container">
+      <div class="band-header">
+        <p class="label" data-slot="label">Site Map</p>
+        <h2 class="headline" data-slot="headline">Quick Links</h2>
+      </div>
+
+      <div class="quick-grid">
+
+        <div class="quick-col">
+          <h3>Shipping</h3>
+          <ul>
+            <li><a href="https://www.ups.com/ship?loc=en_GB">Create a Shipment</a></li>
+            <li><a href="https://www.ups.com/ship/history?loc=en_GB">View Shipping History</a></li>
+            <li><a href="https://www.ups.com/gb/en/shipping/batch-file-shipping">Batch File Shipping</a></li>
+            <li><a href="https://www.ups.com/gb/en/shipping/order-supplies">Packaging and Shipping Supplies</a></li>
+            <li><a href="https://www.ups.com/gb/en/business-solutions/open-an-account">Open an Account and Save</a></li>
+            <li><a href="https://www.ups.com/gb/en/shipping/how-to-ship-package">How To Ship a Parcel</a></li>
+            <li><a href="https://www.ups.com/gb/en/shipping/how-to-ship-internationally">International Shipping</a></li>
+            <li><a href="https://www.ups.com/gb/en/support/shipping-support/print-shipping-labels/how-to-write-address/how-to-return-a-package">How to Return a Parcel</a></li>
+            <li><a href="https://www.ups.com/gb/en/support/shipping-support/shipping-services">Shipping Services</a></li>
+            <li><a href="https://www.ups.com/gb/en/support/shipping-support">Go to Shipping Support</a></li>
+          </ul>
+        </div>
+
+        <div class="quick-col">
+          <h3>Tracking</h3>
+          <ul>
+            <li><a href="https://www.ups.com/track?loc=en_GB">Track a Package</a></li>
+            <li><a href="https://www.ups.com/gb/en/track/ups-my-choice">View All Shipments</a></li>
+            <li><a href="https://www.ups.com/gb/en/business-solutions/inbound-outbound-shipments/quantum-view">Manage with Quantum View</a></li>
+            <li><a href="https://www.ups.com/gb/en/track/change-delivery">Change a Delivery</a></li>
+            <li><a href="https://www.ups.com/gb/en/support/tracking-support">Go to Tracking Support</a></li>
+          </ul>
+        </div>
+
+        <div class="quick-col">
+          <h3>Business Solutions</h3>
+          <ul>
+            <li><a href="https://www.ups.com/gb/en/business-solutions/business-shipping-tools">Small Business Solutions</a></li>
+            <li><a href="https://www.ups.com/gb/en/business-solutions/inbound-outbound-shipments">View and Control Your Shipments</a></li>
+            <li><a href="https://www.ups.com/gb/en/business-solutions/ups-billing">Understand and Pay Bills</a></li>
+            <li><a href="https://www.ups.com/gb/en/business-solutions/pickup-dropoff-options">Collection and Drop-off Options</a></li>
+            <li><a href="https://www.ups.com/gb/en/business-solutions/simplify-returns">Simplify Returns</a></li>
+            <li><a href="https://www.ups.com/gb/en/business-solutions/expand-your-online-business/manage-customer-orders">Manage Customer Orders</a></li>
+            <li><a href="https://www.ups.com/gb/en/business-solutions/expand-your-online-business/ups-access-point">UPS Access Point™</a></li>
+          </ul>
+        </div>
+
+        <div class="quick-col">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="https://www.ups.com/gb/en/support/manage-your-profile">Manage Your Profile</a></li>
+            <li><a href="https://www.ups.com/gb/en/support/contact-us">Contact Us</a></li>
+            <li><a href="https://www.ups.com/gb/en/support/international-tools-resources">International Tools and Resources</a></li>
+            <li><a href="https://www.ups.com/gb/en/support/file-a-claim">File or View a Claim</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>

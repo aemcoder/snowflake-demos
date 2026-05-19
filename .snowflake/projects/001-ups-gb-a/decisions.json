@@ -1,0 +1,139 @@
+{
+  "templateName": "ups-gb-a",
+  "synthesizeMain": false,
+  "sections": [
+    {
+      "firstClass": "tracking-hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".hero-eyebrow" },
+        { "name": "h1-track", "type": "text", "selector": ".hero-h1 .tab-title[data-tab='track']" },
+        { "name": "h1-quote", "type": "text", "selector": ".hero-h1 .tab-title[data-tab='quote']" },
+        { "name": "h1-ship", "type": "text", "selector": ".hero-h1 .tab-title[data-tab='ship']" },
+        { "name": "h1-billing", "type": "text", "selector": ".hero-h1 .tab-title[data-tab='billing']" },
+        { "name": "hero-sub", "type": "text", "selector": ".hero-sub" },
+        { "name": "hero-photo", "type": "image", "selector": ".hero-photo img" }
+      ]
+    },
+    {
+      "firstClass": "regulations-cross-promo",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "classRewrite": "regulations-cross-promo band band-surface",
+      "slots": [
+        { "name": "label", "type": "text", "selector": ".band-header .label" },
+        { "name": "headline", "type": "text", "selector": ".band-header h2.headline" },
+        { "name": "lede", "type": "text", "selector": ".band-header .lede" },
+        { "name": "card-1.eyebrow", "type": "text", "selector": ".cards-3 .card:nth-child(1) .card-eyebrow" },
+        { "name": "card-1.title", "type": "text", "selector": ".cards-3 .card:nth-child(1) h3.title" },
+        { "name": "card-1.body", "type": "text", "selector": ".cards-3 .card:nth-child(1) p" },
+        { "name": "card-1.cta", "type": "text", "selector": ".cards-3 .card:nth-child(1) .card-cta" },
+        { "name": "card-2.eyebrow", "type": "text", "selector": ".cards-3 .card:nth-child(2) .card-eyebrow" },
+        { "name": "card-2.title", "type": "text", "selector": ".cards-3 .card:nth-child(2) h3.title" },
+        { "name": "card-2.body", "type": "text", "selector": ".cards-3 .card:nth-child(2) p" },
+        { "name": "card-2.cta", "type": "text", "selector": ".cards-3 .card:nth-child(2) .card-cta" },
+        { "name": "card-3.eyebrow", "type": "text", "selector": ".cards-3 .card:nth-child(3) .card-eyebrow" },
+        { "name": "card-3.title", "type": "text", "selector": ".cards-3 .card:nth-child(3) h3.title" },
+        { "name": "card-3.body", "type": "text", "selector": ".cards-3 .card:nth-child(3) p" },
+        { "name": "card-3.cta", "type": "text", "selector": ".cards-3 .card:nth-child(3) .card-cta" }
+      ]
+    },
+    {
+      "firstClass": "marketing-row-asia",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "classRewrite": "marketing-row-asia band",
+      "slots": [
+        { "name": "photo", "type": "image", "selector": ".pic img" },
+        { "name": "label", "type": "text", "selector": ".copy .label" },
+        { "name": "headline", "type": "text", "selector": ".copy h2.headline" },
+        { "name": "lede", "type": "text", "selector": ".copy .lede" },
+        { "name": "cta-primary", "type": "link", "selector": ".copy .actions .btn-primary" },
+        { "name": "cta-secondary", "type": "link", "selector": ".copy .actions .text-link" }
+      ]
+    },
+    {
+      "firstClass": "marketing-row-app",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "classRewrite": "marketing-row-app band band-surface app-band",
+      "slots": [
+        { "name": "label", "type": "text", "selector": ".app-band-inner .label" },
+        { "name": "headline", "type": "text", "selector": ".app-band-inner h2.headline" },
+        { "name": "lede", "type": "text", "selector": ".app-band-inner .lede" },
+        { "name": "cta", "type": "link", "selector": ".app-band-inner .text-link" }
+      ]
+    },
+    {
+      "firstClass": "digital-edge",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "classRewrite": "digital-edge band band-deep",
+      "slots": [
+        { "name": "label", "type": "text", "selector": ".band-header .label" },
+        { "name": "headline", "type": "text", "selector": ".band-header h2.headline" },
+        { "name": "feature-1.icon", "type": "image", "selector": ".feature:nth-child(1) .icon-tile img" },
+        { "name": "feature-1.title", "type": "text", "selector": ".feature:nth-child(1) h3.title" },
+        { "name": "feature-1.body", "type": "text", "selector": ".feature:nth-child(1) p" },
+        { "name": "feature-2.icon", "type": "image", "selector": ".feature:nth-child(2) .icon-tile img" },
+        { "name": "feature-2.title", "type": "text", "selector": ".feature:nth-child(2) h3.title" },
+        { "name": "feature-2.body", "type": "text", "selector": ".feature:nth-child(2) p" },
+        { "name": "feature-3.icon", "type": "image", "selector": ".feature:nth-child(3) .icon-tile img" },
+        { "name": "feature-3.title", "type": "text", "selector": ".feature:nth-child(3) h3.title" },
+        { "name": "feature-3.body", "type": "text", "selector": ".feature:nth-child(3) p" },
+        { "name": "cta-primary", "type": "link", "selector": ".deep-cta .btn-primary" },
+        { "name": "cta-secondary", "type": "link", "selector": ".deep-cta .text-link-on-dark" }
+      ]
+    },
+    {
+      "firstClass": "services-case-studies",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "classRewrite": "services-case-studies band",
+      "slots": [
+        { "name": "label", "type": "text", "selector": ".band-header .label" },
+        { "name": "headline", "type": "text", "selector": ".band-header h2.headline" },
+        { "name": "card-1.photo", "type": "image", "selector": ".case-card:nth-child(1) .pic img" },
+        { "name": "card-1.eyebrow", "type": "text", "selector": ".case-card:nth-child(1) .body .eyebrow" },
+        { "name": "card-1.title", "type": "text", "selector": ".case-card:nth-child(1) .body h3.title" },
+        { "name": "card-1.body", "type": "text", "selector": ".case-card:nth-child(1) .body p" },
+        { "name": "card-1.cta", "type": "text", "selector": ".case-card:nth-child(1) .body .case-cta" },
+        { "name": "card-2.photo", "type": "image", "selector": ".case-card:nth-child(2) .pic img" },
+        { "name": "card-2.eyebrow", "type": "text", "selector": ".case-card:nth-child(2) .body .eyebrow" },
+        { "name": "card-2.title", "type": "text", "selector": ".case-card:nth-child(2) .body h3.title" },
+        { "name": "card-2.body", "type": "text", "selector": ".case-card:nth-child(2) .body p" },
+        { "name": "card-2.cta", "type": "text", "selector": ".case-card:nth-child(2) .body .case-cta" }
+      ]
+    },
+    {
+      "firstClass": "lfc-sponsorship",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "classRewrite": "lfc-sponsorship lfc-strip",
+      "slots": [
+        { "name": "photo", "type": "image", "selector": ".pic img" },
+        { "name": "headline", "type": "text", "selector": ".copy h2.headline" },
+        { "name": "body", "type": "text", "selector": ".copy p" },
+        { "name": "cta", "type": "link", "selector": ".actions a" }
+      ]
+    },
+    {
+      "firstClass": "quick-links",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "classRewrite": "quick-links band band-surface",
+      "slots": [
+        { "name": "label", "type": "text", "selector": ".band-header .label" },
+        { "name": "headline", "type": "text", "selector": ".band-header h2.headline" }
+      ]
+    }
+  ],
+  "headLinks": [],
+  "inlineStyleLines": [40, 554],
+  "inlineScriptLines": [],
+  "externalLibs": [],
+  "assetStrategy": "absolute",
+  "assetBase": "https://paolomoz.github.io/stardust-site/",
+  "strip": []
+}
