@@ -1,0 +1,163 @@
+{
+  "templateName": "vanguard-a",
+  "synthesizeMain": false,
+  "assetStrategy": "absolute-already",
+  "assetBase": null,
+  "headLinks": [
+    { "rel": "preconnect", "href": "https://fonts.googleapis.com" },
+    { "rel": "preconnect", "href": "https://fonts.gstatic.com", "crossorigin": "" },
+    { "rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;500;700;800;900&display=swap" }
+  ],
+  "inlineStyleLines": [25, 294],
+  "inlineScriptBlocks": [],
+  "externalLibs": [],
+  "placeholderConvention": "stardust-0.2.0",
+  "placeholderSelector": "span.placeholder-tag",
+  "sections": [
+    {
+      "firstClass": "hero", "originalTag": "section", "rewriteToSection": false, "renameFirstClass": false,
+      "slots": [
+        { "name": "hero.image",       "type": "img",  "selector": ".hero__photo img" },
+        { "name": "hero.eyebrow",     "type": "text", "selector": ".hero__copy .eyebrow" },
+        { "name": "hero.title",       "type": "text", "selector": ".hero h1" },
+        { "name": "hero.sub",         "type": "text", "selector": ".hero__sub" },
+        { "name": "hero.claim",       "type": "text", "selector": ".hero__inline-claim" },
+        { "name": "hero.cta-primary", "type": "link", "selector": ".hero__cta-row .ds-btn--primary" },
+        { "name": "hero.cta-secondary","type":"link", "selector": ".hero__cta-row .ds-btn--tertiary" },
+        { "name": "hero.legal",       "type": "text", "selector": ".hero__legal" }
+      ]
+    },
+    {
+      "firstClass": "subhero", "originalTag": "section", "rewriteToSection": false, "renameFirstClass": false,
+      "slots": [
+        { "name": "subhero.title",       "type": "text", "selector": ".subhero h2" },
+        { "name": "subhero.body",        "type": "text", "selector": ".subhero__body" },
+        { "name": "subhero.cta-primary", "type": "link", "selector": ".subhero__ctas .ds-btn--auth" },
+        { "name": "subhero.cta-secondary","type":"link", "selector": ".subhero__ctas .ds-btn--secondary" }
+      ]
+    },
+    {
+      "firstClass": "goals", "originalTag": "section", "rewriteToSection": false, "renameFirstClass": false,
+      "slots": [
+        { "name": "goals.title", "type": "text", "selector": ".goals__head h2" },
+        { "name": "goals.lede",  "type": "text", "selector": ".goals__lede" },
+        { "name": "goal-1.image", "type": "img",  "selector": ".goal-card:nth-child(1) .goal-card__media img" },
+        { "name": "goal-1.title", "type": "text", "selector": ".goal-card:nth-child(1) .goal-card__h" },
+        { "name": "goal-1.body",  "type": "text", "selector": ".goal-card:nth-child(1) .goal-card__b" },
+        { "name": "goal-2.image", "type": "img",  "selector": ".goal-card:nth-child(2) .goal-card__media img" },
+        { "name": "goal-2.title", "type": "text", "selector": ".goal-card:nth-child(2) .goal-card__h" },
+        { "name": "goal-2.body",  "type": "text", "selector": ".goal-card:nth-child(2) .goal-card__b" },
+        { "name": "goal-3.image", "type": "img",  "selector": ".goal-card:nth-child(3) .goal-card__media img" },
+        { "name": "goal-3.title", "type": "text", "selector": ".goal-card:nth-child(3) .goal-card__h" },
+        { "name": "goal-3.body",  "type": "text", "selector": ".goal-card:nth-child(3) .goal-card__b" },
+        { "name": "goal-4.image", "type": "img",  "selector": ".goal-card:nth-child(4) .goal-card__media img" },
+        { "name": "goal-4.title", "type": "text", "selector": ".goal-card:nth-child(4) .goal-card__h" },
+        { "name": "goal-4.body",  "type": "text", "selector": ".goal-card:nth-child(4) .goal-card__b" }
+      ]
+    },
+    {
+      "firstClass": "advice", "originalTag": "section", "rewriteToSection": false, "renameFirstClass": false,
+      "slots": [
+        { "name": "advice.image",        "type": "img",  "selector": ".advice__photo img" },
+        { "name": "advice.eyebrow",      "type": "text", "selector": ".advice__copy .eyebrow" },
+        { "name": "advice.title",        "type": "text", "selector": ".advice h2" },
+        { "name": "advice.body",         "type": "text", "selector": ".advice__body" },
+        { "name": "advice.cta-primary",  "type": "link", "selector": ".advice__cta .ds-btn--primary" },
+        { "name": "advice.cta-secondary","type": "link", "selector": ".advice__cta .ds-btn--secondary" }
+      ]
+    },
+    {
+      "firstClass": "products", "originalTag": "section", "rewriteToSection": false, "renameFirstClass": false,
+      "slots": [
+        { "name": "products.title", "type": "text", "selector": ".products__head h2" },
+        { "name": "products.lede",  "type": "text", "selector": ".products__lede" },
+        { "name": "product-1.icon", "type": "text", "selector": ".product-row:nth-child(1) .product-row__icon" },
+        { "name": "product-1.name", "type": "text", "selector": ".product-row:nth-child(1) .product-row__name" },
+        { "name": "product-1.desc", "type": "text", "selector": ".product-row:nth-child(1) .product-row__desc" },
+        { "name": "product-2.icon", "type": "text", "selector": ".product-row:nth-child(2) .product-row__icon" },
+        { "name": "product-2.name", "type": "text", "selector": ".product-row:nth-child(2) .product-row__name" },
+        { "name": "product-2.desc", "type": "text", "selector": ".product-row:nth-child(2) .product-row__desc" },
+        { "name": "product-3.icon", "type": "text", "selector": ".product-row:nth-child(3) .product-row__icon" },
+        { "name": "product-3.name", "type": "text", "selector": ".product-row:nth-child(3) .product-row__name" },
+        { "name": "product-3.desc", "type": "text", "selector": ".product-row:nth-child(3) .product-row__desc" },
+        { "name": "product-4.icon", "type": "text", "selector": ".product-row:nth-child(4) .product-row__icon" },
+        { "name": "product-4.name", "type": "text", "selector": ".product-row:nth-child(4) .product-row__name" },
+        { "name": "product-4.desc", "type": "text", "selector": ".product-row:nth-child(4) .product-row__desc" },
+        { "name": "products.cta",   "type": "link", "selector": ".products__foot .ds-btn--secondary" }
+      ]
+    },
+    {
+      "firstClass": "anniversary", "originalTag": "section", "rewriteToSection": false, "renameFirstClass": false,
+      "slots": [
+        { "name": "anniversary.title", "type": "text", "selector": ".anniversary h2" },
+        { "name": "anniversary.body",  "type": "text", "selector": ".anniversary__body" },
+        { "name": "fact-1.year", "type": "text", "selector": ".anniv-fact:nth-child(1) .anniv-fact__year" },
+        { "name": "fact-1.line", "type": "text", "selector": ".anniv-fact:nth-child(1) .anniv-fact__line" },
+        { "name": "fact-2.year", "type": "text", "selector": ".anniv-fact:nth-child(2) .anniv-fact__year" },
+        { "name": "fact-2.line", "type": "text", "selector": ".anniv-fact:nth-child(2) .anniv-fact__line" },
+        { "name": "fact-3.year", "type": "text", "selector": ".anniv-fact:nth-child(3) .anniv-fact__year" },
+        { "name": "fact-3.line", "type": "text", "selector": ".anniv-fact:nth-child(3) .anniv-fact__line" }
+      ],
+      "placeholders": [
+        { "selector": ".anniv-fact:nth-child(4)", "reason": "Stardust F-002 placeholder — total assets/fund-count line not yet authored" }
+      ]
+    },
+    {
+      "firstClass": "social", "originalTag": "section", "rewriteToSection": false, "renameFirstClass": false,
+      "slots": [
+        { "name": "social.title", "type": "text", "selector": ".social h2" },
+        { "name": "social.sub",   "type": "text", "selector": ".social__sub" }
+      ],
+      "placeholders": [
+        { "selector": ".social__cell:nth-child(1) .placeholder-tag", "reason": "F-002 logo" },
+        { "selector": ".social__cell:nth-child(2) .placeholder-tag", "reason": "F-002 logo" },
+        { "selector": ".social__cell:nth-child(3) .placeholder-tag", "reason": "F-002 logo" },
+        { "selector": ".social__cell:nth-child(4) .placeholder-tag", "reason": "F-002 logo" },
+        { "selector": ".social__cell:nth-child(5) .placeholder-tag", "reason": "F-002 logo" }
+      ]
+    },
+    {
+      "firstClass": "resources", "originalTag": "section", "rewriteToSection": false, "renameFirstClass": false,
+      "slots": [
+        { "name": "resources.title", "type": "text", "selector": ".resources__head h2" },
+        { "name": "resources.cta",   "type": "link", "selector": ".resources__head .ds-btn--tertiary" },
+        { "name": "res-1.image", "type": "img",  "selector": ".res-card:nth-child(1) .res-card__media img" },
+        { "name": "res-1.tag",   "type": "text", "selector": ".res-card:nth-child(1) .res-card__tag" },
+        { "name": "res-1.title", "type": "text", "selector": ".res-card:nth-child(1) .res-card__h" },
+        { "name": "res-1.link",  "type": "text", "selector": ".res-card:nth-child(1) .res-card__l" },
+        { "name": "res-2.image", "type": "img",  "selector": ".res-card:nth-child(2) .res-card__media img" },
+        { "name": "res-2.tag",   "type": "text", "selector": ".res-card:nth-child(2) .res-card__tag" },
+        { "name": "res-2.title", "type": "text", "selector": ".res-card:nth-child(2) .res-card__h" },
+        { "name": "res-2.link",  "type": "text", "selector": ".res-card:nth-child(2) .res-card__l" },
+        { "name": "res-3.image", "type": "img",  "selector": ".res-card:nth-child(3) .res-card__media img" },
+        { "name": "res-3.tag",   "type": "text", "selector": ".res-card:nth-child(3) .res-card__tag" },
+        { "name": "res-3.title", "type": "text", "selector": ".res-card:nth-child(3) .res-card__h" },
+        { "name": "res-3.link",  "type": "text", "selector": ".res-card:nth-child(3) .res-card__l" },
+        { "name": "res-4.image", "type": "img",  "selector": ".res-card:nth-child(4) .res-card__media img" },
+        { "name": "res-4.tag",   "type": "text", "selector": ".res-card:nth-child(4) .res-card__tag" },
+        { "name": "res-4.title", "type": "text", "selector": ".res-card:nth-child(4) .res-card__h" },
+        { "name": "res-4.link",  "type": "text", "selector": ".res-card:nth-child(4) .res-card__l" }
+      ]
+    },
+    {
+      "firstClass": "bottom-cta", "originalTag": "section", "rewriteToSection": false, "renameFirstClass": false,
+      "slots": [
+        { "name": "cta.title",         "type": "text", "selector": ".bottom-cta h2" },
+        { "name": "cta.body",          "type": "text", "selector": ".bottom-cta__body" },
+        { "name": "cta.primary",       "type": "link", "selector": ".bottom-cta__ctas .ds-btn--auth" },
+        { "name": "cta.secondary",     "type": "link", "selector": ".bottom-cta__ctas .ds-btn--secondary" },
+        { "name": "cta.legal",         "type": "text", "selector": ".bottom-cta__legal" }
+      ]
+    }
+  ],
+  "strip": [],
+  "notes": [
+    "hero.sub and hero.claim contain <b> tags — DA cells must use <strong> instead (pipeline strips <b>)",
+    "products section: .product-row children are slots; <a class=product-row> itself must NOT have data-slot",
+    "goal-card children are slots; <a class=goal-card> itself must NOT have data-slot",
+    "res-card children are slots; <a class=res-card> itself must NOT have data-slot",
+    "anniversary .anniv-fact:nth-child(4) is a Stardust F-002 placeholder — mark data-slot-skip",
+    "social .social__cell placeholder-tag spans are F-002 placeholders — mark data-slot-skip",
+    "footer has a placeholder-tag span — it is in the footer fragment (static), mark data-slot-skip"
+  ]
+}
