@@ -1,0 +1,39 @@
+{
+  "templateName": "lemonade-a",
+  "placeholderConvention": "class-ds-placeholder",
+  "placeholderSelector": ".ds-placeholder",
+  "sections": [
+    { "id": "ds-hero",        "label": "Hero",         "dataSection": "hero" },
+    { "id": "ds-valueprops",  "label": "Value Props",  "dataSection": "value-props" },
+    { "id": "ds-press-strip", "label": "Press Strip",  "dataSection": "press-strip" },
+    { "id": "ds-bundle-band", "label": "Bundle Band",  "dataSection": "bundle-band" },
+    { "id": "ds-social-proof","label": "Social Proof", "dataSection": "social-proof" },
+    { "id": "ds-instant",     "label": "Instant AI",   "dataSection": "instant-ai" },
+    { "id": "ds-switch",      "label": "Switch Flow",  "dataSection": "switch-flow" },
+    { "id": "ds-how",         "label": "How It Works", "dataSection": "how-it-works" },
+    { "id": "ds-impact",      "label": "Social Impact","dataSection": "social-impact" }
+  ],
+  "svgSizes": {
+    "home-left":           { "bytes": 45922,  "templateDefaultOnly": true },
+    "home-right":          { "bytes": 76318,  "templateDefaultOnly": true },
+    "renters_desktop":     { "bytes": 16597,  "templateDefaultOnly": false },
+    "homeowners_desktop":  { "bytes": 8285,   "templateDefaultOnly": false },
+    "car_desktop":         { "bytes": 16939,  "templateDefaultOnly": false },
+    "pet_desktop":         { "bytes": 18782,  "templateDefaultOnly": false },
+    "life_desktop":        { "bytes": 17773,  "templateDefaultOnly": false },
+    "press_banner":        { "bytes": 251061, "templateDefaultOnly": true },
+    "pet-renters":         { "bytes": 81115,  "templateDefaultOnly": true },
+    "car-renters":         { "bytes": 98660,  "templateDefaultOnly": true },
+    "car-home":            { "bytes": 158217, "templateDefaultOnly": true },
+    "app-sketch-us":       { "bytes": 14114,  "templateDefaultOnly": false },
+    "pizza_desktop":       { "bytes": 176562, "templateDefaultOnly": true },
+    "b-corp":              { "bytes": 5021,   "templateDefaultOnly": false },
+    "nyse":                { "bytes": 12690,  "templateDefaultOnly": false },
+    "a-rated":             { "bytes": 4910,   "templateDefaultOnly": false }
+  },
+  "headLinks": [
+    { "rel": "preconnect", "href": "https://fonts.googleapis.com" },
+    { "rel": "preconnect", "href": "https://fonts.gstatic.com", "crossorigin": true },
+    { "rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Lato:wght@400;700;900&family=Merriweather:wght@400;700&display=swap" }
+  ]
+}
