@@ -1,0 +1,131 @@
+{
+  "templateName": "nvidia-a",
+  "pageSlug": "a",
+  "daRoot": "/nvidia",
+  "synthesizeMain": false,
+  "headLinks": [],
+  "inlineStyleLines": [86, 1037],
+  "inlineScriptLines": [[2167, 2379]],
+  "noscriptStyleLines": [[1038, 1038]],
+  "stardustVersion": "0.3.0",
+  "placeholderConvention": "data-placeholder",
+  "assetStrategy": "absolute-source",
+  "assetBase": "absolute (already)",
+  "sections": [
+    {
+      "firstClass": "hero-carousel",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "note": "6 hero slides each with picture + eyebrow + headline + description + CTA. Tab labels also slotted to keep author edits in sync.",
+      "slots": [
+        "slide-1.picture", "slide-1.eyebrow", "slide-1.headline", "slide-1.description", "slide-1.cta",
+        "slide-2.picture", "slide-2.eyebrow", "slide-2.headline", "slide-2.description", "slide-2.cta",
+        "slide-3.picture", "slide-3.eyebrow", "slide-3.headline", "slide-3.description", "slide-3.cta",
+        "slide-4.picture", "slide-4.eyebrow", "slide-4.headline", "slide-4.description", "slide-4.cta",
+        "slide-5.picture", "slide-5.eyebrow", "slide-5.headline", "slide-5.description", "slide-5.cta",
+        "slide-6.picture", "slide-6.eyebrow", "slide-6.headline", "slide-6.description", "slide-6.cta",
+        "tab-1.eyebrow", "tab-1.title",
+        "tab-2.eyebrow", "tab-2.title",
+        "tab-3.eyebrow", "tab-3.title",
+        "tab-4.eyebrow", "tab-4.title",
+        "tab-5.eyebrow", "tab-5.title",
+        "tab-6.eyebrow", "tab-6.title"
+      ]
+    },
+    {
+      "firstClass": "theme-ai",
+      "originalFirstClass": "theme-section",
+      "originalClassListAppend": "theme-section variant-A surface-white",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "tileVariant": "tile-a",
+      "tileCount": 10,
+      "quicklinkCount": 8,
+      "note": "tile-a = img + band with eyebrow/h3/cta. Slot inner img + eyebrow + h3 per tile; outer <a href> stays static (link not authorable). Quicklinks are individual anchors (link slots)."
+    },
+    {
+      "firstClass": "theme-design-sim",
+      "originalFirstClass": "theme-section",
+      "originalClassListAppend": "theme-section variant-A surface-dark",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "tileVariant": "tile-a",
+      "tileCount": 11,
+      "quicklinkCount": 8
+    },
+    {
+      "firstClass": "theme-hpc",
+      "originalFirstClass": "theme-section",
+      "originalClassListAppend": "theme-section variant-G surface-white",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "tileVariant": "tile-g",
+      "tileCount": 8,
+      "quicklinkCount": 8
+    },
+    {
+      "firstClass": "theme-gaming-creating",
+      "originalFirstClass": "theme-section",
+      "originalClassListAppend": "theme-section variant-C surface-dark",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "tileVariant": "tile-c",
+      "tileCount": 9,
+      "quicklinkCount": 6
+    },
+    {
+      "firstClass": "theme-automotive",
+      "originalFirstClass": "theme-section",
+      "originalClassListAppend": "theme-section variant-C surface-white",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "tileVariant": "tile-c",
+      "tileCount": 10,
+      "quicklinkCount": 6
+    },
+    {
+      "firstClass": "theme-robotics-edge",
+      "originalFirstClass": "theme-section",
+      "originalClassListAppend": "theme-section variant-E surface-dark",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "tileVariant": "tile-e",
+      "tileCount": 8,
+      "quicklinkCount": 6
+    },
+    {
+      "firstClass": "theme-data-center-cloud",
+      "originalFirstClass": "theme-section",
+      "originalClassListAppend": "theme-section variant-G surface-white",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "tileVariant": "tile-g",
+      "tileCount": 8,
+      "quicklinkCount": 6
+    },
+    {
+      "firstClass": "theme-about-nvidia",
+      "originalFirstClass": "theme-section",
+      "originalClassListAppend": "theme-section variant-C surface-dark",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "tileVariant": "tile-c",
+      "tileCount": 10,
+      "quicklinkCount": 6
+    }
+  ],
+  "themeSlotShape": {
+    "title": "text — section h2",
+    "description": "text — .theme-description",
+    "quicklink-N": "link — each <a class=\"quicklink\">",
+    "tile-N.image": "image — inner <img>",
+    "tile-N.eyebrow": "text — eyebrow span/div",
+    "tile-N.title": "text — inner <h3>"
+  },
+  "strip": [
+    "Stardust provenance comment in <head>",
+    "<noscript><style>...</style></noscript> remains in template head (not stripped, just not extracted to CSS file)"
+  ],
+  "footerHasPlaceholders": true,
+  "footerNote": "Footer contains <span data-placeholder data-shape='...'> elements; these are Stardust placeholders that stay as static fragment content (not slots, not authorable)."
+}
