@@ -1,0 +1,173 @@
+{
+  "templateName": "acom-bizpro-hub",
+  "pageSlug": "a",
+  "daRoot": "/acom/bizpro-hub",
+  "pageTitle": "BizPro Hub — PDF & Productivity",
+  "synthesizeMain": true,
+  "branch": "acom-bizpro-hub",
+  "absoluteAssetBase": "https://acom-bizpro-hub--snowflake-demos--aemcoder.aem.page/assets",
+  "assetStrategy": "vendor",
+  "headLinks": [
+    { "rel": "stylesheet", "href": "/styles/acom-bizpro-hub-lenis.min.css" }
+  ],
+  "inlineStyleLines": [8, 1326],
+  "inlineScriptLines": [
+    [2162, 2670],
+    [2674, 2685]
+  ],
+  "externalLibs": [
+    {
+      "name": "lenis",
+      "css": "assets/lenis.min.css",
+      "js": "assets/lenis.min.js",
+      "strategy": "vendor"
+    }
+  ],
+  "strip": [
+    "div.grid-overlay",
+    "button.grid-toggle"
+  ],
+  "renamedDirs": [
+    { "from": "fonts/Adobe Clean Display", "to": "fonts/AdobeCleanDisplay" }
+  ],
+  "sections": [
+    {
+      "firstClass": "hero-scroll",
+      "originalTag": "div",
+      "rewriteToSection": true,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".hero-text__eyebrow" },
+        { "name": "title", "type": "text", "selector": ".hero-text__title" },
+        { "name": "body", "type": "text", "selector": ".hero-text__body" },
+        { "name": "overlay-title", "type": "text", "selector": ".hero-overlay-product-title" },
+        { "name": "overlay-body", "type": "text", "selector": ".hero-overlay-product-body" },
+        { "name": "cta-primary", "type": "text", "selector": ".hero-btn-solid" },
+        { "name": "cta-secondary", "type": "text", "selector": ".hero-btn-outline" }
+      ]
+    },
+    {
+      "firstClass": "stories",
+      "originalTag": "section",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".stories__eyebrow" },
+        { "name": "title", "type": "text", "selector": ".stories__title" },
+        { "name": "body", "type": "text", "selector": ".stories__body" },
+        { "name": "card-1.photo", "type": "background-image", "selector": ".story-card:nth-of-type(1) .story-card__photo" },
+        { "name": "card-1.category", "type": "text", "selector": ".story-card:nth-of-type(1) .story-card__category" },
+        { "name": "card-1.title", "type": "text", "selector": ".story-card:nth-of-type(1) .story-card__title" },
+        { "name": "card-2.photo", "type": "background-image", "selector": ".story-card:nth-of-type(2) .story-card__photo" },
+        { "name": "card-2.category", "type": "text", "selector": ".story-card:nth-of-type(2) .story-card__category" },
+        { "name": "card-2.title", "type": "text", "selector": ".story-card:nth-of-type(2) .story-card__title" },
+        { "name": "card-3.photo", "type": "background-image", "selector": ".story-card:nth-of-type(3) .story-card__photo" },
+        { "name": "card-3.category", "type": "text", "selector": ".story-card:nth-of-type(3) .story-card__category" },
+        { "name": "card-3.title", "type": "text", "selector": ".story-card:nth-of-type(3) .story-card__title" },
+        { "name": "card-4.photo", "type": "background-image", "selector": ".story-card:nth-of-type(4) .story-card__photo" },
+        { "name": "card-4.category", "type": "text", "selector": ".story-card:nth-of-type(4) .story-card__category" },
+        { "name": "card-4.title", "type": "text", "selector": ".story-card:nth-of-type(4) .story-card__title" }
+      ]
+    },
+    {
+      "firstClass": "acrobat-feature",
+      "originalTag": "section",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".acrobat-feature__eyebrow" },
+        { "name": "title", "type": "text", "selector": ".acrobat-feature__title" },
+        { "name": "body", "type": "text", "selector": ".acrobat-feature__body" },
+        { "name": "wide-image", "type": "image", "selector": ".acrobat-wide__img img" },
+        { "name": "wide-title", "type": "text", "selector": ".acrobat-wide .acrobat-card__title" },
+        { "name": "wide-body", "type": "text", "selector": ".acrobat-wide .acrobat-card__body" },
+        { "name": "card-1.image", "type": "image", "selector": ".acrobat-cards .acrobat-card:nth-of-type(1) .acrobat-card__asset img" },
+        { "name": "card-1.title", "type": "text", "selector": ".acrobat-cards .acrobat-card:nth-of-type(1) .acrobat-card__title" },
+        { "name": "card-1.body", "type": "text", "selector": ".acrobat-cards .acrobat-card:nth-of-type(1) .acrobat-card__body" },
+        { "name": "card-2.image", "type": "image", "selector": ".acrobat-cards .acrobat-card:nth-of-type(2) .acrobat-card__asset img" },
+        { "name": "card-2.title", "type": "text", "selector": ".acrobat-cards .acrobat-card:nth-of-type(2) .acrobat-card__title" },
+        { "name": "card-2.body", "type": "text", "selector": ".acrobat-cards .acrobat-card:nth-of-type(2) .acrobat-card__body" },
+        { "name": "card-3.image", "type": "image", "selector": ".acrobat-cards .acrobat-card:nth-of-type(3) .acrobat-card__asset img" },
+        { "name": "card-3.title", "type": "text", "selector": ".acrobat-cards .acrobat-card:nth-of-type(3) .acrobat-card__title" },
+        { "name": "card-3.body", "type": "text", "selector": ".acrobat-cards .acrobat-card:nth-of-type(3) .acrobat-card__body" }
+      ]
+    },
+    {
+      "firstClass": "tutorial",
+      "originalTag": "section",
+      "wrappedIn": "div.tutorial-scroll",
+      "slots": [
+        { "name": "slide-1.image", "type": "image", "selector": ".tutorial__slide[data-real-index=\"0\"] .tutorial__asset" },
+        { "name": "slide-1.headline", "type": "text", "selector": ".tutorial__slide[data-real-index=\"0\"] .tutorial__headline" },
+        { "name": "slide-2.image", "type": "image", "selector": ".tutorial__slide[data-real-index=\"1\"] .tutorial__asset" },
+        { "name": "slide-2.headline", "type": "text", "selector": ".tutorial__slide[data-real-index=\"1\"] .tutorial__headline" },
+        { "name": "slide-3.image", "type": "image", "selector": ".tutorial__slide[data-real-index=\"2\"] .tutorial__asset" },
+        { "name": "slide-3.headline", "type": "text", "selector": ".tutorial__slide[data-real-index=\"2\"] .tutorial__headline" }
+      ]
+    },
+    {
+      "firstClass": "solutions",
+      "originalTag": "section",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".solutions__title" },
+        { "name": "body", "type": "text", "selector": ".solutions__body" },
+        { "name": "card-1.name", "type": "text", "selector": ".pricing-grid .price-card:nth-of-type(1) .price-card__name" },
+        { "name": "card-1.price", "type": "text", "selector": ".pricing-grid .price-card:nth-of-type(1) .price-card__price" },
+        { "name": "card-1.billing", "type": "text", "selector": ".pricing-grid .price-card:nth-of-type(1) .price-card__billing" },
+        { "name": "card-2.name", "type": "text", "selector": ".pricing-grid .price-card:nth-of-type(2) .price-card__name" },
+        { "name": "card-2.price", "type": "text", "selector": ".pricing-grid .price-card:nth-of-type(2) .price-card__price" },
+        { "name": "card-2.billing", "type": "text", "selector": ".pricing-grid .price-card:nth-of-type(2) .price-card__billing" },
+        { "name": "card-3.name", "type": "text", "selector": ".pricing-grid .price-card:nth-of-type(3) .price-card__name" },
+        { "name": "card-3.price", "type": "text", "selector": ".pricing-grid .price-card:nth-of-type(3) .price-card__price" },
+        { "name": "card-3.billing", "type": "text", "selector": ".pricing-grid .price-card:nth-of-type(3) .price-card__billing" }
+      ]
+    },
+    {
+      "firstClass": "studio-banner",
+      "originalTag": "section",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".studio-banner__title" },
+        { "name": "body", "type": "text", "selector": ".studio-banner__body" },
+        { "name": "cta-primary", "type": "link", "selector": ".studio-banner__ctas a:nth-of-type(1)" },
+        { "name": "cta-secondary", "type": "link", "selector": ".studio-banner__ctas a:nth-of-type(2)" }
+      ]
+    },
+    {
+      "firstClass": "product-section",
+      "originalTag": "section",
+      "slots": [
+        { "name": "card-1.title", "type": "text", "selector": ".explore-card:nth-of-type(1) .explore-card-text h3" },
+        { "name": "card-1.body", "type": "text", "selector": ".explore-card:nth-of-type(1) .explore-card-text p" },
+        { "name": "card-1.bg", "type": "image", "selector": ".explore-card:nth-of-type(1) .explore-card-background img" },
+        { "name": "card-2.title", "type": "text", "selector": ".explore-card:nth-of-type(2) .explore-card-text h3" },
+        { "name": "card-2.body", "type": "text", "selector": ".explore-card:nth-of-type(2) .explore-card-text p" },
+        { "name": "card-2.bg", "type": "image", "selector": ".explore-card:nth-of-type(2) .explore-card-background img" },
+        { "name": "card-3.title", "type": "text", "selector": ".explore-card:nth-of-type(3) .explore-card-text h3" },
+        { "name": "card-3.body", "type": "text", "selector": ".explore-card:nth-of-type(3) .explore-card-text p" },
+        { "name": "card-3.bg", "type": "image", "selector": ".explore-card:nth-of-type(3) .explore-card-background img" },
+        { "name": "card-4.title", "type": "text", "selector": ".explore-card:nth-of-type(4) .explore-card-text h3" },
+        { "name": "card-4.body", "type": "text", "selector": ".explore-card:nth-of-type(4) .explore-card-text p" },
+        { "name": "card-4.bg", "type": "image", "selector": ".explore-card:nth-of-type(4) .explore-card-background img" },
+        { "name": "card-5.title", "type": "text", "selector": ".explore-card:nth-of-type(5) .explore-card-text h3" },
+        { "name": "card-5.body", "type": "text", "selector": ".explore-card:nth-of-type(5) .explore-card-text p" },
+        { "name": "card-5.bg", "type": "image", "selector": ".explore-card:nth-of-type(5) .explore-card-background img" },
+        { "name": "card-6.title", "type": "text", "selector": ".explore-card:nth-of-type(6) .explore-card-text h3" },
+        { "name": "card-6.body", "type": "text", "selector": ".explore-card:nth-of-type(6) .explore-card-text p" },
+        { "name": "card-6.bg", "type": "image", "selector": ".explore-card:nth-of-type(6) .explore-card-background img" },
+        { "name": "card-7.title", "type": "text", "selector": ".explore-card:nth-of-type(7) .explore-card-text h3" },
+        { "name": "card-7.body", "type": "text", "selector": ".explore-card:nth-of-type(7) .explore-card-text p" },
+        { "name": "card-7.bg", "type": "image", "selector": ".explore-card:nth-of-type(7) .explore-card-background img" },
+        { "name": "card-8.title", "type": "text", "selector": ".explore-card:nth-of-type(8) .explore-card-text h3" },
+        { "name": "card-8.body", "type": "text", "selector": ".explore-card:nth-of-type(8) .explore-card-text p" },
+        { "name": "card-8.bg", "type": "image", "selector": ".explore-card:nth-of-type(8) .explore-card-background img" },
+        { "name": "card-9.title", "type": "text", "selector": ".explore-card:nth-of-type(9) .explore-card-text h3" },
+        { "name": "card-9.body", "type": "text", "selector": ".explore-card:nth-of-type(9) .explore-card-text p" },
+        { "name": "card-9.bg", "type": "image", "selector": ".explore-card:nth-of-type(9) .explore-card-background img" }
+      ]
+    },
+    {
+      "firstClass": "search-section",
+      "originalTag": "section",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".search-section__title" },
+        { "name": "body", "type": "text", "selector": ".search-section__body" },
+        { "name": "disclaimer", "type": "text", "selector": ".search-section__disclaimer" }
+      ]
+    }
+  ]
+}
