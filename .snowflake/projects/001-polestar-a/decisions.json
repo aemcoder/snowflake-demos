@@ -1,0 +1,87 @@
+{
+  "templateName": "polestar-a",
+  "pageSlug": "a",
+  "daPath": "/polestar/a",
+  "blocks": [
+    {
+      "name": "hero",
+      "templateFirstClass": "hero",
+      "dataSection": "hero",
+      "slots": [
+        {"name": "bg", "type": "background-image"},
+        {"name": "title", "type": "text", "tag": "h1"},
+        {"name": "cta-primary", "type": "link"},
+        {"name": "cta-tertiary", "type": "link"}
+      ]
+    },
+    {
+      "name": "incentive-band",
+      "templateFirstClass": "incentive-band",
+      "dataSection": "incentive",
+      "renameReason": "avoid collision with .incentive CSS grid rule on inner div",
+      "slots": [
+        {"name": "head", "type": "text", "tag": "span", "note": "wrapped in h2 + sup¹ static suffix"},
+        {"name": "body", "type": "text", "tag": "p"},
+        {"name": "foot", "type": "text", "tag": "p"}
+      ]
+    },
+    {
+      "name": "model-grid",
+      "templateFirstClass": "model-grid",
+      "dataSection": "model-grid",
+      "slots": [
+        {"name": "card-1.bg", "type": "background-image"},
+        {"name": "card-1.title", "type": "text", "tag": "h3"},
+        {"name": "card-1.cta", "type": "link"},
+        {"name": "card-2.bg", "type": "background-image"},
+        {"name": "card-2.title", "type": "text", "tag": "h3"},
+        {"name": "card-2.cta", "type": "link"},
+        {"name": "card-3.bg", "type": "background-image"},
+        {"name": "card-3.title", "type": "text", "tag": "h3"},
+        {"name": "card-3.cta", "type": "link"}
+      ]
+    },
+    {
+      "name": "sustainability",
+      "templateFirstClass": "sustainability",
+      "dataSection": "sustainability",
+      "slots": [
+        {"name": "bg", "type": "background-image"},
+        {"name": "title", "type": "text", "tag": "h2"},
+        {"name": "sub", "type": "text", "tag": "p"},
+        {"name": "cta", "type": "link"}
+      ]
+    },
+    {
+      "name": "charging-strip",
+      "templateFirstClass": "charging-strip",
+      "dataSection": "charging",
+      "renameReason": "avoid collision with .charging CSS grid rule on inner div",
+      "slots": [
+        {"name": "eyebrow", "type": "text", "tag": "span"},
+        {"name": "body", "type": "text", "tag": "p"},
+        {"name": "cta", "type": "link"}
+      ]
+    },
+    {
+      "name": "newsletter",
+      "templateFirstClass": "newsletter",
+      "dataSection": "newsletter",
+      "slots": [
+        {"name": "title", "type": "text", "tag": "h2"},
+        {"name": "submit", "type": "text", "tag": "button"}
+      ]
+    }
+  ],
+  "metadata": {
+    "template": "polestar-a",
+    "title": "Polestar – Electric cars | Polestar US"
+  },
+  "spanRule_2026_05_20_applicable": false,
+  "spanRule_2026_05_20_note": "No <span class=...> in DA-cell content. Only template spans with data-slot (those don't go through DA pipeline).",
+  "supHandling": "incentive-band.head uses <span data-slot> inside h2 + static <sup>¹</sup>",
+  "cssScopingFixes": [
+    "footer[data-section=footer] > .footer needs visibility:visible (substrate footer>.footer leak)",
+    ".footer references scoped to footer[data-section=footer]>.footer (avoid EDS block wrapper)"
+  ]
+}
