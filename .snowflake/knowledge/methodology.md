@@ -275,3 +275,85 @@ If history grows beyond ~3 entries per row, switch to a separate
 Tell Claude: **"refresh sd-foo-a"** (or multiple: "refresh sd-foo-a sd-bar-a").
 Claude executes steps 1–9 per branch (parallel where independent) and updates
 demos.md on main once all are done.
+
+### Vanilla refresh contract
+
+**A refresh is a regression test of the current skill against the source URL,
+not a contextual replay.** The goal is to surface how a clean conversion
+performs today — which means neither the orchestrator nor the conversion
+sub-agent may peek at the prior run's findings.
+
+#### Orchestrator (parent) rules
+
+When dispatching the conversion sub-agent for refresh step 7, the prompt must
+include ONLY:
+
+- Source URL, branch, DA path, page slug
+- Owner/repo, substrate version (already installed by step 6)
+- DA token location, project folder path
+- Procedural notes that are state-of-the-worktree, not state-of-the-prior-run
+  (e.g. "force-push is required because origin still has the prior closed
+  run tip" — fine, because it's about the current worktree vs origin
+  divergence, not about WHAT the prior run did)
+- A pointer to the bundled skill knowledge (substrate, learnings,
+  methodology) and the project methodology override
+
+The prompt must NOT include:
+
+- Page-specific hints derived from prior runs (e.g. "watch for the X
+  collision the prior run hit", "the inline `<style>` had a quirk here",
+  "section foo was renamed to foo-section last time")
+- Names of branch-level fixes that were applied previously
+- Pre-emptive renamings, scopings, or workarounds for this specific page
+- Any mention of what the prior closed run looked like (commit messages,
+  notes excerpts, decisions.json snippets)
+
+Cross-page knowledge from the bundled `learnings.md` IS allowed (e.g.
+"check for `<span class=...>` patterns" — that's a generalized rule
+codified for ALL pages, not a hint about THIS page's prior conversion).
+
+#### Sub-agent rules
+
+The conversion sub-agent operating in the refreshed worktree must NOT:
+
+- Run `git log`, `git show`, `git diff`, or `git reflog` against the
+  branch's history to discover prior conversion commits. The branch tip
+  on origin still has them, but they are off-limits.
+- Read any surviving `.snowflake/projects/<NNN>-<slug>/` content from a
+  prior run (if leftover files weren't fully cleaned, treat as if absent —
+  do not consult notes.md, decisions.json, learnings.md, output/ files
+  from prior runs)
+- Diff the current source HTML against any cached/archived prior version
+  to see what changed
+
+The sub-agent MAY:
+
+- Read `<SKILL_DIR>/knowledge/{methodology,architecture,learnings}.md`
+  (bundled skill knowledge — these are intentional cross-run knowledge)
+- Read `.snowflake/knowledge/{methodology,learnings}.md` (project-level
+  override — conventions and project-wide learnings, not page-specific)
+- Fetch and analyze the source URL fresh
+- Look at the current substrate code to understand pipeline behavior
+- Run `git status`, `git rev-parse HEAD`, `git remote -v` etc. — these
+  are about the current worktree state, not the prior run's findings
+
+#### Why this matters
+
+Without this contract:
+- The orchestrator subconsciously back-references "what the prior run did"
+  and includes hints that pre-solve the page's quirks
+- The sub-agent sees prior conversion commit messages like "fix(foo):
+  scoped section padding leak" and applies the same fix without
+  rediscovering whether it's still needed under the current substrate
+- The refresh becomes "did anything regress against the prior fix-set"
+  rather than "what does today's skill produce for this URL"
+- Substrate gaps that have since been fixed don't get re-validated, and
+  substrate gaps that have NEWLY appeared (or new patterns from changed
+  source) don't get surfaced
+
+With it, every refresh is a fair test. If the skill (substrate, learnings,
+phases) has improved enough that a previously-needed branch-level fix is
+no longer necessary, the refresh will produce a cleaner output and we'll
+notice. If a new pattern needs codifying, the sub-agent will discover it
+organically and report it as a substrate gap — the same way a fresh,
+first-time run would.
