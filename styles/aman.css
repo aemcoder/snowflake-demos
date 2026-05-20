@@ -1,0 +1,281 @@
+:root {
+  --heading-font-family: 'Lyon Display Web', 'Times New Roman', serif;
+  --body-font-family: 'Whitney SSm A', 'Whitney SSm B', system-ui, sans-serif;
+
+  --heading-xxl: 48px;
+  --heading-xl:  32px;
+  --heading-lg:  24px;
+  --heading-md:  20px;
+  --body-lg:     18px;
+  --body:        16px;
+  --body-sm:     14px;
+  --micro:       12px;
+  --eyebrow:     10px;
+
+  --line-height-heading: 1.15;
+  --line-height-body:    1.55;
+
+  /* brand-faithful palette — inherited from _brand-extraction.json */
+  --color-cream:       #F3EEE7;
+  --color-cream-light: #FDF9F5;
+  --color-surface:     #FFFFFF;
+  --color-ink:         #313131;
+  --color-ink-alt:     #404040;
+  --color-ink-2:       #585858;
+  --color-ink-3:       #696969;
+  --color-hairline:    rgba(49,49,49,0.12);
+  --color-scrim:       rgba(20,18,14,0.36);
+
+  --color-bg:     var(--color-cream);
+  --color-fg:     var(--color-ink);
+  --color-accent: var(--color-ink); /* tone-on-tone, no accent-coloured CTAs */
+
+  --spacing-xs:  4px;
+  --spacing-sm:  8px;
+  --spacing-md:  16px;
+  --spacing-lg:  24px;
+  --spacing-xl:  40px;
+  --spacing-2xl: 64px;
+
+  --section-padding: 64px;
+  --max-width:       1320px;
+  --radius:          0px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--body-font-family);
+  font-size: var(--body);
+  line-height: var(--line-height-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 48px;
+}
+@media (max-width: 700px) { .container { padding: 0 20px; } }
+
+/* ─── Header ───────────────────────────────────────────────── */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 18px 32px;
+  background: transparent;
+  color: var(--color-cream);
+  transition: background 240ms ease, color 240ms ease;
+}
+.site-header[data-scrolled="true"] { background: var(--color-cream); color: var(--color-ink); border-bottom: 1px solid var(--color-hairline); }
+.site-header__left, .site-header__right {
+  display: flex; align-items: center; gap: var(--spacing-xl);
+  font-size: var(--micro);
+  letter-spacing: 0.04em;
+}
+.site-header__right { justify-content: flex-end; gap: var(--spacing-lg); }
+.site-header__brand { display: inline-flex; align-items: center; }
+.site-header__brand svg { width: 88px; height: auto; fill: currentColor; }
+.btn-icon { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; background: transparent; border: 0; color: inherit; font: inherit; padding: 0; }
+.btn-icon svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.lang { border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+
+.btn-primary {
+  display: inline-block;
+  background: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--body-font-family);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 12px 26px;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+.btn-primary:hover { background: var(--color-ink-alt); }
+
+.btn-secondary {
+  display: inline-block;
+  color: var(--color-ink);
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--color-ink);
+  padding-bottom: 2px;
+}
+.btn-secondary:hover { color: var(--color-ink-2); border-bottom-color: var(--color-ink-2); }
+
+/* ─── Eyebrow / shared type ────────────────────────────────── */
+.eyebrow {
+  font-family: var(--body-font-family);
+  font-size: var(--eyebrow);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink-2);
+  margin: 0;
+}
+.lyon { font-family: var(--heading-font-family); font-weight: 400; }
+.lyon-h-md  { font-size: var(--heading-md); line-height: 1.3;  letter-spacing: 0.03em; }
+.lyon-h-lg  { font-size: var(--heading-lg); line-height: 1.25; letter-spacing: 0.02em; }
+.lyon-h-xl  { font-size: var(--heading-xl); line-height: 1.15; letter-spacing: 0.01em; }
+.lyon-h-xxl { font-size: var(--heading-xxl); line-height: 1.08; letter-spacing: 0; }
+
+/* ─── Hero ─────────────────────────────────────────────────── */
+section[data-section="hero"] {
+  position: relative;
+  height: 92vh;
+  min-height: 640px;
+  background: #2a2a26 url('https://www.aman.com/sites/default/files/styles/carousel_cards_extra_large_2x/public/2024-08/amanyara_turks_caicos_-_caribbean_exterior.jpg?itok=Yvjjkd17') center/cover no-repeat;
+}
+section[data-section="hero"]::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0) 28%, rgba(0,0,0,0) 70%, rgba(20,18,14,0.18) 100%);
+  pointer-events: none;
+}
+.hero-anchor {
+  position: absolute; left: 50%; bottom: 36px; transform: translateX(-50%);
+  z-index: 2;
+  color: var(--color-cream);
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  opacity: 0.85;
+}
+.hero-anchor::after {
+  content: ''; display: block; width: 1px; height: 28px;
+  background: currentColor; opacity: 0.6;
+  margin: 12px auto 0;
+}
+
+/* ─── Section frame ────────────────────────────────────────── */
+section.section { padding: var(--section-padding) 0; }
+section.section + section.section { border-top: 1px solid var(--color-hairline); }
+
+.section-head { text-align: center; margin: 0 auto var(--spacing-xl); max-width: 720px; }
+.section-head .eyebrow { margin-bottom: var(--spacing-md); }
+.section-head h2 { margin: 0 0 var(--spacing-md); }
+.section-head p { color: var(--color-ink-2); font-size: var(--body); margin: 0 auto; max-width: 56ch; }
+
+/* ─── Seasonal feature (centered, single column) ───────────── */
+.seasonal {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.seasonal .eyebrow { margin-bottom: var(--spacing-md); }
+.seasonal h2 { margin: 0 0 var(--spacing-md); }
+.seasonal p { color: var(--color-ink-2); margin: 0 0 var(--spacing-lg); }
+
+/* ─── Twin propositions ────────────────────────────────────── */
+.twin {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.twin .twin-card { display: flex; flex-direction: column; gap: var(--spacing-md); }
+.twin .twin-card .twin-media { aspect-ratio: 16/10; overflow: hidden; }
+.twin .twin-card .twin-media img { width: 100%; height: 100%; object-fit: cover; }
+.twin .twin-card .eyebrow { margin: var(--spacing-md) 0 0; }
+.twin .twin-card h3 { margin: 0; }
+.twin .twin-card p { color: var(--color-ink-2); margin: 0; max-width: 38em; }
+.twin .twin-card .btn-secondary { align-self: flex-start; margin-top: 4px; }
+
+@media (max-width: 800px) {
+  .twin { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* ─── Audience grid (carousel-to-grid fix) ────────────────── */
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.audience-card { display: flex; flex-direction: column; gap: var(--spacing-sm); }
+.audience-card .audience-media { aspect-ratio: 1/1; overflow: hidden; background: var(--color-cream-light); }
+.audience-card .audience-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms ease; }
+.audience-card:hover .audience-media img { transform: scale(1.015); }
+.audience-card .eyebrow { margin: var(--spacing-md) 0 0; }
+.audience-card h3 { margin: var(--spacing-xs) 0 var(--spacing-sm); }
+.audience-card p { color: var(--color-ink-2); margin: 0 0 var(--spacing-sm); font-size: var(--body-sm); }
+
+@media (max-width: 1100px) { .audience-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px)  { .audience-grid { grid-template-columns: 1fr; } }
+
+/* ─── World of Aman 3-card grid ───────────────────────────── */
+.world-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.world-card { display: flex; flex-direction: column; gap: var(--spacing-sm); }
+.world-card .world-media { aspect-ratio: 4/5; overflow: hidden; }
+.world-card .world-media img { width: 100%; height: 100%; object-fit: cover; }
+.world-card .eyebrow { margin: var(--spacing-md) 0 0; }
+.world-card h3 { margin: var(--spacing-xs) 0 var(--spacing-sm); }
+.world-card p { color: var(--color-ink-2); margin: 0 0 var(--spacing-sm); font-size: var(--body-sm); }
+
+@media (max-width: 900px) { .world-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+/* ─── Footer ───────────────────────────────────────────────── */
+.site-footer {
+  background: var(--color-cream-light);
+  padding: 72px 0 32px;
+  border-top: 1px solid var(--color-hairline);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 2fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.footer-grid h4 { font: 400 13px var(--body-font-family); letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-ink); margin: 0 0 var(--spacing-md); }
+.footer-grid ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.footer-grid a { color: var(--color-ink-2); font-size: var(--body-sm); }
+.footer-grid a:hover { color: var(--color-ink); }
+.footer-destinations { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; }
+
+.footer-bottom {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-hairline);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--micro);
+  color: var(--color-ink-3);
+}
+.social-row { display: flex; gap: 18px; }
+.social-row a { display: inline-flex; }
+.social-row svg { width: 16px; height: 16px; fill: var(--color-ink-3); }
+.social-row a:hover svg { fill: var(--color-ink); }
+
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-destinations { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .footer-bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
+}
+
+/* spacing offset for fixed header */
+.spacer { height: 0; }
+
+/*     Overlay substrate fixes                                  */
+/* Prevent substrate footer > .footer { visibility: hidden } from leaking into fragment inner divs */
+footer[data-section="footer-nav"] .footer-grid,
+footer[data-section="footer-nav"] .footer-bottom {
+  visibility: visible;
+}
+
+/* Reset EDS landmark padding (substrate rule: body > header/footer may get generic section padding) */
+body > header,
+body > footer {
+  padding: 0;
+  margin: 0;
+}
