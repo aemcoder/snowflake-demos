@@ -107,3 +107,88 @@ This run extends the pattern from earlier `theroadhome-a` runs:
 - Same source URL, same generator.
 - Substrate is now v1.0.4 (heading-in-heading unwrap, body landmark reset, background-image dispatch guard).
 - No structural divergence in the source — refresh exercises substrate stability.
+
+## Phase: Round-trip
+
+Local round-trip was skipped per task instructions (go to production
+directly).
+
+Production round-trip:
+- DA version snapshot before PUT: HTTP 201 (label "Before snowflake refresh 001 (theroadhome)").
+- DA PUT /theroadhome/a.html: HTTP 200.
+- Branch push (force-with-lease 9051f78 → 8557cec): success.
+- Code-bus deploy: all 4 artifact paths returned 200 at iteration 3.
+- POST preview on sd-theroadhome-a: HTTP 200.
+- POST live on sd-theroadhome-a: HTTP 200.
+- Page verification at https://sd-theroadhome-a--snowflake-demos--aemcoder.aem.live/theroadhome/a:
+  - `main.dataset.overlay === "theroadhome-a"` ✓
+  - section count 10 ✓
+  - all 10 section first-classes match decisions.json ✓
+  - hero h1 "Refuge. Resources. Relief." ✓
+  - 6 story names rendered (Cole, Ray, Randall, Jay, Sue, Jordan) ✓
+  - story-card background-image rewritten by Media Bus to `./media_<sha>.jpg?width=...&format=jpg&optimize=medium` ✓
+  - body.appear === true ✓
+  - console errors: 1 expected 404 for /scripts/theroadhome-a-animations.js (HEAD-probe; page has no animations).
+
+Screenshot saved at diff/production-fullpage.jpg (~1.9 MB).
+
+DOM-equality vs source reported FAIL on element count and visible
+text — this is the standard divergence between the source's
+bare `<header>`/`<footer>` and EDS's wrapper structure
+(`header.header-wrapper > div.header.block > <fragment-header>`).
+Visible text and image counts differ because EDS's wrapper divs
+absorb some structural elements that don't appear in the source's
+flat body. Functionally, every section, slot, and image renders
+correctly per direct DOM inspection and the screenshot.
+
+## Phase: Reflect
+
+### Findings (project-local)
+
+1. Three first-classes needed CSS-collision disambiguation
+   (`heritage` → `heritage-section`, `newsletter` → `newsletter-section`,
+   `road-divider` → `road-divider-section`). The collision came from
+   inner-div CSS rules (e.g. `.heritage { display: grid; grid-template-columns: 1fr auto auto }`
+   that would also fire on the outer `<section>` if the section first-class
+   matched). This is the well-documented inner-class collision pattern;
+   methodology rule §2.4 applies.
+
+2. Substrate v1.0.4 features that mattered for this page:
+   - `body > header, body > footer { padding: 0; margin: 0 }` — needed
+     because the page CSS has no bare `header`/`footer` element rules
+     (uses `[data-section=...]` attribute selectors) but EDS's default
+     landmark padding would still apply without the reset. Confirmed
+     no leakage via screenshot.
+   - Background-image dispatch guard in `writeSlot` — needed for the
+     6 story-card photo slots (all `<div data-slot style="background-image:url(...)">`).
+   - Heading-in-heading unwrap — not exercised (no heading slot values
+     wrap in same-tag headings in this page).
+
+### Findings (cross-project)
+
+No new generic findings surfaced. The known rules covered every
+decision:
+- Source's `data-placeholder` attribute (Stardust 0.2.0 in this file
+  uses the 0.3.0-style attribute marker) → `data-slot-skip="placeholder"`.
+- Multiple `<section class="section" data-section="X">` → use
+  `data-section` as discriminator (with CSS-collision check).
+- Public CDN images → `assetStrategy: absolute`, no vendoring needed.
+- DA cell `<img>` URLs use the same absolute theroadhome.org CDN
+  URLs → Media Bus rewrites them to `./media_<sha>.<ext>` at
+  preview/live time. No `about:error`.
+
+### Substrate gaps surfaced
+
+None. Substrate v1.0.4 handled every pattern in this page correctly
+on first pass.
+
+## Timings (approximate)
+
+| phase | duration | notes |
+|---|---|---|
+| capture | ~2 min | single curl; no external assets to fetch |
+| analyze | ~6 min | 10 sections; CSS-collision check the time-sink |
+| generate | ~7 min | template + DA doc + CSS extract; 59 slots |
+| wire | ~2 min | trivial copy + transformer + lint |
+| roundtrip-prod | ~5 min | DA version snapshot + PUT + push + preview + live + verify + screenshot |
+| reflect | ~3 min | this file + state.json |
