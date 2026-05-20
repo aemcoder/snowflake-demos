@@ -112,3 +112,103 @@ The migration banner mentions "1 placeholder" — likely the empty knowledge-bas
 5. Apply the substrate `<script>` lifting patch in `scripts/scripts.js`.
 6. Asset strategy: vendor all 32 assets into repo `assets/`.
 7. Slot identification per section: headings, paragraphs, button labels, images, link hrefs+labels, background-image (article-card-grid).
+
+## Phase: Generate
+
+Template generated with 18 sections, 152 slots. All section first-classes
+disambiguated and unique. All asset refs rewritten to root-relative
+`/assets/<basename>`. DA-source body fragment uses absolute branch URLs
+in `<img>` cells.
+
+Substrate gap fixed: `applyTemplateOverlay` was only lifting top-level
+`<link>` elements from templates. Typekit needs `<script src>` too —
+extended the engine to lift `<script>` (src-bearing and inline). 19
+lines added.
+
+## Phase: Wire
+
+Artifacts copied to `templates/`, `fragments/acom-agent-orchestrator/`,
+`styles/`, `scripts/`. Drafts file built. Lint clean.
+
+## Phase: Round-trip
+
+Skipped local. Production round-trip:
+
+- Tip SHA: `13b300f5294809a67f27ddb14f37ec3d149abaf9`
+- DA POST versionsource → HTTP 201 (path existed with empty content;
+  snapshot created)
+- DA PUT `/acom/agent-orchestrator/a.html` → HTTP 200
+- Branch push `acom-agent-orchestrator` → up
+- POST preview on branch → HTTP 200
+- POST live on branch → HTTP 200
+- All code-bus paths 200: template, CSS, header/footer fragments,
+  animations.js, sample asset
+- Playwright verification on
+  `https://acom-agent-orchestrator--snowflake-demos--aemcoder.aem.page/acom/agent-orchestrator/a`:
+  - `overlayApplied: "acom-agent-orchestrator"` ✓
+  - `sectionCount: 18` ✓
+  - All 18 section first-classes present in order ✓
+  - `bodyAppear: true` ✓
+  - `typekitScripts`: 2 lifted into head ✓
+  - `consonantLinks`: 11 lifted into head ✓
+  - `mediaImages`: 30/30 served via Media Bus content-addressed URLs ✓
+  - 0 console errors (1 cosmetic warning re Lenis CDN — substrate
+    HEAD-probes animations.js and unconditionally loads CDN deps; our
+    template doesn't need Lenis but the probe finds animations.js and
+    triggers the load. Not a regression — same warning on other demos.)
+
+Screenshots captured for hero, tabs, articles, final-cta in `diff/`.
+Visual comparison with original source: hero, announcements, tabs panel,
+article grid, FAQ, final CTA all render pixel-accurately. Migration
+banner intentionally stripped — not visible on the converted page.
+
+## Phase: Reflect
+
+### Branch-level fix(es)
+
+1. **Substrate patch — script lifting.** Extended
+   `applyTemplateOverlay` in `scripts/scripts.js` to lift top-level
+   `<script>` elements from templates into `document.head`. Symmetric
+   with the existing `<link>` lift. Handles both `src`-bearing (cloned
+   minus execution semantics) and inline scripts (textContent
+   reconstructed). Deduping by URL for `src` scripts.
+   - Promote to substrate v1.0.6.
+
+### Substrate gaps surfaced
+
+1. **`<script>` lifting from templates** — covered above. Common
+   pattern for any source that uses script-loaded font services
+   (Typekit, Adobe Fonts kits, Cloud.typography, etc.).
+
+2. **`delayed.js` unconditionally loads Lenis/GSAP/ScrollTrigger when
+   any animations.js is present.** Our template's animations.js is
+   only a tabs switcher — no need for any of these. The probe
+   triggers the load anyway, producing a cosmetic console warning
+   when Lenis CDN times out. Cost: 1 wasted HTTP + console noise.
+   Possible refinement: probe via `<meta name="needs-animations-runtime">`
+   in DA metadata, OR have animations.js self-declare what it needs.
+   Not pursued in this run — cosmetic only.
+
+### Cross-project learnings to promote
+
+1. **Patterns with `<a>` link-card containing `<img>` + `<div>` text
+   children**: do NOT slot the `<a>` (its writer would wipe the
+   children). Slot the inner image and text individually. The article-
+   card-grid in this page had 9 cards × 5 nested slots (bg, icon,
+   eyebrow, title) — slotting the `<a>` would have nuked all of them.
+   See learnings.md container-vs-children rule.
+
+2. **BEM modifier as first-class disambiguator**: when two sections
+   share their base BEM class (`c-announcement`) but differ on
+   modifier (`--event` vs `--ribbon`), the cleanest disambiguator is
+   `<base>-<modifier>` (e.g. `c-announcement-event`). Keep the
+   original `c-announcement c-announcement--event` classes as
+   secondary so existing CSS rules still match.
+
+3. **Sections with shared utility class + content-derived names**: 6
+   `c-text-block` sections disambiguated by deriving a slug from their
+   `<h2>` content (`intro-tech`, `agent-categories-intro`, etc.). The
+   discriminator priority list (`data-section` > `id` > eyebrow slug)
+   missed this case — there's no eyebrow on these intros, just an
+   `<h2>`. Adding "first heading text → slug" to the priority list
+   would handle it.
