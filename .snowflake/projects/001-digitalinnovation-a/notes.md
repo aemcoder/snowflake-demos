@@ -282,3 +282,132 @@ All assets are either:
   the source host for visual parity.
 
 Asset strategy: **absolute** (rewrite `/stardust-site/...` → `https://paolomoz.github.io/stardust-site/...`).
+
+## Phase: Generate
+
+- 6 main sections (hero, audience-router, featured-news, topics, voices, resource-cta)
+- 107 data-slot markers across the template
+- Synthesized `<main>` wrapper (source body had no `<main>`)
+- Renamed pull-quote section first-class to `voices` (CSS `.pull-quote { grid-column: 5 / span 7 }` collision)
+- Split topic tile h3 inline structure into two named-class spans
+  (`tile__name-main` + `tile__name-sub`), each with its own data-slot.
+  Updated CSS to target `.tile__name-sub` instead of `.tile__name span`.
+  Avoids the bare-`<span>` survival ambiguity (per learnings 2026-05-20).
+- Swapped marginalia trending `<span class="count">` to `<strong>` and
+  added CSS supplement `.marginalia__list a strong { ... }`. This is
+  the standard pattern for inline class hooks that get stripped by the
+  pipeline.
+- Pull-quote figcaption attribution: kept decorative `<span
+  class="pull-quote__divider">` static in template, slotted only the
+  inner caption span (`data-slot="attr"`).
+- Lift head-level Google Fonts preconnect+stylesheet into the template
+  top (substrate auto-lifts to document.head at runtime).
+- Inline `<style>` (lines 61-710 → 648-line CSS) and inline `<script>`
+  (lines 1056-1180 → 123-line animations JS) extracted verbatim.
+- Asset URL rewrite: `/stardust-site/...` → `https://paolomoz.github.io/stardust-site/...` (absolute).
+
+## Phase: Wire
+
+- Lint clean (`npm run lint`).
+- Files written:
+  - templates/digitalinnovation-a.html
+  - fragments/digitalinnovation-a/{header,footer}.html
+  - styles/digitalinnovation-a.css
+  - scripts/digitalinnovation-a-animations.js
+  - drafts/digitalinnovation-a-a.html (via transform-da-to-eds.mjs)
+
+## Phase: Round-trip
+
+Skipped local; went straight to production per orchestrator instructions
+(refresh contract).
+
+- Labeled DA version `Before snowflake refresh 001 (digitalinnovation)` created (HTTP 201)
+- DA PUT to `/digitalinnovation/a.html` (HTTP 200)
+- `git push --force-with-lease origin sd-digitalinnovation-a` (forced update OK)
+- Code-bus probes — all 200:
+  - `/templates/digitalinnovation-a.html`
+  - `/styles/digitalinnovation-a.css`
+  - `/fragments/digitalinnovation-a/{header,footer}.html`
+  - `/scripts/digitalinnovation-a-animations.js`
+  - `/scripts/scripts.js`
+- POST preview on `sd-digitalinnovation-a` — HTTP 200
+- POST live on `sd-digitalinnovation-a` — HTTP 200
+- Playwright verification at production URL:
+  - `main.dataset.overlay === "digitalinnovation-a"` ✓
+  - 6 sections with classes `[hero, audience-router, featured-news, topics, voices, resource-cta]` ✓
+  - `body.classList.contains("appear")` ✓
+  - Template meta resolved correctly ✓
+  - All sampled slots applied (hero title, ISV title with inline `<em>`,
+    audience CTAs, news items + thumb (Media Bus rewrote to optimized
+    `./media_<sha>.jpg`), marginalia trending with `<strong>` counts,
+    topic tiles with split spans, pull-quote with divider preserved + attr)
+  - Console: 0 errors, 1 warning (Lenis CDN 404 — substrate fail-soft;
+    cosmetic; not used by this template)
+- Side-by-side comparison shows pixel-perfect parity.
+
+## Phase: Reflect
+
+### Branch-level fixes (this run, decided organically)
+
+1. **`pull-quote` section first-class renamed to `voices`** — the source
+   uses `data-section="pull-quote"` with no class attribute. CSS targets
+   `[data-section="pull-quote"]` for the section AND `.pull-quote` for
+   an inner element. Using "pull-quote" as section first-class would
+   trip the layout collision documented in learnings.md (heathrow/glossier/aman/lovesac pattern).
+   Picked `voices` from the section's `id="voices"` (discriminator hierarchy:
+   data-section → id → eyebrow slug → positional).
+
+2. **Topic tile h3 split into two slots with named spans** — source uses
+   `<h3 class="tile__name">AI<span>Foundry · Copilot · agents</span></h3>`.
+   Targeting the h3 with a single slot risks bare-`<span>` stripping by the
+   pipeline (learnings 2026-05-20 explicitly covers `<span class="...">`
+   but not bare `<span>`). Defensive split: two named-class spans
+   (`tile__name-main` / `tile__name-sub`), each its own slot. CSS updated
+   to target `.tile__name-sub` and a no-op `.tile__name-main`.
+
+3. **Marginalia trending count `<span class="count">` → `<strong class="count">`**
+   — standard fix per learnings 2026-05-20 for `<span class>` stripping.
+   The class is lost on `<strong>` too (markdown round-trip drops classes),
+   so I added a CSS supplement `.marginalia__list a strong { ... }` so the
+   styling holds without the class attribute.
+
+### Generic findings worth promoting
+
+Nothing surfaced that isn't already in `<SKILL_DIR>/knowledge/learnings.md`.
+The three fixes above are all instances of patterns documented there:
+- "Inner CSS class repeated as section first-class collides with layout rules"
+- "EDS pipeline strips `<span class="...">` from DA cell content"
+- Implicitly the bare-`<span>` ambiguity (worth documenting more explicitly)
+
+### Substrate gap
+
+**Bare `<span>` (no class) handling is undocumented in learnings.** The
+2026-05-20 entry covers `<span class="...">` explicitly but doesn't state
+whether the pipeline keeps or strips a bare `<span>`. I hedged by
+restructuring (option 2 in the topic-tile fix). A future iteration could
+test this empirically (slot `<h3 data-slot>AI<span>x</span></h3>` and
+inspect the rendered DOM) and codify the answer in learnings.
+
+### Things that went smoothly
+
+- Single inline `<style>` and `<script>` — clean extraction.
+- All assets externally addressable (paolomoz.github.io is public).
+- No font CORS issues (Google Fonts handled in head-link lift).
+- `data-section`-based CSS made the template surgery minimal — we mostly
+  just added a `class="X"` attribute to each section.
+- DA Media Bus correctly optimized the lead-item thumbnail to
+  `./media_<sha>.jpg?width=750&format=jpg&optimize=medium`.
+- Header/footer fragments straightforward (no inner-`.footer` leak — the
+  source uses `[data-section="site-footer"]` selector, not class).
+
+### Timings (rough)
+
+| phase           | duration |
+|-----------------|----------|
+| capture         | ~2 min   |
+| analyze         | ~6 min   |
+| generate        | ~25 min  |
+| wire            | ~1 min   |
+| roundtrip-prod  | ~3 min   |
+| reflect         | ~3 min   |
+
