@@ -229,3 +229,103 @@ after overlay applies.
 The substrate's `delayed.js` HEAD-probes `/scripts/<template>-animations.js` and runs
 it after the DOM stabilizes. The script reads selectors during execution, so it must
 run AFTER the overlay completes. The substrate handles this correctly.
+
+## Phase: Round-trip
+
+### Production round-trip (local skipped per instructions)
+
+- Branch tip pushed (force-with-lease): commit `497b23e` on `sd-jfk-airport-a`.
+- DA versioned snapshot created with label "Before snowflake refresh 001 (jfk-airport)" — POST `versionsource` returned 201.
+- DA PUT to `/jfk-airport/a.html` — returned 200 with editUrl, contentUrl, previewUrl, liveUrl.
+- POST preview on sd-jfk-airport-a — 200; preview URL: `https://sd-jfk-airport-a--snowflake-demos--aemcoder.aem.page/jfk-airport/a`.
+- POST live on sd-jfk-airport-a — 200; live URL: `https://sd-jfk-airport-a--snowflake-demos--aemcoder.aem.live/jfk-airport/a`.
+- All 5 deployed paths return 200 on the branch (templates, styles, header, footer, animations).
+
+### Verification on production
+
+Loaded `https://sd-jfk-airport-a--snowflake-demos--aemcoder.aem.live/jfk-airport/a` in
+playwright-cli. Results:
+
+| Check | Value |
+|---|---|
+| `main.dataset.overlay` | `"jfk-airport-a"` ✓ |
+| `sectionCount` | 12 ✓ |
+| Section first-classes | brand-hero, audience-section, task-panel-departing, task-panel-arriving, task-panel-pickup, task-panel-connecting, task-panel-visiting, guide-section, construction, essentials, accessibility, latest ✓ |
+| `body.appear` | true ✓ |
+| `h1` text | "JFK" ✓ (slotted from DA) |
+| Console errors | 0 |
+| Console warnings | 1 (harmless Lenis CDN miss — substrate `delayed.js` defaults to loading Lenis as a CDN dep; this page doesn't use it) |
+
+### Screenshots saved in diff/
+
+- `production-top.png` — header + brand hero + start of audience router
+- `production-task-panel.png` — departing task panel (default visible)
+- `production-latest.png` — Latest from JFK section
+- `production-footer.png` — Pickup feature article + footer
+
+All section content rendered correctly. Hero image visible, JFK wordmark in display
+font, herofeed widget overlay with 3 entries (live data, static template content in this
+demo), audience-section with deck, departing task panel form + 5 quick actions, latest
+articles with feature image + 2 companions, footer with PANYNJ co-brand and 4 nav columns.
+
+## Phase: Reflect
+
+### Branch-level fixes applied
+
+NONE. This run produced clean output from the substrate v1.0.4 with no branch-level
+workarounds needed. The methodology and learnings already encode every pattern that
+mattered for this page:
+
+- Section first-class collisions handled by `task-panel-<audience>` rewrite (rule in
+  methodology §3 / discriminator priority — `data-audience` here served as the
+  per-instance label since `data-section` was identical across the 5 panels).
+- Asset paths rewritten to absolute github.io URLs (asset strategy "absolute" for
+  public source hosts) — Media Bus accepts these in DA cells, the browser fetches
+  the icon font CORS-friendly from github.io directly.
+- Container-vs-children rule applied to guide tiles (`<a>` wrapper not slotted; image
+  + h3 + arrow slotted individually).
+- Heading-in-heading wrapping handled by the substrate's writeSlot heading branch
+  (v1.0.3+) — DA cells contain `<h2>...</h2>` and the engine unwraps them cleanly.
+- Quick-action `<span class="icon-arrow-right">` icon spans kept as template chrome
+  (would be stripped by the pipeline if put inside DA cells); inserted an inner
+  `<span data-slot="qa-N.value">` around just the text portion so the icon survives.
+
+### Substrate gaps surfaced
+
+None new. Substrate v1.0.4 handled everything correctly:
+
+- `<footer> > .footer` direct-child selector in lifecycle CSS — footer fragment's
+  inner `.col` and other divs visible, no nav invisible bug (the 2026-05-19 fix is
+  in v1.0.4).
+- `body > header, body > footer { padding: 0; margin: 0 }` substrate reset —
+  page CSS uses `header { display: flex; ... padding: 12px ... }` for the source's
+  fragment-internal header element. The substrate reset only zeroes the EDS landmark
+  wrappers; inner `<header data-section="header">` keeps its source styling. Hero is
+  not pushed down.
+- `writeSlot` heading-in-heading unwrap — DA cells contain `<h2>title</h2>` and the
+  substrate produces a clean single heading in the rendered DOM.
+- `writeSlot` background-image guard on `<a>` tags — N/A on this page (no `<a>` with
+  inline background-image).
+
+### Findings worth promoting (none in this run)
+
+Nothing new generalised beyond what's in cross-project learnings.md.
+
+### Page-specific findings (kept in project notes only)
+
+- The source's herofeed widget contains semantic-stripping patterns
+  (`<span class="tag">`, `<span class="now">`, `<br>`) and was deliberately kept as
+  STATIC template content because (a) it represents live operational data that
+  would be wired to a backend feed in production, not authored copy, and (b) preserving
+  the visual styling (pill-like tag chip, "Now/24m ago" subdued color) would have
+  required swapping spans for `<strong>` and CSS rewrites that aren't worth the
+  fidelity cost for a demo run.
+- The source's 5 task-panels share `data-section="task-panel"` and `class="task-panel"`
+  but each has a unique `data-audience` attribute. Used `task-panel-<audience>` as the
+  rewritten first-class (5 unique disambiguators). All `task-panel-X` are absent from
+  the page CSS (only `.task-panel` is targeted) — no CSS collisions.
+- The 5 task-panels are interactively swapped via `document.startViewTransition()` on
+  audience-tile click. The animations script runs after overlay applies and the
+  selectors all resolve. Verified the "Departing" panel is visible by default; tile
+  click would swap panels (not verified — initial state suffices for the demo).
+
