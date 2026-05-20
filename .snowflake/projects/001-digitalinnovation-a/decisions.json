@@ -1,0 +1,51 @@
+{
+  "templateName": "digitalinnovation-a",
+  "pageSlug": "a",
+  "daRoot": "/digitalinnovation",
+  "synthesizeMain": true,
+  "headerBoundary": ["sponsor-band", "site-header"],
+  "footerBoundary": ["site-footer"],
+  "headLinks": [
+    { "rel": "preconnect", "href": "https://fonts.googleapis.com" },
+    { "rel": "preconnect", "href": "https://fonts.gstatic.com", "crossorigin": "" },
+    { "rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700;800;900&display=swap" }
+  ],
+  "inlineStyleLines": [61, 710],
+  "inlineScriptLines": [[1056, 1180]],
+  "assetStrategy": "absolute",
+  "assetBase": "https://paolomoz.github.io",
+  "sections": [
+    {
+      "firstClass": "hero",
+      "dataSection": "hero",
+      "originalTag": "section"
+    },
+    {
+      "firstClass": "audience-router",
+      "dataSection": "audience-router",
+      "originalTag": "section"
+    },
+    {
+      "firstClass": "featured-news",
+      "dataSection": "featured-news",
+      "originalTag": "section"
+    },
+    {
+      "firstClass": "topics",
+      "dataSection": "topics",
+      "originalTag": "section"
+    },
+    {
+      "firstClass": "voices",
+      "dataSection": "pull-quote",
+      "originalTag": "section",
+      "reason": "rename from pull-quote to voices because CSS .pull-quote { grid-column: 5 / span 7 } would collide if used as section first-class"
+    },
+    {
+      "firstClass": "resource-cta",
+      "dataSection": "resource-cta",
+      "originalTag": "section"
+    }
+  ],
+  "pageTitle": "Microsoft Azure for Partners — The Channel Company"
+}
