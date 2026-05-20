@@ -164,3 +164,133 @@ the anchor target still resolves. Keep the skip-link as template chrome
    wrap labels via `word-break: break-word`.
 6. **`grid-paper.svg` rewrites to absolute** but will 404 (source bug,
    not ours). Graceful degradation.
+
+## Phase: Generate
+
+- Wrote template HTML, both empty fragments, page CSS, and DA doc.
+- Slot count: 17. Section count: 4.
+- Self-check 3.9 all green (no relative `assets/`, no `<table>`/
+  `<span class>`/`<br>`/`<b>`/`<i>`/`<u>`/`<mark>` in DA, no img refs).
+- Self-check 6 (first-class CSS collision) flagged all 4 classes, but
+  per the analysis above these are intentional — CSS rules were
+  authored for those exact elements (now `<section>`s with same class).
+
+## Phase: Wire
+
+- Copied artifacts to `templates/oatly-a.html`,
+  `fragments/oatly-a/{header,footer}.html`, `styles/oatly-a.css`.
+- No `scripts/oatly-a-animations.js` (no inline scripts to extract).
+- `npm run lint` clean.
+- Per the refresh contract, local round-trip skipped — straight to
+  production.
+
+## Phase: Round-trip (production-only)
+
+- DA version snapshot created (HTTP 201): "Before snowflake refresh 001
+  (oatly)".
+- DA PUT `/oatly/a.html` returned HTTP 200 with all four canonical URLs.
+- `git push --force-with-lease origin sd-oatly-a` succeeded (origin tip
+  moved from prior closed run to fresh tip).
+- POST preview on `sd-oatly-a/oatly/a` → HTTP 200, preview status 200.
+- POST live on `sd-oatly-a/oatly/a` → HTTP 200, live status 200.
+- All deployed paths return 200 on `sd-oatly-a--snowflake-demos--aemcoder.aem.page`:
+  template, CSS, both fragments.
+- Page itself returns 200.
+
+### Browser-side verification
+
+Loaded https://sd-oatly-a--snowflake-demos--aemcoder.aem.live/oatly/a
+at 1280×800 with playwright-cli. Evaluation result:
+
+```
+{
+  overlayApplied: "oatly-a",
+  sectionCount: 4,
+  sectionClasses: ["window-rail", "tab-bar", "desktop", "start-bar"],
+  bodyAppearClass: true,
+  slotCount: 17,
+  hasBrowser: true,
+  templateMetaContent: "oatly-a",
+  windowTitle: "Oatly | the Original Oat Drink Company | Oatly",
+  claim: "The Original Oat Drink Company",
+  folder1: "fckfckfckoatly.com",
+  file1: "heybarista.png",
+  startLabel: "START",
+  tabCount: 5
+}
+```
+
+All section classes resolved. All slots applied. Body appear class set.
+
+### Console errors
+
+One error, expected and known:
+- `404 oatly-a-animations.js` — the delayed.js HEAD probe surfaces a
+  404 in the console even though the page logic silently skips engine
+  loading. Documented as cosmetic in `learnings.md` 2026-05-18 entry.
+
+### Visual comparison
+
+Source vs production screenshots saved to `diff/` and side-by-side at
+`diff/comparison.png`. The two pages render identically except for
+folder/file label wrapping — source uses `<br>` to split at `.com` per
+line; production wraps via CSS `word-break: break-word` (the pipeline
+strips `<br>`). The text content matches exactly.
+
+## Phase: Reflect
+
+### Findings worth promoting
+
+None this run — every pattern that bit was already in
+`learnings.md`:
+
+- **Empty header/footer fragments** for OS-chrome-style pages where
+  the source's `<header>`/`<footer>` are visual flex children of a
+  wrapper, not site-level. This is a project-specific shape
+  (Stardust-emulating-OS-UI). Generalizable rule: when the source's
+  `<header>` and `<footer>` are nested inside a wrapping flex/grid
+  container that needs to stay intact, prefer collapsing them into
+  the template `<main>` as `<section>`s rather than fragmenting them
+  out to EDS landmarks. The methodology entry on "header is broader
+  than `<header>`" already covers the inverse case; this is the
+  symmetric "wrapper requires keeping siblings together" case.
+- **No collision with first-class === CSS selector** when the CSS
+  rule was authored FOR THAT EXACT ELEMENT in the source (not for an
+  inner element promoted up by class reuse). The Generate phase
+  self-check 3.9.6 produces WARN, not ERROR, which is correct — it
+  asks for verification rather than rejecting. Worth keeping as a
+  hint to the human reviewer, not a hard fail.
+
+### Branch-level fixes applied
+
+None. The current substrate v1.0.4 handles everything this page
+needed:
+- The 4 inner `<section>`s are correctly matched by the overlay
+  engine via `querySelectorAll('section[class]')`.
+- The text-slot writer fall-through on `<a>` works as expected when
+  the DA cell value contains no `<a>` tag (just sets innerHTML).
+- Empty fragments load without breaking the EDS landmark lifecycle.
+
+### Substrate gaps surfaced
+
+None — the existing substrate handled this Stardust 0.2.0 page
+cleanly. Page is unusual in shape (OS-chrome UI) but conforms to all
+existing rules. No new substrate-level extensions needed.
+
+### Timing summary
+
+Run was fast — small page (~450 lines, single style block, no scripts).
+Phases ran in linear order without surprises.
+
+| Phase    | Notes |
+|----------|-------|
+| capture  | One curl, one 404 probe for the missing asset. |
+| analyze  | The OS-chrome structure required reasoning about how to fit it into the standard header/main/footer split. Settled on "collapse into main" approach. |
+| generate | One template, two empty fragments, one CSS, one DA doc. |
+| wire     | Four copies, lint clean. |
+| roundtrip| Production-only per refresh contract. Single round-trip without retries. |
+| reflect  | This entry. |
+
+### Demo URL
+
+https://sd-oatly-a--snowflake-demos--aemcoder.aem.live/oatly/a
