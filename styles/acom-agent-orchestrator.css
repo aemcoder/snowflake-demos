@@ -1,0 +1,10 @@
+:root, html, body {
+  --s2a-font-family-adobe-clean: 'Adobe Clean', adobe-clean, 'Trebuchet MS', sans-serif;
+  --s2a-font-family-adobe-clean-display: 'Adobe Clean Display', adobe-clean-display, 'Adobe Clean', adobe-clean, 'Trebuchet MS', sans-serif;
+}
+
+body { margin: 0; font-family: var(--s2a-font-family-adobe-clean); color: #0f0d0c; }
+
+img { max-width: 100%; }
+
+.c-action-tile:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }

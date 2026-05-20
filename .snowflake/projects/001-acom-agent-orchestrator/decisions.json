@@ -1,0 +1,58 @@
+{
+  "templateName": "acom-agent-orchestrator",
+  "pageSlug": "a",
+  "synthesizeMain": true,
+  "stripHeader": true,
+  "stripFooter": true,
+  "strip": [".migration-banner"],
+  "assetStrategy": "vendor",
+  "assetBranch": "acom-agent-orchestrator",
+  "assetRepoOwner": "aemcoder",
+  "assetRepoName": "snowflake-demos",
+  "assetBaseAbsolute": "https://acom-agent-orchestrator--snowflake-demos--aemcoder.aem.page/assets/",
+  "headLinks": [
+    { "rel": "stylesheet", "href": "https://adobecom.github.io/consonant/assets/iframe-ZxKXKVbl.css" },
+    { "rel": "stylesheet", "href": "https://adobecom.github.io/consonant/assets/button-kSLk2ls1.css" },
+    { "rel": "stylesheet", "href": "https://adobecom.github.io/consonant/assets/icon-button-BHj61BV0.css" },
+    { "rel": "stylesheet", "href": "https://adobecom.github.io/consonant/assets/app-icon-CT3OwBIH.css" },
+    { "rel": "stylesheet", "href": "https://adobecom.github.io/consonant/assets/product-lockup-Cy6dSBY1.css" },
+    { "rel": "stylesheet", "href": "https://adobecom.github.io/consonant/assets/ElasticCard-D9ahqgcw.css" },
+    { "rel": "stylesheet", "href": "https://adobecom.github.io/consonant/assets/RichContent-iGpcGIMB.css" },
+    { "rel": "stylesheet", "href": "https://adobecom.github.io/consonant/assets/NavFilter-C9i18rFJ.css" },
+    { "rel": "stylesheet", "href": "https://adobecom.github.io/consonant/assets/nav-card-hMxO4eMg.css" },
+    { "rel": "stylesheet", "href": "https://adobecom.github.io/consonant/assets/nav-card-button-DTOXacPi.css" },
+    { "rel": "stylesheet", "href": "https://adobecom.github.io/consonant/assets/nav-card-shell-BU4SE9wz.css" }
+  ],
+  "headScripts": [
+    { "src": "https://use.typekit.net/hah7vzn.js" },
+    { "src": "https://use.typekit.net/mie2rub.js" },
+    { "inline": "try{Typekit.load({async:false});}catch(e){}" }
+  ],
+  "sections": [
+    { "id": 0,  "firstClass": "c-hero",                  "originalClasses": ["c-hero","c-hero--video"], "dataTheme": "on-dark" },
+    { "id": 1,  "firstClass": "c-announcement-event",    "originalClasses": ["c-announcement","c-announcement--event"] },
+    { "id": 2,  "firstClass": "c-announcement-ribbon",   "originalClasses": ["c-announcement","c-announcement--ribbon"] },
+    { "id": 3,  "firstClass": "intro-tech",              "originalClasses": ["c-text-block"] },
+    { "id": 4,  "firstClass": "agent-categories-intro",  "originalClasses": ["c-text-block"] },
+    { "id": 5,  "firstClass": "c-tabs",                  "originalClasses": ["c-tabs"] },
+    { "id": 6,  "firstClass": "c-action-icon-grid",      "originalClasses": ["c-action-icon-grid"] },
+    { "id": 7,  "firstClass": "how-it-works-intro",      "originalClasses": ["c-text-block"] },
+    { "id": 8,  "firstClass": "c-card-grid",             "originalClasses": ["c-card-grid"] },
+    { "id": 9,  "firstClass": "why-adobe-intro",         "originalClasses": ["c-text-block"] },
+    { "id": 10, "firstClass": "c-value-prop-grid",       "originalClasses": ["c-value-prop-grid"] },
+    { "id": 11, "firstClass": "learn-more-intro",        "originalClasses": ["c-text-block"] },
+    { "id": 12, "firstClass": "c-article-card-grid",     "originalClasses": ["c-article-card-grid"] },
+    { "id": 13, "firstClass": "c-text-cta-strip",        "originalClasses": ["c-text-cta-strip"] },
+    { "id": 14, "firstClass": "c-form",                  "originalClasses": ["c-form"] },
+    { "id": 15, "firstClass": "faq-intro",               "originalClasses": ["c-text-block"] },
+    { "id": 16, "firstClass": "c-faq",                   "originalClasses": ["c-faq"] },
+    { "id": 17, "firstClass": "c-final-cta",             "originalClasses": ["c-final-cta","c-final-cta--with-image"], "dataTheme": "on-dark" }
+  ],
+  "substrateGaps": [
+    {
+      "id": "lift-script-from-template",
+      "description": "applyTemplateOverlay only lifts <link>; templates also need <script src> lifting (Typekit). Branch-level fix applied to scripts/scripts.js; promote to substrate v1.0.6.",
+      "appliedAt": "scripts/scripts.js"
+    }
+  ]
+}
