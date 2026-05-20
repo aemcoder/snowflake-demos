@@ -88,3 +88,36 @@ None of `ds-hero`, `ds-valueprops`, etc. (section first-classes) have layout-def
 ## Decisions log
 
 See decisions.json.
+
+## Phase 6 — Reflect
+
+### Round-trip results
+
+- **Slot count:** 53 (`<main>` query confirmed 53 `[data-slot]` markers; matches template)
+- **Section count:** 9 (matches source)
+- **Production URL:** https://sd-lemonade-a--snowflake-demos--aemcoder.aem.live/lemonade/a → HTTP 200, `main.dataset.overlay === "lemonade-a"`, h1 text correct, all 9 sections visible with non-zero height, footer grid visible, bundle titles correct.
+- **Visual parity:** side-by-side comparison.png shows pixel-identical layouts.
+- **Console errors:** 1 cosmetic 404 on `/scripts/lemonade-a-animations.js` (HEAD probe by `delayed.js`; template has no animations — known issue documented in learnings).
+- **Resource load:** 34 total, 33 succeeded.
+
+### What went smoothly
+
+- Section first-classes (`ds-hero`, `ds-valueprops`, etc.) were already unique and had no layout-rule collisions in source CSS (only background/padding). No rename needed.
+- All assets are absolute CDN URLs — no relative-path rewriting required.
+- Stardust `.ds-placeholder` convention was applied uniformly via `data-slot-skip="placeholder"` for the social-proof tweet cards and how-it-works captions.
+- The substrate v1.0.4 ships with all writeSlot fixes (heading-in-heading, link/background-image dispatch order) — no branch-level patches required.
+- The substrate's `body > header { padding:0 }` reset prevents the leak of `section, header, footer { padding }` rules into EDS landmarks. Confirmed no hero push-down.
+
+### Page-specific decisions
+
+- **Hero illos** (`home-left.svg` 45KB, `home-right.svg` 76KB) are `aria-hidden="true"` decorative; kept as static template content (no slot, no DA cell). Browser fetches them at runtime, no Media Bus involved.
+- **Product tiles** are `<a>` elements wrapping `<img>` + `<span>`. Per the "container-vs-children" rule, slotted the children (image + label) and left the `<a href>` static. Author cannot change tile URLs but tile destinations are stable funnel parameters anyway.
+- **Bundle card images** (`pet-renters` 81KB, `car-renters` 98KB, `car-home` 158KB) are template-default-only (over 40KB Media Bus cap). Title/body/CTA are authorable.
+- **Press strip image** (251KB) and **pizza diagram** (176KB) similarly template-default-only.
+- **Rating block** (`4.9<span>/5</span>`) NOT exposed as a slot — the inner `<span>` would be stripped by the pipeline normalizer, breaking the CSS that styles it. Kept static; author cannot change 4.9 → 5.0 via DA but rating value is stable.
+- **`<sup>`/`<sub>` etc:** no mid-sentence inline elements in this page — no special handling needed.
+
+### Substrate gaps surfaced
+
+None. Substrate v1.0.4 handled this conversion cleanly. The cosmetic animations.js 404 is documented in learnings; a future polish could use `<meta name="has-animations">` to skip probing — not surfaced here as a new finding.
+
