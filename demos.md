@@ -36,3 +36,16 @@ on `main`.
 | 018 | [Nvidia proposed-A](https://paolomoz.github.io/stardust-site/samples/nvidia/proposed-A.html) | [`sd-nvidia-a`](https://github.com/aemcoder/snowflake-demos/tree/sd-nvidia-a) | `sd-nvidia-a-close` | <https://sd-nvidia-a--snowflake-demos--aemcoder.aem.live/nvidia/a> | 2026-05-20: <https://sd-nvidia-a-2026-05-20--snowflake-demos--aemcoder.aem.live/nvidia/a-2026-05-20> (tag `sd-nvidia-a-2026-05-20-close`) |
 | 019 | [Frescopa proposed-A](https://paolomoz.github.io/stardust-site/samples/frescopa/proposed-A.html) | [`sd-frescopa-a`](https://github.com/aemcoder/snowflake-demos/tree/sd-frescopa-a) | `sd-frescopa-a-close` | <https://sd-frescopa-a--snowflake-demos--aemcoder.aem.live/frescopa/a> | 2026-05-19: <https://sd-frescopa-a-2026-05-19--snowflake-demos--aemcoder.aem.live/frescopa/a-2026-05-19> (tag `sd-frescopa-a-2026-05-19-close`) |
 | 020 | [Digital Innovation proposed-A](https://paolomoz.github.io/stardust-site/samples/digitalinnovation/proposed-A.html) | [`sd-digitalinnovation-a`](https://github.com/aemcoder/snowflake-demos/tree/sd-digitalinnovation-a) | `sd-digitalinnovation-a-close` | <https://sd-digitalinnovation-a--snowflake-demos--aemcoder.aem.live/digitalinnovation/a> | 2026-05-20: <https://sd-digitalinnovation-a-2026-05-20--snowflake-demos--aemcoder.aem.live/digitalinnovation/a-2026-05-20> (tag `sd-digitalinnovation-a-2026-05-20-close`) |
+
+## Adobe.com bespoke redesigns
+
+Each row is one snowflake conversion of a bespoke Adobe.com redesign
+mockup served from a local source (`http://127.0.0.1:8080/acom-bespoke-pages/`).
+Sources are local-only — the `vendor` asset strategy is used: all images,
+fonts, CSS, and JS are vendored into the branch's `/assets/` (and
+`/styles/`, `/scripts/`) directories so EDS Code Bus serves them.
+
+| # | Source | Branch | Tag | Demo URL |
+|---|---|---|---|---|
+| 001 | [Agent Orchestrator](http://127.0.0.1:8080/acom-bespoke-pages/agent-orchestrator/) | [`acom-agent-orchestrator`](https://github.com/aemcoder/snowflake-demos/tree/acom-agent-orchestrator) | `acom-agent-orchestrator-close` | <https://acom-agent-orchestrator--snowflake-demos--aemcoder.aem.live/acom/agent-orchestrator/a> |
+| 002 | [BizPro Hub](http://127.0.0.1:8080/acom-bespoke-pages/bizpro-hub-prototype/) | [`acom-bizpro-hub`](https://github.com/aemcoder/snowflake-demos/tree/acom-bizpro-hub) | `acom-bizpro-hub-close` | <https://acom-bizpro-hub--snowflake-demos--aemcoder.aem.live/acom/bizpro-hub/a> |
