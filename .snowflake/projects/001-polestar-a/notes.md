@@ -202,3 +202,63 @@ All background-image URLs in source use absolute `https://www.polestar.com/...`.
 - Static header fragment, static footer fragment
 - No animations.js needed (page has no inline `<script>`)
 - DA metadata block: template=polestar-a, title="Polestar – Electric cars | Polestar US"
+
+## Reflect (Phase 6)
+
+### Outcomes
+- 6 sections, 25 slots — all rendered correctly in production.
+- Production URL HTTP 200 on both preview and live admin APIs.
+- Browser verification: `main.dataset.overlay === "polestar-a"`, all 6
+  section first-classes present, 3 model cards, 5 footer nav columns,
+  hero title + sup¹ rendered, charging-strip eyebrow + body + CTA all
+  visible, newsletter form intact.
+- One cosmetic console error: 404 on
+  `/scripts/polestar-a-animations.js` (template has no animation
+  engine — substrate v1.0.4's HEAD probe still surfaces the 404 as a
+  network log entry; pre-existing residual per learnings 2026-05-18).
+
+### What substrate v1.0.4 picked up correctly
+- `body > header, body > footer { padding: 0; margin: 0 }` — no
+  generic page padding leaks into the EDS landmarks (page CSS sets
+  `section[data-section] { padding: ... }` so without this fix the
+  EDS landmark `<header>`/`<footer>` would inherit). [verified]
+- `writeSlot()` heading-in-heading unwrap — incentive-band uses
+  `<span data-slot>` inside h2, so this didn't trigger; but the
+  generic protection is still in scripts.js for future runs.
+- `writeSlot()` background-image-before-`<a>` dispatch guard — all
+  six background-image slots (hero.bg, 3× card-N.bg, sustainability.bg)
+  are on `<div role="img">`, NOT `<a>`, so the guard isn't strictly
+  required for this page. Engine still applied them correctly.
+
+### Branch-level fix (not yet substrate)
+- `footer > .footer { visibility: hidden }` in substrate styles.css
+  leaks into the fragment-inner `<div class="footer">` (a direct
+  child of the fragment's `<footer>` root). Page CSS adds
+  `visibility:visible` on `footer[data-section="footer"] > .footer`
+  to counter. Same pattern observed in the prior 2026-05-19 polestar-a
+  run. **Substrate gap candidate** — see learnings.md 2026-05-19 entry
+  titled "substrate footer > .footer { visibility: hidden } leaks
+  into fragment inner divs"; recommended substrate fix is to tighten
+  to `footer > .footer.block { visibility: hidden }` so the `.block`
+  qualifier limits it to EDS block wrappers only.
+
+### Span-stripping rule (learnings.md 2026-05-20)
+- **Not relevant to this page** — no `<span class="...">` patterns
+  in DA cell content (no sale prices, badges, callouts, or other
+  inline span-with-class styling hooks). The only spans in this run
+  are template-side with `data-slot` (the charging-strip eyebrow,
+  the incentive-band sup-prefix wrapper) — those don't pass through
+  the DA pipeline, so they're unaffected by the strip rule.
+
+### Sup-handling pattern (new wrinkle for the methodology)
+- `<sup>¹</sup>` is NOT on the EDS pipeline preserve list (per
+  learnings.md 2026-05-19 inline-stripping entry — preserve list is
+  `<strong>`, `<em>`, `<a>`, `<img>`, `<picture>`, `<h*>`, `<p>`).
+- Strategy used: keep `<sup>¹</sup>` as STATIC template content
+  inside the h2, with a `<span data-slot="head">` wrapping the
+  authorable text part. The footnote marker is presentation, not
+  content the author edits.
+- This is a generalisable pattern for any "static suffix/prefix on a
+  heading" case (asterisks, dagger marks, trademark/(R) symbols).
+  Worth promoting to methodology if it recurs.
+
