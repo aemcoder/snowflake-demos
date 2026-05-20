@@ -232,6 +232,9 @@
   .product-card__desc { font-size: var(--body-sm); color: var(--color-fg-muted); margin: 0; }
   .product-card__price { font-size: var(--body-sm); margin: 0; }
   .product-card__price del { color: var(--color-fg-muted); margin-right: 6px; }
+  /* EDS pipeline strips the <span class="product-card__price-now"> wrapper, so
+     :has(del) colors the whole <p> orange — the del rule above overrides back. */
+  .product-card__price:has(del) { color: var(--color-sale-orange); }
   .product-card__price-now { color: var(--color-sale-orange); }
   .product-card__cta { margin-top: auto; padding-top: 8px; }
   .product-card .ds-tag { margin-top: 4px; }
