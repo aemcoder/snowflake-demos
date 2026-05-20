@@ -98,3 +98,129 @@ Line   Element
 | TOTAL (approx) | ~70 |
 
 Final counts are produced by the Generate phase; this is a planning estimate.
+
+## Phase: Generate
+
+- Output: `output/templates/lovesac-a.html`, `output/fragments/lovesac-a/{header,footer}.html`,
+  `output/styles/lovesac-a.css`, `output/da/a.html`.
+- 7 sections, 75 `[data-slot]` markers.
+- No animation script extracted (only inline `onclick` attribute on the
+  promo-strip dismiss button — kept as-is in the header fragment).
+- All section first-classes unique; none collides with a CSS layout rule
+  meant for an inner element.
+
+## Phase: Wire
+
+- Copied to `templates/lovesac-a.html`, `fragments/lovesac-a/{header,footer}.html`,
+  `styles/lovesac-a.css`.
+- Built `drafts/lovesac-a-a.html` via `tools/transform-da-to-eds.mjs` —
+  not used for round-trip (skipped local per task instructions).
+- `npm run lint` — clean.
+
+## Phase: Round-trip
+
+Skipped local; went straight to production per task instructions.
+
+- DA labeled snapshot before PUT: HTTP 201 (label `Before snowflake refresh 001 (lovesac)`).
+- DA PUT `/lovesac/a.html`: HTTP 200.
+- `git push --force-with-lease origin sd-lovesac-a`: tip `0c90c6c`.
+- POST `admin.hlx.page/preview/aemcoder/snowflake-demos/sd-lovesac-a/lovesac/a`: HTTP 200.
+- POST `admin.hlx.page/live/aemcoder/snowflake-demos/sd-lovesac-a/lovesac/a`: HTTP 200.
+- Code-bus probes (templates, styles, fragments, scripts): all 200.
+
+### Production verification at https://sd-lovesac-a--snowflake-demos--aemcoder.aem.live/lovesac/a
+
+| Check | Value |
+|---|---|
+| `main.dataset.overlay` | `lovesac-a` (matches template) |
+| Section count | 7 (matches) |
+| Section first-classes | `hero, shop-by-category, build, carousel, fin-line, lifestyle, swatches-band` |
+| `body.appear` class | true |
+| Header fragment | loaded (`.site-header` + `.promo-strip` + `.trust-band`) |
+| Footer fragment | loaded (`.site-footer` + `.chat-widget`) |
+| Hero h1 text | "Lovesac – Designed For Life®" |
+| Carousel slides | 4 |
+| Lifestyle cards | 3 |
+| `<meta name="template">` | `lovesac-a` |
+| Console errors | 1 (substrate-known cosmetic: `scripts/lovesac-a-animations.js` 404 from delayed-phase HEAD probe) |
+
+### Screenshots
+
+Saved to `diff/`:
+- `production-{top,shop,build,carousel,lifestyle,swatches,footer}.jpg` — per-section
+- `original-top.jpg` — source for visual comparison
+- `comparison.png` — side-by-side composite (original left, EDS right) for the hero region
+
+The lifestyle section renders in the expected 3-column grid, confirming the
+section first-class rename (`lifestyle-grid` → `lifestyle`) prevented the
+`.lifestyle-grid { display: grid; grid-template-columns: repeat(3, 1fr); }`
+rule from incorrectly applying to the section itself instead of only the
+inner `<div class="lifestyle-grid">`.
+
+## Phase: Reflect
+
+### Substrate gaps surfaced
+
+Single cosmetic gap, already documented in cross-project `learnings.md`:
+- The `delayed.js` HEAD probe for `scripts/<template>-animations.js` 404s
+  loudly in the browser console even though the JS code itself catches and
+  ignores. The substrate could replace the HEAD probe with a
+  `<meta name="has-animations">` flag in the DA Metadata block (read in
+  `loadDelayed`) so the network request is never issued when no engine
+  exists. Cosmetic only — page renders fine.
+
+No NEW substrate gaps found on this run.
+
+### Branch-level fixes applied (with reasoning)
+
+1. **Section first-class `lifestyle` instead of `lifestyle-grid`** — because
+   CSS at line 298 declares `.lifestyle-grid { display: grid;
+   grid-template-columns: repeat(3, 1fr); }` for the INNER
+   `<div class="lifestyle-grid">` at line 602 of the source. If we used
+   `lifestyle-grid` as the section's first-class (Stardust's `data-section`
+   value), the section would inherit that 3-column grid rule and the layout
+   would break. This is the same inner-CSS-class collision pattern recorded
+   in cross-project `learnings.md` 2026-05-19 (5 occurrences across batch
+   runs including the prior lovesac iteration). The pattern is now stably
+   detected during Analyze.
+
+2. **`<div class="fin-line">` rewritten to `<section class="fin-line">`** —
+   the source authored a single-line "Financing" callout as a sibling-of-
+   sections `<div>` inside `<main>` instead of as a `<section>`. The overlay
+   engine matches blocks by `section[class]`. Without the rewrite, the
+   `fin-line` block in the DA doc would have no template counterpart.
+   The CSS rule `.fin-line { text-align; padding; background }` has no
+   layout-grid impact and survives the type change.
+
+3. **Synthesised first-class on two sections that had none:**
+   - `<section data-section="shop-by-category">` (no `class` attribute)
+     → `<section class="shop-by-category" ...>`.
+   - `<section data-section="lifestyle-grid">` (no `class` attribute)
+     → `<section class="lifestyle" ...>` (see fix #1 above).
+   Without a first-class, the overlay engine's `section[class]` filter
+   would skip them entirely; slots would never be applied.
+
+These fixes are all in the template and DA doc — none required substrate
+edits.
+
+### Cross-project findings
+
+Nothing new to promote — every pattern encountered this run is already in
+cross-project `learnings.md`. The bundled substrate (v1.0.4) handled:
+- Heading-in-heading auto-close (substrate writeSlot heading branch)
+- Background-image-on-`<a>` dispatch ordering (background-image before A)
+- Generic `header, footer { padding }` leak (`body > header, body > footer { padding: 0 }` reset)
+
+All of these were promoted to the substrate after prior batch runs; this
+run is the regression test that confirms they still work.
+
+### Timings
+
+| Phase | When | Notes |
+|---|---|---|
+| Capture | 11:00:30 | 696 lines fetched, no external assets |
+| Analyze | 11:05:00 | 5min |
+| Generate | 11:15:00 | 10min; bulk of the work |
+| Wire | 11:18:00 | 3min |
+| Round-trip | 11:30:00 | 12min (incl. preview + live + screenshots) |
+
