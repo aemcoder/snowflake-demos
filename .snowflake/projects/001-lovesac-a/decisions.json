@@ -1,0 +1,142 @@
+{
+  "templateName": "lovesac-a",
+  "synthesizeMain": false,
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "photo", "type": "image", "selector": ".hero__media > img" },
+        { "name": "eyebrow", "type": "text", "selector": ".hero__content > .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".hero__content > h1" },
+        { "name": "sub", "type": "text", "selector": ".hero__content > .hero__sub" },
+        { "name": "cta-primary", "type": "link", "selector": ".hero__ctas > a.btn-primary" },
+        { "name": "cta-secondary", "type": "link", "selector": ".hero__ctas > a.btn-secondary" }
+      ]
+    },
+    {
+      "firstClass": "shop-by-category",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "addClass": "shop-by-category",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".section-head > .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".section-head > h2" },
+        { "name": "tile-1.photo", "type": "image", "selector": ".cat-tile:nth-child(1) .cat-tile__media img" },
+        { "name": "tile-1.title", "type": "text", "selector": ".cat-tile:nth-child(1) > h4" },
+        { "name": "tile-1.sub", "type": "text", "selector": ".cat-tile:nth-child(1) > small" },
+        { "name": "tile-2.photo", "type": "image" },
+        { "name": "tile-2.title", "type": "text" },
+        { "name": "tile-2.sub", "type": "text" },
+        { "name": "tile-3.photo", "type": "image" },
+        { "name": "tile-3.title", "type": "text" },
+        { "name": "tile-3.sub", "type": "text" },
+        { "name": "tile-4.photo", "type": "image" },
+        { "name": "tile-4.title", "type": "text" },
+        { "name": "tile-4.sub", "type": "text" },
+        { "name": "tile-5.photo", "type": "image" },
+        { "name": "tile-5.title", "type": "text" },
+        { "name": "tile-5.sub", "type": "text" },
+        { "name": "tile-6.photo", "type": "image" },
+        { "name": "tile-6.title", "type": "text" },
+        { "name": "tile-6.sub", "type": "text" },
+        { "name": "tile-7.photo", "type": "image" },
+        { "name": "tile-7.title", "type": "text" },
+        { "name": "tile-7.sub", "type": "text" },
+        { "name": "tile-8.photo", "type": "image" },
+        { "name": "tile-8.title", "type": "text" },
+        { "name": "tile-8.sub", "type": "text" }
+      ]
+    },
+    {
+      "firstClass": "build",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text" },
+        { "name": "title", "type": "text" },
+        { "name": "body", "type": "text" },
+        { "name": "cta", "type": "link" },
+        { "name": "piece-1.photo", "type": "image" },
+        { "name": "piece-1.label", "type": "text" },
+        { "name": "piece-2.photo", "type": "image" },
+        { "name": "piece-2.label", "type": "text" },
+        { "name": "piece-3.photo", "type": "image" },
+        { "name": "piece-3.label", "type": "text" }
+      ]
+    },
+    {
+      "firstClass": "carousel",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "slide-1.photo", "type": "image" },
+        { "name": "slide-1.eyebrow", "type": "text" },
+        { "name": "slide-1.title", "type": "text" },
+        { "name": "slide-1.body", "type": "text" },
+        { "name": "slide-2.photo", "type": "image" },
+        { "name": "slide-2.eyebrow", "type": "text" },
+        { "name": "slide-2.title", "type": "text" },
+        { "name": "slide-2.body", "type": "text" },
+        { "name": "slide-3.photo", "type": "image" },
+        { "name": "slide-3.eyebrow", "type": "text" },
+        { "name": "slide-3.title", "type": "text" },
+        { "name": "slide-3.body", "type": "text" },
+        { "name": "slide-4.photo", "type": "image" },
+        { "name": "slide-4.eyebrow", "type": "text" },
+        { "name": "slide-4.title", "type": "text" },
+        { "name": "slide-4.body", "type": "text" }
+      ]
+    },
+    {
+      "firstClass": "fin-line",
+      "originalTag": "div",
+      "rewriteToSection": true,
+      "slots": [
+        { "name": "link", "type": "link" }
+      ]
+    },
+    {
+      "firstClass": "lifestyle",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "addClass": "lifestyle",
+      "slots": [
+        { "name": "eyebrow", "type": "text" },
+        { "name": "title", "type": "text" },
+        { "name": "card-1.photo", "type": "image" },
+        { "name": "card-1.eyebrow", "type": "text" },
+        { "name": "card-1.body", "type": "text" },
+        { "name": "card-2.photo", "type": "image" },
+        { "name": "card-2.eyebrow", "type": "text" },
+        { "name": "card-2.body", "type": "text" },
+        { "name": "card-3.photo", "type": "image" },
+        { "name": "card-3.eyebrow", "type": "text" },
+        { "name": "card-3.body", "type": "text" }
+      ]
+    },
+    {
+      "firstClass": "swatches-band",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "slots": [
+        { "name": "photo", "type": "image" },
+        { "name": "eyebrow", "type": "text" },
+        { "name": "title", "type": "text" },
+        { "name": "body", "type": "text" },
+        { "name": "cta", "type": "link" }
+      ]
+    }
+  ],
+  "headLinks": [],
+  "inlineStyleLines": [29, 399],
+  "inlineScriptLines": [],
+  "externalLibs": [],
+  "assetStrategy": "absolute-public",
+  "assetBase": "https://www.lovesac.com/",
+  "headerFragmentBoundary": "body start → main start (promo-strip + trust-band + header.site-header)",
+  "footerFragmentBoundary": "main end → body end (footer.site-footer + button.chat-widget)",
+  "strip": [],
+  "placeholderConvention": "stardust-0.2.0 (data-placeholder=\"true\" attribute, and class \"placeholder-tag\" if span-form encountered)"
+}
