@@ -1,0 +1,134 @@
+{
+  "templateName": "glossier",
+  "pageSlug": "a",
+  "pageTitle": "Glossier — You smell good",
+  "synthesizeMain": true,
+  "headerBoundary": "aside.promo-strip + header.site-header",
+  "footerBoundary": "footer.site-footer",
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "hero",
+      "slots": [
+        { "name": "hero-product", "type": "text", "selector": ".hero__product" },
+        { "name": "hero-title", "type": "text", "selector": ".hero__display" },
+        { "name": "hero-sub", "type": "text", "selector": ".hero__sub" },
+        { "name": "hero-photo", "type": "img", "selector": ".hero__photo" }
+      ],
+      "placeholders": [
+        { "selector": "a.ds-button-primary span[data-placeholder]", "treatment": "data-slot-skip=placeholder" }
+      ]
+    },
+    {
+      "firstClass": "sale-carousel",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "originalFirstClass": "section",
+      "dataSection": "sale-carousel",
+      "discriminator": "data-section",
+      "slots": [
+        { "name": "label", "type": "text", "selector": ".ds-section-label" },
+        { "name": "title", "type": "text", "selector": ".section__head h2" },
+        { "name": "card-1.img", "type": "img", "selector": ".product-rail .product-card:nth-child(1) .product-card__media img" },
+        { "name": "card-1.title", "type": "text", "selector": ".product-rail .product-card:nth-child(1) .product-card__title" },
+        { "name": "card-1.desc", "type": "text", "selector": ".product-rail .product-card:nth-child(1) .product-card__desc" },
+        { "name": "card-1.price", "type": "text", "selector": ".product-rail .product-card:nth-child(1) .product-card__price" },
+        { "name": "card-2.img", "type": "img", "selector": ".product-rail .product-card:nth-child(2) .product-card__media img" },
+        { "name": "card-2.title", "type": "text", "selector": ".product-rail .product-card:nth-child(2) .product-card__title" },
+        { "name": "card-2.desc", "type": "text", "selector": ".product-rail .product-card:nth-child(2) .product-card__desc" },
+        { "name": "card-2.price", "type": "text", "selector": ".product-rail .product-card:nth-child(2) .product-card__price" },
+        { "name": "card-3.img", "type": "img", "selector": ".product-rail .product-card:nth-child(3) .product-card__media img" },
+        { "name": "card-3.title", "type": "text", "selector": ".product-rail .product-card:nth-child(3) .product-card__title" },
+        { "name": "card-3.desc", "type": "text", "selector": ".product-rail .product-card:nth-child(3) .product-card__desc" },
+        { "name": "card-3.price", "type": "text", "selector": ".product-rail .product-card:nth-child(3) .product-card__price" },
+        { "name": "card-4.img", "type": "img", "selector": ".product-rail .product-card:nth-child(4) .product-card__media img" },
+        { "name": "card-4.title", "type": "text", "selector": ".product-rail .product-card:nth-child(4) .product-card__title" },
+        { "name": "card-4.desc", "type": "text", "selector": ".product-rail .product-card:nth-child(4) .product-card__desc" },
+        { "name": "card-4.price", "type": "text", "selector": ".product-rail .product-card:nth-child(4) .product-card__price" },
+        { "name": "card-5.img", "type": "img", "selector": ".product-rail .product-card:nth-child(5) .product-card__media img" },
+        { "name": "card-5.title", "type": "text", "selector": ".product-rail .product-card:nth-child(5) .product-card__title" },
+        { "name": "card-5.desc", "type": "text", "selector": ".product-rail .product-card:nth-child(5) .product-card__desc" },
+        { "name": "card-5.price", "type": "text", "selector": ".product-rail .product-card:nth-child(5) .product-card__price" },
+        { "name": "card-6.img", "type": "img", "selector": ".product-rail .product-card:nth-child(6) .product-card__media img" },
+        { "name": "card-6.title", "type": "text", "selector": ".product-rail .product-card:nth-child(6) .product-card__title" },
+        { "name": "card-6.desc", "type": "text", "selector": ".product-rail .product-card:nth-child(6) .product-card__desc" },
+        { "name": "card-6.price", "type": "text", "selector": ".product-rail .product-card:nth-child(6) .product-card__price" }
+      ]
+    },
+    {
+      "firstClass": "story-band",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "dataSection": "story-band",
+      "slots": [
+        { "name": "label", "type": "text", "selector": ".ds-section-label" },
+        { "name": "stars", "type": "text", "selector": ".story-band__stars" },
+        { "name": "quote", "type": "text", "selector": ".story-band__quote" },
+        { "name": "attr", "type": "text", "selector": ".story-band__attr" },
+        { "name": "photo", "type": "img", "selector": ".story-band__media img" }
+      ]
+    },
+    {
+      "firstClass": "fragrance-carousel",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "originalFirstClass": "section",
+      "dataSection": "fragrance-carousel",
+      "discriminator": "data-section",
+      "slots": [
+        { "name": "label", "type": "text", "selector": ".ds-section-label" },
+        { "name": "title", "type": "text", "selector": ".section__head h2" },
+        { "name": "card-1.img", "type": "img", "selector": ".product-rail .product-card:nth-child(1) .product-card__media img" },
+        { "name": "card-1.title", "type": "text", "selector": ".product-rail .product-card:nth-child(1) .product-card__title" },
+        { "name": "card-1.desc", "type": "text", "selector": ".product-rail .product-card:nth-child(1) .product-card__desc" },
+        { "name": "card-1.price", "type": "text", "selector": ".product-rail .product-card:nth-child(1) .product-card__price" },
+        { "name": "card-2.img", "type": "img", "selector": ".product-rail .product-card:nth-child(2) .product-card__media img" },
+        { "name": "card-2.title", "type": "text", "selector": ".product-rail .product-card:nth-child(2) .product-card__title" },
+        { "name": "card-2.desc", "type": "text", "selector": ".product-rail .product-card:nth-child(2) .product-card__desc" },
+        { "name": "card-2.price", "type": "text", "selector": ".product-rail .product-card:nth-child(2) .product-card__price" },
+        { "name": "card-3.img", "type": "img", "selector": ".product-rail .product-card:nth-child(3) .product-card__media img" },
+        { "name": "card-3.title", "type": "text", "selector": ".product-rail .product-card:nth-child(3) .product-card__title" },
+        { "name": "card-3.desc", "type": "text", "selector": ".product-rail .product-card:nth-child(3) .product-card__desc" },
+        { "name": "card-3.price", "type": "text", "selector": ".product-rail .product-card:nth-child(3) .product-card__price" },
+        { "name": "card-4.img", "type": "img", "selector": ".product-rail .product-card:nth-child(4) .product-card__media img" },
+        { "name": "card-4.title", "type": "text", "selector": ".product-rail .product-card:nth-child(4) .product-card__title" },
+        { "name": "card-4.desc", "type": "text", "selector": ".product-rail .product-card:nth-child(4) .product-card__desc" },
+        { "name": "card-4.price", "type": "text", "selector": ".product-rail .product-card:nth-child(4) .product-card__price" },
+        { "name": "card-5.img", "type": "img", "selector": ".product-rail .product-card:nth-child(5) .product-card__media img" },
+        { "name": "card-5.title", "type": "text", "selector": ".product-rail .product-card:nth-child(5) .product-card__title" },
+        { "name": "card-5.desc", "type": "text", "selector": ".product-rail .product-card:nth-child(5) .product-card__desc" },
+        { "name": "card-5.price", "type": "text", "selector": ".product-rail .product-card:nth-child(5) .product-card__price" },
+        { "name": "card-6.img", "type": "img", "selector": ".product-rail .product-card:nth-child(6) .product-card__media img" },
+        { "name": "card-6.title", "type": "text", "selector": ".product-rail .product-card:nth-child(6) .product-card__title" },
+        { "name": "card-6.desc", "type": "text", "selector": ".product-rail .product-card:nth-child(6) .product-card__desc" },
+        { "name": "card-6.price", "type": "text", "selector": ".product-rail .product-card:nth-child(6) .product-card__price" }
+      ]
+    },
+    {
+      "firstClass": "ugc",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "originalFirstClass": "section",
+      "dataSection": "ugc-grid",
+      "discriminator": "renamed-to-avoid-ugc-grid-collision",
+      "slots": [
+        { "name": "label", "type": "text", "selector": ".ds-section-label" },
+        { "name": "title", "type": "text", "selector": ".section__head h2" },
+        { "name": "tile-1.img", "type": "img", "selector": ".ugc-grid .ugc-grid__tile:nth-child(1) img" },
+        { "name": "tile-2.img", "type": "img", "selector": ".ugc-grid .ugc-grid__tile:nth-child(2) img" },
+        { "name": "tile-3.img", "type": "img", "selector": ".ugc-grid .ugc-grid__tile:nth-child(3) img" },
+        { "name": "caption", "type": "text", "selector": ".ugc-caption" }
+      ]
+    }
+  ],
+  "headLinks": [],
+  "inlineStyleLines": [25, 370],
+  "inlineScriptLines": [],
+  "externalLibs": [],
+  "assetStrategy": "absolute",
+  "assetBase": "https://paolomoz.github.io/stardust-site/samples/glossier/",
+  "strip": [],
+  "placeholderConvention": "stardust-0.3.0-data-placeholder"
+}
