@@ -1,0 +1,209 @@
+{
+  "templateName": "jfk-airport-a",
+  "pageSlug": "a",
+  "daRoot": "/jfk-airport",
+  "assetStrategy": "absolute",
+  "assetBase": "https://paolomoz.github.io/stardust-site/samples/jfk-airport/",
+  "synthesizeMain": false,
+  "inlineStyleLines": [[150, 898]],
+  "inlineScriptLines": [[1496, 1611]],
+  "headLinks": [],
+  "pageMetadata": {
+    "title": "John F. Kennedy International Airport - JFK Airport",
+    "description": "Welcome to JFK Airport, New York's international gateway. Find flight info, maps, transportation, parking, and traveler tips all in one place.",
+    "themeColor": "#011565",
+    "ogImage": "https://s7d9.scene7.com/is/image/panynjaviation/jfk_ogimage:card-wide-16x9"
+  },
+  "strip": [
+    "head provenance comment (lines 4-143)"
+  ],
+  "sections": [
+    {
+      "firstClass": "brand-hero",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "label": "Brand hero",
+      "slots": [
+        { "name": "hero-image", "type": "image", "selector": "img:first-of-type" },
+        { "name": "meta-left", "type": "text", "selector": ".meta-strip span:nth-child(1)" },
+        { "name": "meta-right", "type": "text", "selector": ".meta-strip span:nth-child(2)" },
+        { "name": "title", "type": "text", "selector": ".copy h1" },
+        { "name": "deck", "type": "text", "selector": ".copy p.deck" }
+      ]
+    },
+    {
+      "firstClass": "audience-section",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "label": "Audience router",
+      "slots": [
+        { "name": "opener-title", "type": "text", "selector": ".opener h2.display" },
+        { "name": "opener-deck", "type": "text", "selector": ".opener p.deck" },
+        { "name": "tile-departing.label", "type": "text", "selector": ".audience-tile[data-audience=\"departing\"] .label" },
+        { "name": "tile-departing.meta", "type": "text", "selector": ".audience-tile[data-audience=\"departing\"] .meta" },
+        { "name": "tile-arriving.label", "type": "text", "selector": ".audience-tile[data-audience=\"arriving\"] .label" },
+        { "name": "tile-arriving.meta", "type": "text", "selector": ".audience-tile[data-audience=\"arriving\"] .meta" },
+        { "name": "tile-pickup.label", "type": "text", "selector": ".audience-tile[data-audience=\"pickup\"] .label" },
+        { "name": "tile-pickup.meta", "type": "text", "selector": ".audience-tile[data-audience=\"pickup\"] .meta" },
+        { "name": "tile-connecting.label", "type": "text", "selector": ".audience-tile[data-audience=\"connecting\"] .label" },
+        { "name": "tile-connecting.meta", "type": "text", "selector": ".audience-tile[data-audience=\"connecting\"] .meta" },
+        { "name": "tile-visiting.label", "type": "text", "selector": ".audience-tile[data-audience=\"visiting\"] .label" },
+        { "name": "tile-visiting.meta", "type": "text", "selector": ".audience-tile[data-audience=\"visiting\"] .meta" }
+      ]
+    },
+    {
+      "firstClass": "task-panel-departing",
+      "rewrittenFirstClass": true,
+      "originalFirstClass": "task-panel",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "label": "Task panel — departing",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".head .eyebrow" },
+        { "name": "title", "type": "text", "selector": ".head h2.display" },
+        { "name": "intro", "type": "text", "selector": ".head > p" },
+        { "name": "side-eyebrow", "type": "text", "selector": ".task-side .label-eyebrow" },
+        { "name": "side-title", "type": "text", "selector": ".task-side h3.display" },
+        { "name": "qa-1.label", "type": "text", "selector": ".quick-actions > a:nth-child(1) .l" },
+        { "name": "qa-1.value", "type": "text", "selector": ".quick-actions > a:nth-child(1) .v" },
+        { "name": "qa-2.label", "type": "text", "selector": ".quick-actions > a:nth-child(2) .l" },
+        { "name": "qa-2.value", "type": "text", "selector": ".quick-actions > a:nth-child(2) .v" },
+        { "name": "qa-3.label", "type": "text", "selector": ".quick-actions > a:nth-child(3) .l" },
+        { "name": "qa-3.value", "type": "text", "selector": ".quick-actions > a:nth-child(3) .v" },
+        { "name": "qa-4.label", "type": "text", "selector": ".quick-actions > a:nth-child(4) .l" },
+        { "name": "qa-4.value", "type": "text", "selector": ".quick-actions > a:nth-child(4) .v" },
+        { "name": "qa-5.label", "type": "text", "selector": ".quick-actions > a:nth-child(5) .l" },
+        { "name": "qa-5.value", "type": "text", "selector": ".quick-actions > a:nth-child(5) .v" }
+      ]
+    },
+    {
+      "firstClass": "task-panel-arriving",
+      "rewrittenFirstClass": true,
+      "originalFirstClass": "task-panel",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "label": "Task panel — arriving",
+      "slots": "same shape as task-panel-departing"
+    },
+    {
+      "firstClass": "task-panel-pickup",
+      "rewrittenFirstClass": true,
+      "originalFirstClass": "task-panel",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "label": "Task panel — pickup",
+      "slots": "same shape as task-panel-departing"
+    },
+    {
+      "firstClass": "task-panel-connecting",
+      "rewrittenFirstClass": true,
+      "originalFirstClass": "task-panel",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "label": "Task panel — connecting",
+      "slots": "same shape as task-panel-departing"
+    },
+    {
+      "firstClass": "task-panel-visiting",
+      "rewrittenFirstClass": true,
+      "originalFirstClass": "task-panel",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "label": "Task panel — visiting",
+      "slots": "same shape as task-panel-departing"
+    },
+    {
+      "firstClass": "guide-section",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "label": "Your guide to JFK",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".section-head h2.display" },
+        { "name": "tile-1.image", "type": "image", "selector": ".guide-tiles > a:nth-child(1) .photo img" },
+        { "name": "tile-1.title", "type": "text", "selector": ".guide-tiles > a:nth-child(1) .body h3" },
+        { "name": "tile-1.arrow-label", "type": "text", "selector": ".guide-tiles > a:nth-child(1) .body .arrow" },
+        { "name": "tile-2.image", "type": "image", "selector": ".guide-tiles > a:nth-child(2) .photo img" },
+        { "name": "tile-2.title", "type": "text", "selector": ".guide-tiles > a:nth-child(2) .body h3" },
+        { "name": "tile-2.arrow-label", "type": "text", "selector": ".guide-tiles > a:nth-child(2) .body .arrow" },
+        { "name": "tile-3.image", "type": "image", "selector": ".guide-tiles > a:nth-child(3) .photo img" },
+        { "name": "tile-3.title", "type": "text", "selector": ".guide-tiles > a:nth-child(3) .body h3" },
+        { "name": "tile-3.arrow-label", "type": "text", "selector": ".guide-tiles > a:nth-child(3) .body .arrow" },
+        { "name": "tile-4.image", "type": "image", "selector": ".guide-tiles > a:nth-child(4) .photo img" },
+        { "name": "tile-4.title", "type": "text", "selector": ".guide-tiles > a:nth-child(4) .body h3" },
+        { "name": "tile-4.arrow-label", "type": "text", "selector": ".guide-tiles > a:nth-child(4) .body .arrow" },
+        { "name": "tile-5.image", "type": "image", "selector": ".guide-tiles > a:nth-child(5) .photo img" },
+        { "name": "tile-5.title", "type": "text", "selector": ".guide-tiles > a:nth-child(5) .body h3" },
+        { "name": "tile-5.arrow-label", "type": "text", "selector": ".guide-tiles > a:nth-child(5) .body .arrow" }
+      ]
+    },
+    {
+      "firstClass": "construction",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "label": "Construction reality",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".copy h2.display" },
+        { "name": "body", "type": "text", "selector": ".copy > p" },
+        { "name": "cta-1", "type": "link", "selector": ".ctas a:nth-child(1)" },
+        { "name": "cta-2", "type": "link", "selector": ".ctas a:nth-child(2)" },
+        { "name": "image", "type": "image", "selector": "figure img" }
+      ]
+    },
+    {
+      "firstClass": "essentials",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "label": "Essentials",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".essentials-head h2.display" },
+        { "name": "deck", "type": "text", "selector": ".essentials-head p" },
+        { "name": "card-1.image", "type": "image", "selector": ".essentials-grid > .essential:nth-child(1) .photo img" },
+        { "name": "card-1.title", "type": "text", "selector": ".essentials-grid > .essential:nth-child(1) .body h3" },
+        { "name": "card-1.body", "type": "text", "selector": ".essentials-grid > .essential:nth-child(1) .body > p" },
+        { "name": "card-1.cta", "type": "link", "selector": ".essentials-grid > .essential:nth-child(1) .body > a" },
+        { "name": "card-2.image", "type": "image", "selector": ".essentials-grid > .essential:nth-child(2) .photo img" },
+        { "name": "card-2.title", "type": "text", "selector": ".essentials-grid > .essential:nth-child(2) .body h3" },
+        { "name": "card-2.body", "type": "text", "selector": ".essentials-grid > .essential:nth-child(2) .body > p" },
+        { "name": "card-2.cta", "type": "link", "selector": ".essentials-grid > .essential:nth-child(2) .body > a" },
+        { "name": "card-3.image", "type": "image", "selector": ".essentials-grid > .essential:nth-child(3) .photo img" },
+        { "name": "card-3.title", "type": "text", "selector": ".essentials-grid > .essential:nth-child(3) .body h3" },
+        { "name": "card-3.body", "type": "text", "selector": ".essentials-grid > .essential:nth-child(3) .body > p" },
+        { "name": "card-3.cta", "type": "link", "selector": ".essentials-grid > .essential:nth-child(3) .body > a" }
+      ]
+    },
+    {
+      "firstClass": "accessibility",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "label": "Accessibility",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".access-card h2.display" },
+        { "name": "body", "type": "text", "selector": ".access-card .left p" },
+        { "name": "cta", "type": "link", "selector": ".access-card a.arrow-cta" }
+      ]
+    },
+    {
+      "firstClass": "latest",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "label": "Latest from JFK",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".latest-head h2.display" },
+        { "name": "all-link", "type": "link", "selector": ".latest-head a.all" },
+        { "name": "feature.image", "type": "image", "selector": ".latest-feature .photo img" },
+        { "name": "feature.eyebrow", "type": "text", "selector": ".latest-feature .eyebrow" },
+        { "name": "feature.title", "type": "text", "selector": ".latest-feature h3" },
+        { "name": "feature.body", "type": "text", "selector": ".latest-feature p" },
+        { "name": "feature.cta", "type": "link", "selector": ".latest-feature a.read" },
+        { "name": "companion-1.eyebrow", "type": "text", "selector": ".latest-companions > .latest-companion:nth-child(1) .eyebrow" },
+        { "name": "companion-1.title", "type": "text", "selector": ".latest-companions > .latest-companion:nth-child(1) h3" },
+        { "name": "companion-1.body", "type": "text", "selector": ".latest-companions > .latest-companion:nth-child(1) p" },
+        { "name": "companion-1.cta", "type": "link", "selector": ".latest-companions > .latest-companion:nth-child(1) a" },
+        { "name": "companion-2.eyebrow", "type": "text", "selector": ".latest-companions > .latest-companion:nth-child(2) .eyebrow" },
+        { "name": "companion-2.title", "type": "text", "selector": ".latest-companions > .latest-companion:nth-child(2) h3" },
+        { "name": "companion-2.body", "type": "text", "selector": ".latest-companions > .latest-companion:nth-child(2) p" },
+        { "name": "companion-2.cta", "type": "link", "selector": ".latest-companions > .latest-companion:nth-child(2) a" }
+      ]
+    }
+  ]
+}
