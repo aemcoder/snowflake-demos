@@ -9,4 +9,16 @@ Static page contains:
 - Inline `<script>` for animations
 - All assets resolve to absolute URLs / data URIs (verified during capture)
 
-This is a refresh run — the prior closed run on this branch is being regenerated against the current substrate (v1.0.4) and skill knowledge. No prior-run context is consulted.
+This is a refresh run — the prior closed run on this branch is being regenerated against the current substrate (v1.0.4) and skill knowledge. No prior-run context was consulted.
+
+Status: phase 6 complete (reflect). Not closed.
+
+Production: https://sd-nvidia-a--snowflake-demos--aemcoder.aem.live/nvidia/a
+Preview: https://sd-nvidia-a--snowflake-demos--aemcoder.aem.page/nvidia/a
+DA editor: https://da.live/edit#/aemcoder/snowflake-demos/nvidia/a
+
+Sections: 9 (1 hero-carousel + 8 theme-* sections, after first-class disambiguation)
+Slots: 333 across template + 3 metadata rows
+
+See `notes.md` and `learnings.md` for findings.
+

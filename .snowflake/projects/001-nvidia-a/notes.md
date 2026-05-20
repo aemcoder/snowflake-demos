@@ -106,4 +106,94 @@ Line   Element
 
 ### Branch-level fixes anticipated (from learnings)
 
-- **section CSS leak into EDS landmark `<header>`/`<footer>`** (`section, header, footer { padding }` learning, 2026-05-19). Need to scan source CSS for this pattern.
+- **section CSS leak into EDS landmark `<header>`/`<footer>`** (`section, header, footer { padding }` learning, 2026-05-19). Verified during Analyze: NOT applicable. Source CSS uses `.site-header` / `.site-footer` (class-level selectors), not bare element selectors. EDS landmark wrappers inherit nothing.
+
+## Phase: Generate
+
+- Built artifacts via `build.mjs` (jsdom-based). Self-checks all passed:
+  - No relative `assets/` refs in output (assets are absolute nvidia.com URLs)
+  - No forbidden inline tags (`<table>`, `<span class>`, `<br>`, `<b>`, `<i>`, `<u>`, `<mark>`) in DA doc
+  - All DA cell `<img>` URLs are absolute
+  - All 9 section first-classes unique
+  - Only `hero-carousel` has a CSS rule among first-classes — and that's intentional (only one section uses it)
+
+- 333 `[data-slot]` markers across 9 sections + 1 metadata block
+- Footer's `<span data-placeholder>` Stardust placeholders left as fragment chrome (not slot system)
+
+## Phase: Wire
+
+- Copied artifacts to `templates/nvidia-a.html`, `fragments/nvidia-a/{header,footer}.html`, `styles/nvidia-a.css`, `scripts/nvidia-a-animations.js`
+- Built `drafts/nvidia-a-a.html` via `tools/transform-da-to-eds.mjs` (substrate's transformer)
+- `npm run lint` clean (eslint + stylelint)
+
+## Phase: Round-trip
+
+Skipped local — went directly to production per task instructions.
+
+### Production round-trip
+
+- Labeled DA snapshot created: HTTP 201 (`Before snowflake refresh 001 (nvidia)`)
+- DA PUT: HTTP 200 to `/aemcoder/snowflake-demos/nvidia/a.html`
+- Force-pushed `sd-nvidia-a` with new tip
+- Preview POST: HTTP 200, `preview.status: 200`
+- Live POST: HTTP 200, `live.status: 200`
+- All code-bus paths responding 200 within 1s (templates/styles/fragments/animations)
+
+### Playwright verification at https://sd-nvidia-a--snowflake-demos--aemcoder.aem.live/nvidia/a
+
+```
+overlay:       "nvidia-a"
+sections:      9
+sectionClasses: [hero-carousel, theme-ai, theme-design-sim, theme-hpc,
+                 theme-gaming-creating, theme-automotive,
+                 theme-robotics-edge, theme-data-center-cloud, theme-about-nvidia]
+bodyAppearClass: true
+heroH1:        "New Model Announced: NVIDIA Nemotron 3 Omni"
+heroSlides:    6
+heroTabs:      6
+tilesTotal:    74
+console:       0 errors, 1 warning
+```
+
+The warning is `[animations] CDN dep missed: failed: ...lenis.min.js` — substrate `scripts/delayed.js` tries to load Lenis from a CDN URL that no longer resolves. **This is a substrate issue, not page-specific.** Same warning will appear on every template-based page until substrate updates the CDN URL or removes the Lenis dependency.
+
+### Visual verification
+
+- `production-viewport.jpg` — viewport at top of page; header nav + geo banner + hero slide visible
+- `production-hero.jpg` — hero scrolled into view with slide 2 (Agentic AI) auto-advanced — carousel JS working
+- `production-theme-ai.jpg` — Artificial Intelligence section: title, description, quicklinks, 3-up tile-a carousel
+- `production-theme-hpc.jpg` — High-Performance Computing section: 4-up tile-g layout
+
+Visual fidelity is high. Layout, typography, NVIDIA-green accent, dark/light theme alternation all preserved from source.
+
+### Source-data issue (not a conversion bug)
+
+One image `Announcing NVIDIA DLSS 5` in `theme-gaming-creating` rendered as `about:error`. Investigation: the source URL `https://www.nvidia.com/content/nvidiaGDC/.../gtc-2026-nv-sfg-1920x1080.jpeg` returns HTTP 404 from nvidia.com. The DA cell carries that exact URL (absolute, correct). Media Bus tried to fetch, got 404, substituted `about:error`. The original source page would have the same broken image if rendered.
+
+No action needed — this is a stale link in the upstream content, not something the conversion can or should fix.
+
+## Phase: Reflect
+
+### What worked well
+
+- **Stardust 0.3.0 `data-section` attribute** as the discriminator for 8 colliding theme sections. Mechanical, deterministic, no guessing.
+- **Single-pass build script** (`build.mjs`) using jsdom. 333 slots assembled in <1s; the script is the cleanest documentation of what the slot scheme looks like.
+- **Picture writer** worked perfectly for hero slides — 6 multi-source `<picture>` elements survived DA round-trip and Media Bus picked them up.
+- **Tile slot strategy** (slot inner image + texts, leave outer `<a href>` static): cleanly avoided the container-vs-children collision.
+
+### Branch-level fixes applied
+
+None. The conversion was clean on the first try. No CSS overrides, no template patches, no DA cell corrections. This is unusually clean — the source page's CSS was already class-scoped (`.site-header`, `.site-footer`) and the inline `<style>` had no aggressive bare-element selectors targeting the landmarks. The substrate's heading-in-heading writer fix (v1.0.3) handled the hero `<h1>` perfectly.
+
+### Substrate gaps surfaced
+
+1. **Stale Lenis CDN URL in `scripts/delayed.js`.** One persistent console warning on every page. URL `https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.42/bundled/lenis.min.js` returns failure. The studio-freight org may have renamed or moved. Suggested action: update to the current Lenis CDN path, or make the HEAD probe quieter (only warn at debug verbosity).
+
+2. **Link target authoring.** For tiles like `<a class="tile-a"><img/><band>…</band></a>` where the link wraps multiple authorable children, the current substrate cannot expose the `<a href>` as authorable AND the children as authorable simultaneously. The container-vs-children rule forces us to pick: authorable link OR authorable inner content. For this page I picked inner content; link targets are not authorable. A future substrate addition could be an **attribute slot** (`data-slot-href="tile-1.href"` writes only the href, leaving the element's innerHTML alone), giving authors both.
+
+3. **Source URL 404 surfacing.** When Media Bus replaces a broken upstream URL with `about:error`, the only signal is a console error at runtime and an `about:error` `<img src>` in the DOM. Detecting these in a verification step (e.g., HEAD-probe every absolute image URL in the DA doc during Generate self-check 3.9) would catch these before pushing.
+
+### Cross-project findings worth promoting
+
+None entirely new — the page conformed well to existing learnings. The picture-writer + heading-writer combo handled the hero, the data-section disambiguator handled the 8 colliding theme sections, and the absolute-URL strategy worked for all images that exist. Substrate behavior was as documented.
+
