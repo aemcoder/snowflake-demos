@@ -1,0 +1,22 @@
+{
+  "templateName": "ups-gb-a",
+  "pageSlug": "a",
+  "synthesizeMain": true,
+  "sections": [
+    { "firstClass": "tracking-hero", "originalTag": "section", "rewriteToSection": false, "originalClasses": "tracking-hero" },
+    { "firstClass": "regulations-cross-promo", "originalTag": "section", "rewriteToSection": false, "originalClasses": "regulations-cross-promo band band-surface" },
+    { "firstClass": "marketing-row-asia", "originalTag": "section", "rewriteToSection": false, "originalClasses": "marketing-row-asia band" },
+    { "firstClass": "marketing-row-app", "originalTag": "section", "rewriteToSection": false, "originalClasses": "marketing-row-app band band-surface app-band" },
+    { "firstClass": "digital-edge", "originalTag": "section", "rewriteToSection": false, "originalClasses": "digital-edge band band-deep" },
+    { "firstClass": "services-case-studies", "originalTag": "section", "rewriteToSection": false, "originalClasses": "services-case-studies band" },
+    { "firstClass": "lfc-sponsorship", "originalTag": "section", "rewriteToSection": false, "originalClasses": "lfc-sponsorship lfc-strip" },
+    { "firstClass": "quick-links", "originalTag": "section", "rewriteToSection": false, "originalClasses": "quick-links band band-surface" }
+  ],
+  "headLinks": [],
+  "inlineStyleLines": [[40, 554]],
+  "inlineScriptLines": [],
+  "externalLibs": [],
+  "assetStrategy": "absolute",
+  "assetBase": "https://paolomoz.github.io/stardust-site/samples/ups-gb/",
+  "strip": []
+}
