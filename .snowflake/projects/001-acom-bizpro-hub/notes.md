@@ -107,3 +107,115 @@ Line  Element / Role
 - Search-section: 1 title + 1 body + 1 input placeholder + 1 disclaimer = 4
 
 Estimated total: ~104 slots. Subject to refinement during Generate.
+
+## Phase: Generate
+
+- Vendored 73 assets (~38 MB) into repo `assets/`, renamed
+  `fonts/Adobe Clean Display` → `fonts/AdobeCleanDisplay`.
+- Extracted inline `<style>` (lines 9–1325) → `styles/acom-bizpro-hub.css`,
+  rewrote `url(assets/...)` → `url(/assets/...)`.
+- Extracted both inline `<script>` blocks (lines 2163–2669 and 2675–2684) →
+  `scripts/acom-bizpro-hub-animations.js`, wrapped in a lenis-loader
+  prelude per methodology §3.6.
+- Built template with 8 sections, 88 slots. Rewrote
+  `<div class="hero-scroll">` → `<section class="hero-scroll">`.
+- Kept `<div class="tutorial-scroll">` wrapper around `<section class="tutorial">`
+  — substrate engine matches `section[class]` at any depth.
+- Stripped `.grid-overlay` + `.grid-toggle` debug UI.
+- Self-check 5/6 passed: <main> present, all 8 section first-classes unique,
+  no relative `assets/` refs in template/fragments/CSS, no nested
+  data-slot, DA doc free of `<table>`/`<span class>`/`<br>`/`<b>`/`<i>`/etc.,
+  all DA `<img>` URLs absolute. CSS layout-collision check: all section
+  first-classes appear in CSS but as the section's own layout rule
+  (no inner-class collision).
+
+## Phase: Round-trip
+
+Skipped local; went straight to production per orchestrator instructions.
+
+- DA versionsource POST returned 201 (snapshot created — there was an
+  existing doc at `/acom/bizpro-hub/a.html` from a prior run by someone
+  else; preserved as "Before first conversion" label).
+- DA PUT 200 — new content stored.
+- Branch pushed, code-bus deployed all 7 paths (template, 2 fragments,
+  2 styles, 2 scripts) and 73 assets — all HTTP 200.
+- POST preview 200, POST live 200.
+- First playwright check surfaced **`about:error`** on 16 image slots: the
+  preview POST had run before code-bus finished deploying assets, so
+  Media Bus couldn't fetch the absolute URLs we put in DA cells. Re-ran
+  `POST preview` and `POST live` after sanity-probing all asset paths
+  returned 200 — Media Bus then content-addressed all images correctly
+  (`./media_<sha>.png?width=750&format=png&optimize=medium`).
+- A separate 404 was traced to `/assets/send-icon.svg`: the Phase 1
+  asset-list file lacked a trailing newline, so `while IFS= read -r ref`
+  skipped the last entry. Fetched and committed.
+- Final state: 0 console errors, 1 warning ([animations] CDN dep missed
+  for the substrate's `cdn.jsdelivr.net/.../lenis.min.js` — substrate
+  attempts a generic Lenis even though this template uses a vendored
+  one. Substrate gap, harmless).
+- Per-section screenshots captured under `diff/production-*.png`.
+- Production verification:
+  - `main.dataset.overlay === "acom-bizpro-hub"`
+  - 8 sections, classes match decisions
+  - 50 `<img>` in main, 1 `<video>`, 0 broken
+  - `body.appear` true; 18 fonts loaded
+- Production URL: https://acom-bizpro-hub--snowflake-demos--aemcoder.aem.page/acom/bizpro-hub/a
+
+## Phase: Reflect
+
+### Branch-level fixes applied
+
+1. **send-icon.svg added** — see above. Branch fix, not skill fix; this
+   was a bug in the run's own asset-fetch loop, not the skill.
+
+### Substrate gaps surfaced
+
+1. **CDN Lenis is loaded unconditionally** by the substrate's
+   `scripts/delayed.js` even when the template ships a vendored Lenis.
+   Cost: 1 console warning + ~20KB wasted fetch + brief delay before
+   our own vendored Lenis loads. Fix idea: substrate could probe for a
+   vendored `/scripts/<template>-lenis.min.js` and skip the CDN if
+   found. Or template could declare its CDN needs via a metadata flag.
+2. **CDN GSAP/ScrollTrigger always loaded** — same root cause as #1.
+   The substrate's `cdnDeps` array is hardcoded; templates that don't
+   use GSAP still pay ~130 KB. The existing learning (2026-05-18
+   "Templates without an animation engine cost ~150 KB") already
+   identified this gap for the no-animation case; we still pay the
+   full cost when the template HAS animations but doesn't use GSAP.
+
+### Cross-project findings (potentially promotable)
+
+1. **Asset-fetch loop newline trap** — when the asset-refs file has no
+   trailing newline, `while IFS= read -r` silently skips the last line.
+   Generic rule: use `while IFS= read -r ref || [ -n "$ref" ]` to handle
+   the no-newline-at-EOF case. Or emit asset-refs.txt with a trailing
+   newline. This is a phase-1 mechanics bug — easy fix in the snowflake
+   skill's reference capture logic. Worth promoting to learnings if
+   not already covered.
+2. **Preview POST runs Media Bus IMMEDIATELY** — if `git push` and
+   `POST preview` happen back-to-back, the preview may build before
+   Code Sync finishes deploying vendored assets, baking `about:error`
+   into the published page. Mitigation: probe code-bus deployment of
+   vendored asset paths BEFORE calling `POST preview`, OR re-trigger
+   preview after probing. Worth promoting — this is generic to any
+   `assetStrategy=vendor` run.
+3. **Pictures wrap `<img>` in DA-served HTML** — the pipeline wraps
+   DA-cell `<img>` references in `<picture>` elements with multiple
+   `<source>` variants. The substrate's `writeSlot()` `parseFirst(value, 'img')`
+   correctly finds the descendant `<img>`, so this works fine — worth
+   documenting as expected pipeline behavior so future debugging
+   doesn't go down a `<picture>`-wrapping rabbit hole.
+
+## Timings
+
+| Phase | Approx duration |
+|---|---|
+| Capture | 1m (mostly curl) |
+| Analyze | 2m |
+| Generate | 4m (build template, CSS, JS, DA fragment) |
+| Wire | 2m |
+| Round-trip | 8m (including diagnosing about:error race + send-icon fix) |
+| Reflect | 1m |
+
+Total: ~18m
+
