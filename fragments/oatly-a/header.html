@@ -1,0 +1,10 @@
+<!--
+  Intentionally empty.
+
+  The source page (Oatly "browser/window" UI) treats <header> as part of
+  the OS-window chrome that lives INSIDE the .browser flex column, NOT
+  as site-level navigation. The window-rail (chrome top bar) is rendered
+  by the template <main>'s first <section class="window-rail">, sibling
+  to the desktop and start-bar inside the .browser wrapper. The EDS
+  landmark <header> remains empty so it doesn't add layout above main.
+-->

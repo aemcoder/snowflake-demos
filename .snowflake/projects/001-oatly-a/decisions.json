@@ -1,0 +1,71 @@
+{
+  "templateName": "oatly-a",
+  "pageSlug": "a",
+  "pageTitle": "Oatly | the Original Oat Drink Company | Oatly",
+  "synthesizeMain": false,
+  "emptyHeaderFragment": true,
+  "emptyFooterFragment": true,
+  "sourceAssetBase": "https://paolomoz.github.io/stardust-site/samples/oatly/",
+  "sections": [
+    {
+      "firstClass": "window-rail",
+      "originalTag": "header",
+      "rewriteToSection": true,
+      "preserveAttributes": ["data-section", "data-intent", "data-layout"],
+      "slots": [
+        { "name": "window-title", "type": "text", "selector": ".window-title", "default": "Oatly | the Original Oat Drink Company | Oatly" },
+        { "name": "ctrl-1", "type": "text-on-anchor", "selector": ".window-controls > a.ctrl:nth-of-type(1)", "default": "FAQ" },
+        { "name": "ctrl-2", "type": "text-on-anchor", "selector": ".window-controls > a.ctrl:nth-of-type(2)", "default": "SIZ" }
+      ]
+    },
+    {
+      "firstClass": "tab-bar",
+      "originalTag": "nav",
+      "rewriteToSection": true,
+      "preserveAttributes": ["data-section", "data-intent", "data-layout", "data-items", "aria-label"],
+      "slots": [
+        { "name": "tab-1", "type": "text-on-anchor", "selector": "a.tab:nth-of-type(1)", "default": "Products" },
+        { "name": "tab-2", "type": "text-on-anchor", "selector": "a.tab:nth-of-type(2)", "default": "Tastebuds" },
+        { "name": "tab-3", "type": "text-on-anchor", "selector": "a.tab:nth-of-type(3)", "default": "News" },
+        { "name": "tab-4", "type": "text-on-anchor", "selector": "a.tab:nth-of-type(4)", "default": "Sustainability" },
+        { "name": "tab-5", "type": "text-on-anchor", "selector": "a.tab:nth-of-type(5)", "default": "Health" }
+      ]
+    },
+    {
+      "firstClass": "desktop",
+      "originalTag": "main",
+      "rewriteToSection": true,
+      "preserveAttributes": ["id", "data-section", "data-intent", "data-layout", "data-media"],
+      "slots": [
+        { "name": "claim", "type": "text", "selector": ".claim", "default": "The Original Oat Drink Company" },
+        { "name": "folder-1", "type": "text", "selector": ".folders > .icon-tile:nth-of-type(1) .label", "default": "fckfckfckoatly.com" },
+        { "name": "folder-2", "type": "text", "selector": ".folders > .icon-tile:nth-of-type(2) .label", "default": "fckfckoatly.com" },
+        { "name": "folder-3", "type": "text", "selector": ".folders > .icon-tile:nth-of-type(3) .label", "default": "fckoatly.com" },
+        { "name": "folder-4", "type": "text", "selector": ".folders > .icon-tile:nth-of-type(4) .label", "default": "fckfckfckfckfckoatly.com" },
+        { "name": "folder-5", "type": "text", "selector": ".folders > .icon-tile:nth-of-type(5) .label", "default": "fckfckfcfckkoatly.com" },
+        { "name": "file-1", "type": "text", "selector": ".files > .icon-tile:nth-of-type(1) .label", "default": "heybarista.png" },
+        { "name": "file-2", "type": "text", "selector": ".files > .icon-tile:nth-of-type(2) .label", "default": "oatfinder.png" }
+      ]
+    },
+    {
+      "firstClass": "start-bar",
+      "originalTag": "footer",
+      "rewriteToSection": true,
+      "preserveAttributes": ["data-section", "data-intent", "data-layout"],
+      "slots": [
+        { "name": "start-label", "type": "text", "selector": ".start-button", "default": "START" }
+      ]
+    }
+  ],
+  "headLinks": [],
+  "inlineStyleLines": [[26, 342]],
+  "inlineScriptLines": [],
+  "externalLibs": [],
+  "assetStrategy": "absolute",
+  "strip": [],
+  "skipLinkHandling": "preserve-in-template-main",
+  "metadata": {
+    "template": "oatly-a",
+    "title": "Oatly | the Original Oat Drink Company | Oatly"
+  }
+}
