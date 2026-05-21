@@ -1,0 +1,112 @@
+{
+  "templateName": "heathrow-proposed-a",
+  "synthesizeMain": true,
+  "sourceAssetBase": "https://paolomoz.github.io/stardust-site/samples/heathrow/",
+  "assetStrategy": "rewrite-to-source-absolute",
+  "headLinks": [
+    { "rel": "preconnect", "href": "https://fonts.googleapis.com" },
+    { "rel": "preconnect", "href": "https://fonts.gstatic.com", "crossorigin": "" },
+    { "rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap" }
+  ],
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalTag": "section",
+      "originalClasses": "hero hero--photo",
+      "rewriteToSection": false,
+      "rename": false,
+      "slots": [
+        { "name": "media", "type": "image", "selector": "img.hero__media" },
+        { "name": "eyebrow", "type": "text", "selector": "p.label.label--inverse" },
+        { "name": "title", "type": "text", "selector": "h1.hero__title" },
+        { "name": "lead", "type": "text", "selector": "p.hero__lead" },
+        { "name": "cta-primary", "type": "link", "selector": ".hero__meta a.btn:nth-of-type(1)" },
+        { "name": "cta-secondary", "type": "link", "selector": ".hero__meta a.btn--inverse" }
+      ]
+    },
+    {
+      "firstClass": "about-consultation",
+      "originalTag": "section",
+      "originalClasses": "section",
+      "rewriteToSection": false,
+      "rename": "prepend-first-class",
+      "discriminatorSource": "eyebrow:About this consultation",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".section__head p.label" },
+        { "name": "title", "type": "text", "selector": ".section__head h2" },
+        { "name": "body", "type": "text", "selector": ".section__head > p:last-child" },
+        { "name": "card-1.photo", "type": "background-image", "selector": ".pillar-grid > a:nth-child(1) .pillar-card__photo" },
+        { "name": "card-1.label", "type": "text", "selector": ".pillar-grid > a:nth-child(1) .pillar-card__label" },
+        { "name": "card-1.title", "type": "text", "selector": ".pillar-grid > a:nth-child(1) .pillar-card__title" },
+        { "name": "card-1.body", "type": "text", "selector": ".pillar-grid > a:nth-child(1) .pillar-card__copy" },
+        { "name": "card-2.photo", "type": "background-image", "selector": ".pillar-grid > a:nth-child(2) .pillar-card__photo" },
+        { "name": "card-2.label", "type": "text", "selector": ".pillar-grid > a:nth-child(2) .pillar-card__label" },
+        { "name": "card-2.title", "type": "text", "selector": ".pillar-grid > a:nth-child(2) .pillar-card__title" },
+        { "name": "card-2.body", "type": "text", "selector": ".pillar-grid > a:nth-child(2) .pillar-card__copy" },
+        { "name": "card-3.photo", "type": "background-image", "selector": ".pillar-grid > a:nth-child(3) .pillar-card__photo" },
+        { "name": "card-3.label", "type": "text", "selector": ".pillar-grid > a:nth-child(3) .pillar-card__label" },
+        { "name": "card-3.title", "type": "text", "selector": ".pillar-grid > a:nth-child(3) .pillar-card__title" },
+        { "name": "card-3.body", "type": "text", "selector": ".pillar-grid > a:nth-child(3) .pillar-card__copy" },
+        { "name": "card-4.photo", "type": "background-image", "selector": ".pillar-grid > a:nth-child(4) .pillar-card__photo" },
+        { "name": "card-4.label", "type": "text", "selector": ".pillar-grid > a:nth-child(4) .pillar-card__label" },
+        { "name": "card-4.title", "type": "text", "selector": ".pillar-grid > a:nth-child(4) .pillar-card__title" },
+        { "name": "card-4.body", "type": "text", "selector": ".pillar-grid > a:nth-child(4) .pillar-card__copy" },
+        { "name": "card-5.photo", "type": "background-image", "selector": ".pillar-grid > a:nth-child(5) .pillar-card__photo" },
+        { "name": "card-5.label", "type": "text", "selector": ".pillar-grid > a:nth-child(5) .pillar-card__label" },
+        { "name": "card-5.title", "type": "text", "selector": ".pillar-grid > a:nth-child(5) .pillar-card__title" },
+        { "name": "card-5.body", "type": "text", "selector": ".pillar-grid > a:nth-child(5) .pillar-card__copy" },
+        { "name": "card-6.photo", "type": "background-image", "selector": ".pillar-grid > a:nth-child(6) .pillar-card__photo" },
+        { "name": "card-6.label", "type": "text", "selector": ".pillar-grid > a:nth-child(6) .pillar-card__label" },
+        { "name": "card-6.title", "type": "text", "selector": ".pillar-grid > a:nth-child(6) .pillar-card__title" },
+        { "name": "card-6.body", "type": "text", "selector": ".pillar-grid > a:nth-child(6) .pillar-card__copy" }
+      ]
+    },
+    {
+      "firstClass": "phased-expansion",
+      "originalTag": "section",
+      "originalClasses": "section section--tint",
+      "rewriteToSection": false,
+      "rename": "prepend-first-class",
+      "discriminatorSource": "eyebrow:A phased expansion",
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": ".section__head p.label" },
+        { "name": "title", "type": "text", "selector": ".section__head h2" },
+        { "name": "body", "type": "text", "selector": ".section__head > p:last-child" },
+        { "name": "phase-1.label", "type": "text", "selector": ".phases > .phase:nth-child(1) .phase__label" },
+        { "name": "phase-1.year", "type": "text", "selector": ".phases > .phase:nth-child(1) .phase__year" },
+        { "name": "phase-1.copy", "type": "text", "selector": ".phases > .phase:nth-child(1) .phase__copy" },
+        { "name": "phase-2.label", "type": "text", "selector": ".phases > .phase:nth-child(2) .phase__label" },
+        { "name": "phase-2.year", "type": "text", "selector": ".phases > .phase:nth-child(2) .phase__year" },
+        { "name": "phase-2.copy", "type": "text", "selector": ".phases > .phase:nth-child(2) .phase__copy" },
+        { "name": "phase-3.label", "type": "text", "selector": ".phases > .phase:nth-child(3) .phase__label" },
+        { "name": "phase-3.year", "type": "text", "selector": ".phases > .phase:nth-child(3) .phase__year" },
+        { "name": "phase-3.copy", "type": "text", "selector": ".phases > .phase:nth-child(3) .phase__copy" },
+        { "name": "phase-4.label", "type": "text", "selector": ".phases > .phase:nth-child(4) .phase__label" },
+        { "name": "phase-4.year", "type": "text", "selector": ".phases > .phase:nth-child(4) .phase__year" },
+        { "name": "phase-4.copy", "type": "text", "selector": ".phases > .phase:nth-child(4) .phase__copy" }
+      ]
+    },
+    {
+      "firstClass": "cta-band",
+      "originalTag": "section",
+      "originalClasses": "cta-band",
+      "preserveAttrs": { "id": "have-your-say" },
+      "rewriteToSection": false,
+      "rename": false,
+      "slots": [
+        { "name": "eyebrow", "type": "text", "selector": "p.label" },
+        { "name": "title", "type": "text", "selector": "h2" },
+        { "name": "body", "type": "text", "selector": ".cta-band__inner > div:first-child > p" },
+        { "name": "cta-primary", "type": "link", "selector": ".cta-band__inner > div:last-child a.btn:not(.btn--inverse)" },
+        { "name": "cta-secondary", "type": "link", "selector": ".cta-band__inner > div:last-child a.btn--inverse" }
+      ]
+    }
+  ],
+  "metadata": {
+    "title": "Heathrow Airport Expansion · Consultation Document",
+    "description": "Since our airport operations began over 70 years ago, Heathrow has played a unique role in the development of the surrounding area, and we are proud of the partnerships we share with local communities",
+    "template": "heathrow-proposed-a"
+  },
+  "animationEngine": false,
+  "strip": []
+}
