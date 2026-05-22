@@ -2,7 +2,12 @@
 
 Source: http://127.0.0.1:8081/hub/ (local-only)
 Captured: 2026-05-22
-Status: analyzing
+Status: round-trip complete (waiting for user to close iteration)
+
+URLs:
+- Local:      http://localhost:3000/drafts/a.html
+- Production: https://acom-hub--snowflake-demos--aemcoder.aem.page/acom/hub/a
+- DA editor:  https://da.live/edit#/aemcoder/snowflake-demos/acom/hub/a
 
 Branch: `acom-hub`
 DA path: `/acom/hub/a.html`

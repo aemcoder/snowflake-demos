@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+/* eslint-disable no-await-in-loop, no-console, no-restricted-syntax, no-continue --
+   CLI batch tool: sequential async uploads are intentional (polite rate-
+   limiting + readable progress); console is the output channel; for-of
+   loops are clearer than .reduce/.forEach for ordered side effects;
+   continue is clearer than nested ternaries for the skip-existing path. */
 /**
  * da-media-upload.mjs
  *
