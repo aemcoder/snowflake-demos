@@ -147,3 +147,129 @@ content is extracted to `/styles/heathrow-proposed-a.css`.)
 7. Pillar-card `<a>` stays static (children slotted).
 8. `phase__copy` p slotted as a whole, inline `<strong>`/`<br>`
    preserved in slot value.
+
+## Phase: Generate
+
+- 4 sections produced: `hero`, `about-consultation`, `phased-expansion`,
+  `cta-band`.
+- 53 `[data-slot]` markers total.
+- Output artifacts:
+  - `output/templates/heathrow-proposed-a.html` (148 lines)
+  - `output/fragments/heathrow-proposed-a/header.html`
+  - `output/fragments/heathrow-proposed-a/footer.html`
+  - `output/styles/heathrow-proposed-a.css` (664 lines, byte-identical
+    to source `site.css`; no url() refs to rewrite)
+  - `output/da/page.html` (DA-source body fragment, 88 lines)
+- No animation engine — page has no inline `<script>`.
+- All 6 phase-3 self-checks passed:
+  - No relative `assets/` refs in template/fragments/styles.
+  - No `<span class>` or `<table>` in DA doc.
+  - 4 `<br>` instances in DA doc, all in `phase-N.copy` slots
+    (mid-paragraph, safe position).
+  - All DA cell `<img src>` are absolute (source github.io host).
+  - Section first-classes don't collide with layout-defining CSS rules.
+
+## Phase: Wire
+
+Copied to:
+- `templates/heathrow-proposed-a.html`
+- `fragments/heathrow-proposed-a/{header,footer}.html`
+- `styles/heathrow-proposed-a.css`
+- `drafts/page.html` (generated via `transform-da-to-eds.mjs`)
+
+`npm run lint` clean.
+
+## Phase: Round-trip (local)
+
+Dev server at `http://localhost:3000/drafts/page.html`.
+
+Browser verification:
+- `main.dataset.overlay === "heathrow-proposed-a"` ✓
+- 4 sections, 53 slot markers populated ✓
+- `<meta name="template">` emitted ✓
+- `body.appear` set ✓
+- Inline `<strong>`/`<br>` preserved in phase copy slots ✓
+- All 6 `<span class="pillar-card__more">` retained in template
+  (static chrome, never went through DA cell) ✓
+- 1 console error: 404 on `/scripts/heathrow-proposed-a-animations.js`
+  — expected, cosmetic; substrate HEAD-probe finds no animation file.
+
+DOM equality (source vs rendered) — `diff/dom-equality-local.md`:
+- Element count: source 157, rendered 162 (delta +5 — expected EDS
+  header/footer/main wrapper injection).
+- Tag sequence first divergence at position 0: rendered has
+  `header.header-wrapper > div.header > header.site-header` while
+  source has `header.site-header` (EDS lifecycle wrappers — expected).
+- **Visible text: byte-identical, 3357 chars** ✓
+- Image src refs: 3 diffs, all source-relative → absolute (intentional
+  per asset strategy).
+
+Per-section viewport screenshots:
+- `diff/local-hero.jpg`
+- `diff/local-about-consultation.jpg`
+- `diff/local-phased-expansion.jpg`
+- `diff/local-cta-band.jpg`
+
+## Phase: Round-trip (production)
+
+- Branch: `test-sf-eds-da` pushed to origin.
+- DA PUT: 201 (created labeled snapshot of prior content first), 200
+  (PUT succeeded). DA edit URL:
+  `https://da.live/edit#/aemcoder/snowflake-demos/test-sf-eds-da/page`.
+- POST preview: 200; `preview.url` = production aem.page URL below.
+- Code-bus deploy ready in 1s; all 4 deployed paths return 200.
+- Production URL:
+  `https://test-sf-eds-da--snowflake-demos--aemcoder.aem.page/test-sf-eds-da/page`
+
+Browser verification on production:
+- `overlayApplied: "heathrow-proposed-a"` ✓
+- 4 sections, 53 slots ✓
+- **Media Bus rewrote DA-cell image URLs** to optimised forms:
+  - Hero img:
+    `./media_188d5506…jpg?width=750&format=jpg&optimize=medium`
+  - Pillar card background-image (sample):
+    `./media_11373ae1…jpg?width=750&format=jpg&optimize=medium`
+  - Confirms DA cells used absolute URLs correctly (no `about:error`).
+- 1 console error: same animation 404 as local — expected.
+
+DOM equality (source vs production) — `diff/dom-equality-production.md`:
+- Same shape as local — element count +5, tag-sequence wrapper
+  divergence at position 0, visible text identical (3357 chars).
+- Image src diffs: 2 (header/footer logos — they live in static
+  fragments, not in DA cells, so Media Bus doesn't rewrite them).
+
+## Findings
+
+### Project-specific
+
+- **No new patterns.** This Heathrow source is well-trodden ground —
+  similar to run 001 (`001-heathrow-proposed-a`). Confirms the
+  refreshed substrate (v1.0.5) handles the same input identically to
+  prior runs, with no regressions.
+- **DA `versionsource` returned 201, not 404.** Indicates the DA path
+  `/test-sf-eds-da/page` had prior content (likely from an unrelated
+  experiment using this same branch name). The labeled snapshot now
+  preserves that state.
+
+### Cross-project (none promotable)
+
+Nothing surfaced that isn't already captured in
+`<SKILL_DIR>/knowledge/learnings.md`. The Media Bus DA-cell-image
+rewrite worked as documented; the lifecycle wrapper diff is the same
++5 pattern expected from EDS header/footer/main injection; the
+animation-script 404 is the known cosmetic console error.
+
+## Timings (approximate)
+
+| Phase            | Duration   | Notes                              |
+|------------------|------------|------------------------------------|
+| capture          | ~30s       | curl source + site.css             |
+| analyze          | ~90s       | structure map + decisions.json     |
+| generate         | ~3m        | template + fragments + DA doc      |
+| wire             | ~30s       | cp + transform + lint              |
+| roundtrip-local  | ~2m        | dev-server + playwright verify     |
+| roundtrip-prod   | ~3m        | branch push + PUT + preview + verify; ~1m blocked on token refresh |
+| reflect          | ~1m        | this writeup                       |
+
+Total: ~11m, of which ~1m was waiting for the user to refresh the DA
+token.

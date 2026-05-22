@@ -2,7 +2,12 @@
 
 Source: https://paolomoz.github.io/stardust-site/samples/heathrow/proposed-A.html
 Captured: 2026-05-21
-Status: analyzing
+Status: round-trip complete (waiting for user to close iteration)
+
+URLs:
+- Local:      http://localhost:3000/drafts/page.html
+- Production: https://test-sf-eds-da--snowflake-demos--aemcoder.aem.page/test-sf-eds-da/page
+- DA editor:  https://da.live/edit#/aemcoder/snowflake-demos/test-sf-eds-da/page
 
 Branch: `test-sf-eds-da`
 DA path: `/test-sf-eds-da/page`
