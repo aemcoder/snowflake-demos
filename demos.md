@@ -40,12 +40,18 @@ on `main`.
 ## Adobe.com bespoke redesigns
 
 Each row is one snowflake conversion of a bespoke Adobe.com redesign
-mockup served from a local source (`http://127.0.0.1:8080/acom-bespoke-pages/`).
-Sources are local-only — the `vendor` asset strategy is used: all images,
-fonts, CSS, and JS are vendored into the branch's `/assets/` (and
-`/styles/`, `/scripts/`) directories so EDS Code Bus serves them.
+mockup served from a local-only source. Asset strategy varies per
+run (see the `Assets` column):
 
-| # | Source | Branch | Tag | Demo URL |
-|---|---|---|---|---|
-| 001 | [Agent Orchestrator](http://127.0.0.1:8080/acom-bespoke-pages/agent-orchestrator/) | [`acom-agent-orchestrator`](https://github.com/aemcoder/snowflake-demos/tree/acom-agent-orchestrator) | `acom-agent-orchestrator-close` | <https://acom-agent-orchestrator--snowflake-demos--aemcoder.aem.live/acom/agent-orchestrator/a> |
-| 002 | [BizPro Hub](http://127.0.0.1:8080/acom-bespoke-pages/bizpro-hub-prototype/) | [`acom-bizpro-hub`](https://github.com/aemcoder/snowflake-demos/tree/acom-bizpro-hub) | `acom-bizpro-hub-close` | <https://acom-bizpro-hub--snowflake-demos--aemcoder.aem.live/acom/bizpro-hub/a> |
+- **`vendor`** — images, fonts, CSS, JS copied into the branch's
+  `/assets/`, `/styles/`, `/scripts/`; EDS Code Bus serves them.
+- **`da-media`** — image binaries uploaded to DA `/media/<scope>/`
+  via the bundled `tools/da-media-upload.mjs`; referenced via
+  `content.da.live` URLs and sideloaded into Media Bus on first
+  preview. Fonts still go to Code Bus `/fonts/`.
+
+| # | Source | Branch | Tag | Assets | Demo URL |
+|---|---|---|---|---|---|
+| 001 | [Agent Orchestrator](http://127.0.0.1:8080/acom-bespoke-pages/agent-orchestrator/) | [`acom-agent-orchestrator`](https://github.com/aemcoder/snowflake-demos/tree/acom-agent-orchestrator) | `acom-agent-orchestrator-close` | `vendor` | <https://acom-agent-orchestrator--snowflake-demos--aemcoder.aem.live/acom/agent-orchestrator/a> |
+| 002 | [BizPro Hub](http://127.0.0.1:8080/acom-bespoke-pages/bizpro-hub-prototype/) | [`acom-bizpro-hub`](https://github.com/aemcoder/snowflake-demos/tree/acom-bizpro-hub) | `acom-bizpro-hub-close` | `vendor` | <https://acom-bizpro-hub--snowflake-demos--aemcoder.aem.live/acom/bizpro-hub/a> |
+| 003 | [Acrobat Studio Hub](http://127.0.0.1:8081/hub/) | [`acom-hub`](https://github.com/aemcoder/snowflake-demos/tree/acom-hub) | `acom-hub-close` | `da-media` | <https://acom-hub--snowflake-demos--aemcoder.aem.live/acom/hub/a> |
