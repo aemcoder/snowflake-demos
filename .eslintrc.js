@@ -21,6 +21,13 @@ module.exports = {
       env: { node: true, browser: false },
       rules: {
         'import/extensions': 'off',
+        // CLI tools log progress to stdout/stderr — that's their output channel.
+        'no-console': 'off',
+        // Sequential async loops are intentional in CLI batch tools
+        // (paginated APIs, polite rate-limiting).
+        'no-await-in-loop': 'off',
+        'no-restricted-syntax': 'off',
+        'no-continue': 'off',
       },
     },
   ],

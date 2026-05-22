@@ -1,0 +1,303 @@
+{
+  "mapping": {
+    "adobe-logo-black.svg": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/adobe-logo-black.svg",
+    "adobe-logo-red.svg": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/adobe-logo-red.svg",
+    "adobe-logo-sm-black.svg": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/adobe-logo-sm-black.svg",
+    "adobe-logo-sm.svg": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/adobe-logo-sm.svg",
+    "adobe-logo.svg": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/adobe-logo.svg",
+    "icons/B_app_AdobeAcrobatPDF.svg": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/B_app_AdobeAcrobatPDF.svg",
+    "icons/B_app_AdobeFirefly.svg": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/B_app_AdobeFirefly.svg",
+    "icons/B_app_CreativeCloud.svg": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/B_app_CreativeCloud.svg",
+    "icons/B_app_ExperienceCloud.svg": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/B_app_ExperienceCloud.svg",
+    "icons/B_app_ExperiencePlatform.svg": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/B_app_ExperiencePlatform.svg",
+    "icons/B_app_Illustrator.svg": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/B_app_Illustrator.svg",
+    "icons/B_app_Photoshop.svg": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/B_app_Photoshop.svg",
+    "icons/B_app_PremierePro.svg": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/B_app_PremierePro.svg",
+    "icons/S2_Icon_AppsAll_20_N.svg": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/S2_Icon_AppsAll_20_N.svg",
+    "icons/icon_plus.svg": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/icon_plus.svg",
+    "images/editorial/bento-img-1.png": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/editorial/bento-img-1.png",
+    "images/editorial/bento-img-2.png": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/editorial/bento-img-2.png",
+    "images/hero/col-1_img-01.png": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-1_img-01.png",
+    "images/hero/col-1_img-02.png": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-1_img-02.png",
+    "images/hero/col-2_img-01.png": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-2_img-01.png",
+    "images/hero/col-2_img-02.png": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-2_img-02.png",
+    "images/hero/col-3_img-01.png": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-3_img-01.png",
+    "images/hero/col-3_img-02.png": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-3_img-02.png",
+    "images/hero/col-4_img-01.png": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-4_img-01.png",
+    "images/hero/col-4_img-02.png": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-4_img-02.png",
+    "images/hero/col-5_img-01.png": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-5_img-01.png",
+    "images/hero/col-5_img-02.png": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-5_img-02.png",
+    "images/hero/human-resources.png": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/human-resources.png",
+    "images/hero/legal.png": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/legal.png",
+    "images/hero/marketing.png": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/marketing.png",
+    "images/hero/mobile/Expanded.png": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/mobile/Expanded.png",
+    "images/hero/sales.png": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/sales.png",
+    "images/nav/nav-solutions-offer.jpg": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/nav/nav-solutions-offer.jpg"
+  },
+  "results": [
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/adobe-logo-black.svg",
+      "remotePath": "media/acom-hub/adobe-logo-black.svg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/adobe-logo-black.svg",
+      "size": 2022,
+      "mime": "image/svg+xml",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/adobe-logo-red.svg",
+      "remotePath": "media/acom-hub/adobe-logo-red.svg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/adobe-logo-red.svg",
+      "size": 1781,
+      "mime": "image/svg+xml",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/adobe-logo-sm-black.svg",
+      "remotePath": "media/acom-hub/adobe-logo-sm-black.svg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/adobe-logo-sm-black.svg",
+      "size": 1631,
+      "mime": "image/svg+xml",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/adobe-logo-sm.svg",
+      "remotePath": "media/acom-hub/adobe-logo-sm.svg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/adobe-logo-sm.svg",
+      "size": 1637,
+      "mime": "image/svg+xml",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/adobe-logo.svg",
+      "remotePath": "media/acom-hub/adobe-logo.svg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/adobe-logo.svg",
+      "size": 2022,
+      "mime": "image/svg+xml",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/icons/B_app_AdobeAcrobatPDF.svg",
+      "remotePath": "media/acom-hub/icons/B_app_AdobeAcrobatPDF.svg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/B_app_AdobeAcrobatPDF.svg",
+      "size": 1835,
+      "mime": "image/svg+xml",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/icons/B_app_AdobeFirefly.svg",
+      "remotePath": "media/acom-hub/icons/B_app_AdobeFirefly.svg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/B_app_AdobeFirefly.svg",
+      "size": 1044,
+      "mime": "image/svg+xml",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/icons/B_app_CreativeCloud.svg",
+      "remotePath": "media/acom-hub/icons/B_app_CreativeCloud.svg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/B_app_CreativeCloud.svg",
+      "size": 11017,
+      "mime": "image/svg+xml",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/icons/B_app_ExperienceCloud.svg",
+      "remotePath": "media/acom-hub/icons/B_app_ExperienceCloud.svg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/B_app_ExperienceCloud.svg",
+      "size": 1893,
+      "mime": "image/svg+xml",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/icons/B_app_ExperiencePlatform.svg",
+      "remotePath": "media/acom-hub/icons/B_app_ExperiencePlatform.svg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/B_app_ExperiencePlatform.svg",
+      "size": 1795,
+      "mime": "image/svg+xml",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/icons/B_app_Illustrator.svg",
+      "remotePath": "media/acom-hub/icons/B_app_Illustrator.svg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/B_app_Illustrator.svg",
+      "size": 784,
+      "mime": "image/svg+xml",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/icons/B_app_Photoshop.svg",
+      "remotePath": "media/acom-hub/icons/B_app_Photoshop.svg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/B_app_Photoshop.svg",
+      "size": 1474,
+      "mime": "image/svg+xml",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/icons/B_app_PremierePro.svg",
+      "remotePath": "media/acom-hub/icons/B_app_PremierePro.svg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/B_app_PremierePro.svg",
+      "size": 888,
+      "mime": "image/svg+xml",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/icons/S2_Icon_AppsAll_20_N.svg",
+      "remotePath": "media/acom-hub/icons/S2_Icon_AppsAll_20_N.svg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/S2_Icon_AppsAll_20_N.svg",
+      "size": 1666,
+      "mime": "image/svg+xml",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/icons/icon_plus.svg",
+      "remotePath": "media/acom-hub/icons/icon_plus.svg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/icon_plus.svg",
+      "size": 224,
+      "mime": "image/svg+xml",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/editorial/bento-img-1.png",
+      "remotePath": "media/acom-hub/images/editorial/bento-img-1.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/editorial/bento-img-1.png",
+      "size": 3658492,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/editorial/bento-img-2.png",
+      "remotePath": "media/acom-hub/images/editorial/bento-img-2.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/editorial/bento-img-2.png",
+      "size": 122180,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/hero/col-1_img-01.png",
+      "remotePath": "media/acom-hub/images/hero/col-1_img-01.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-1_img-01.png",
+      "size": 643116,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/hero/col-1_img-02.png",
+      "remotePath": "media/acom-hub/images/hero/col-1_img-02.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-1_img-02.png",
+      "size": 646417,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/hero/col-2_img-01.png",
+      "remotePath": "media/acom-hub/images/hero/col-2_img-01.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-2_img-01.png",
+      "size": 402451,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/hero/col-2_img-02.png",
+      "remotePath": "media/acom-hub/images/hero/col-2_img-02.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-2_img-02.png",
+      "size": 49237,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/hero/col-3_img-01.png",
+      "remotePath": "media/acom-hub/images/hero/col-3_img-01.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-3_img-01.png",
+      "size": 611647,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/hero/col-3_img-02.png",
+      "remotePath": "media/acom-hub/images/hero/col-3_img-02.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-3_img-02.png",
+      "size": 150813,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/hero/col-4_img-01.png",
+      "remotePath": "media/acom-hub/images/hero/col-4_img-01.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-4_img-01.png",
+      "size": 168515,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/hero/col-4_img-02.png",
+      "remotePath": "media/acom-hub/images/hero/col-4_img-02.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-4_img-02.png",
+      "size": 944605,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/hero/col-5_img-01.png",
+      "remotePath": "media/acom-hub/images/hero/col-5_img-01.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-5_img-01.png",
+      "size": 660505,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/hero/col-5_img-02.png",
+      "remotePath": "media/acom-hub/images/hero/col-5_img-02.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-5_img-02.png",
+      "size": 180414,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/hero/human-resources.png",
+      "remotePath": "media/acom-hub/images/hero/human-resources.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/human-resources.png",
+      "size": 895669,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/hero/legal.png",
+      "remotePath": "media/acom-hub/images/hero/legal.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/legal.png",
+      "size": 265508,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/hero/marketing.png",
+      "remotePath": "media/acom-hub/images/hero/marketing.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/marketing.png",
+      "size": 843685,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/hero/mobile/Expanded.png",
+      "remotePath": "media/acom-hub/images/hero/mobile/Expanded.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/mobile/Expanded.png",
+      "size": 73346,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/hero/sales.png",
+      "remotePath": "media/acom-hub/images/hero/sales.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/sales.png",
+      "size": 114478,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": ".snowflake/projects/004-acom-hub/input/assets/images/nav/nav-solutions-offer.jpg",
+      "remotePath": "media/acom-hub/images/nav/nav-solutions-offer.jpg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/nav/nav-solutions-offer.jpg",
+      "size": 71488,
+      "mime": "image/jpeg",
+      "ok": true
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "templateName": "acom-hub",
+  "synthesizeMain": false,
+  "preserveMainWrappers": ["smooth-wrapper", "smooth-content"],
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalTag": "section",
+      "originalAttrs": { "id": "hero" },
+      "addClass": "hero",
+      "preserveWrapper": "div.hero-pin-spacer",
+      "slots": [
+        { "name": "app-icon", "type": "image", "selector": ".hero-app-id img" },
+        { "name": "eyebrow", "type": "text", "selector": ".hero-app-id .t-eyebrow" },
+        { "name": "title", "type": "text", "selector": ".hero-text h1" },
+        { "name": "lead", "type": "text", "selector": ".hero-text p.t-body-m" },
+        { "name": "cta-primary", "type": "link", "selector": ".hero-ctas a.btn-primary" },
+        { "name": "cta-secondary", "type": "link", "selector": ".hero-ctas a.btn-secondary" },
+        { "name": "card-1.label", "type": "text", "selector": ".hhub-card[data-index='0'] .hhub-card-label" },
+        { "name": "card-1.image", "type": "image", "selector": ".hhub-card[data-index='0'] .hhub-card-img" },
+        { "name": "card-1.tagline", "type": "text", "selector": ".hhub-card[data-index='0'] .hhub-card-tagline" },
+        { "name": "card-1.body", "type": "text", "selector": ".hhub-card[data-index='0'] .hhub-card-body" },
+        { "name": "card-2.label", "type": "text", "selector": ".hhub-card[data-index='1'] .hhub-card-label" },
+        { "name": "card-2.image", "type": "image", "selector": ".hhub-card[data-index='1'] .hhub-card-img" },
+        { "name": "card-2.tagline", "type": "text", "selector": ".hhub-card[data-index='1'] .hhub-card-tagline" },
+        { "name": "card-2.body", "type": "text", "selector": ".hhub-card[data-index='1'] .hhub-card-body" },
+        { "name": "card-3.label", "type": "text", "selector": ".hhub-card[data-index='2'] .hhub-card-label" },
+        { "name": "card-3.image", "type": "image", "selector": ".hhub-card[data-index='2'] .hhub-card-img" },
+        { "name": "card-3.tagline", "type": "text", "selector": ".hhub-card[data-index='2'] .hhub-card-tagline" },
+        { "name": "card-3.body", "type": "text", "selector": ".hhub-card[data-index='2'] .hhub-card-body" },
+        { "name": "card-4.label", "type": "text", "selector": ".hhub-card[data-index='3'] .hhub-card-label" },
+        { "name": "card-4.image", "type": "image", "selector": ".hhub-card[data-index='3'] .hhub-card-img" },
+        { "name": "card-4.tagline", "type": "text", "selector": ".hhub-card[data-index='3'] .hhub-card-tagline" },
+        { "name": "card-4.body", "type": "text", "selector": ".hhub-card[data-index='3'] .hhub-card-body" }
+      ]
+    },
+    {
+      "firstClass": "editorial",
+      "originalTag": "section",
+      "originalClasses": "editorial",
+      "slots": [
+        { "name": "title", "type": "text", "selector": ".editorial-title" },
+        { "name": "body", "type": "text", "selector": ".editorial-sub" },
+        { "name": "card-1.image", "type": "image", "selector": ".ed-card--left .ed-card-img" },
+        { "name": "card-1.title", "type": "text", "selector": ".ed-card--left .ed-card-title" },
+        { "name": "card-1.body", "type": "text", "selector": ".ed-card--left .ed-card-body" },
+        { "name": "card-2.image", "type": "image", "selector": ".ed-card--right .ed-card-img" },
+        { "name": "card-2.title", "type": "text", "selector": ".ed-card--right .ed-card-title" },
+        { "name": "card-2.body", "type": "text", "selector": ".ed-card--right .ed-card-body" }
+      ]
+    }
+  ],
+  "headLinks": [
+    { "rel": "icon", "type": "image/svg+xml", "href": "https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/adobe-logo-red.svg" }
+  ],
+  "metadata": {
+    "title": "Acrobat Studio — Hub",
+    "template": "acom-hub"
+  },
+  "animationEngine": true,
+  "animationScripts": {
+    "cdn": ["https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"],
+    "vendorConcat": ["vendor/gsap.min.js", "vendor/ScrollTrigger.min.js"],
+    "inlineConcat": [
+      "// smooth-scroll Lenis↔ScrollTrigger wiring",
+      "// nav-scroll state on #gnav"
+    ],
+    "projectConcat": [
+      "scripts/mega-nav.js",
+      "scripts/mobile-nav.js",
+      "scripts/hub-router.js",
+      "scripts/hero-grid.js",
+      "scripts/hero-grid-mobile.js",
+      "scripts/hero-breakpoint-orchestrator.js",
+      "scripts/reveal-tuner.js",
+      "scripts/editorial.js",
+      "scripts/text-animate.js"
+    ]
+  },
+  "assetStrategy": "da-media",
+  "mediaScope": "/media/acom-hub",
+  "fontsToCodeBus": [
+    "assets/fonts/AdobeCleanDisplay-Black.otf",
+    "assets/fonts/AdobeCleanDisplay-Bold.otf",
+    "assets/fonts/AdobeCleanDisplay-Regular.otf"
+  ],
+  "strip": [
+    { "selector": ".grid-overlay" },
+    { "selector": ".bp-indicator" },
+    { "selector": "#debugHint" },
+    { "type": "inline-script", "match": "// Debug: grid overlay" }
+  ]
+}

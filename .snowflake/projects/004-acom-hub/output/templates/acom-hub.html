@@ -1,0 +1,220 @@
+<link rel="icon" type="image/svg+xml" href="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/adobe-logo-red.svg">
+
+  <div id="smooth-wrapper">
+  <div id="smooth-content">
+  <main>
+
+    <!-- ══════════════════════════════════════
+         HERO — scroll-pinned with image grid
+         ══════════════════════════════════════ -->
+    <div class="hero-pin-spacer">
+      <section class="hero" id="hero">
+
+        <!-- Hero copy (z-index: 1 — grid images scroll over this) -->
+        <div class="hero-text">
+          <div class="hero-app-id">
+            <img data-slot="app-icon" src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/icons/B_app_AdobeAcrobatPDF.svg" alt="">
+            <span class="t-eyebrow" data-slot="eyebrow">PDF &amp; Productivity</span>
+          </div>
+          <h1 class="t-title-1" data-slot="title">With great power comes<br>great productivity.</h1>
+          <p class="t-body-m" data-slot="lead">Do your best work faster with AI-powered document insights, secure collaboration, and professional content creation — all in one place.</p>
+          <div class="hero-ctas">
+            <a href="#" class="btn-primary" data-slot="cta-primary">Try it free</a>
+            <a href="#" class="btn-secondary" data-slot="cta-secondary">Buy now</a>
+          </div>
+        </div>
+
+        <!-- Image grid (z-index: 2 — positioned absolutely, overflows hero edges) -->
+        <div class="hero-image-grid" aria-hidden="true">
+
+          <div class="grid-col" data-col="1">
+            <div class="grid-card" data-grid-slot="1"><img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-1_img-01.png" alt="" width="584" height="788"></div>
+            <div class="grid-card" data-grid-row="2"><img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-1_img-02.png" alt="" width="584" height="584"></div>
+          </div>
+
+          <div class="grid-col" data-col="2">
+            <div class="grid-card" data-grid-slot="2"><img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-2_img-01.png" alt="" width="584" height="584"></div>
+            <div class="grid-card" data-grid-row="2"><img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-2_img-02.png" alt="" width="584" height="584"></div>
+          </div>
+
+          <div class="grid-col" data-col="3">
+            <div class="grid-card" data-grid-slot="3"><img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-3_img-01.png" alt="" width="584" height="584"></div>
+            <div class="grid-card" data-grid-row="2"><img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-3_img-02.png" alt="" width="584" height="788"></div>
+          </div>
+
+          <div class="grid-col" data-col="4">
+            <div class="grid-card" data-grid-slot="4"><img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-4_img-01.png" alt="" width="584" height="584"></div>
+            <div class="grid-card" data-grid-row="2"><img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-4_img-02.png" alt="" width="584" height="788"></div>
+          </div>
+
+          <div class="grid-col" data-col="5">
+            <div class="grid-card"><img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-5_img-01.png" alt="" width="584" height="584"></div>
+            <div class="grid-card" data-grid-slot="5" data-grid-row="2"><img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-5_img-02.png" alt="" width="584" height="584"></div>
+          </div>
+
+        </div><!-- /.hero-image-grid -->
+
+        <!-- Mobile-only 5-column grid (hidden on desktop). Fixed 164px cols, centered.
+             Center col row 2 is occupied by the Sales hub card (flying mode).
+             The .hmg-slot--sales placeholder holds layout space for JS to measure. -->
+        <div class="hero-mobile-grid" aria-hidden="true">
+          <div class="hmg-col hmg-col--outer-left">
+            <div class="hmg-card">
+              <img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-1_img-01.png" alt="" width="584" height="788">
+            </div>
+            <div class="hmg-card">
+              <img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-1_img-02.png" alt="" width="584" height="584">
+            </div>
+          </div>
+          <div class="hmg-col hmg-col--left">
+            <div class="hmg-card">
+              <img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-2_img-01.png" alt="" width="584" height="584">
+            </div>
+            <div class="hmg-card">
+              <img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-2_img-02.png" alt="" width="584" height="584">
+            </div>
+          </div>
+          <div class="hmg-col hmg-col--center">
+            <div class="hmg-card">
+              <img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-3_img-01.png" alt="" width="584" height="584">
+            </div>
+            <div class="hmg-slot--sales"></div>
+          </div>
+          <div class="hmg-col hmg-col--right">
+            <div class="hmg-card">
+              <img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-4_img-01.png" alt="" width="584" height="584">
+            </div>
+            <div class="hmg-card">
+              <img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-4_img-02.png" alt="" width="584" height="788">
+            </div>
+          </div>
+          <div class="hmg-col hmg-col--outer-right">
+            <div class="hmg-card">
+              <img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-5_img-01.png" alt="" width="584" height="584">
+            </div>
+            <div class="hmg-card">
+              <img src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/col-5_img-02.png" alt="" width="584" height="584">
+            </div>
+          </div>
+        </div>
+
+        <!-- Hub title — sits 40px above the settled carousel, scroll-driven opacity. -->
+        <h2 class="hero-hub-title t-title-2" data-ta aria-hidden="true">Work faster.<br>No matter the work.</h2>
+
+        <!-- Hub router (z-index: 3 — fades in at Phase 4, pointer-events off until complete) -->
+        <div class="hero-hub-router" aria-hidden="true">
+          <div class="hhub-track">
+
+            <div class="hhub-card" data-index="0">
+              <div class="hhub-card-header">
+                <span class="hhub-card-label" data-slot="card-1.label">Sales</span>
+              </div>
+              <div class="hhub-card-media">
+                <picture>
+                  <source media="(max-width: 767px)" srcset="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/mobile/Expanded.png" width="704" height="560">
+                  <img class="hhub-card-img" data-slot="card-1.image" src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/sales.png" alt="" width="584" height="788">
+                </picture>
+              </div>
+              <div class="hhub-card-footer">
+                <div class="hhub-card-copy">
+                  <p class="hhub-card-tagline" data-slot="card-1.tagline">Close more deals.</p>
+                  <p class="hhub-card-body" data-slot="card-1.body">Turn insights into action and accelerate your pipeline with AI-powered tools.</p>
+                </div>
+                <span class="hhub-card-cta" aria-hidden="true"></span>
+              </div>
+            </div>
+
+            <div class="hhub-card" data-index="1">
+              <div class="hhub-card-header">
+                <span class="hhub-card-label" data-slot="card-2.label">Marketing</span>
+              </div>
+              <div class="hhub-card-media">
+                <img class="hhub-card-img" data-slot="card-2.image" src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/marketing.png" alt="" width="584" height="788">
+              </div>
+              <div class="hhub-card-footer">
+                <div class="hhub-card-copy">
+                  <p class="hhub-card-tagline" data-slot="card-2.tagline">Take the pain out of campaigns.</p>
+                  <p class="hhub-card-body" data-slot="card-2.body">Quickly create and edit images, video, and audio with creative AI.</p>
+                </div>
+                <span class="hhub-card-cta" aria-hidden="true"></span>
+              </div>
+            </div>
+
+            <div class="hhub-card" data-index="2">
+              <div class="hhub-card-header">
+                <span class="hhub-card-label" data-slot="card-3.label">Legal</span>
+              </div>
+              <div class="hhub-card-media">
+                <img class="hhub-card-img" data-slot="card-3.image" src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/legal.png" alt="" width="584" height="788">
+              </div>
+              <div class="hhub-card-footer">
+                <div class="hhub-card-copy">
+                  <p class="hhub-card-tagline" data-slot="card-3.tagline">Move the fine print faster.</p>
+                  <p class="hhub-card-body" data-slot="card-3.body">Draft, review, and manage contracts and compliance documents at scale.</p>
+                </div>
+                <span class="hhub-card-cta" aria-hidden="true"></span>
+              </div>
+            </div>
+
+            <div class="hhub-card" data-index="3">
+              <div class="hhub-card-header">
+                <span class="hhub-card-label" data-slot="card-4.label">Human Resources</span>
+              </div>
+              <div class="hhub-card-media">
+                <img class="hhub-card-img" data-slot="card-4.image" src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/hero/human-resources.png" alt="" width="584" height="788">
+              </div>
+              <div class="hhub-card-footer">
+                <div class="hhub-card-copy">
+                  <p class="hhub-card-tagline" data-slot="card-4.tagline">Make policy more personal.</p>
+                  <p class="hhub-card-body" data-slot="card-4.body">Streamline hiring, onboarding, and employee communications with ease.</p>
+                </div>
+                <span class="hhub-card-cta" aria-hidden="true"></span>
+              </div>
+            </div>
+
+          </div><!-- /.hhub-track -->
+        </div><!-- /.hero-hub-router -->
+
+      </section><!-- /#hero -->
+    </div><!-- /.hero-pin-spacer -->
+
+    <!-- ══════════════════════════════════════
+         EDITORIAL — sits behind hero's rounded bottom
+         ══════════════════════════════════════ -->
+    <section id="editorial" class="editorial">
+      <div class="editorial-parallax">
+
+        <div class="editorial-copy" data-ta-group>
+          <h2 class="editorial-title t-title-2" data-ta data-slot="title">There&rsquo;s more to<br>Acrobat than Acrobat.</h2>
+          <p class="editorial-sub t-body-l" data-ta data-slot="body">Work smarter with 70+ professional PDF tools to create, edit, sign, share, and more &mdash; all powered by AI. And that&rsquo;s just the beginning.</p>
+        </div>
+
+        <div class="editorial-cards">
+
+          <!-- Understand quickly — tall square, image fills card, copy insets top-left -->
+          <article class="ed-card ed-card--left">
+            <img class="ed-card-img" data-slot="card-1.image" src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/editorial/bento-img-1.png" alt="">
+            <div class="ed-card-copy">
+              <h3 class="ed-card-title" data-slot="card-1.title">Understand quickly.</h3>
+              <p class="ed-card-body" data-slot="card-1.body">Ask your custom or prebuilt AI Assistant to quickly summarize, analyze, provide insights, turn docs into decks, and more.</p>
+            </div>
+          </article>
+
+          <!-- Collaborate effortlessly — shorter image card, copy below on gray -->
+          <article class="ed-card ed-card--right">
+            <div class="ed-card-media">
+              <img class="ed-card-img" data-slot="card-2.image" src="https://content.da.live/aemcoder/snowflake-demos/media/acom-hub/images/editorial/bento-img-2.png" alt="">
+            </div>
+            <div class="ed-card-copy">
+              <h3 class="ed-card-title" data-slot="card-2.title">Collaborate effortlessly.</h3>
+              <p class="ed-card-body" data-slot="card-2.body">Share a secure PDF Space with teammates, where everyone can ask AI Assistant to help with research, strategy, planning, or quick learning.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+  </div><!-- /#smooth-content -->
+  </div><!-- /#smooth-wrapper -->
