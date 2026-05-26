@@ -5,13 +5,25 @@
   "sourceUrl": "http://127.0.0.1:8080/samples/frescopa/proposed-A.html",
   "targetRepo": "aemcoder/snowflake-demos",
   "daRoot": "/sf-slicc-adobe-skills/frescopa-a",
-  "phase": "wire",
+  "branch": "snowflake-001",
+  "phase": "roundtrip",
   "phaseStatus": "complete",
   "startedAt": "2026-05-26T11:22:30Z",
   "captureCompletedAt": "2026-05-26T11:23:00Z",
   "analyzeCompletedAt": "2026-05-26T11:24:00Z",
   "generateCompletedAt": "2026-05-26T11:26:00Z",
   "wireCompletedAt": "2026-05-26T11:28:00Z",
+  "roundtripCompletedAt": "2026-05-26T11:32:00Z",
   "slotCount": 41,
-  "sectionCount": 6
+  "sectionCount": 6,
+  "previewUrl": "https://snowflake-001--snowflake-demos--aemcoder.aem.page/sf-slicc-adobe-skills/frescopa-a/",
+  "daEditUrl": "https://da.live/edit#/aemcoder/snowflake-demos/sf-slicc-adobe-skills/frescopa-a/index",
+  "verification": {
+    "overlayApplied": "frescopa-a",
+    "sectionCount": 6,
+    "bodyAppear": true,
+    "allSlotsPresent": true,
+    "allImagesLoaded": true,
+    "heroBackgroundLoaded": true
+  }
 }
