@@ -1,0 +1,17 @@
+{
+  "run": "001",
+  "slug": "frescopa-a",
+  "templateName": "frescopa-a",
+  "sourceUrl": "http://127.0.0.1:8080/samples/frescopa/proposed-A.html",
+  "targetRepo": "aemcoder/snowflake-demos",
+  "daRoot": "/sf-slicc-adobe-skills/frescopa-a",
+  "phase": "wire",
+  "phaseStatus": "complete",
+  "startedAt": "2026-05-26T11:22:30Z",
+  "captureCompletedAt": "2026-05-26T11:23:00Z",
+  "analyzeCompletedAt": "2026-05-26T11:24:00Z",
+  "generateCompletedAt": "2026-05-26T11:26:00Z",
+  "wireCompletedAt": "2026-05-26T11:28:00Z",
+  "slotCount": 41,
+  "sectionCount": 6
+}

@@ -1,0 +1,30 @@
+{
+  "templateName": "frescopa-a",
+  "sourceUrl": "http://127.0.0.1:8080/samples/frescopa/proposed-A.html",
+  "generator": "stardust-0.2.0",
+  "assetStrategy": "vendor",
+  "assetVendorPath": "/assets/frescopa-a",
+  "headerBoundary": {
+    "startTag": "<header data-section=\"promo-strip\">",
+    "endTag": "</header> (second, site-header)",
+    "elements": ["header.promo-strip", "header.site-header"]
+  },
+  "footerBoundary": {
+    "startTag": "<footer data-section=\"footer\">",
+    "elements": ["footer.site-footer"]
+  },
+  "sections": [
+    { "name": "hero", "firstClass": "hero", "dataSection": "hero", "type": "full-bleed-hero" },
+    { "name": "shop-categories", "firstClass": "shop-categories", "dataSection": "shop-categories", "type": "card-grid" },
+    { "name": "subscription-card-on-bay", "firstClass": "subscription-card-on-bay", "dataSection": "subscription-card-on-bay", "type": "split-media" },
+    { "name": "locations-finder", "firstClass": "locations-finder", "dataSection": "locations-finder", "type": "form-cta" },
+    { "name": "featured-coffee", "firstClass": "featured-coffee", "dataSection": "featured-coffee", "type": "split-media" },
+    { "name": "rewards-cta-band", "firstClass": "rewards-cta-band", "dataSection": "rewards-cta-band", "type": "cta-band" }
+  ],
+  "headLinks": [
+    "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">",
+    "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>",
+    "<link href=\"https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Martian+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@1,144,800..900&display=swap\" rel=\"stylesheet\">"
+  ],
+  "synthesizeMain": true
+}
