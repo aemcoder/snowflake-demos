@@ -14,6 +14,13 @@ on `main`.
 > overlay — `main` has no substrate code. Always use the demo URL in
 > the table below.
 
+## Stardust Showcase
+
+Source pages are brand homepages uplifted with
+[Stardust](https://stardust.style/) — an AI-powered design tool that
+generates polished static HTML+CSS from existing brand identities.
+Each proposed-A page is the first variant generated for that brand.
+
 | # | Source | Branch | Tag | Demo URL | History |
 |---|---|---|---|---|---|
 | 001 | [Heathrow proposed-A](https://paolomoz.github.io/stardust-site/samples/heathrow/proposed-A.html) | [`snowflake-001`](https://github.com/aemcoder/snowflake-demos/tree/snowflake-001) | `snowflake-001-close` | <https://snowflake-001--snowflake-demos--aemcoder.aem.live/heathrow/proposed-a> | — |
@@ -36,6 +43,83 @@ on `main`.
 | 018 | [Nvidia proposed-A](https://paolomoz.github.io/stardust-site/samples/nvidia/proposed-A.html) | [`sd-nvidia-a`](https://github.com/aemcoder/snowflake-demos/tree/sd-nvidia-a) | `sd-nvidia-a-close` | <https://sd-nvidia-a--snowflake-demos--aemcoder.aem.live/nvidia/a> | 2026-05-20: <https://sd-nvidia-a-2026-05-20--snowflake-demos--aemcoder.aem.live/nvidia/a-2026-05-20> (tag `sd-nvidia-a-2026-05-20-close`) |
 | 019 | [Frescopa proposed-A](https://paolomoz.github.io/stardust-site/samples/frescopa/proposed-A.html) | [`sd-frescopa-a`](https://github.com/aemcoder/snowflake-demos/tree/sd-frescopa-a) | `sd-frescopa-a-close` | <https://sd-frescopa-a--snowflake-demos--aemcoder.aem.live/frescopa/a> | 2026-05-19: <https://sd-frescopa-a-2026-05-19--snowflake-demos--aemcoder.aem.live/frescopa/a-2026-05-19> (tag `sd-frescopa-a-2026-05-19-close`) |
 | 020 | [Digital Innovation proposed-A](https://paolomoz.github.io/stardust-site/samples/digitalinnovation/proposed-A.html) | [`sd-digitalinnovation-a`](https://github.com/aemcoder/snowflake-demos/tree/sd-digitalinnovation-a) | `sd-digitalinnovation-a-close` | <https://sd-digitalinnovation-a--snowflake-demos--aemcoder.aem.live/digitalinnovation/a> | 2026-05-20: <https://sd-digitalinnovation-a-2026-05-20--snowflake-demos--aemcoder.aem.live/digitalinnovation/a-2026-05-20> (tag `sd-digitalinnovation-a-2026-05-20-close`) |
+
+### Block-level feasibility analysis
+
+Standard snowflake preserves the source DOM byte-for-byte via a
+page-level template with `[data-slot]` markers. Block-level snowflake
+goes further: each content section becomes an independent EDS block
+with its own `decorate()` function and CSS, while header/footer stay
+as static fragments. Content is fully authorable in DA block tables.
+
+Block-level requires **section independence** across five dimensions:
+structure, CSS scope, content model, JS independence, and visual
+independence. See `knowledge/block-level-feasibility.md` in the
+snowflake skill for the full reference.
+
+#### Proof of concept
+
+Frescopa proposed-A was converted block-level on branch
+`test-sf-blocks-01`. Six content blocks (hero, shop-categories,
+subscription, location-finder, featured, cta-band) + static
+header/footer fragments. Renders pixel-perfect against the source.
+
+#### Feasibility scan — all 19 proposed-A pages (2026-05-27)
+
+| # | Brand | Sections | Structure | CSS | Content | JS | Visual | Verdict |
+|---|-------|----------|-----------|-----|---------|-----|--------|---------|
+| 1 | aman | 5 | ✅ | ✅ | ✅ | ✅ | ✅ | **block** |
+| 2 | digitalinnovation | 6 | ✅ | ✅ | ❌ | ❌ | ✅ | **hybrid** |
+| 3 | festool | 7 | ✅ | ✅ | ✅ | ✅ | ✅ | **block** |
+| 4 | frescopa | 6 | ✅ | ✅ | ✅ | ✅ | ✅ | **block** |
+| 5 | glossier | 5 | ✅ | ✅ | ✅ | ✅ | ✅ | **block** |
+| 6 | heathrow | 4 | ✅ | ✅ | ✅ | ✅ | ✅ | **block** |
+| 7 | jfk-airport | 9+ | ✅ | ✅ | ❌ | ❌ | ❌ | **hybrid** |
+| 8 | lemonade | 9 | ✅ | ✅ | ✅ | ✅ | ✅ | **block** |
+| 9 | liquiddeath | 5 | ✅ | ✅ | ✅ | ✅ | ✅ | **block** |
+| 10 | lovesac | 8 | ✅ | ✅ | ✅ | ✅ | ✅ | **block** |
+| 11 | nvidia | 9 | ✅ | ✅ | ❌ | ❌ | ✅ | **hybrid** |
+| 12 | oatly | 1 | ❌ | ❌ | ❌ | ✅ | ❌ | **page** |
+| 13 | onemedical | 9 | ✅ | ✅ | ✅ | ✅ | ✅ | **block** |
+| 14 | patagonia | 6 | ✅ | ✅ | ✅ | ✅ | ✅ | **block** |
+| 15 | polestar | 6 | ✅ | ✅ | ✅ | ✅ | ✅ | **block** |
+| 16 | theroadhome | 10 | ✅ | ✅ | ✅ | ✅ | ✅ | **block** |
+| 17 | ups-gb | 8 | ✅ | ✅ | ⚠️ | ✅ | ✅ | **hybrid** |
+| 18 | vanguard | 9 | ✅ | ✅ | ✅ | ✅ | ✅ | **block** |
+| 19 | virginatlantic | 7 | ✅ | ✅ | ⚠️ | ✅ | ⚠️ | **hybrid** |
+
+**Verdicts:** 13 block-level (68%), 5 hybrid (26%), 1 page-level (5%).
+
+#### Hybrid failure details
+
+| Brand | Failing sections | Reason |
+|-------|-----------------|--------|
+| digitalinnovation | hero, topics | Canvas dot-grid animation (rAF + pointer tracking); animated shader blobs |
+| jfk-airport | hero + audience-router + task-panels | Flight search forms, live feed aside, viewTransition coupling between audience tiles and task panels |
+| nvidia | all theme carousels | Cross-section carousel JS controller, multi-variant tile system (A/C/E/G) |
+| ups-gb | tracking-hero | CSS-only 4-panel tabbed form with hidden radio inputs |
+| virginatlantic | booking | 6-field booking widget; -72px negative margin overlapping hero |
+
+In all hybrid cases, the majority of sections are block-level clean.
+Only 1–2 sections per page require page-level or fragment treatment.
+
+#### Patterns observed
+
+All 19 pages share the same generator provenance (Stardust) with
+consistent conventions: `data-section` attributes, section-scoped CSS,
+`:root` design tokens, semantic `<section>` elements. This clean
+output biases toward block-level. Real-world pages from WordPress
+themes, Tailwind sites, or SPA frameworks would likely have a lower
+block-level rate.
+
+**Structure and CSS pass universally** (18/19) — the generator
+produces clean, scoped output. The sole exception (Oatly) is a
+deliberate art-directed page with no section boundaries.
+
+**Content model and JS are the discriminators.** Every hybrid
+verdict traces to either a complex interactive widget (forms,
+carousels with shared controllers) or cross-section JavaScript
+coupling. These are the checks worth prioritizing during analysis.
 
 ## Adobe.com bespoke redesigns
 
