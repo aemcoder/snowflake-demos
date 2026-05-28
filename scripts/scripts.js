@@ -145,7 +145,6 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
-  decorateAnimations(main);
 }
 
 export { decorateAnimations };
@@ -192,6 +191,9 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
+
+  // Wire scroll-entrance after all block JS has run and built [data-anim] elements
+  decorateAnimations(main);
 }
 
 /**
