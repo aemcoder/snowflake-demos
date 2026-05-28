@@ -11,8 +11,10 @@ export default function decorate(block) {
   const eyebrowBand = rows[0]?.textContent.trim() || 'FIND YOUR NEAREST BRANCH';
 
   // Row 1: proof paragraph (may have <strong> elements)
+  // EDS wraps cell text in <p> tags — extract innerHTML of the inner <p> to avoid nesting
   const proofCell = rows[1]?.children[0];
-  const proofHTML = proofCell?.innerHTML || '';
+  const proofPara = proofCell?.querySelector('p');
+  const proofHTML = proofPara ? proofPara.innerHTML : (proofCell?.innerHTML || '');
 
   block.textContent = '';
 
