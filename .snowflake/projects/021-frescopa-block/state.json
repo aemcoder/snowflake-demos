@@ -7,12 +7,12 @@
   "targetRepo": "aemcoder/snowflake-demos",
   "branch": "sd-frescopa-block-a",
   "daRoot": "/sd-frescopa-block-a",
-  "daPath": "/sd-frescopa-block-a/home-a",
+  "daPath": "/sd-frescopa-block-a/home-a.html",
   "conversionLevel": "block-level",
   "daInteraction": "aem content (clone/add/commit/push)",
   "substrateInstalled": false,
   "phase": "roundtrip",
-  "phaseStatus": "local-complete",
+  "phaseStatus": "complete",
   "startedAt": "2026-05-28T19:01:37Z",
   "prereqCompletedAt": "2026-05-28T19:01:37Z",
   "analyzeCompletedAt": "2026-05-28T19:05:00Z",
@@ -30,5 +30,12 @@
     "dismissed": 2,
     "fix": "shop-categories.js picture handling aligned to sibling blocks"
   },
-  "productionStatus": "BLOCKED — DA token expired 2026-05-22; user opted to pause before production"
+  "productionStatus": "complete",
+  "roundtripCompletedAt": "2026-05-28T20:55:00Z",
+  "productionUrlPreview": "https://sd-frescopa-block-a--snowflake-demos--aemcoder.aem.page/sd-frescopa-block-a/home-a",
+  "productionUrlLive": "https://sd-frescopa-block-a--snowflake-demos--aemcoder.aem.live/sd-frescopa-block-a/home-a",
+  "daEditorUrl": "https://da.live/edit#/aemcoder/snowflake-demos/sd-frescopa-block-a/home-a",
+  "productionConsoleErrors": 0,
+  "mediaBus": "all images rewritten to ./media_<sha> optimized form; cards serve webp <picture>",
+  "daPushTool": "aem content (add/commit/push); rootPath-config quirk: push maps content/<rel> -> /<rel>, so file placed at content/sd-frescopa-block-a/home-a.html"
 }

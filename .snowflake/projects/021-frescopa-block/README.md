@@ -30,4 +30,17 @@ Branch: `sd-frescopa-block-a` · DA path: `/sd-frescopa-block-a/home-a`
   `<img>` into Media Bus on first preview.
 - No overlay substrate installed — block-level uses standard EDS decoration.
 
-Status: capturing → analyze
+Status: **complete** (local + production round-trip verified)
+
+## Result
+
+- 6 EDS blocks + header/footer fragments; standard EDS decoration (no overlay substrate).
+- Lint clean; local + production: all blocks render, 0 console errors, pixel-identical to source.
+- Media Bus optimizes all images (cards serve webp `<picture>`).
+- DA content pushed via `aem content` to `/sd-frescopa-block-a/home-a.html`.
+
+**Live:** https://sd-frescopa-block-a--snowflake-demos--aemcoder.aem.live/sd-frescopa-block-a/home-a
+**Preview:** https://sd-frescopa-block-a--snowflake-demos--aemcoder.aem.page/sd-frescopa-block-a/home-a
+**DA editor:** https://da.live/edit#/aemcoder/snowflake-demos/sd-frescopa-block-a/home-a
+
+Run NOT closed (no tag, no demos.md row yet) — pending user decision.
