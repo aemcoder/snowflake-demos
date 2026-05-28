@@ -1,0 +1,60 @@
+/* ─── Aman twin-features ─────────────────────────────────────── */
+.twin-features-container .twin-features-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.twin-features.block {
+  padding: var(--section-padding) 0;
+  border-top: 1px solid var(--color-hairline);
+}
+
+.twin {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.twin .twin-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.twin .twin-card .twin-media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  display: block;
+}
+
+.twin .twin-card .twin-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.twin .twin-card .eyebrow {
+  margin: var(--spacing-md) 0 0;
+}
+
+.twin .twin-card h3 {
+  margin: 0;
+}
+
+.twin .twin-card p {
+  color: var(--color-ink-2);
+  margin: 0;
+  max-width: 38em;
+}
+
+.twin .twin-card .btn-secondary {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+@media (width <= 800px) {
+  .twin {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

@@ -1,37 +1,49 @@
+/* ─── Aman hero ──────────────────────────────────────────────── */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
 }
 
-.hero {
+.hero.block {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  height: 92vh;
+  min-height: 640px;
+  background: #2a2a26 var(--hero-bg, none) center / cover no-repeat;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
-}
-
-.hero picture {
+.hero.block::after {
+  content: '';
   position: absolute;
-  z-index: -1;
   inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+  background: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 18%) 0%,
+    rgb(0 0 0 / 0%) 28%,
+    rgb(0 0 0 / 0%) 70%,
+    rgb(20 18 14 / 18%) 100%
+  );
+  pointer-events: none;
 }
 
-.hero img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+.hero-anchor {
+  position: absolute;
+  left: 50%;
+  bottom: 36px;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: var(--color-cream);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.85;
 }
 
-@media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
-  }
+.hero-anchor::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 28px;
+  background: currentcolor;
+  opacity: 0.6;
+  margin: 12px auto 0;
 }

@@ -1,0 +1,11 @@
+{
+  "nnn": "003",
+  "slug": "aman",
+  "branch": "test-sf-blocks-03",
+  "daPath": "/test-sf-blocks-03/aman",
+  "conversionLevel": "block-level",
+  "assetStrategy": "absolute",
+  "phase": "capture",
+  "phaseStatus": "complete",
+  "captureCompletedAt": "2026-05-28"
+}

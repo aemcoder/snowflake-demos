@@ -1,0 +1,64 @@
+/* ─── Aman audience-grid ─────────────────────────────────────── */
+.audience-grid-container .audience-grid-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.audience-grid.block {
+  padding: var(--section-padding) 0;
+  border-top: 1px solid var(--color-hairline);
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.audience-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.audience-card .audience-media {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--color-cream-light);
+  display: block;
+}
+
+.audience-card .audience-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms ease;
+}
+
+.audience-card:hover .audience-media img {
+  transform: scale(1.015);
+}
+
+.audience-card .eyebrow {
+  margin: var(--spacing-md) 0 0;
+}
+
+.audience-card h3 {
+  margin: var(--spacing-xs) 0 var(--spacing-sm);
+}
+
+.audience-card p {
+  color: var(--color-ink-2);
+  margin: 0 0 var(--spacing-sm);
+  font-size: var(--body-sm);
+}
+
+@media (width <= 1100px) {
+  .audience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 560px) {
+  .audience-grid { grid-template-columns: 1fr; }
+}

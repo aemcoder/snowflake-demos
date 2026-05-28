@@ -1,0 +1,113 @@
+{
+  "levelParam": "block",
+  "conversionLevel": "block-level",
+  "templateName": "aman-blocks",
+  "slug": "aman",
+  "daPath": "/test-sf-blocks-03/aman",
+  "branch": "test-sf-blocks-03",
+  "assetStrategy": "absolute",
+  "assetBase": "https://www.aman.com/",
+  "headLinks": [],
+  "inlineStyleLines": [25, 293],
+  "inlineScriptLines": [[477, 488]],
+  "feasibility": {
+    "recommendation": "block-level",
+    "sections": [
+      {
+        "name": "hero",
+        "level": "block",
+        "checks": {
+          "structure": "pass",
+          "cssScope": "pass",
+          "contentModel": "pass",
+          "jsIndependence": "pass",
+          "visualIndependence": "pass"
+        }
+      },
+      {
+        "name": "seasonal-feature",
+        "level": "block",
+        "checks": {
+          "structure": "pass",
+          "cssScope": "pass",
+          "contentModel": "pass",
+          "jsIndependence": "pass",
+          "visualIndependence": "pass"
+        }
+      },
+      {
+        "name": "twin-features",
+        "level": "block",
+        "checks": {
+          "structure": "pass",
+          "cssScope": "pass",
+          "contentModel": "pass",
+          "jsIndependence": "pass",
+          "visualIndependence": "pass"
+        }
+      },
+      {
+        "name": "audience-grid",
+        "level": "block",
+        "checks": {
+          "structure": "pass",
+          "cssScope": "pass",
+          "contentModel": "pass",
+          "jsIndependence": "pass",
+          "visualIndependence": "pass"
+        }
+      },
+      {
+        "name": "world-of-aman",
+        "level": "block",
+        "checks": {
+          "structure": "pass",
+          "cssScope": "pass",
+          "contentModel": "pass",
+          "jsIndependence": "pass",
+          "visualIndependence": "pass"
+        }
+      }
+    ]
+  },
+  "contentModels": {
+    "hero": {
+      "rows": [
+        { "row": 0, "cells": 1, "content": "background image (img with aman.com src)" },
+        { "row": 1, "cells": 1, "content": "scroll anchor label text" }
+      ]
+    },
+    "seasonal-feature": {
+      "rows": [
+        { "row": 0, "cells": 1, "content": "eyebrow text" },
+        { "row": 1, "cells": 1, "content": "h2 heading" },
+        { "row": 2, "cells": 1, "content": "body paragraph" },
+        { "row": 3, "cells": 1, "content": "CTA link (em = secondary)" }
+      ]
+    },
+    "twin-features": {
+      "rows": [
+        { "row": "1-2", "cells": 5, "content": "image | eyebrow | h3 | body | CTA link" }
+      ]
+    },
+    "audience-grid": {
+      "rows": [
+        { "row": 0, "cells": 2, "content": "h2 | body paragraph" },
+        { "row": "1-4", "cells": 5, "content": "image | eyebrow | h3 | body | CTA link" }
+      ]
+    },
+    "world-of-aman": {
+      "rows": [
+        { "row": 0, "cells": 1, "content": "h2 heading only" },
+        { "row": "1-3", "cells": 5, "content": "image | eyebrow | h3 | body | CTA link" }
+      ]
+    }
+  },
+  "strip": [],
+  "modifications": {
+    "scripts/scripts.js": "add buildHeroBlock early-return guard if .hero already exists",
+    "styles/styles.css": "replace wholesale with global tokens + shared components",
+    "styles/fonts.css": "empty (proprietary fonts, system fallbacks in stack)",
+    "head.html": "no change"
+  }
+}
