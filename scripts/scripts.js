@@ -145,6 +145,7 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+  decorateAnimations(main);
 }
 
 export { decorateAnimations };

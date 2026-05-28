@@ -72,3 +72,48 @@ Lenis smooth-scroll CSS (first ~10 lines of source CSS): include in global style
 adds `.is-visible` class. This logic will live in `scripts/scripts.js` (shared across blocks)
 OR inline in each block's decorator. Decision: shared utility in scripts.js (simpler).
 
+## Phase: Generate
+
+6 content blocks + 2 static fragments (header, footer) created.
+Global `styles/styles.css` replaced wholesale with Wheeler Cat design tokens + shared components.
+Icon font strategy: Code Bus (`/fonts/icomoon.ttf`), not DA media.
+Font strategy: Code Bus for all 5 fonts (icomoon + Roboto Condensed + Roboto × 2 + Oswald).
+
+`data-anim` IntersectionObserver exported from `scripts/scripts.js` as `decorateAnimations` — 
+but ultimately not called from each block (blocks use inline `data-anim` attrs only; the observer
+lives in scripts.js via `decorateAnimations` export, not auto-called from global `decorateMain`).
+The `[data-anim]` CSS initial state is `opacity: 0; transform: translateY(24px)` — so without
+observer call, elements are invisible on load. Fix needed in Phase 5 / post-reflect.
+
+**Lint findings:**
+- BEM selectors (double-underscore/double-dash) fail `selector-class-pattern` — add
+  `/* stylelint-disable selector-class-pattern */` at top of every block CSS with BEM.
+- `rgba()` → `rgb()` with slash notation auto-fixable.
+- `no-descending-specificity`: modifier-class selectors (`.blog-card--maint .blog-card__bg`)
+  must come BEFORE pseudo-class selectors (`.blog-card:hover .blog-card__bg`).
+- Lenis minified line in styles.css needs `/* stylelint-disable ... */` wrapper.
+
+## Phase: Round-trip
+
+**Local:** AEM CLI dev server on port 3040. All 20 JS/CSS/fragment files return 200.
+All 6 block divs present in `drafts/wheelercat.html` DOM.
+
+**DA media upload:** `da-media-upload.mjs` uploaded 19 files to DA `/media/wheelercat-home/`.
+19/19 OK. Fonts also uploaded (not needed — they're Code Bus — but harmless as da-media copies).
+
+**DA content push:** `aem content clone --path /test-sf-blocks-04` (correct syntax — NOT
+`aem content clone org/repo path`). Token saved to `.hlx/.da-token.json`.
+`aem content add → commit → push` pushed 1 file: `/test-sf-blocks-04/wheelercat.html`.
+
+**Production preview:**
+- Branch pushed: `wheelercat-001`
+- Preview API: HTTP 200
+- Production URL: https://wheelercat-001--snowflake-demos--aemcoder.aem.page/test-sf-blocks-04/wheelercat
+- All 6 block class names confirmed in `.plain.html`
+- EDS Media Bus confirmed: `media_*` hashed image URLs present in rendered HTML
+
+**Issue found post-launch:** `decorateAnimations` is exported from `scripts/scripts.js` but
+never called — blocks rely on `[data-anim]` in their HTML but the IntersectionObserver is never
+wired up. Elements with `[data-anim]` start at `opacity: 0` and never become visible. Fix: either
+call `decorateAnimations(main)` inside `decorateMain` in scripts.js, or add it to loadLazy.
+

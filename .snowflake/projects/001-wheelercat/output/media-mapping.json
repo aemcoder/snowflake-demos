@@ -1,0 +1,177 @@
+{
+  "mapping": {
+    "fonts/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/fonts/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+    "fonts/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/fonts/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2",
+    "fonts/TK3IWkUHHAIjg75cFRf3bXL8LICs1_Fv40pKlN4NNSeSASz7FmlWHYg.woff2": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/fonts/TK3IWkUHHAIjg75cFRf3bXL8LICs1_Fv40pKlN4NNSeSASz7FmlWHYg.woff2",
+    "fonts/icomoon.ttf": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/fonts/icomoon.ttf",
+    "fonts/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7DQ.woff2": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/fonts/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7DQ.woff2",
+    "logo.png": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/logo.png",
+    "media/CM2022040-2b9745.webp": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/CM2022040-2b9745.webp",
+    "media/Campbell-Companies-HorzV2-68ea90.webp": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/Campbell-Companies-HorzV2-68ea90.webp",
+    "media/Compact_Track_Loader-3b9bd4.webp": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/Compact_Track_Loader-3b9bd4.webp",
+    "media/Excavators-24bfa6.webp": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/Excavators-24bfa6.webp",
+    "media/Gardner-Logo-1a36da.webp": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/Gardner-Logo-1a36da.webp",
+    "media/I7A0069-f55d9f.webp": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/I7A0069-f55d9f.webp",
+    "media/JLG_logo-1-1-60b1d8.jpeg": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/JLG_logo-1-1-60b1d8.jpeg",
+    "media/MonsonLogo-8a32ac.webp": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/MonsonLogo-8a32ac.webp",
+    "media/SFS-e7162d.webp": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/SFS-e7162d.webp",
+    "media/Wheeler_Campus-0d3589.webp": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/Wheeler_Campus-0d3589.webp",
+    "media/aerial_resource-e5e159.webp": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/aerial_resource-e5e159.webp",
+    "media/landscape_blog-7260b0.webp": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/landscape_blog-7260b0.webp",
+    "media/reliable-v3-scaled-c2c1e1.jpg": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/reliable-v3-scaled-c2c1e1.jpg"
+  },
+  "results": [
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/fonts/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+      "remotePath": "media/wheelercat-home/fonts/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/fonts/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+      "size": 43136,
+      "mime": "font/woff2",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/fonts/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2",
+      "remotePath": "media/wheelercat-home/fonts/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/fonts/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2",
+      "size": 37520,
+      "mime": "font/woff2",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/fonts/TK3IWkUHHAIjg75cFRf3bXL8LICs1_Fv40pKlN4NNSeSASz7FmlWHYg.woff2",
+      "remotePath": "media/wheelercat-home/fonts/TK3IWkUHHAIjg75cFRf3bXL8LICs1_Fv40pKlN4NNSeSASz7FmlWHYg.woff2",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/fonts/TK3IWkUHHAIjg75cFRf3bXL8LICs1_Fv40pKlN4NNSeSASz7FmlWHYg.woff2",
+      "size": 21472,
+      "mime": "font/woff2",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/fonts/icomoon.ttf",
+      "remotePath": "media/wheelercat-home/fonts/icomoon.ttf",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/fonts/icomoon.ttf",
+      "size": 9184,
+      "mime": "application/octet-stream",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/fonts/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7DQ.woff2",
+      "remotePath": "media/wheelercat-home/fonts/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7DQ.woff2",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/fonts/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7DQ.woff2",
+      "size": 51412,
+      "mime": "font/woff2",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/logo.png",
+      "remotePath": "media/wheelercat-home/logo.png",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/logo.png",
+      "size": 6593,
+      "mime": "image/png",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/media/CM2022040-2b9745.webp",
+      "remotePath": "media/wheelercat-home/media/CM2022040-2b9745.webp",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/CM2022040-2b9745.webp",
+      "size": 11860,
+      "mime": "image/webp",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/media/Campbell-Companies-HorzV2-68ea90.webp",
+      "remotePath": "media/wheelercat-home/media/Campbell-Companies-HorzV2-68ea90.webp",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/Campbell-Companies-HorzV2-68ea90.webp",
+      "size": 6412,
+      "mime": "image/webp",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/media/Compact_Track_Loader-3b9bd4.webp",
+      "remotePath": "media/wheelercat-home/media/Compact_Track_Loader-3b9bd4.webp",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/Compact_Track_Loader-3b9bd4.webp",
+      "size": 434572,
+      "mime": "image/webp",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/media/Excavators-24bfa6.webp",
+      "remotePath": "media/wheelercat-home/media/Excavators-24bfa6.webp",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/Excavators-24bfa6.webp",
+      "size": 309320,
+      "mime": "image/webp",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/media/Gardner-Logo-1a36da.webp",
+      "remotePath": "media/wheelercat-home/media/Gardner-Logo-1a36da.webp",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/Gardner-Logo-1a36da.webp",
+      "size": 4918,
+      "mime": "image/webp",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/media/I7A0069-f55d9f.webp",
+      "remotePath": "media/wheelercat-home/media/I7A0069-f55d9f.webp",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/I7A0069-f55d9f.webp",
+      "size": 33282,
+      "mime": "image/webp",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/media/JLG_logo-1-1-60b1d8.jpeg",
+      "remotePath": "media/wheelercat-home/media/JLG_logo-1-1-60b1d8.jpeg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/JLG_logo-1-1-60b1d8.jpeg",
+      "size": 7513,
+      "mime": "image/jpeg",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/media/MonsonLogo-8a32ac.webp",
+      "remotePath": "media/wheelercat-home/media/MonsonLogo-8a32ac.webp",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/MonsonLogo-8a32ac.webp",
+      "size": 11560,
+      "mime": "image/webp",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/media/SFS-e7162d.webp",
+      "remotePath": "media/wheelercat-home/media/SFS-e7162d.webp",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/SFS-e7162d.webp",
+      "size": 8322,
+      "mime": "image/webp",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/media/Wheeler_Campus-0d3589.webp",
+      "remotePath": "media/wheelercat-home/media/Wheeler_Campus-0d3589.webp",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/Wheeler_Campus-0d3589.webp",
+      "size": 134800,
+      "mime": "image/webp",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/media/aerial_resource-e5e159.webp",
+      "remotePath": "media/wheelercat-home/media/aerial_resource-e5e159.webp",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/aerial_resource-e5e159.webp",
+      "size": 55294,
+      "mime": "image/webp",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/media/landscape_blog-7260b0.webp",
+      "remotePath": "media/wheelercat-home/media/landscape_blog-7260b0.webp",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/landscape_blog-7260b0.webp",
+      "size": 98546,
+      "mime": "image/webp",
+      "ok": true
+    },
+    {
+      "localPath": "/Users/catalan/repos/ai/aemcoder/snowflake-demos/.claude/worktrees/test-sf-blocks-04/.snowflake/projects/001-wheelercat/input/assets/wheelercat-home/media/reliable-v3-scaled-c2c1e1.jpg",
+      "remotePath": "media/wheelercat-home/media/reliable-v3-scaled-c2c1e1.jpg",
+      "contentUrl": "https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/reliable-v3-scaled-c2c1e1.jpg",
+      "size": 240311,
+      "mime": "image/jpeg",
+      "ok": true
+    }
+  ]
+}
