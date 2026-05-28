@@ -82,12 +82,12 @@
 .service-tile:focus-visible::after,
 .service-tile.is-revealed::after { opacity: 1; }
 
-.service-tile--field::before { background-image: url("https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/I7A0069-f55d9f.webp"); }
-.service-tile--shop::before { background-image: url("https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/Wheeler_Campus-0d3589.webp"); }
-.service-tile--parts::before { background-image: url("https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/CM2022040-2b9745.webp"); }
-.service-tile--maint::before { background-image: url("https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/Excavators-24bfa6.webp"); }
-.service-tile--rebuilds::before { background-image: url("https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/reliable-v3-scaled-c2c1e1.jpg"); }
-.service-tile--online::before { background-image: url("https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/aerial_resource-e5e159.webp"); }
+.service-tile--field::before { background-image: url("https://main--uplift-wheelercat-eds--paolomoz.aem.live/assets/wheelercat-home/media/I7A0069-f55d9f.webp"); }
+.service-tile--shop::before { background-image: url("https://main--uplift-wheelercat-eds--paolomoz.aem.live/assets/wheelercat-home/media/Wheeler_Campus-0d3589.webp"); }
+.service-tile--parts::before { background-image: url("https://main--uplift-wheelercat-eds--paolomoz.aem.live/assets/wheelercat-home/media/CM2022040-2b9745.webp"); }
+.service-tile--maint::before { background-image: url("https://main--uplift-wheelercat-eds--paolomoz.aem.live/assets/wheelercat-home/media/Excavators-24bfa6.webp"); }
+.service-tile--rebuilds::before { background-image: url("https://main--uplift-wheelercat-eds--paolomoz.aem.live/assets/wheelercat-home/media/reliable-v3-scaled-c2c1e1.jpg"); }
+.service-tile--online::before { background-image: url("https://main--uplift-wheelercat-eds--paolomoz.aem.live/assets/wheelercat-home/media/aerial_resource-e5e159.webp"); }
 
 .service-tile__icon {
   font-size: 40px;
