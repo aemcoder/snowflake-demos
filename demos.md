@@ -121,6 +121,16 @@ verdict traces to either a complex interactive widget (forms,
 carousels with shared controllers) or cross-section JavaScript
 coupling. These are the checks worth prioritizing during analysis.
 
+### Block-level conversions
+
+Completed block-level runs. Each section becomes an independent EDS block
+with its own `decorate()` + CSS; header/footer are static fragments.
+
+| # | Source | Branch | Demo URL |
+|---|---|---|---|
+| 001 | [Frescopa proposed-A](https://paolomoz.github.io/stardust-site/samples/frescopa/proposed-A.html) — POC | [`test-sf-blocks-01`](https://github.com/aemcoder/snowflake-demos/tree/test-sf-blocks-01) | — |
+| 003 | [Aman proposed-A](http://127.0.0.1:8080/samples/aman/proposed-A.html) | [`test-sf-blocks-03`](https://github.com/aemcoder/snowflake-demos/tree/test-sf-blocks-03) | <https://test-sf-blocks-03--snowflake-demos--aemcoder.aem.page/test-sf-blocks-03/aman> |
+
 ## Adobe.com bespoke redesigns
 
 Each row is one snowflake conversion of a bespoke Adobe.com redesign

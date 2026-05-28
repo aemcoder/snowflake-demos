@@ -107,12 +107,57 @@ image, eyebrow, h3, body, CTA.
 
 ## Phase: Generate
 
-(to be filled during execution)
+5 content blocks created + 2 static fragments (header/footer).
+Global `styles/styles.css` replaced wholesale with Aman design tokens + shared components.
+`styles/fonts.css` emptied (proprietary fonts, system fallbacks).
+`blocks/header/header.js` includes scroll-state listener ported from source `<script>`.
+No `scripts/scripts.js` modification needed — existing `buildHeroBlock` guard
+(`h1.closest('.hero')`) already prevents duplicate hero creation. The Aman hero has
+no `<h1>` or `<picture>`, so `buildHeroBlock` exits before the guard would even trigger.
+DA body fragment written to `output/da/aman.html`. All DA img URLs absolute.
 
 ## Phase: Wire
 
-(to be filled during execution)
+Lint clean after auto-fix pass plus manual expansion of single-line CSS rules.
+Issues encountered and fixed:
+- `declaration-block-single-line-max-declarations` — multi-property single-line rules
+  expanded throughout styles/styles.css and all block CSS files
+- `selector-class-pattern` — BEM double-underscore classes in header.css suppressed
+  with file-level `/* stylelint-disable selector-class-pattern */` comment
+- `no-descending-specificity` — footer.css `.social-row a` reordered before
+  `.footer-grid a:hover` to fix specificity ordering
 
 ## Phase: Round-trip
 
-(to be filled during execution)
+**Local**: dev server started on port 3237 (worktree port). Verified via curl:
+- All 5 block divs present in `drafts/aman.html` raw HTML
+- All block JS + CSS files return 200
+- Both fragments return 200
+- No `assets/` references (absolute strategy confirmed)
+
+**Production**:
+- DA push: used `aem content clone → add → commit → push` workflow.
+  CLI authenticated via browser (token saved to `.hlx/.da-token.json`).
+  1 file pushed: `/test-sf-blocks-03/aman.html`
+- Preview triggered: `admin.hlx.page/preview/...` → HTTP 200
+- Production page: `https://test-sf-blocks-03--snowflake-demos--aemcoder.aem.page/test-sf-blocks-03/aman` → HTTP 200
+- `.plain.html` verified all 5 block class names present
+
+## Phase: Reflect
+
+**New finding — `aem content` workflow for DA push:**
+The `aem content` subcommand (clone → add → commit → push) is cleaner than direct
+`curl PUT` for DA uploads. It handles authentication via browser IMS flow and caches
+the token to `.hlx/.da-token.json` (not the global `~/.aem/da-token.json`).
+Token is stored per-worktree/repo root.
+
+**New finding — `buildHeroBlock` guard:**
+For Aman's hero (background-image only, no `<h1>` or `<picture>` in DOM),
+the existing boilerplate guard `if (h1.closest('.hero') || picture.closest('.hero'))`
+is sufficient — `buildHeroBlock` exits early because neither `h1` nor `picture`
+exist in the authored hero block. No additional guard line needed.
+
+**New finding — CDN cold-start timeouts:**
+First requests to `aem.page` paths after a new push can time out (curl exit 28)
+even when the files are actually deployed. Re-probing after 10–20s succeeds.
+Not a deployment failure — just CDN cache warming latency.

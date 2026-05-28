@@ -5,7 +5,15 @@
   "daPath": "/test-sf-blocks-03/aman",
   "conversionLevel": "block-level",
   "assetStrategy": "absolute",
-  "phase": "capture",
+  "phase": "reflect",
   "phaseStatus": "complete",
-  "captureCompletedAt": "2026-05-28"
+  "captureCompletedAt": "2026-05-28",
+  "generateCompletedAt": "2026-05-28",
+  "wireCompletedAt": "2026-05-28",
+  "roundtripCompletedAt": "2026-05-28",
+  "blockCount": 5,
+  "fragmentCount": 2,
+  "localUrl": "http://localhost:3237/drafts/aman.html",
+  "productionUrl": "https://test-sf-blocks-03--snowflake-demos--aemcoder.aem.page/test-sf-blocks-03/aman",
+  "daEditorUrl": "https://da.live/edit#/aemcoder/snowflake-demos/test-sf-blocks-03/aman"
 }
