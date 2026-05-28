@@ -4,6 +4,20 @@ Findings from completed snowflake runs that apply to any future project, regardl
 
 ---
 
+## 2026-05-28 — Drop `header { height: 0 }` when using a custom sticky header
+
+The EDS boilerplate `styles.css` includes `header { height: 0; }`. This is intentional for
+the stock EDS nav block, which sets `--nav-height` and accounts for it. But for block-level
+snowflake projects that ship a custom sticky header fragment (not the stock nav), this rule
+collapses the `<header>` element to zero height, causing `<main>` to start at page-top and
+the sticky header bar to overlap the first content section (usually the hero).
+
+**Rule:** when the source design has its own sticky header (not EDS nav-block), remove
+`header { height: 0; }` from `styles/styles.css` during Phase 3 (B.1 — global styles
+extraction).
+
+---
+
 ## 2026-05-28 — `aem content clone` syntax
 
 `aem content clone` takes `--path` as a flag, NOT positional args.
