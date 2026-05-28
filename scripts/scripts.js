@@ -114,6 +114,27 @@ function decorateButtons(main) {
 }
 
 /**
+ * Wires up data-anim scroll-entrance for elements with [data-anim] attribute.
+ * @param {Element} container The root element to observe within
+ */
+function decorateAnimations(container) {
+  const elements = container.querySelectorAll('[data-anim]');
+  if (!elements.length) return;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
+  elements.forEach((el) => observer.observe(el));
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -125,6 +146,8 @@ export function decorateMain(main) {
   decorateBlocks(main);
   decorateButtons(main);
 }
+
+export { decorateAnimations };
 
 /**
  * Loads everything needed to get to LCP.

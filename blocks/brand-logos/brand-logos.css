@@ -1,0 +1,63 @@
+/* stylelint-disable selector-class-pattern */
+.brand-logos-container .brand-logos-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.brand-logos {
+  background: var(--color-page);
+  padding: var(--sp-xxl) 0;
+  border-top: 1px solid rgb(39 39 39 / 8%);
+  border-bottom: 1px solid rgb(39 39 39 / 8%);
+}
+
+.brand-logos__head {
+  text-align: center;
+  margin-bottom: var(--sp-xl);
+}
+
+.brand-logos__eyebrow {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-body);
+  display: inline-block;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--color-cat-yellow);
+}
+
+.logo-track {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--sp-xl);
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.logo-track img {
+  max-height: 64px;
+  width: auto;
+  margin: 0 auto;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: opacity 220ms var(--ease-out), filter 220ms var(--ease-out);
+}
+
+.logo-track img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+@media (width <= 1024px) {
+  .logo-track { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (width <= 640px) {
+  .logo-track {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-md);
+  }
+}

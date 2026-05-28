@@ -1,0 +1,11 @@
+{
+  "nnn": "001",
+  "slug": "wheelercat",
+  "branch": "wheelercat-001",
+  "daPath": "/test-sf-blocks-04/wheelercat",
+  "conversionLevel": "block-level",
+  "assetStrategy": "da-media",
+  "phase": "capture",
+  "phaseStatus": "complete",
+  "captureCompletedAt": "2026-05-28"
+}

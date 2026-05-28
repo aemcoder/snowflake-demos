@@ -1,0 +1,123 @@
+/* stylelint-disable selector-class-pattern */
+.services-container .services-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.services {
+  background: var(--color-page);
+  padding: var(--sp-section) 0;
+}
+
+.services__head {
+  text-align: center;
+  margin-bottom: var(--sp-xxl);
+}
+
+.services__eyebrow {
+  color: var(--color-cat-yellow);
+  display: inline-block;
+  margin-bottom: var(--sp-sm);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--color-cat-yellow);
+}
+
+.services__title { color: var(--color-heading); }
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--sp-md);
+}
+
+.service-tile {
+  position: relative;
+  background: var(--color-surface-dark);
+  color: var(--color-text-on-dark);
+  border-radius: var(--r-primary);
+  padding: var(--sp-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+  min-height: 240px;
+  text-decoration: none;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.service-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 400ms var(--ease-out-expo);
+  z-index: -2;
+}
+
+.service-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgb(18 18 18 / 82%) 0%,
+    rgb(18 18 18 / 55%) 50%,
+    rgb(18 18 18 / 30%) 100%
+  );
+  opacity: 0;
+  transition: opacity 400ms var(--ease-out-expo);
+  z-index: -1;
+}
+
+.service-tile:hover,
+.service-tile:focus-visible { outline: none; }
+
+.service-tile:hover::before,
+.service-tile:focus-visible::before,
+.service-tile.is-revealed::before { opacity: 1; }
+
+.service-tile:hover::after,
+.service-tile:focus-visible::after,
+.service-tile.is-revealed::after { opacity: 1; }
+
+.service-tile--field::before { background-image: url("https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/I7A0069-f55d9f.webp"); }
+.service-tile--shop::before { background-image: url("https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/Wheeler_Campus-0d3589.webp"); }
+.service-tile--parts::before { background-image: url("https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/CM2022040-2b9745.webp"); }
+.service-tile--maint::before { background-image: url("https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/Excavators-24bfa6.webp"); }
+.service-tile--rebuilds::before { background-image: url("https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/reliable-v3-scaled-c2c1e1.jpg"); }
+.service-tile--online::before { background-image: url("https://content.da.live/aemcoder/snowflake-demos/media/wheelercat-home/media/aerial_resource-e5e159.webp"); }
+
+.service-tile__icon {
+  font-size: 40px;
+  color: var(--color-cat-yellow);
+  line-height: 1;
+  transition: transform 300ms var(--ease-out);
+}
+
+.service-tile:hover .service-tile__icon { transform: scale(1.1); }
+
+.service-tile__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--color-text-on-dark);
+  margin-top: auto;
+  text-wrap: balance;
+}
+
+.services__footer {
+  margin-top: var(--sp-xxl);
+  text-align: center;
+}
+
+@media (width <= 1024px) {
+  .services__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (width <= 640px) {
+  .services__grid { grid-template-columns: repeat(2, 1fr); }
+}
