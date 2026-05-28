@@ -1,0 +1,26 @@
+.rewards-cta-band-container .rewards-cta-band-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.rewards-cta-band {
+  background: var(--color-bay-deep);
+  padding: calc(var(--section-padding) * 1.25) var(--spacing-lg);
+  text-align: center;
+}
+
+.rewards-cta-band .container {
+  max-width: 720px;
+}
+
+.rewards-cta-band .editorial {
+  font-size: clamp(2rem, 4vw, 3.052rem);
+  color: var(--color-steam);
+  margin-bottom: var(--spacing-md);
+}
+
+.rewards-cta-band p {
+  color: var(--color-text-on-bay-mute);
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-lg);
+}

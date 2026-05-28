@@ -17,6 +17,9 @@ import {
  * @param {Element} main The container element
  */
 function buildHeroBlock(main) {
+  // An authored `.hero` block is present (block-level conversion) — don't
+  // synthesize a duplicate from the first h1 + picture.
+  if (main.querySelector('.hero')) return;
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
   // eslint-disable-next-line no-bitwise

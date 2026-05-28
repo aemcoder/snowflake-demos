@@ -1,0 +1,105 @@
+{
+  "levelParam": "block",
+  "conversionLevel": "block-level",
+  "templateName": "frescopa-block",
+  "pageSlug": "home-a",
+  "brand": "frescopa",
+  "synthesizeMain": true,
+  "sourceHasMain": false,
+  "daInteraction": "aem content",
+  "feasibility": {
+    "recommendation": "block-level",
+    "note": "All 6 content sections pass all 5 checks. Source is the canonical block-level example (Stardust, clean section boundaries, per-section CSS, zero JS).",
+    "sections": [
+      { "name": "promo-strip", "level": "fragment", "role": "header" },
+      { "name": "site-header", "level": "fragment", "role": "header" },
+      { "name": "hero", "level": "block", "checks": { "structure": "pass", "cssScope": "pass", "contentModel": "pass", "jsIndependence": "pass", "visualIndependence": "pass" } },
+      { "name": "shop-categories", "level": "block", "checks": { "structure": "pass", "cssScope": "pass", "contentModel": "pass", "jsIndependence": "pass", "visualIndependence": "pass" } },
+      { "name": "subscription-card-on-bay", "level": "block", "checks": { "structure": "pass", "cssScope": "pass", "contentModel": "pass", "jsIndependence": "pass", "visualIndependence": "pass" } },
+      { "name": "locations-finder", "level": "block", "checks": { "structure": "pass", "cssScope": "pass", "contentModel": "pass — form is structural (decorator-generated)", "jsIndependence": "pass", "visualIndependence": "pass" } },
+      { "name": "featured-coffee", "level": "block", "checks": { "structure": "pass", "cssScope": "pass", "contentModel": "pass", "jsIndependence": "pass", "visualIndependence": "pass — own porcelain ground" } },
+      { "name": "rewards-cta-band", "level": "block", "checks": { "structure": "pass", "cssScope": "pass", "contentModel": "pass", "jsIndependence": "pass", "visualIndependence": "pass" } },
+      { "name": "site-footer", "level": "fragment", "role": "footer" }
+    ]
+  },
+  "assetStrategy": "absolute",
+  "assetBase": "https://stardust.style/samples/frescopa/",
+  "assetNote": "Source publicly hosted & reachable; all 9 image assets return 200. No vendoring (hero bg alone is 1.2 MB). EDS sideloads <img> into Media Bus on first preview. CSS background-image refs use absolute URLs.",
+  "headLinks": [
+    { "rel": "preconnect", "href": "https://fonts.googleapis.com" },
+    { "rel": "preconnect", "href": "https://fonts.gstatic.com", "crossorigin": "" },
+    { "rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Martian+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@1,144,800..900&display=swap" }
+  ],
+  "inlineStyleLines": [40, 612],
+  "inlineScriptLines": [],
+  "externalLibs": [],
+  "fonts": { "strategy": "cdn-google", "head": true, "fontsCssEmpty": true },
+  "globalStyles": {
+    "rootTokens": "lines 41-106 (colors, type families, type scale, spacing, radii)",
+    "responsiveTokenOverrides": "lines 108-113 (--section-padding at 1024px/720px)",
+    "base": "lines 115-130 (reset, body, img, a, button)",
+    "typography": "lines 132-158 (h1-h4, .editorial, .editorial-sm, .label, .catalog)",
+    "sharedComponents": "lines 164-211 (.btn variants, .eyebrow)",
+    "reducedMotion": "lines 609-611",
+    "edsResets": "body>header/footer padding reset (prior-run learning); full-bleed section/wrapper overrides; header height auto"
+  },
+  "blocks": [
+    {
+      "name": "hero",
+      "cssLines": [293, 360],
+      "fullBleed": true,
+      "contentModel": "row0: bg <img> (hero-B-generated.png) → --hero-bg custom prop; row1: eyebrow text; row2: <h1> (with <em>); row3: subhead text; row4: primary CTA; row5: secondary CTA",
+      "primaryBtnClass": "btn-primary-on-bay",
+      "secondaryBtnClass": "btn-secondary",
+      "notes": "bg is CSS background-image with gradient scrim; decorator sets --hero-bg from authored img so media queries keep the gradient. <em> inside h1 preserved (Gilt accent)."
+    },
+    {
+      "name": "shop-categories",
+      "cssLines": [362, 412],
+      "fullBleed": true,
+      "contentModel": "row0: eyebrow | h2 (header-row); rows1-5: card img | title-link | catalog-line",
+      "cards": 5,
+      "notes": "Each card is <a class=category-card> wrapping img-wrap+title+catalog. Title cell carries the href → whole card clickable."
+    },
+    {
+      "name": "subscription-card-on-bay",
+      "cssLines": [414, 454],
+      "fullBleed": true,
+      "contentModel": "row0: eyebrow; row1: h3.editorial; row2: p; row3: primary CTA; row4: image (right)",
+      "primaryBtnClass": "btn-primary-on-bay",
+      "notes": "Inner .card is bay-deep rounded 2-col grid (content | photo-frame)."
+    },
+    {
+      "name": "locations-finder",
+      "cssLines": [456, 484],
+      "fullBleed": true,
+      "contentModel": "row0: eyebrow; row1: h2; row2: p; row3: search placeholder text; row4: submit-button CTA (label + action href)",
+      "primaryBtnClass": "btn-primary-on-bay",
+      "notes": "Form is structural — decorator generates <form action> with text input + submit button. Placeholder + button label + action are authored."
+    },
+    {
+      "name": "featured-coffee",
+      "cssLines": [486, 518],
+      "fullBleed": true,
+      "porcelainGround": true,
+      "contentModel": "row0: image (left); row1: eyebrow; row2: h3.editorial; row3: p; row4: primary CTA",
+      "primaryBtnClass": "btn-primary-on-porcelain",
+      "notes": "Porcelain bg — the single light-ground section. Image is LEFT, content RIGHT (2-col grid)."
+    },
+    {
+      "name": "rewards-cta-band",
+      "cssLines": [520, 536],
+      "fullBleed": true,
+      "contentModel": "row0: eyebrow; row1: h2.editorial; row2: p; row3: primary CTA",
+      "primaryBtnClass": "btn-primary-on-bay",
+      "notes": "Centered band on bay-deep."
+    }
+  ],
+  "fragments": {
+    "header": { "file": "fragments/frescopa/header.html", "cssLines": [[213, 235], [237, 291]], "contents": "promo-strip <header> + site-header <header> (sticky nav, logo, 6 nav links, 3 icon buttons, sign-in)" },
+    "footer": { "file": "fragments/frescopa/footer.html", "cssLines": [538, 606], "contents": "5-col grid: brand+contact, Machines, Coffee, Tea&Accessories, About; legal bar" }
+  },
+  "strip": ["stardust:provenance comment (lines 4-32) — keep out of fragments/blocks"],
+  "scriptsJsChange": "buildHeroBlock early-return if main.querySelector('.hero') exists (authored hero block present)",
+  "metadata": { "title": "Frescopa — Coffee, Tea & Accessories", "description": "Experience the bright, citrusy notes and smooth finish of Morning Muse Light Roast. A perfect start to any day." }
+}

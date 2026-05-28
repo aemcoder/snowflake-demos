@@ -5,33 +5,80 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  background-color: var(--color-bay);
+  background-image:
+    linear-gradient(90deg, rgb(0 55 68 / 65%) 0%, rgb(0 70 88 / 35%) 35%, rgb(0 70 88 / 5%) 65%, rgb(0 70 88 / 0%) 90%),
+    var(--hero-bg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: calc(var(--section-padding) * 1.75) clamp(24px, 5vw, 80px);
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+}
+
+.hero .container {
+  max-width: none;
+  margin: 0;
+  width: 100%;
+}
+
+.hero .content {
+  max-width: 720px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+  font-family: Fraunces, georgia, serif;
+  font-style: italic;
+  font-weight: 900;
+  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: var(--color-steam);
+  margin-bottom: var(--spacing-lg);
+  max-width: 14ch;
+  text-shadow: 0 4px 32px rgb(0 30 38 / 35%);
 }
 
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+.hero h1 em {
+  font-style: italic;
+  color: var(--color-gilt);
+  font-weight: 900;
 }
 
-.hero img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+.hero .subhead {
+  font-family: var(--editorial-font-family);
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--color-porcelain);
+  margin-bottom: var(--spacing-xl);
+  max-width: 50ch;
+  text-shadow: 0 1px 16px rgb(0 30 38 / 40%);
 }
 
-@media (width >= 900px) {
+.hero .eyebrow {
+  color: var(--color-gilt);
+  border-bottom-color: var(--color-gilt);
+}
+
+.hero .ctas {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+@media (width <= 720px) {
   .hero {
-    padding: 40px 32px;
+    background-image:
+      linear-gradient(180deg, rgb(0 55 68 / 55%) 0%, rgb(0 70 88 / 30%) 40%, rgb(0 70 88 / 10%) 70%, rgb(0 70 88 / 0%) 100%),
+      var(--hero-bg);
+    min-height: 520px;
+    background-position: 70% center;
   }
 }

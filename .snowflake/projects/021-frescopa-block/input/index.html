@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- stardust:provenance
+  writtenBy:         stardust:prototype
+  renderedVia:       stardust-direct (impeccable craft delegation deferred — see direction.md)
+  writtenAt:         2026-04-30T12:30:00Z
+  page:              home
+  variant:           B
+  pageUrl:           https://frescopa.coffee/
+  proposedFile:      ./home-B-proposed.html
+  againstDirection:  stardust/direction.md (Active 2026-04-30T11:30:00Z)
+  readArtifacts:
+    - stardust/current/pages/home.json
+    - stardust/current/assets/media/_map.json
+    - DESIGN-B.md
+    - DESIGN-B.json
+    - PRODUCT.md
+    - stardust/prototypes/home-B-shape.md
+  divergenceVersion: v1.0 (stardust v2)
+  fontDeck:          bauhaus-functional (+ Cormorant Garamond off-deck, + IBM Plex Sans off-deck)
+  paletteSource:     pinned + amplification (Bay #00647D as ground; Roast #58181D pinned; Tannin/Gilt added; cream + maroon + amber dropped)
+  amplifiedTrait:    saturated-teal-as-page-substrate (the under-deployed teal becomes the brand's wall color)
+  iteratedAt:        2026-04-30T13:00:00Z (hero photography added — generated via gemini-3-pro-image-preview through fal.ai; 16:9, deep-teal-wall composition with espresso cup on walnut counter; preserves typographic identity with directional gradient scrim)
+  iteratedAt:        2026-04-30T14:45:00Z (hero H1 typographic move — picked variant 1 "editorial italic" from home-B-hero-explorations.html; Fraunces 900 italic at 144 opsz, clamp(3.5rem, 10vw, 8rem), "perfect" rendered in Gilt as accent break; Fraunces added to font import; off-deck addition justified per § hero-uniqueness iteration request — Fraunces is from the editorial-archival deck, used here for display-italic register that Space Grotesk geometric cannot reach)
+  generatedAssets:
+    - hero-B-generated.png (1.3 MB, 16:9, gemini-3-pro-image-preview via fal.ai)
+  fontDeckAdditions:
+    - Fraunces (variable, italic axis, 144 opsz, weight 800-900) — from editorial-archival deck; hero-only usage; preserves bauhaus-functional + Cormorant for the rest of the page
+  unsourcedContent:  []
+  stardustVersion:   0.2.0
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frescopa — Coffee, Tea & Accessories</title>
+<meta name="description" content="Experience the bright, citrusy notes and smooth finish of Morning Muse Light Roast. A perfect start to any day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Martian+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@1,144,800..900&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* === DESIGN-B.json color tokens (hex) === */
+  --color-bay:               #00647D;
+  --color-bay-deep:          #004658;
+  --color-bay-dark:          #003744;
+  --color-porcelain:         #F2F2F0;
+  --color-porcelain-warm:    #EDE8DF;
+  --color-steam:             #FFFFFF;
+  --color-roast:             #58181D;
+  --color-roast-light:       #7B2A30;
+  --color-espresso:          #1A1A1A;
+  --color-text-mute:         #4A4644;
+  --color-text-on-bay:       #F2F2F0;
+  --color-text-on-bay-mute:  #A8C3CD;
+  --color-tannin:            #C95942;
+  --color-gilt:              #E5B560;
+  --color-ash:               #3D2A1F;
+  --color-rule-on-bay:       #4A8294;
+  --color-rule-on-porcelain: #D8D4CD;
+
+  /* === Token-contract.md required interface === */
+  --color-bg:     var(--color-bay);
+  --color-fg:     var(--color-text-on-bay);
+  --color-accent: var(--color-tannin);
+
+  /* === Type families === */
+  --display-font-family:    'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --editorial-font-family:  'Cormorant Garamond', Georgia, serif;
+  --body-font-family:       'IBM Plex Sans', system-ui, sans-serif;
+  --catalog-font-family:    'Martian Mono', 'JetBrains Mono', Menlo, monospace;
+  --mono-font-family:       'Martian Mono', 'JetBrains Mono', Menlo, monospace;
+  --heading-font-family:    var(--display-font-family);
+
+  /* === Type scale (1.25 major-third from 1rem base) === */
+  --heading-xxl:   clamp(2.5rem, 5vw, 3.815rem);
+  --heading-xl:    clamp(2rem, 4vw, 3.052rem);
+  --heading-lg:    clamp(1.75rem, 3.5vw, 2.441rem);
+  --heading-md:    1.953rem;
+  --heading-sm:    1.563rem;
+  --body:          1rem;
+  --body-sm:       0.75rem;
+
+  --line-height-heading: 1.1;
+  --line-height-body:    1.6;
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-label: 0.12em;
+  --letter-spacing-catalog: 0.04em;
+
+  /* === Spacing (4pt base) === */
+  --spacing-xxs: 4px;
+  --spacing-xs:  8px;
+  --spacing-sm:  12px;
+  --spacing-md:  16px;
+  --spacing-lg:  24px;
+  --spacing-xl:  40px;
+  --spacing-2xl: 56px;
+  --spacing-xxl: 56px;
+  --spacing-3xl: 80px;
+
+  --section-padding: 64px;
+  --max-width:       1320px;
+  --radius:          4px;
+  --radius-sm:       2px;
+  --radius-md:       4px;
+  --radius-lg:       12px;
+}
+
+@media (max-width: 1024px) {
+  :root { --section-padding: 48px; }
+}
+@media (max-width: 720px) {
+  :root { --section-padding: 32px; }
+}
+
+/* === Reset and base === */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--body-font-family);
+  font-size: var(--body);
+  font-weight: 400;
+  line-height: var(--line-height-body);
+  color: var(--color-text-on-bay);
+  background: var(--color-bay);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--color-text-on-bay); text-decoration: none; transition: color .15s; }
+a:hover { color: var(--color-tannin); }
+button { font-family: inherit; cursor: pointer; }
+
+/* === Typography === */
+h1, h2, h3, h4 {
+  font-family: var(--display-font-family);
+  font-weight: 500;
+  line-height: var(--line-height-heading);
+  color: var(--color-text-on-bay);
+  letter-spacing: var(--letter-spacing-tight);
+}
+h1 { font-size: var(--heading-xxl); }
+h2 { font-size: var(--heading-lg); }
+h3 { font-size: var(--heading-md); }
+h4 { font-size: var(--heading-sm); }
+
+.editorial { font-family: var(--editorial-font-family); font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; }
+.editorial-sm { font-family: var(--editorial-font-family); font-weight: 500; line-height: 1.5; font-size: 1.25rem; }
+.label {
+  font-family: var(--display-font-family);
+  font-size: var(--body-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-label);
+}
+.catalog {
+  font-family: var(--catalog-font-family);
+  font-size: var(--body-sm);
+  letter-spacing: var(--letter-spacing-catalog);
+}
+
+/* === Layout === */
+section, header, footer { padding: var(--section-padding) var(--spacing-lg); }
+.container { max-width: var(--max-width); margin: 0 auto; }
+
+/* === Components === */
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-family: var(--display-font-family);
+  font-size: var(--body-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-label);
+  text-decoration: none;
+  text-align: center;
+  border: 0;
+  transition: background-color .15s, color .15s;
+  cursor: pointer;
+}
+.btn-primary-on-bay {
+  background: var(--color-steam);
+  color: var(--color-bay-deep);
+}
+.btn-primary-on-bay:hover { background: var(--color-porcelain); color: var(--color-bay-deep); }
+.btn-primary-on-porcelain {
+  background: var(--color-bay);
+  color: var(--color-steam);
+}
+.btn-primary-on-porcelain:hover { background: var(--color-bay-deep); color: var(--color-steam); }
+.btn-secondary {
+  background: transparent;
+  color: var(--color-text-on-bay);
+  border: 1px solid var(--color-text-on-bay-mute);
+}
+.btn-secondary:hover { background: var(--color-bay-deep); color: var(--color-steam); }
+
+/* Eyebrow tag (text + bottom rule, no enclosed pill — DESIGN-B contract) */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--display-font-family);
+  font-size: var(--body-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-label);
+  color: var(--color-tannin);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-tannin);
+  margin-bottom: var(--spacing-md);
+}
+
+/* === SECTION 1: promo-strip === */
+.promo-strip {
+  background: var(--color-bay-dark);
+  color: var(--color-text-on-bay);
+  padding: 8px var(--spacing-lg);
+  text-align: center;
+  font-family: var(--catalog-font-family);
+  font-size: var(--body-sm);
+  letter-spacing: var(--letter-spacing-catalog);
+  height: 28px;
+  display: flex; align-items: center; justify-content: center;
+}
+.promo-strip .container {
+  display: flex; justify-content: center; align-items: center; gap: 16px;
+}
+.promo-strip .promo-text { color: rgba(255,255,255,0.85); }
+.promo-strip .tannin-link {
+  color: var(--color-tannin);
+  text-decoration: none;
+  letter-spacing: var(--letter-spacing-label);
+  text-transform: uppercase;
+}
+.promo-strip .tannin-link:hover { color: var(--color-gilt); }
+
+/* === SECTION 2: header === */
+.site-header {
+  position: sticky;
+  top: 0; z-index: 100;
+  background: var(--color-bay-deep);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.site-header .container {
+  display: flex; align-items: center; gap: var(--spacing-xl);
+}
+.site-header .logo { flex-shrink: 0; }
+.site-header .logo img {
+  width: 140px; height: auto;
+  filter: brightness(0) invert(1);
+}
+.site-header .nav-primary {
+  display: flex; gap: var(--spacing-xl);
+  flex-grow: 1; justify-content: center;
+}
+.site-header .nav-primary a {
+  font-family: var(--display-font-family);
+  font-size: var(--body-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-label);
+  color: var(--color-text-on-bay);
+  padding: 4px 0;
+  position: relative;
+}
+.site-header .nav-primary a:hover { color: var(--color-tannin); }
+.site-header .nav-primary a:hover::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -2px;
+  height: 2px; background: var(--color-tannin);
+}
+.site-header .nav-secondary {
+  display: flex; align-items: center; gap: var(--spacing-md);
+}
+.site-header .icon-btn {
+  background: transparent; border: 0; padding: 8px;
+  color: var(--color-text-on-bay); cursor: pointer; line-height: 1;
+}
+.site-header .icon-btn:hover { color: var(--color-tannin); }
+.site-header .icon-btn svg { width: 20px; height: 20px; display: block; }
+.site-header .signin {
+  font-family: var(--display-font-family);
+  font-size: var(--body-sm); font-weight: 500;
+  text-transform: uppercase; letter-spacing: var(--letter-spacing-label);
+  color: var(--color-text-on-bay);
+}
+.site-header .signin:hover { color: var(--color-tannin); }
+@media (max-width: 1024px) {
+  .site-header .nav-primary { display: none; }
+  .site-header .container { justify-content: space-between; }
+}
+
+/* === SECTION 3: hero (full-width photographic on Bay; iterated 2026-04-30) === */
+.hero {
+  position: relative;
+  background-color: var(--color-bay);
+  background-image:
+    linear-gradient(90deg, rgba(0, 55, 68, 0.65) 0%, rgba(0, 70, 88, 0.35) 35%, rgba(0, 70, 88, 0.05) 65%, rgba(0, 70, 88, 0) 90%),
+    url('assets/media/hero-B-generated.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: calc(var(--section-padding) * 1.75) clamp(24px, 5vw, 80px);
+  min-height: 640px;
+  display: flex; align-items: center;
+}
+.hero .container {
+  max-width: none;
+  margin: 0;
+  width: 100%;
+}
+.hero .content {
+  max-width: 720px;
+  position: relative;
+  z-index: 1;
+}
+.hero h1 {
+  /* Editorial-italic treatment — Fraunces 900 italic at 144 optical size, "perfect" in Gilt */
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 900;
+  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: var(--color-steam);
+  margin-bottom: var(--spacing-lg);
+  max-width: 14ch;
+  text-shadow: 0 4px 32px rgba(0, 30, 38, 0.35);
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--color-gilt);
+  font-weight: 900;
+}
+.hero .subhead {
+  font-family: var(--editorial-font-family);
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--color-porcelain);
+  margin-bottom: var(--spacing-xl);
+  max-width: 50ch;
+  text-shadow: 0 1px 16px rgba(0, 30, 38, 0.4);
+}
+.hero .eyebrow {
+  color: var(--color-gilt);
+  border-bottom-color: var(--color-gilt);
+}
+.hero .ctas { display: flex; gap: var(--spacing-md); flex-wrap: wrap; }
+@media (max-width: 720px) {
+  .hero {
+    background-image:
+      linear-gradient(180deg, rgba(0, 55, 68, 0.55) 0%, rgba(0, 70, 88, 0.30) 40%, rgba(0, 70, 88, 0.10) 70%, rgba(0, 70, 88, 0) 100%),
+      url('assets/media/hero-B-generated.png');
+    min-height: 520px;
+    background-position: 70% center;
+  }
+}
+
+/* === SECTION 4: shop-categories (Bay ground, Porcelain cards) === */
+.shop-categories {
+  background: var(--color-bay);
+  padding: var(--section-padding) var(--spacing-lg);
+}
+.shop-categories .header-row { margin-bottom: var(--spacing-3xl); }
+.shop-categories h2 { color: var(--color-steam); margin-bottom: var(--spacing-sm); max-width: 24ch; }
+.shop-categories .grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing-lg);
+}
+.category-card {
+  background: var(--color-porcelain);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  text-align: left;
+  text-decoration: none;
+  color: var(--color-espresso);
+  transition: transform .15s, background .15s;
+  display: flex; flex-direction: column; gap: var(--spacing-md);
+}
+.category-card:hover { background: var(--color-steam); transform: translateY(-2px); color: var(--color-espresso); }
+.category-card .img-wrap {
+  aspect-ratio: 1/1;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--color-porcelain-warm);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.category-card img { max-width: 75%; max-height: 75%; object-fit: contain; }
+.category-card .card-title {
+  font-family: var(--display-font-family);
+  font-size: var(--heading-sm);
+  font-weight: 500;
+  color: var(--color-espresso);
+  letter-spacing: -0.01em;
+}
+.category-card .catalog-line {
+  font-family: var(--catalog-font-family);
+  font-size: var(--body-sm);
+  letter-spacing: var(--letter-spacing-catalog);
+  color: var(--color-text-mute);
+  text-transform: uppercase;
+}
+@media (max-width: 1024px) {
+  .shop-categories .grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 720px) {
+  .shop-categories .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* === SECTION 5: subscription-card-on-bay === */
+.subscription-card-on-bay {
+  background: var(--color-bay);
+  padding: var(--section-padding) var(--spacing-lg);
+}
+.subscription-card-on-bay .card {
+  background: var(--color-bay-deep);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-3xl) var(--spacing-3xl);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3xl);
+  align-items: center;
+}
+.subscription-card-on-bay .card .editorial {
+  font-size: clamp(2rem, 4vw, 3.052rem);
+  color: var(--color-steam);
+  margin-bottom: var(--spacing-md);
+  max-width: 14ch;
+}
+.subscription-card-on-bay .card p {
+  font-size: 1.125rem;
+  color: var(--color-text-on-bay-mute);
+  margin-bottom: var(--spacing-lg);
+  max-width: 48ch;
+}
+.subscription-card-on-bay .photo-frame {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4/5;
+}
+.subscription-card-on-bay .photo-frame img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+}
+@media (max-width: 1024px) {
+  .subscription-card-on-bay .card {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-xl);
+  }
+  .subscription-card-on-bay .photo-frame { aspect-ratio: 16/10; }
+}
+
+/* === SECTION 6: locations-finder === */
+.locations-finder {
+  background: var(--color-bay);
+  padding: var(--section-padding) var(--spacing-lg);
+  text-align: center;
+}
+.locations-finder .container { max-width: 720px; }
+.locations-finder h2 { color: var(--color-steam); margin-bottom: var(--spacing-sm); }
+.locations-finder p { color: var(--color-text-on-bay-mute); margin-bottom: var(--spacing-lg); }
+.locations-finder .search-row {
+  display: flex; gap: var(--spacing-sm); align-items: stretch;
+  max-width: 520px; margin: 0 auto;
+  flex-wrap: wrap; justify-content: center;
+}
+.locations-finder input[type="text"] {
+  flex: 1; min-width: 240px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 0;
+  background: var(--color-bay-deep);
+  font-family: var(--catalog-font-family);
+  font-size: var(--body-sm);
+  letter-spacing: var(--letter-spacing-catalog);
+  color: var(--color-text-on-bay);
+}
+.locations-finder input[type="text"]:focus {
+  outline: 2px solid var(--color-tannin); outline-offset: 0;
+}
+.locations-finder input[type="text"]::placeholder { color: var(--color-text-on-bay-mute); }
+
+/* === SECTION 7: featured-coffee (Porcelain ground — single substrate exception) === */
+.featured-coffee {
+  background: var(--color-porcelain);
+  padding: var(--section-padding) var(--spacing-lg);
+}
+.featured-coffee .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3xl);
+  align-items: center;
+}
+.featured-coffee .photo-frame {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.featured-coffee .photo-frame img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+}
+.featured-coffee .editorial {
+  color: var(--color-roast);
+  font-size: clamp(1.75rem, 3.5vw, 2.441rem);
+  margin-bottom: var(--spacing-md);
+}
+.featured-coffee p {
+  color: var(--color-espresso);
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-lg);
+  max-width: 48ch;
+}
+@media (max-width: 1024px) {
+  .featured-coffee .container { grid-template-columns: 1fr; }
+}
+
+/* === SECTION 8: rewards-cta-band === */
+.rewards-cta-band {
+  background: var(--color-bay-deep);
+  padding: calc(var(--section-padding) * 1.25) var(--spacing-lg);
+  text-align: center;
+}
+.rewards-cta-band .container { max-width: 720px; }
+.rewards-cta-band .editorial {
+  font-size: clamp(2rem, 4vw, 3.052rem);
+  color: var(--color-steam);
+  margin-bottom: var(--spacing-md);
+}
+.rewards-cta-band p {
+  color: var(--color-text-on-bay-mute);
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* === SECTION 9: footer === */
+.site-footer {
+  background: var(--color-bay-dark);
+  color: var(--color-text-on-bay);
+  padding: var(--section-padding) var(--spacing-lg) var(--spacing-lg);
+}
+.site-footer .container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  gap: var(--spacing-3xl);
+  margin-bottom: var(--spacing-3xl);
+}
+.site-footer .brand .logo img {
+  width: 180px; height: auto;
+  filter: brightness(0) invert(1);
+  margin-bottom: var(--spacing-md);
+}
+.site-footer .brand .tagline {
+  font-family: var(--editorial-font-family);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--color-text-on-bay-mute);
+  margin-bottom: var(--spacing-md);
+}
+.site-footer .brand .contact {
+  font-family: var(--catalog-font-family);
+  font-size: var(--body-sm);
+  letter-spacing: var(--letter-spacing-catalog);
+  color: var(--color-text-on-bay-mute);
+  line-height: 1.8;
+  font-style: normal;
+}
+.site-footer .brand .contact a { color: var(--color-text-on-bay); }
+.site-footer .col-heading {
+  font-family: var(--display-font-family);
+  font-size: var(--body-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-label);
+  color: var(--color-tannin);
+  margin-bottom: var(--spacing-md);
+}
+.site-footer .col-links { list-style: none; }
+.site-footer .col-links li { margin-bottom: var(--spacing-xs); }
+.site-footer .col-links a {
+  font-family: var(--catalog-font-family);
+  font-size: var(--body-sm);
+  letter-spacing: var(--letter-spacing-catalog);
+  color: var(--color-text-on-bay-mute);
+  display: inline-block;
+  padding: 4px 0;
+}
+.site-footer .col-links a:hover { color: var(--color-text-on-bay); }
+.site-footer .legal {
+  border-top: 1px solid var(--color-rule-on-bay);
+  padding-top: var(--spacing-md);
+  font-family: var(--catalog-font-family);
+  font-size: 11px;
+  letter-spacing: var(--letter-spacing-catalog);
+  color: var(--color-text-on-bay-mute);
+  text-align: center;
+}
+.site-footer .legal a { color: var(--color-text-on-bay-mute); }
+@media (max-width: 1024px) {
+  .site-footer .container { grid-template-columns: 1fr 1fr; gap: var(--spacing-xl); }
+}
+@media (max-width: 720px) {
+  .site-footer .container { grid-template-columns: 1fr; }
+}
+
+/* === Reduced motion === */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body data-template="landing">
+
+<!-- 1. promo-strip -->
+<header data-section="promo-strip" data-intent="cross-promo" data-layout="full-bleed" class="promo-strip">
+  <div class="container">
+    <span class="promo-text">FREE SHIPPING FROM $35 WITH CODE FRESCOPA</span>
+    <a href="/coffee" class="tannin-link">Shop now</a>
+  </div>
+</header>
+
+<!-- 2. header -->
+<header data-section="header" data-intent="navigate" data-layout="full-bleed" class="site-header">
+  <div class="container">
+    <a href="/" class="logo" aria-label="Frescopa, home">
+      <img src="assets/logo.svg" alt="Frescopa">
+    </a>
+    <nav class="nav-primary" aria-label="Primary">
+      <a href="/coffee">Coffee</a>
+      <a href="/tea">Tea</a>
+      <a href="/machines">Machines</a>
+      <a href="/accessories">Accessories</a>
+      <a href="/locations">Locations</a>
+      <a href="/sustainability">Sustainability</a>
+    </nav>
+    <div class="nav-secondary">
+      <button class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></button>
+      <button class="icon-btn" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 7h13l-1.5 9h-10z"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/><path d="M3 4h2l1 3"/></svg></button>
+      <a href="/login?redirect=%2F" class="signin">Sign in</a>
+    </div>
+  </div>
+</header>
+
+<!-- 3. hero (full-width photographic on Bay; image generated via gemini-3-pro-image-preview 2026-04-30) -->
+<section data-section="hero" data-intent="primary-action-quiz" data-layout="full-bleed" data-media="image" class="hero">
+  <div class="container">
+    <div class="content">
+      <span class="eyebrow">MyBarista coffee quiz</span>
+      <h1>Find your <em>perfect</em> coffee in four questions.</h1>
+      <p class="subhead">Four questions, your roast.</p>
+      <div class="ctas">
+        <a href="/quiz" class="btn btn-primary-on-bay">Take the quiz</a>
+        <a href="/coffee" class="btn btn-secondary">Browse coffee</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. shop-categories -->
+<section data-section="shop-categories" data-intent="discovery" data-layout="grid" data-items="5" data-media="image" class="shop-categories">
+  <div class="container">
+    <div class="header-row">
+      <span class="eyebrow">Shop</span>
+      <h2>Shop all Frescopa products.</h2>
+    </div>
+    <div class="grid">
+      <a href="/machines" class="category-card">
+        <div class="img-wrap"><img src="assets/media/339b7a58_media_18d90d06cb150321e2b7de19e82a9818c57b1eaaa.png" alt="A Frescopa coffee machine"></div>
+        <span class="card-title">Coffee Machines</span>
+        <span class="catalog-line">MACHINES</span>
+      </a>
+      <a href="/coffee" class="category-card">
+        <div class="img-wrap"><img src="assets/media/c4251005_media_11f2acc820929d908638cf3f7f133c5ac9792a560.png" alt="A bag of Frescopa whole-bean coffee"></div>
+        <span class="card-title">Bagged Coffee</span>
+        <span class="catalog-line">COFFEE · WHOLE BEAN</span>
+      </a>
+      <a href="/coffee" class="category-card">
+        <div class="img-wrap"><img src="assets/media/604aa0d1_media_1611a15fc05b259399fa254f961f08b9f7804cd23.png" alt="A box of Frescopa coffee pods"></div>
+        <span class="card-title">Coffee Pods</span>
+        <span class="catalog-line">COFFEE · SINGLE-SERVE</span>
+      </a>
+      <a href="/coffee" class="category-card">
+        <div class="img-wrap"><img src="assets/media/bba1fdc3_media_1b4036e97de71a31f998526cf47deb2999dbaee87.png" alt="A Frescopa starter bundle"></div>
+        <span class="card-title">Bundles</span>
+        <span class="catalog-line">CURATED SETS</span>
+      </a>
+      <a href="/accessories" class="category-card">
+        <div class="img-wrap"><img src="assets/media/5dcf858f_media_1ad953e2b8b4f9e3e3f11e8fb8cedeca7a5ab2343.png" alt="Frescopa brewing accessories"></div>
+        <span class="card-title">Accessories</span>
+        <span class="catalog-line">BREWING TOOLS</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 5. subscription-card-on-bay -->
+<section data-section="subscription-card-on-bay" data-intent="drive-subscription" data-layout="split-media" data-media="image" class="subscription-card-on-bay">
+  <div class="container">
+    <div class="card">
+      <div class="content">
+        <span class="eyebrow">Subscription</span>
+        <h3 class="editorial">Coffee, every week.</h3>
+        <p>With a MyBarista subscription, you get hand-selected coffees delivered right to your door each week.</p>
+        <a href="/subscription" class="btn btn-primary-on-bay">Start your subscription</a>
+      </div>
+      <div class="photo-frame">
+        <img src="assets/media/4828596f_media_142bc7969dd6719789e5d13a853d6e6887c5311c5.png" alt="A MyBarista subscription delivery — coffee bags arriving at the doorstep">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. locations-finder -->
+<section data-section="locations-finder" data-intent="find-store" data-layout="contained" data-interactive="form" class="locations-finder">
+  <div class="container">
+    <span class="eyebrow">Locations</span>
+    <h2>Find a Frescopa near you.</h2>
+    <p>Visit a Frescopa for a fresh cup, a barista chat, or a bag to take home.</p>
+    <form class="search-row" action="/locations" method="get" role="search" aria-label="Find a Frescopa location">
+      <input type="text" name="q" placeholder="ZIP CODE · CITY · STATE" aria-label="Search by ZIP code, city, or state">
+      <button type="submit" class="btn btn-primary-on-bay">Browse all locations</button>
+    </form>
+  </div>
+</section>
+
+<!-- 7. featured-coffee (Porcelain ground exception) -->
+<section data-section="featured-coffee" data-intent="merchandise" data-layout="split-media" data-media="image" class="featured-coffee">
+  <div class="container">
+    <div class="photo-frame">
+      <img src="assets/media/41cdb3eb_media_1990fe27244fdc5d261155cd983f85a56415baf1c.jpg" alt="A cup of Morning Muse Light Roast coffee">
+    </div>
+    <div class="content">
+      <span class="eyebrow">Featured</span>
+      <h3 class="editorial">Elevate your coffee game.</h3>
+      <p>Experience the bright, citrusy notes and smooth finish of Morning Muse Light Roast. A perfect start to any day.</p>
+      <a href="/coffee" class="btn btn-primary-on-porcelain">Shop coffee</a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. rewards-cta-band -->
+<section data-section="rewards-cta-band" data-intent="drive-signup" data-layout="full-bleed" class="rewards-cta-band">
+  <div class="container">
+    <span class="eyebrow">Rewards</span>
+    <h2 class="editorial">Rewards waiting.</h2>
+    <p>Surprise your loved ones with the ultimate coffee experience. Our gift cards are the perfect way to share the joy of Frescopa.</p>
+    <a href="/signup" class="btn btn-primary-on-bay">Claim rewards</a>
+  </div>
+</section>
+
+<!-- 9. footer -->
+<footer data-section="footer" data-intent="navigate" data-layout="grid" data-items="4" class="site-footer">
+  <div class="container">
+    <div class="brand">
+      <a href="/" class="logo" aria-label="Frescopa, home">
+        <img src="assets/logo.svg" alt="Frescopa">
+      </a>
+      <p class="tagline">Smiles one cup at a time.</p>
+      <address class="contact">
+        3900 ADOBE WAY · LEHI · UT 84043<br>
+        <a href="mailto:info@frescopa.coffee">INFO@FRESCOPA.COFFEE</a><br>
+        <a href="tel:+13853450000">(385) 345-0000</a>
+      </address>
+    </div>
+    <div>
+      <p class="col-heading">Machines</p>
+      <ul class="col-links">
+        <li><a href="/machines">Espresso</a></li>
+        <li><a href="/machines">Drip</a></li>
+        <li><a href="/accessories">Pour Over</a></li>
+        <li><a href="/accessories">French Press</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="col-heading">Coffee</p>
+      <ul class="col-links">
+        <li><a href="/coffee">Beans</a></li>
+        <li><a href="/coffee">Pods</a></li>
+        <li><a href="/coffee-beans-guide">Coffee Beans Guide</a></li>
+        <li><a href="/subscription">Subscription</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="col-heading">Tea &amp; Accessories</p>
+      <ul class="col-links">
+        <li><a href="/tea">Tea</a></li>
+        <li><a href="/accessories">Accessories</a></li>
+        <li><a href="/quiz">Coffee Quiz</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="col-heading">About Frescopa</p>
+      <ul class="col-links">
+        <li><a href="/about-us">About Us</a></li>
+        <li><a href="/sustainability">Sustainability</a></li>
+        <li><a href="/business">Business</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal">
+    © FRESCOPA, INC. ALL RIGHTS RESERVED.
+    <a href="/terms">TERMS OF USE</a> ·
+    <a href="/privacy">PRIVACY POLICY</a> ·
+    <a href="/cookies">COOKIE NOTICE</a> ·
+    <a href="/diversity">DIVERSITY &amp; INCLUSION</a> ·
+    <a href="/social-responsibility">SOCIAL RESPONSIBILITY</a>
+  </div>
+</footer>
+
+</body>
+</html>

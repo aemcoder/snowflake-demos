@@ -1,0 +1,7 @@
+{
+  "projectsDir": ".snowflake/projects",
+  "branchPrefix": "sd-",
+  "substrateVersion": null,
+  "substrateInstalled": false,
+  "note": "Block-level conversion uses standard EDS decoration — the overlay substrate (slot writer / template loader) is intentionally NOT installed. Bundled substrate VERSION at time of this run was 1.0.5; it applies only to page-level overlay runs."
+}

@@ -1,20 +1,104 @@
-footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+/* Frescopa footer — 5-column grid + legal bar. Markup comes from the static
+ * fragment at /fragments/frescopa/footer.html. */
+
+footer .site-footer {
+  background: var(--color-bay-dark);
+  color: var(--color-text-on-bay);
+  padding: var(--section-padding) var(--spacing-lg) var(--spacing-lg);
 }
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+footer .site-footer .container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  gap: var(--spacing-3xl);
+  margin-bottom: var(--spacing-3xl);
 }
 
-footer .footer p {
-  margin: 0;
+footer .site-footer .brand .logo img {
+  width: 180px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  margin-bottom: var(--spacing-md);
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+footer .site-footer .brand .tagline {
+  font-family: var(--editorial-font-family);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--color-text-on-bay-mute);
+  margin-bottom: var(--spacing-md);
+}
+
+footer .site-footer .brand .contact {
+  font-family: var(--catalog-font-family);
+  font-size: var(--body-sm);
+  letter-spacing: var(--letter-spacing-catalog);
+  color: var(--color-text-on-bay-mute);
+  line-height: 1.8;
+  font-style: normal;
+}
+
+footer .site-footer .col-heading {
+  font-family: var(--display-font-family);
+  font-size: var(--body-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-label);
+  color: var(--color-tannin);
+  margin-bottom: var(--spacing-md);
+}
+
+footer .site-footer .col-links {
+  list-style: none;
+}
+
+footer .site-footer .col-links li {
+  margin-bottom: var(--spacing-xs);
+}
+
+footer .site-footer .col-links a {
+  font-family: var(--catalog-font-family);
+  font-size: var(--body-sm);
+  letter-spacing: var(--letter-spacing-catalog);
+  color: var(--color-text-on-bay-mute);
+  display: inline-block;
+  padding: 4px 0;
+}
+
+footer .site-footer .legal {
+  border-top: 1px solid var(--color-rule-on-bay);
+  padding-top: var(--spacing-md);
+  font-family: var(--catalog-font-family);
+  font-size: 11px;
+  letter-spacing: var(--letter-spacing-catalog);
+  color: var(--color-text-on-bay-mute);
+  text-align: center;
+}
+
+footer .site-footer .legal a {
+  color: var(--color-text-on-bay-mute);
+}
+
+/* Anchor rules below are higher specificity (0,3,1) than the plain
+ * .col-links a / .legal a rules above (0,2,1); placed after them to satisfy
+ * no-descending-specificity. */
+footer .site-footer .col-links a:hover {
+  color: var(--color-text-on-bay);
+}
+
+footer .site-footer .brand .contact a {
+  color: var(--color-text-on-bay);
+}
+
+@media (width <= 1024px) {
+  footer .site-footer .container {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (width <= 720px) {
+  footer .site-footer .container {
+    grid-template-columns: 1fr;
   }
 }
