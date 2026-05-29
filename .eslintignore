@@ -1,2 +1,6 @@
 helix-importer-ui
 *.min.js
+scripts/*-animations.js
+scripts/*-lenis.js
+scripts/overlay-engine.js
+experiments/
