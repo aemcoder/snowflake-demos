@@ -1,0 +1,2284 @@
+  /* Adobe Clean fonts vendored from the bizpro-hub design source. */
+  @font-face { font-family: 'adobe-clean-display'; src: url("/fonts/86cdac7850.otf") format('opentype'); font-weight: 600; font-style: normal; }
+  @font-face { font-family: 'adobe-clean-display'; src: url("/fonts/a9025161e6.otf") format('opentype'); font-weight: 700; font-style: normal; }
+  @font-face { font-family: 'adobe-clean-display'; src: url("/fonts/c2da5ba976.otf") format('opentype'); font-weight: 800; font-style: normal; }
+  @font-face { font-family: 'adobe-clean'; src: url("/fonts/708e17d2f8.otf") format('opentype'); font-weight: 300; font-style: normal; }
+  @font-face { font-family: 'adobe-clean'; src: url("/fonts/38916e7cb4.otf") format('opentype'); font-weight: 400; font-style: normal; }
+  @font-face { font-family: 'adobe-clean'; src: url("/fonts/492597c3cb.otf") format('opentype'); font-weight: 500; font-style: normal; }
+  @font-face { font-family: 'adobe-clean'; src: url("/fonts/aab77bf505.otf") format('opentype'); font-weight: 700; font-style: normal; }
+
+  /* ───── Design tokens (echoing bizpro-hub) ───────────────────────── */
+  :root {
+    --bg-light:  #ffffff;
+    --bg-dust:   #f5f5f7;
+    --bg-ink:    #0a1024;
+    --bg-soft:   #141b3a;
+    --fg-ink:    #000000;
+    --fg-muted:  rgba(0,0,0,0.64);
+    --fg-on-dark:        #ffffff;
+    --fg-on-dark-muted:  rgba(255,255,255,0.72);
+    --accent:        #3b63fb;
+    --accent-hover:  #274dea;
+    --rule:    rgba(0,0,0,0.08);
+    --rule-dk: rgba(255,255,255,0.10);
+    --radius-card: 24px;
+    --radius-pill: 999px;
+    --font-display: "adobe-clean-display", "Adobe Clean Display", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --font-text:    "adobe-clean", "Adobe Clean", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --pad-x: clamp(20px, 4vw, 64px);
+    --max-w: 1440px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg-light); color: var(--fg-ink); font-family: var(--font-text); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  img, video { max-width: 100%; height: auto; display: block; }
+
+  /* ───── Top nav (bizpro-hub: floating pill with backdrop blur) ────── */
+  :root {
+    --nav-outer-pad: 8px;
+    --s2a-spacing-xs: 8px;
+    --s2a-spacing-md: 16px;
+    --s2a-spacing-lg: 24px;
+    --s2a-spacing-2xl: 40px;
+    --s2a-spacing-4xl: 64px;
+    --s2a-border-radius-md: 16px;
+    --s2a-border-radius-sm: 8px;
+    --s2a-border-radius-999: 999px;
+    --s2a-color-transparent-black-16: rgba(0,0,0,0.16);
+    --s2a-layout-lg: 124px;
+    --grid-margin-sm: 24px;
+  }
+  .nav-wrap {
+    position: fixed; top: 0; left: 0; right: 0;
+    padding: var(--nav-outer-pad) var(--nav-outer-pad) 0;
+    z-index: 200;
+    pointer-events: none;
+  }
+  .nav {
+    height: 64px;
+    backdrop-filter: blur(128px);
+    background: rgba(255,255,255,0.64);
+    border-radius: var(--s2a-border-radius-md);
+    display: flex; align-items: center; justify-content: space-between;
+    padding-inline: var(--s2a-spacing-md);
+    pointer-events: all;
+    transition: box-shadow 0.2s ease;
+  }
+  .nav.scrolled { box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+  .nav__left { display: flex; align-items: center; gap: var(--s2a-spacing-lg); height: 100%; }
+  .nav__logo { display: flex; align-items: center; flex-shrink: 0; }
+  .nav__logo img { width: 67px; height: 16px; max-width: none; }
+  .nav__slash {
+    width: 1px; height: 15px;
+    background: var(--s2a-color-transparent-black-16);
+    flex-shrink: 0;
+  }
+  .nav__links {
+    display: none; list-style: none; align-items: center; height: 100%; gap: 0;
+  }
+  @media (min-width: 900px) { .nav__links { display: flex; } }
+  .nav__links li a {
+    display: flex; align-items: center; gap: 6px;
+    padding: 0 10px; height: 64px;
+    font-size: 14px; font-weight: 700;
+    color: rgba(0,0,0,0.64);
+    position: relative; white-space: nowrap;
+  }
+  .nav__links li a:hover { color: #000; }
+  .nav__links li a.active { color: #000; border-bottom: 2px solid #000; }
+  .nav__right { display: flex; align-items: center; gap: 12px; }
+  .nav__icon-btn {
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    background: none; border: none; cursor: pointer;
+    color: rgba(0,0,0,0.64);
+    border-radius: var(--s2a-border-radius-sm);
+  }
+  .nav__icon-btn:hover { background: rgba(0,0,0,0.05); color: #000; }
+  .btn--sm { height: 32px; padding-inline: 18px; }
+
+  /* ───── Section primitive ────────────────────────────────────────── */
+  .section { padding: clamp(64px, 7vw, 112px) var(--pad-x); }
+  .container { max-width: var(--max-w); margin: 0 auto; }
+
+  /* ───── Buttons (echoing bizpro-hub's .btn family) ───────────────── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    height: 44px; padding: 0 22px; gap: 8px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-text); font-weight: 700; font-size: 14px;
+    border: 1.5px solid transparent; cursor: pointer; white-space: nowrap;
+    transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+  }
+  .btn--primary { background: var(--accent); color: #fff; }
+  .btn--primary:hover { background: var(--accent-hover); }
+  .btn--outline { background: transparent; color: var(--fg-ink); border-color: var(--fg-ink); }
+  .btn--outline:hover { background: rgba(0,0,0,0.04); }
+  .btn--dark { background: var(--fg-ink); color: #fff; border-color: var(--fg-ink); }
+  .btn--dark:hover { background: #1a1a1a; }
+  .btn--ghost-white { background: transparent; color: #fff; border-color: #fff; }
+  .btn--ghost-white:hover { background: rgba(255,255,255,0.08); }
+
+  /* ───── Hero ─────────────────────────────────────────────────────── */
+  .hero { text-align: center; }
+  /* Push hero content 100px further down from the top of the section
+     (logo + heading + body + CTA all shift together). */
+  .hero .container { padding-top: 100px; }
+  .hero__logo { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; font-family: var(--font-display); font-weight: 700; font-size: 20px; }
+  .hero__logo img { width: 28px; height: 28px; }
+  /* H1 styling matches bizpro-hub #heroText: 80px/76px, weight 900,
+     letter-spacing -1.5px. */
+  .hero__title {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(40px, 5.6vw, 80px); line-height: 0.95; letter-spacing: -1.5px;
+    max-width: 1068px; margin: 0 auto 16px;
+  }
+  .hero__body { font-size: 17px; color: var(--fg-muted); max-width: 640px; margin: 0 auto 28px; }
+  .hero__ctas { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 56px; }
+
+  /* Page-load entrance animation — same enterUp keyframe + easing +
+     stagger as bizpro-hub's heroText. Each line slides 24px up while
+     fading in, with 80ms cascade between elements. */
+  @keyframes enterUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero__logo  { animation: enterUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0ms both; }
+  .hero__title { animation: enterUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 80ms both; }
+  .hero__body  { animation: enterUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 160ms both; }
+  .hero__ctas  { animation: enterUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 240ms both; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero__logo, .hero__title, .hero__body, .hero__ctas { animation: none; }
+  }
+  /* When CTAs are the last child of the hero container (no mockup,
+     stickers, or ratings below), drop the trailing margin and shrink
+     the section's bottom padding so sparse heroes don't have dead space. */
+  .hero .container > .hero__ctas:last-child { margin-bottom: 0; }
+  .section.hero:not(:has(.hero__mockup)):not(:has(.ratings)) {
+    padding-bottom: clamp(40px, 4vw, 56px);
+  }
+  .hero__free-tags { display: inline-flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .hero__free-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 600; color: var(--fg-muted);
+  }
+  .hero__free-tag::before { content: "✓"; color: var(--accent); font-weight: 700; }
+  /* Hero mockup with floating "sticker" overlays — port of adobe.com's
+     .ax-columns column-picture block. Stickers sit at corners around the
+     editor screenshot; on hover they fade out, on mouseleave they fly
+     back from center to their corner positions. */
+  .hero__mockup {
+    max-width: 980px; margin: 16px auto 80px;
+    border-radius: var(--radius-card);
+    aspect-ratio: 900 / 528; background: var(--bg-dust);
+    position: relative;
+    isolation: isolate;
+  }
+  .hero__mockup-img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: var(--radius-card); }
+  .hero__sticker {
+    position: absolute;
+    object-fit: contain;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .hero__mockup:hover .hero__sticker { opacity: 0; }
+  .hero__sticker--top-left    { top: -30px; left: 120px; width: 120px; height: auto; }
+  .hero__sticker--top-right   { top: 60px;  right: -30px; width: 85px;  height: auto; }
+  .hero__sticker--bottom-left { bottom: -30px; left: -30px; width: 70px;  height: auto; }
+  .hero__sticker--bottom-right{ bottom: -31px; right: -40px; width: 110px; height: auto; }
+  .hero__sticker--bottom-center {
+    bottom: -15px; left: 80%; transform: translateX(-50%);
+    width: 26px; height: 26px;
+  }
+  /* mouseleave: each overlay flies back from center → its corner (250ms) */
+  .hero__mockup.animating-out .hero__sticker { transition: none; animation-duration: 0.25s; animation-timing-function: ease-out; }
+  .hero__mockup.animating-out .hero__sticker--bottom-left   { animation-name: sticker-to-corner-left; }
+  .hero__mockup.animating-out .hero__sticker--bottom-right  { animation-name: sticker-to-corner-right; }
+  .hero__mockup.animating-out .hero__sticker--bottom-center { animation-name: sticker-to-corner-center; }
+  .hero__mockup.animating-out .hero__sticker--top-left      { animation-name: sticker-to-corner-tl; }
+  .hero__mockup.animating-out .hero__sticker--top-right     { animation-name: sticker-to-corner-tr; }
+  @keyframes sticker-to-corner-left   { 0% { bottom: 50%; left: 50%;  transform: translate(-50%, 50%); } 100% { bottom: -30px; left: -30px; transform: none; } }
+  @keyframes sticker-to-corner-right  { 0% { bottom: 50%; right: 50%; transform: translate(50%, 50%); }  100% { bottom: -30px; right: -30px; transform: none; } }
+  @keyframes sticker-to-corner-center { 0% { bottom: 50%; left: 50%;  transform: translate(-50%, 50%); } 100% { bottom: -15px; left: 80%; transform: translateX(-50%); } }
+  @keyframes sticker-to-corner-tl     { 0% { top: 50%;    left: 50%;  transform: translate(-50%, -50%); } 100% { top: -30px;   left: 120px; transform: none; } }
+  @keyframes sticker-to-corner-tr     { 0% { top: 50%;    right: 50%; transform: translate(50%, -50%); }  100% { top: 60px;    right: -30px; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .hero__mockup:hover .hero__sticker,
+    .hero__mockup.animating-out .hero__sticker { transition: none; animation: none; }
+  }
+
+  /* ───── Hero — split (text-left + asset-right) variant ─────────────
+     Used by adobe.com sub-pages like /products/X/<topic>.html that lead
+     with a two-column hero (eyebrow / headline / body / dual CTAs +
+     supplemental link on the left, single image asset on the right).
+     Distinct from the default `.hero` (centered, with mockup-with-
+     stickers below). Reuses the bizpro `enterUp` keyframe + design
+     tokens. */
+  .hero--split { text-align: left; padding: 30px var(--pad-x) clamp(48px, 6vw, 96px); background: #fff; }
+  .hero--split .container { padding-top: 0; max-width: var(--max-w); }
+  .hero-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: clamp(40px, 6vw, 96px);
+    align-items: center;
+    /* Fill the viewport on first screen so the hero feels anchored,
+       not stranded against the nav. 80px ≈ sticky-nav height; the
+       outer section padding then breathes top + bottom equally. */
+    min-height: calc(100vh - 80px);
+  }
+  .hero-split__copy { max-width: 560px; }
+  .hero-split__eyebrow {
+    text-transform: uppercase; letter-spacing: 0.6px;
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 14px; color: var(--fg-ink);
+    margin: 0 0 24px;
+  }
+  .hero-split__title {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(40px, 4.6vw, 64px); line-height: 1.04; letter-spacing: -1px;
+    margin: 0 0 24px;
+  }
+  .hero-split__body { font-size: 17px; color: var(--fg-muted); line-height: 1.55; margin: 0 0 32px; }
+  .hero-split__body p { margin: 0 0 14px; }
+  .hero-split__body p:last-child { margin-bottom: 0; }
+  .hero-split__ctas { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
+  .hero-split__supplemental {
+    display: inline-block; margin-top: 4px;
+    font-size: 16px; font-weight: 500;
+    color: var(--fg-ink); text-decoration: underline; text-underline-offset: 4px;
+    transition: color 0.2s ease;
+  }
+  .hero-split__supplemental:hover { color: var(--accent); }
+  .hero-split__logo { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 16px; font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--fg-ink); }
+  .hero-split__logo img { width: 28px; height: 28px; }
+  /* Hide the logo lockup when the source didn't carry one (resources/SDK
+     guide pages have no product lockup) — both the icon and label
+     come through empty. */
+  .hero-split__logo:has(img[src=""]):has(span:empty) { display: none; }
+  .hero-split__logo img[src=""] { display: none; }
+  .hero-split__logo span:empty { display: none; }
+  /* Typed hero actions container — when the extractor emits a typed
+     actions[] list (Option C in the design proposal), the renderer
+     fills this with per-type nodes (cta, qr, app-badge, ratings,
+     video-play, supplemental, subheading). One container handles every
+     hero variant; new types just need a renderer + CSS rule.
+     Layout: flex-row + wrap, so CTAs/badges/ratings sit horizontally;
+     subheading / qr / supplemental force a new line (visual break). */
+  .hero-split__actions { display: flex; flex-direction: row; flex-wrap: wrap; gap: 12px 14px; align-items: center; margin-top: 8px; }
+  .hero-split__actions .hero-split__ctas { margin-bottom: 0; display: contents; }  /* legacy nested ctas — let buttons participate in parent flex */
+  .hero__action { margin: 0; }
+  .hero-split__actions > .hero__action--subheading,
+  .hero-split__actions > .hero__action--qr,
+  .hero-split__actions > .hero__action--supplemental { flex-basis: 100%; }
+  .hero__action--subheading {
+    font-family: var(--font-display); font-weight: 700; font-size: 15px;
+    color: var(--fg-ink); margin: 6px 0 0;
+  }
+  .hero__action--qr { display: flex; flex-direction: column; gap: 8px; }
+  .hero__action--qr .hero__qr-image {
+    width: 132px; height: 132px; display: block;
+    border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; background: #fff;
+  }
+  .hero__action--qr .hero__qr-caption { font-size: 13px; color: var(--fg-muted); margin: 0; max-width: 200px; }
+  .hero__action--badge { display: inline-block; }
+  .hero__action--badge img, .hero__action--badge .hero__app-badge {
+    height: 40px; width: auto; display: block;
+  }
+  .hero__action--ratings {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--fg-muted);
+  }
+  .hero__action--ratings .hero__star { color: var(--accent); }
+  .hero__action--ratings b { color: var(--fg-ink); font-weight: 700; }
+  .hero__action--play {
+    position: absolute; bottom: 12px; right: 12px;
+    width: 44px; height: 44px; border-radius: 999px;
+    background: rgba(255,255,255,0.92); color: var(--fg-ink);
+    border: 0; cursor: pointer; padding: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    transition: transform 0.18s ease;
+  }
+  .hero__action--play svg { width: 16px; height: 16px; margin-left: 2px; }
+  .hero__action--play:hover { transform: scale(1.08); }
+  .hero__action--supplemental {
+    font-size: 15px; font-weight: 500; color: var(--fg-ink);
+    text-decoration: underline; text-underline-offset: 4px;
+  }
+  .hero-split__media { position: relative; }
+  .hero-split__image {
+    width: 100%; height: auto; display: block;
+    border-radius: var(--radius-card);
+    background: #fff;
+  }
+  @media (max-width: 900px) {
+    .hero--split { padding: 56px 0 64px; }
+    .hero-split { grid-template-columns: 1fr; gap: 40px; min-height: 0; }
+  }
+
+  /* Page-load entrance animation: text columns cascade, media fades up
+     with slight scale, then floats gently. Same easing/timings as the
+     default hero so heroes feel consistent across variants. */
+  .hero--split .hero-split__eyebrow      { animation: enterUp   0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0ms   both; }
+  .hero--split .hero-split__title        { animation: enterUp   0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 80ms  both; }
+  .hero--split .hero-split__body         { animation: enterUp   0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 160ms both; }
+  .hero--split .hero-split__ctas         { animation: enterUp   0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 240ms both; }
+  .hero--split .hero-split__supplemental { animation: enterUp   0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 320ms both; }
+  .hero--split .hero-split__media        { animation: enterMedia 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 200ms both; }
+  @keyframes enterMedia {
+    from { opacity: 0; transform: translateY(48px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0)    scale(1);    }
+  }
+  .hero--split .hero-split__image {
+    animation: heroFloat 8s ease-in-out 1.2s infinite alternate;
+  }
+  @keyframes heroFloat {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-8px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero--split .hero-split__eyebrow,
+    .hero--split .hero-split__title,
+    .hero--split .hero-split__body,
+    .hero--split .hero-split__ctas,
+    .hero--split .hero-split__supplemental,
+    .hero--split .hero-split__media,
+    .hero--split .hero-split__image { animation: none; }
+  }
+
+  /* ───── hero-fullbleed — full-viewport image-background hero ─────────
+     The section IS the bg-image carrier (data-cat-slot="image" sets
+     style.background-image on the section element). Two stacked
+     overlays darken the image for text contrast. Logo + headline +
+     body + CTAs centered both horizontally and vertically. */
+  .hero--fullbleed {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: clamp(48px, 6vw, 96px) var(--pad-x);
+    isolation: isolate;
+  }
+  .hero--fullbleed::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.7) 100%),
+      linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.5) 100%);
+    z-index: 0;
+  }
+  .hero-fullbleed {
+    position: relative;
+    z-index: 1;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    width: 100%;
+  }
+  .hero-fullbleed__copy { max-width: 720px; margin: 0 auto; text-align: center; }
+  .hero-fullbleed__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+  }
+  .hero-fullbleed__logo img { width: 28px; height: 28px; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4)); }
+  .hero-fullbleed__title {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(48px, 6vw, 80px); line-height: 1.02; letter-spacing: -1.4px;
+    margin: 0 0 20px;
+    color: #fff;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.25);
+  }
+  .hero-fullbleed__body {
+    font-size: 17px; line-height: 1.55;
+    color: rgba(255,255,255,0.94);
+    margin: 0 0 28px;
+    text-shadow: 0 1px 16px rgba(0,0,0,0.3);
+  }
+  .hero-fullbleed__body p { margin: 0 0 12px; }
+  .hero-fullbleed__body p:last-child { margin: 0; }
+  .hero-fullbleed__actions { display: flex; flex-direction: row; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; }
+  .hero-fullbleed__actions .btn--outline {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,0.6);
+  }
+  .hero-fullbleed__actions .btn--outline:hover { background: rgba(255,255,255,0.12); border-color: #fff; }
+  .hero-fullbleed__actions .btn--primary { background: #fff; color: var(--fg-ink); border-color: #fff; }
+  .hero-fullbleed__actions .btn--primary:hover { background: rgba(255,255,255,0.92); }
+
+  /* ───── hero-scroll-video — scroll-driven video hero ─────────────────
+     Always used when the source hero has a <video> (bizpro-hub design).
+     300vh container; sticky text initially → video scales from bounded
+     to fullscreen as you scroll → scrim + overlay fade in late. A rAF
+     tick (in the script block below) drives the geometry + opacities. */
+  .hero-scroll { height: 300vh; position: relative; isolation: isolate; }
+  .hero-sticky { position: sticky; top: 0; height: 100vh; background: #fff; z-index: 1; }
+  .hero-text {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; gap: 16px;
+    padding-top: calc(72px + 124px);
+    padding-inline: 24px;
+    padding-bottom: 80px;
+    will-change: opacity, transform;
+  }
+  @media (min-width: 768px) { .hero-text { padding-inline: 32px; } }
+  .hero-text__eyebrow {
+    font-family: var(--font-display);
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.4px; text-transform: uppercase;
+    color: var(--fg-ink); margin: 0;
+  }
+  .hero-text__title {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 5.6vw, 80px); font-weight: 900;
+    line-height: 0.95; letter-spacing: -1.5px;
+    max-width: 1068px; margin: 0;
+  }
+  .hero-text__body { font-size: 17px; line-height: 1.5; max-width: 710px; margin: 0; color: var(--fg-muted); }
+  .hero-text__body p { margin: 0; }
+  .hero-video-wrap {
+    position: absolute; z-index: 2;
+    overflow: hidden; background: #000;
+    will-change: top, left, width, height, border-radius, box-shadow;
+  }
+  .hero-scroll__video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+  .hero-video-scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 31%, transparent 97%);
+    opacity: 0; pointer-events: none;
+  }
+  .hero-video-overlay {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    opacity: 0; pointer-events: none;
+    will-change: opacity, transform;
+  }
+  .hero-overlay-content { display: flex; flex-direction: column; gap: 24px; padding: 40px; }
+  .hero-overlay-text-buttons { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .hero-overlay-product { color: #fff; max-width: 480px; display: flex; flex-direction: column; gap: 4px; }
+  .hero-overlay-product-title { font-family: var(--font-display); font-size: clamp(28px, 3.4vw, 48px); line-height: 1.04; letter-spacing: -1.4px; font-weight: 900; color: #fff; margin: 0; }
+  .hero-overlay-product-body { font-size: 16px; line-height: 1.35; color: rgba(255,255,255,0.8); margin: 0; }
+  .hero-overlay-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+  .hero-scroll__pause { width: 40px; height: 40px; background: none; border: none; padding: 0; cursor: pointer; flex-shrink: 0; align-self: flex-start; }
+  .hero-scroll__pause svg { display: block; width: 40px; height: 40px; }
+  .hero-btn-solid { background: #fff; color: #000; border: none; border-radius: 999px; padding: 14px 24px; font-weight: 700; font-size: 14px; line-height: 18px; cursor: pointer; white-space: nowrap; text-decoration: none; }
+  .hero-btn-outline { background: transparent; color: #fff; border: 1px solid #fff; border-radius: 999px; padding: 14px 24px; font-weight: 700; font-size: 14px; line-height: 18px; cursor: pointer; white-space: nowrap; text-decoration: none; backdrop-filter: blur(16px); }
+  .hero-overlay-actions .hero__action--cta a,
+  .hero-overlay-actions a.btn { border-radius: 999px; padding: 14px 24px; font-weight: 700; font-size: 14px; line-height: 18px; text-decoration: none; }
+  .hero-overlay-actions a.btn--primary { background: #fff; color: #000; border-color: #fff; }
+  .hero-overlay-actions a.btn--outline { background: transparent; color: #fff; border: 1px solid #fff; }
+  /* The hero-scroll's sticky video sits at z-index 1 inside an isolated
+     stacking context, so non-positioned later siblings paint UNDER it
+     and the video bleeds through. Give every following section a
+     stacking-context escape. Each section is expected to carry its own
+     opaque background (the design language requires it). */
+  .hero-scroll ~ section { position: relative; z-index: 3; }
+  /* The directly adjacent section additionally pulls up to cover the
+     last 100vh of the hero-scroll and gets rounded top corners. */
+  .hero-scroll + section { background: var(--bg, #fff); margin-top: -100vh; border-radius: 32px 32px 0 0; }
+
+  /* ───── L0.5 augmentations ─────────────────────────────────────────
+     Visual support for shape-inference outputs.
+     - Image-less hero: when extractHero couldn't find a hero asset
+       (because a compound card-strip absorbed all the images), the
+       hero-marquee-split's right column would otherwise sit empty.
+       Collapse to single-column + centered.
+     - Compound sibling: a card-grid emitted right after the hero (the
+       hero's secondary strip). Remove its top padding so the gap stays
+       tight and the two read as one logical unit.
+     - Section subtitle: a small <p> rendered under .sec-head's h2
+       (typography matching .hero__body). */
+  .hero--split.hero--split-noimage .hero-split,
+  .hero--split .hero-split.hero-split--noimage-fallback { grid-template-columns: 1fr; text-align: center; max-width: 800px; margin: 0 auto; }
+  .hero--split.hero--split-noimage .hero-split__copy,
+  .hero--split .hero-split.hero-split--noimage-fallback .hero-split__copy { max-width: none; }
+  .hero--split.hero--split-noimage .hero-split__ctas,
+  .hero--split .hero-split.hero-split--noimage-fallback .hero-split__ctas { justify-content: center; }
+  /* Center the whole actions row in the noimage variant — the parent
+     `.hero-split__actions` is the actual flex container for both the
+     subheading list AND the CTA buttons. */
+  .hero--split.hero--split-noimage .hero-split__actions,
+  .hero--split .hero-split.hero-split--noimage-fallback .hero-split__actions { justify-content: center; }
+  .hero-split--noimage-fallback .hero-split__media { display: none; }
+  section.is-compound-sibling { padding-top: 0 !important; }
+  section.is-compound-sibling > .container { padding-top: 0 !important; }
+  /* When the hero is immediately followed by a compound-sibling
+     (the story-cards strip belongs to the same logical hero), pull
+     the strip up tight so the two read as one block. */
+  .section.hero:has(+ section.is-compound-sibling) { padding-bottom: 0 !important; }
+  section.is-compound-sibling .stories { margin-top: 12px; }
+  .sec-head .sec-head__body {
+    font-size: 17px; color: var(--fg-muted);
+    margin: 12px auto 0; max-width: 720px; line-height: 1.5;
+  }
+
+  /* ───── Photo cards (z-pattern → horizontal pan row) ───────────────
+     Section heading + body above a horizontal row of background-image
+     cards. The track is wider than the viewport so cards extend past
+     the edges; a mousemove handler pans the track based on cursor X
+     position (left zone → pan right to reveal left edge, right zone →
+     pan left to reveal right edge, mouseleave → return to center).
+     This mirrors bizpro-hub's `.stories` component. Each card:
+     full-bleed photo, dark gradient overlay for contrast, heading +
+     body in white at the bottom. */
+  /* overflow: clip (not hidden) so the section doesn't become a scroll
+     container — keeps `view()` timelines on child cards anchored to the
+     document, not this clipped region. Without this, cards read as
+     100% covered immediately and the entrance never plays. */
+  .photo-cards-section { padding: clamp(32px, 3.5vw, 56px) 0; background: #fff; overflow: clip; }
+  .photo-cards-section .container { max-width: var(--max-w); padding: 0 var(--pad-x); margin: 0 auto; }
+  .photo-cards__header { text-align: center; max-width: 760px; margin: 0 auto 40px; padding: 0 var(--pad-x); }
+  .photo-cards__header h2 {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(32px, 3.4vw, 48px); line-height: 1.1; letter-spacing: -0.6px;
+    margin: 0 0 20px;
+  }
+  .photo-cards__header p { font-size: 17px; line-height: 1.55; color: var(--fg-muted); margin: 0; }
+  .photo-cards__viewport {
+    overflow: clip;
+    display: flex;
+    justify-content: center;
+    max-width: 1920px;
+    margin-inline: auto;
+  }
+  .photo-cards__track {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+    will-change: transform;
+    transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 var(--pad-x);
+  }
+  @media (max-width: 720px) {
+    .photo-cards__viewport { justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+    .photo-cards__track { transform: none !important; }
+    .photo-card { scroll-snap-align: start; }
+  }
+  .photo-card {
+    flex: 0 0 auto;
+    width: 350px;
+    aspect-ratio: 5 / 8;
+    position: relative;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    isolation: isolate;
+    background: #1a1a1a;
+    cursor: default;
+  }
+  .photo-card__photo {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    transform-origin: center;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 0;
+  }
+  .photo-card:hover .photo-card__photo { transform: scale(1.04); }
+  .photo-card__overlay {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.05) 25%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.85) 80%, rgba(0,0,0,1) 100%),
+      linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15));
+    pointer-events: none;
+    z-index: 1;
+  }
+  .photo-card__body {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: clamp(24px, 2.6vw, 40px);
+    color: #fff;
+    z-index: 2;
+  }
+  .photo-card__title {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(22px, 2vw, 30px); line-height: 1.15; letter-spacing: -0.4px;
+    margin: 0 0 12px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.35);
+  }
+  .photo-card__text {
+    font-size: 15px; line-height: 1.55;
+    color: rgba(255, 255, 255, 0.88);
+    margin: 0;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .photo-card__photo { transition: none; }
+    .photo-card:hover .photo-card__photo { transform: none; }
+  }
+  /* Scroll-driven entrance: each card fades in AND slides up as the
+     section enters the viewport. Bigger drift (96px) than the base
+     stagger token + wider range (entry 0% cover 45%) so the slide is
+     pronounced. Each card has its own view() timeline; the four-up
+     class cascades --parallax-stagger-index 0.5 → 3.5 across the row
+     for a left-to-right ripple. */
+  @media (width >= 768px) {
+    .photo-cards__track.parallax-stagger-ltr {
+      --parallax-stagger-drift: 96px;
+    }
+    .photo-cards__track.parallax-stagger-ltr > .photo-card {
+      opacity: 0;
+      animation-name: enable-parallax-stagger, photo-card-fade-in;
+      animation-timing-function: var(--parallax-easing), var(--parallax-easing);
+      animation-fill-mode: both, both;
+      animation-timeline: view(), view();
+      animation-range: entry 0% cover 45%, entry 0% cover 45%;
+    }
+    @keyframes photo-card-fade-in {
+      0%   { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .photo-cards__track.parallax-stagger-ltr > .photo-card { opacity: 1; animation: none; }
+  }
+
+  /* ───── Tutorial cards (flat N-up image+text grid) ───────────────────
+     Section heading centered above an N-up grid. Each card: image at top
+     (4:3, rounded), heading + body below in black, then an underlined
+     "Learn …" text link. Stagger entrance via parallax-stagger-ltr,
+     matching the photo-cards row. */
+  .tutorial-cards-section { padding: clamp(48px, 5vw, 80px) var(--pad-x); background: #fff; }
+  .tutorial-cards-section .container { max-width: var(--max-w); margin: 0 auto; }
+  .tutorial-cards__header { text-align: center; max-width: 880px; margin: 0 auto 56px; }
+  .tutorial-cards__header h2 {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(28px, 3vw, 40px); line-height: 1.15; letter-spacing: -0.4px;
+    margin: 0;
+  }
+  .tutorial-cards__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+  }
+  @media (max-width: 1024px) { .tutorial-cards__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px)  { .tutorial-cards__grid { grid-template-columns: 1fr; } }
+  .tutorial-card { display: flex; flex-direction: column; gap: 16px; }
+  .tutorial-card__media {
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-dust);
+  }
+  .tutorial-card__image { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .tutorial-card:hover .tutorial-card__image { transform: scale(1.03); }
+  .tutorial-card__body { display: flex; flex-direction: column; gap: 12px; }
+  .tutorial-card__title {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 19px; line-height: 1.25; letter-spacing: -0.2px;
+    margin: 0; color: var(--fg-ink);
+  }
+  .tutorial-card__text {
+    font-size: 15px; line-height: 1.5;
+    color: var(--fg-muted);
+    margin: 0;
+  }
+  .tutorial-card__link {
+    margin-top: auto;
+    display: inline-block;
+    font-size: 15px; font-weight: 600;
+    color: var(--fg-ink);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+    align-self: flex-start;
+  }
+  .tutorial-card__link:hover { color: var(--accent); }
+
+  /* Hero feature cards row — modeled on bizpro-hub's real-teams story-card.
+     Each card is a portrait tile: cover photo background, gradient
+     overlay, icon top-left, category + title bottom-left, white text on
+     dark gradient, hover scales the photo. */
+  .stories { margin-top: 24px; }
+  .stories__viewport { overflow: hidden; display: flex; justify-content: center; max-width: var(--max-w); margin-inline: auto; padding-inline: var(--pad-x); }
+  .stories__track { display: flex; gap: 8px; flex-shrink: 0; will-change: transform; transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1); width: 100%; }
+  .story-card {
+    flex: 1 1 0; min-width: 0;
+    aspect-ratio: 3 / 4;
+    border-radius: 16px;
+    border: 0; padding: 0;             /* reset the native <button> border */
+    appearance: none; -webkit-appearance: none;
+    overflow: hidden;
+    position: relative;
+    background: #f8f8f8;
+    cursor: pointer;
+    text-align: left;
+  }
+  .story-card__photo {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .story-card:hover .story-card__photo { transform: scale(1.03); }
+  .story-card__gradient {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.78) 100%);
+    pointer-events: none;
+  }
+  .story-card__icon {
+    position: absolute; top: 16px; left: 16px;
+    width: 40px; height: 40px;
+    background: rgba(255,255,255,0.92);
+    border-radius: 10px;
+    display: grid; place-items: center;
+    backdrop-filter: blur(8px);
+  }
+  .story-card__icon img { width: 22px; height: 22px; display: block; }
+  .story-card__footer {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 24px;
+    display: flex; flex-direction: column; gap: 6px;
+    color: #fff;
+  }
+  .story-card__category {
+    font-family: var(--font-text); font-weight: 700; font-size: 12px;
+    letter-spacing: 0.6px; text-transform: uppercase;
+    color: rgba(255,255,255,0.62);
+  }
+  .story-card__title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 22px; line-height: 1.18; letter-spacing: -0.4px;
+    color: #fff;
+  }
+
+  .ratings { display: flex; gap: 32px; justify-content: center; align-items: center; margin-top: 40px; flex-wrap: wrap; }
+  .ratings__item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--fg-muted); }
+  .ratings__star { color: #000; font-weight: 700; }
+  .ratings__badge { height: 40px; }
+
+  /* ───── Section heading shared style ─────────────────────────────── */
+  .sec-head { text-align: center; max-width: 880px; margin: 0 auto 48px; }
+  /* Collapse empty sec-head (when its heading slot was removed because
+     the source content didn't provide one). */
+  .sec-head:not(:has(*)) { margin: 0; display: none; }
+  /* H2 typography matches bizpro-hub .title-2: 56px/56px, weight 900,
+     letter-spacing -0.8px. Applied to section headings + closer. */
+  .sec-head h2 {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(32px, 4vw, 56px); line-height: 1.0; letter-spacing: -0.8px;
+    margin-bottom: 12px;
+  }
+  /* Inline links in headings/body (preserved verbatim from the source
+     via htmlOfWithLinks) — underlined, inherit color, subtle hover. */
+  .sec-head h2 a, .sec-head p a,
+  .closer h2 a, .closer__body a,
+  .acrobat-card a:not(.acrobat-cta):not(.btn),
+  .media a:not(.btn) {
+    color: inherit; text-decoration: underline; text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
+    transition: text-decoration-color 160ms ease;
+  }
+  .sec-head h2 a:hover, .sec-head p a:hover, .closer h2 a:hover, .closer__body a:hover { text-decoration-color: var(--accent, #3b63fb); }
+
+  /* Heading + subtitle scroll-reveal — matches sr-homepage text-reveal-up.
+     Keyframe starts at line-height: 3 (text pushed apart vertically);
+     animation interpolates back to the element's natural line-height
+     as it scrolls through entry 10% → cover 40%. Each line of text
+     "rises" into its resting position as the leading shrinks. */
+  @keyframes text-reveal-up { 0% { line-height: 3; } }
+  .sec-head h2, .sec-head p,
+  .closer h2, .closer__body, .closer__copy p,
+  .generated-stub h2, .generated-stub p {
+    animation: text-reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 40%;
+  }
+  /* Sibling slide-up for non-text elements that should rise into view
+     alongside the heading reveal (tabs row above the heading, etc.). */
+  @keyframes rise-into-view {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .ax-panels__tabs {
+    animation: rise-into-view linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 40%;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sec-head h2, .sec-head p,
+    .closer h2, .closer__body, .closer__copy p,
+    .generated-stub h2, .generated-stub p,
+    .ax-panels__tabs { animation: none; }
+  }
+  .sec-head p { font-size: 16px; color: var(--fg-muted); }
+
+  /* ───── Teams / Enterprise / Students — elastic cards ─────────────── */
+  /* Modeled on adobe.com sr-homepage's elastic-carousel: cards sit in a
+     row at their resting width. On hover/focus, the hovered card grows
+     ~1.75x and turns black with white text + arrow; the other cards
+     shrink to make room. */
+  .audience { background: var(--bg-light); }
+  .elastic-cards {
+    --elastic-card-w: 294px;
+    --elastic-card-grow: 1.75;
+    --elastic-easing: cubic-bezier(0.42, 0, 0, 1);
+    display: flex; gap: 12px; justify-content: center; align-items: stretch;
+  }
+  .elastic-card {
+    flex: 1 1 var(--elastic-card-w);
+    max-width: var(--elastic-card-w);
+    min-width: 0;
+    background: var(--bg-dust); color: inherit; text-decoration: none;
+    border-radius: 16px; overflow: hidden;
+    display: flex; flex-direction: column;
+    cursor: pointer;
+    will-change: flex-grow, max-width, background-color;
+    transition:
+      max-width .35s var(--elastic-easing),
+      flex-grow .35s var(--elastic-easing),
+      background-color .2s ease;
+    contain: layout;
+  }
+  .elastic-card__header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 24px;
+  }
+  .elastic-card__header img { width: 24px; height: 24px; }
+  .elastic-card__eyebrow {
+    font-family: var(--font-text); font-size: 14px; font-weight: 700;
+    line-height: 1.286; color: #000; margin: 0;
+    transition: color .1s ease;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .elastic-card__media {
+    flex: 1; min-height: 320px;
+    background-size: cover; background-position: center;
+    margin: 0 12px; border-radius: 12px;
+  }
+  .elastic-card__footer {
+    position: relative;
+    padding: 24px;
+    display: flex; flex-direction: column; gap: 4px;
+    transition: color .1s ease;
+  }
+  .elastic-card__footer h3 {
+    font-family: var(--font-text); font-weight: 700;
+    font-size: 16px; line-height: 1.25; margin: 0;
+    color: #000;
+    transition: color .1s ease;
+  }
+  .elastic-card__footer p {
+    font-size: 15px; line-height: 1.333; margin: 0;
+    color: rgba(0,0,0,0.6);
+    transition: color .1s ease;
+  }
+  .elastic-card__footer::after {
+    content: ""; display: block;
+    width: 28px; height: 28px;
+    position: absolute; right: 24px; bottom: 24px;
+    border-radius: 50%;
+    background: #fff;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/><polyline points='12 5 19 12 12 19'/></svg>");
+    background-repeat: no-repeat;
+    background-position: 55% 50%;
+    background-size: 12px;
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+  .elastic-cards:hover .elastic-card:not(:hover):not(:focus-visible) {
+    /* shrink non-hovered siblings a touch when one is active */
+    max-width: calc(var(--elastic-card-w) * 0.92);
+  }
+  .elastic-card:hover,
+  .elastic-card:focus-visible {
+    background-color: #000; color: #fff;
+    max-width: calc(var(--elastic-card-w) * var(--elastic-card-grow));
+    flex-grow: var(--elastic-card-grow);
+    outline: none;
+  }
+  .elastic-card:hover .elastic-card__eyebrow,
+  .elastic-card:focus-visible .elastic-card__eyebrow,
+  .elastic-card:hover .elastic-card__footer h3,
+  .elastic-card:focus-visible .elastic-card__footer h3 { color: #fff; }
+  .elastic-card:hover .elastic-card__footer p,
+  .elastic-card:focus-visible .elastic-card__footer p { color: rgba(255,255,255,0.7); }
+  .elastic-card:hover .elastic-card__footer::after,
+  .elastic-card:focus-visible .elastic-card__footer::after { opacity: 1; }
+
+  @media (max-width: 900px) {
+    .elastic-cards { flex-direction: column; }
+    .elastic-card { max-width: none; flex-basis: auto; }
+    .elastic-card:hover, .elastic-card:focus-visible { max-width: none; }
+    .elastic-card__media { min-height: 240px; }
+  }
+
+  /* ───── Discover features — modeled on bizpro-hub's do-it-all
+       (acrobat-cards): grid of card-asset (rounded, light gray
+       backdrop) over copy block (display-weight title + body +
+       text-and-arrow CTA). */
+  .features { background: var(--bg-light); }
+  .acrobat-cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 56px 12px; }
+  .acrobat-cards.two-up   { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .acrobat-cards.three-up { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .acrobat-cards.four-up  { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .acrobat-cards.five-up  { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .acrobat-cards.six-up   { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  /* When a generated-stub anchors the section above a content block,
+     collapse BOTH the stub's bottom padding AND the next section's top
+     padding so they read as one logical group. */
+  .generated-stub:has(+ .section, + section) { padding-bottom: 16px !important; }
+  .generated-stub + .section,
+  .generated-stub + section { padding-top: 8px; }
+  .acrobat-card { display: flex; flex-direction: column; }
+  /* Image zoom on hover — matches sr-homepage base-card pattern.
+     Clip overflow so the scaled image doesn't bleed past card edges. */
+  .acrobat-card__asset { overflow: hidden; }
+  .acrobat-card__asset img,
+  .acrobat-card__asset picture { transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1); display: block; width: 100%; }
+  .acrobat-card:hover .acrobat-card__asset img,
+  .acrobat-card:hover .acrobat-card__asset picture { transform: scale(1.05); }
+  .acrobat-card__asset {
+    aspect-ratio: 488 / 366;
+    background: #eceae7;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .acrobat-card__asset img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; pointer-events: none;
+  }
+  .acrobat-card__copy {
+    display: flex; flex-direction: column;
+    gap: 24px;
+    padding: 24px 24px 0;
+  }
+  .acrobat-card__text { display: flex; flex-direction: column; gap: 8px; }
+  .acrobat-card__title {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 24px; line-height: 1.0; letter-spacing: -0.48px;
+    color: #000; margin: 0;
+  }
+  .acrobat-card__body {
+    font-family: var(--font-text); font-weight: 400;
+    font-size: 16px; line-height: 1.25; letter-spacing: 0.16px;
+    color: rgba(0,0,0,0.64); margin: 0;
+  }
+  .acrobat-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-text); font-weight: 700;
+    font-size: 14px; line-height: 1.28;
+    color: #000; text-decoration: none; white-space: nowrap;
+    transition: opacity 120ms ease;
+  }
+  .acrobat-cta:hover { opacity: 0.7; }
+  .acrobat-cta svg { width: 6px; height: 10px; flex-shrink: 0; }
+
+  /* ───── Testimonial quote ─────────────────────────────────────────── */
+  .quote { background: var(--bg-light); }
+  .quote__inner { display: grid; grid-template-columns: 64px 1fr; gap: 24px; align-items: start; max-width: 920px; margin: 0 auto; }
+  .quote__avatar { width: 64px; height: 64px; border-radius: 999px; object-fit: cover; }
+  .quote__text { font-family: var(--font-display); font-size: 22px; line-height: 1.45; margin-bottom: 16px; }
+  .quote__attr { font-size: 13px; color: var(--fg-muted); }
+
+  /* ───── Compare plans pricing ─────────────────────────────────────── */
+  .plans { background: var(--bg-light); }
+  .plans__tabs {
+    display: inline-flex; gap: 4px; padding: 4px;
+    background: var(--bg-dust); border-radius: var(--radius-pill);
+    margin: 0 auto 48px; display: flex; width: max-content;
+  }
+  .plans__tab { padding: 8px 18px; border-radius: var(--radius-pill); background: transparent; border: 0; font-family: var(--font-text); font-size: 13px; font-weight: 600; color: var(--fg-muted); cursor: pointer; }
+  .plans__tab.active { background: var(--fg-ink); color: #fff; }
+  .plans__tabs-wrap { text-align: center; margin-bottom: 40px; }
+  .plans-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .plan-card { background: var(--bg-light); border: 1px solid var(--rule); border-radius: var(--radius-card); padding: 28px 28px 32px; display: flex; flex-direction: column; position: relative; }
+  .plan-card--featured { border-color: var(--accent); }
+  .plan-card__badge { position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); background: #ec1f25; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: var(--radius-pill); letter-spacing: 0.4px; }
+  .plan-card__name { font-family: var(--font-display); font-weight: 700; font-size: 22px; margin-bottom: 8px; }
+  .plan-card__desc { font-size: 13.5px; color: var(--fg-muted); line-height: 1.55; min-height: 70px; margin-bottom: 22px; }
+  .plan-card__icons { display: flex; gap: 8px; margin-bottom: 30px; align-items: center; min-height: 32px; }
+  .plan-card__icons img { height: 32px; width: 32px; object-fit: contain; flex-shrink: 0; }
+  .plan-card__price { font-family: var(--font-display); font-weight: 700; font-size: 28px; letter-spacing: -0.4px; }
+  .plan-card__price small { font-size: 13px; font-weight: 600; color: var(--fg-muted); letter-spacing: 0; }
+  .plan-card__billing { font-size: 12px; color: var(--fg-muted); margin-bottom: 26px; }
+  .plan-card .btn { width: 100%; }
+  .plans__compare-link { text-align: center; margin-top: 32px; }
+  .plans__compare-link a { font-weight: 600; font-size: 14px; padding: 12px 22px; border: 1px solid var(--fg-ink); border-radius: var(--radius-pill); display: inline-block; }
+
+  /* ───── Leading businesses logo row ───────────────────────────────── */
+  .brands { background: var(--bg-light); padding-top: 32px; padding-bottom: 32px; }
+  .brands__inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .brands__label { font-weight: 700; font-size: 16px; max-width: 280px; }
+  .brands__logos { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+  .brands__logos img { height: 38px; opacity: 0.85; }
+
+  /* ───── Icon features (NEW) — 4-up icon + title row, light ground ── */
+  .icon-features { background: var(--bg-light); }
+  .icon-features__grid {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px; align-items: center; justify-items: center;
+  }
+  .icon-features__item {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    gap: 16px; padding: 0 16px;
+  }
+  .icon-features__icon {
+    width: 80px; height: 80px; object-fit: contain; flex-shrink: 0;
+  }
+  .icon-features__label {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 18px; line-height: 1.2; letter-spacing: -0.2px; color: var(--fg-ink);
+    margin: 0;
+  }
+  @media (max-width: 900px) {
+    .icon-features__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ───── AX panels (NEW) — section title + tab list + active tab panel
+       with template carousel + category chips. Mirrors adobe.com's
+       .ax-panels block. */
+  .ax-panels { background: var(--bg-light); }
+  /* Tighten gap between hero and tabs — default .section padding-top
+     of 112px puts the heading + tabs ~190px below the hero CTA, which
+     reads as disconnected. 48px keeps breathing room without the gap.
+     Top corners rounded so the section reads as a rounded sheet
+     sliding up over the darkened sticky hero behind it. */
+  .section.ax-panels {
+    padding-top: clamp(32px, 3vw, 48px);
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+  }
+  .ax-panels__heading {
+    text-align: center;
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(32px, 4vw, 48px); line-height: 1.1; letter-spacing: -1.2px;
+    color: var(--fg-ink); margin: 0 0 32px;
+  }
+  .ax-panels__tabs {
+    display: flex; justify-content: center; gap: 4px;
+    padding: 4px; background: var(--bg-light);
+    border: 1px solid var(--rule); border-radius: var(--radius-pill);
+    width: fit-content; margin: 0 auto 32px;
+  }
+  .ax-panels__tab {
+    appearance: none; background: transparent; border: 0;
+    display: inline-flex; align-items: center; gap: 8px;
+    height: 36px; padding: 0 18px;
+    font-family: var(--font-text); font-weight: 700; font-size: 14px;
+    color: var(--fg-ink); cursor: pointer;
+    border-radius: var(--radius-pill);
+    transition: background 160ms ease, color 160ms ease;
+  }
+  .ax-panels__tab[aria-selected="true"] { background: #000; color: #fff; }
+  .ax-panels__tab svg { width: 16px; height: 16px; }
+  .ax-panels__panel {
+    background: var(--bg-dust);
+    padding: 56px 0; /* horizontal padding lives on inner blocks so the rail can extend full-width */
+    overflow: hidden;
+    /* break out of .container max-width to span the full viewport */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .ax-panels__panel-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+  }
+  .ax-panels__panel[hidden] { display: none; }
+  .ax-panels__panel-head {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 24px; margin-bottom: 32px;
+  }
+  .ax-panels__panel-head h3 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 24px; line-height: 1.2; letter-spacing: -0.4px;
+    color: var(--fg-ink); margin: 0 0 8px;
+  }
+  .ax-panels__panel-head p {
+    font-size: 15px; color: var(--fg-muted); line-height: 1.5; max-width: 720px; margin: 0;
+  }
+  .ax-panels__filter {
+    display: inline-flex; align-items: center; gap: 8px;
+    height: 36px; padding: 0 14px;
+    background: var(--bg-light); border: 1px solid var(--rule);
+    border-radius: var(--radius-pill);
+    font-size: 14px; font-weight: 600; color: var(--fg-ink);
+    flex-shrink: 0; cursor: pointer;
+  }
+  .ax-panels__filter svg { width: 12px; height: 12px; }
+  .template-rail {
+    position: relative;
+  }
+  .template-rail__track {
+    display: flex; gap: 20px;
+    overflow-x: auto; scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 0 var(--pad-x) 8px;
+    scroll-behavior: smooth;
+  }
+  .template-rail__track::-webkit-scrollbar { display: none; }
+  .template-card {
+    flex: 0 0 auto; width: 260px;
+    aspect-ratio: 9 / 16;
+    background: var(--bg-light); border-radius: var(--radius-card);
+    overflow: hidden; position: relative;
+    scroll-snap-align: start;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    transition: transform 200ms ease;
+  }
+  .template-card:hover { transform: translateY(-2px); }
+  .template-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .template-card__badge {
+    position: absolute; top: 12px; right: 12px;
+    background: var(--bg-light); color: var(--fg-ink);
+    font-size: 11px; font-weight: 700; padding: 4px 10px;
+    border-radius: var(--radius-pill);
+  }
+  .template-card--scratch {
+    background: var(--bg-light);
+    border: 2px dashed var(--rule);
+    box-shadow: none;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px; color: var(--accent);
+  }
+  .template-card--scratch svg { width: 28px; height: 28px; }
+  .template-card--scratch span { font-size: 14px; font-weight: 700; }
+  .template-rail__nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--bg-light); border: 1px solid var(--rule);
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer; z-index: 2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .template-rail__nav:hover { background: var(--bg-dust); }
+  .template-rail__nav--prev { left: var(--pad-x); }
+  .template-rail__nav--next { right: var(--pad-x); }
+  .template-rail__nav svg { width: 14px; height: 14px; }
+
+  .category-chips {
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    margin: 32px 0 0;
+    font-size: 14px; font-weight: 700; color: var(--fg-ink);
+  }
+  .category-chips__label { margin-right: 8px; color: var(--fg-muted); font-weight: 600; }
+  .category-chips a {
+    display: inline-flex; align-items: center;
+    height: 36px; padding: 0 16px;
+    background: var(--bg-light);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-pill);
+    color: var(--fg-ink); text-decoration: none;
+    font-weight: 600; font-size: 13px;
+    transition: background 160ms ease;
+  }
+  .category-chips a:hover { background: var(--bg-dust); }
+
+  /* Upload/Stock/AI panels — image card grid (2-3 up) */
+  .hover-card-grid {
+    display: grid; gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .hover-card {
+    background: var(--bg-light);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .hover-card__media {
+    aspect-ratio: 4 / 3; overflow: hidden;
+    background: var(--bg-dust);
+  }
+  .hover-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hover-card__body {
+    padding: 20px 24px 24px;
+    display: flex; flex-direction: column; gap: 16px;
+    flex: 1;
+  }
+  .hover-card__title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 18px; line-height: 1.3; color: var(--fg-ink); margin: 0;
+  }
+  .hover-card .btn { align-self: flex-start; }
+
+  @media (max-width: 720px) {
+    .ax-panels__panel { padding: 32px 0; }
+    .ax-panels__panel-head { flex-direction: column; }
+    .template-rail__nav { display: none; }
+    .template-card { width: 200px; }
+  }
+
+  /* ───── How-to steps (NEW) — sticky-ish image + numbered accordion ── */
+  .how-to { background: var(--bg-light); }
+  .how-to__inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: start;
+  }
+  .how-to__media {
+    border-radius: var(--radius-card); overflow: hidden;
+    background: var(--bg-dust); aspect-ratio: 666 / 375;
+  }
+  .how-to__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .how-to__steps { list-style: none; padding: 0; margin: 0; counter-reset: step; }
+  .how-to__step {
+    border-top: 1px solid var(--rule);
+    padding: 24px 0;
+    cursor: pointer;
+    counter-increment: step;
+  }
+  .how-to__step:last-child { border-bottom: 1px solid var(--rule); }
+  .how-to__step-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 22px; line-height: 1.2; letter-spacing: -0.4px; color: var(--fg-ink);
+    margin: 0;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .how-to__step-title::before {
+    content: counter(step, decimal-leading-zero);
+    font-size: 14px; font-weight: 700; letter-spacing: 0.5px;
+    color: var(--accent); min-width: 28px;
+  }
+  .how-to__step-body {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 320ms ease, opacity 220ms ease, margin-top 220ms ease;
+    margin-top: 0;
+  }
+  .how-to__step[aria-expanded="true"] .how-to__step-body {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 12px;
+  }
+  .how-to__step-body p {
+    margin: 0 0 0 44px;
+    font-size: 15px; line-height: 1.6; color: var(--fg-muted);
+  }
+  @media (max-width: 900px) {
+    .how-to__inner { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* ───── Quotes (NEW) — 3-up testimonial cards with portrait + quote ── */
+  .quotes { background: var(--bg-light); }
+  .quotes__grid {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .quote-card {
+    background: var(--bg-dust); border-radius: var(--radius-card);
+    padding: 28px; display: flex; flex-direction: column; gap: 24px;
+    min-height: 320px;
+  }
+  .quote-card__author {
+    display: flex; gap: 16px; align-items: center;
+  }
+  .quote-card__avatar {
+    width: 56px; height: 56px; border-radius: 50%;
+    object-fit: cover; flex-shrink: 0;
+    background: #d4d4d4;
+  }
+  .quote-card__name { font-family: var(--font-display); font-weight: 700; font-size: 16px; margin: 0; color: var(--fg-ink); }
+  .quote-card__role { font-size: 13px; color: var(--fg-muted); margin: 4px 0 0; }
+  .quote-card__text {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: 18px; line-height: 1.35; letter-spacing: -0.2px;
+    color: var(--fg-ink); margin: 0;
+    flex: 1;
+  }
+  @media (max-width: 900px) {
+    .quotes__grid { grid-template-columns: 1fr; }
+    .quote-card { min-height: 0; }
+  }
+
+  /* ───── Link blade (NEW) — heading + comma-separated link list ───── */
+  .link-blade { background: var(--bg-light); }
+  .link-blade__inner {
+    display: grid; grid-template-columns: 280px 1fr;
+    gap: 32px; align-items: start;
+  }
+  .link-blade__heading {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 24px; line-height: 1.2; letter-spacing: -0.4px;
+    color: var(--fg-ink); margin: 0;
+  }
+  .link-blade__links {
+    display: flex; flex-wrap: wrap; gap: 4px 24px;
+  }
+  .link-blade__links a {
+    color: var(--fg-ink); font-size: 16px; line-height: 1.6;
+    text-decoration: none; font-weight: 500;
+    padding: 2px 0;
+    border-bottom: 1px solid transparent;
+    transition: border-color 120ms ease;
+  }
+  .link-blade__links a:hover { border-bottom-color: var(--fg-ink); }
+  @media (max-width: 900px) {
+    .link-blade__inner { grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  /* ───── FAQ — modeled on acrobat-plans.faq-section design.
+     White section with rounded bottom corners; header with bottom
+     rule; list of items with per-item bottom border; button +
+     chevron that rotates open; answer collapses via max-height. */
+  .faq-section {
+    background: #fff;
+    padding: clamp(56px, 7vw, 112px) var(--pad-x);
+    border-radius: 0 0 32px 32px;
+  }
+  .faq-section .container { max-width: 1108px; margin: 0 auto; padding: 0; }
+  .faq-section__header {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 10px;
+  }
+  .faq-section__heading {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(40px, 5vw, 64px); line-height: 1.0; letter-spacing: -1.6px;
+    color: var(--fg-ink); margin: 0;
+  }
+  .faq-list { display: flex; flex-direction: column; padding: 0; margin: 32px 0 0; list-style: none; }
+  .faq-item { border-bottom: 1px solid rgba(0,0,0,0.1); }
+  .faq-item__q {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    gap: 40px;
+    padding: 32px 0;
+    background: none; border: none;
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2vw, 28px);
+    line-height: 1.15; letter-spacing: -0.5px;
+    font-weight: 900;
+    text-align: left; cursor: pointer;
+    color: var(--fg-ink);
+  }
+  .faq-chevron {
+    flex-shrink: 0;
+    transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--fg-ink);
+  }
+  .faq-item.open .faq-chevron,
+  .faq-item__q[aria-expanded="true"] .faq-chevron { transform: rotate(180deg); }
+  .faq-item__a {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .faq-item.open .faq-item__a { max-height: 600px; }
+  .faq-item__a-inner {
+    max-width: 720px;
+    padding: 0 0 32px;
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.55;
+    color: rgba(0,0,0,0.7);
+  }
+  .faq-item__a-inner a { color: var(--accent); }
+  @media (max-width: 767px) {
+    .faq-section { padding-block: 56px; }
+    .faq-item__q { padding: 24px 0; gap: 20px; }
+  }
+
+  /* ───── Closer CTA — modeled on bizpro-hub's find-what-you-re-looking-for
+       search-section: dark ground, large white headline + body + AI-style
+       prompt input bar + small disclaimer below. */
+  .closer {
+    position: relative;
+    background: #000;
+    padding: clamp(80px, 9vw, 124px) var(--pad-x);
+    text-align: center;
+  }
+  .closer__inner {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 24px;
+    max-width: 920px; margin: 0 auto;
+  }
+  .closer__copy { display: flex; flex-direction: column; align-items: center; gap: 12px; padding-bottom: 16px; width: 100%; }
+  .closer h2 {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(32px, 4.4vw, 56px); line-height: 1.0; letter-spacing: -0.8px;
+    color: #fff; margin: 0;
+  }
+  .closer__body { font-size: 20px; line-height: 1.3; letter-spacing: -0.4px; color: #fff; margin: 0; }
+  .closer-bar {
+    width: 100%; max-width: 768px; height: 56px;
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--radius-pill);
+    border: 2px solid rgba(0,0,0,0.1);
+    display: flex; align-items: center; overflow: hidden;
+  }
+  .closer-bar__sparkle {
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+    padding-left: 24px;
+  }
+  .closer-bar__sparkle svg { width: 16px; height: 16px; color: var(--accent); }
+  .closer-bar__input {
+    flex: 1; background: transparent; border: none; outline: none;
+    font-size: 16px; color: rgba(255,255,255,0.85);
+    font-family: inherit; padding: 16px;
+  }
+  .closer-bar__input::placeholder { color: rgba(255,255,255,0.6); }
+  .closer-bar__btn {
+    flex-shrink: 0; width: 32px; height: 32px; border-radius: 8px;
+    border: none; background: transparent; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    margin-right: 12px;
+  }
+  .closer-bar__btn svg { width: 18px; height: 18px; color: #fff; }
+  .closer__disclaimer {
+    font-size: 12px; line-height: 1.5;
+    color: rgba(255,255,255,0.6);
+  }
+  .closer__disclaimer a { color: rgba(255,255,255,0.6); text-decoration: underline; }
+
+  /* Composed feature-grid sec-head (the "New features are rolling out…"
+     heading inside the tabbed ax-panels) is wider than the default
+     880px so longer titles don't wrap to 3 lines on desktop. Extra
+     top margin pushes it lower than the tabs above for a more
+     spacious entry before its text-reveal animates. */
+  .features--composed .sec-head { max-width: 1000px; margin-top: 80px; }
+  /* Composed H2 parallax — JS-driven slide-up (0 → -20px) tied to
+     scroll position; runs alongside the inherited text-reveal-up
+     line-height animation. View-timeline shorthand was unreliable
+     for combined animations in Chrome 122, so this uses the same
+     rAF pattern as the footer wordmark. */
+  .features--composed .sec-head h2 { will-change: transform; }
+
+  /* Numbered-steps anchor section (Premiere "Try the beta…") */
+  .numbered-steps__row { text-align: center; }
+  .numbered-steps__label {
+    font-family: var(--font-text); font-size: 20px; font-weight: 700;
+    line-height: 1.3; color: var(--fg-ink); margin: 0;
+  }
+  @media (max-width: 768px) {
+    .numbered-steps__row { grid-template-columns: 1fr !important; }
+  }
+
+  /* Promo-banner slide — sized + animated exactly like sr-homepage
+     carousel-slide. Image fills the right side; a left-to-right dark
+     gradient masks under the text so it reads on any image. */
+  /* @property registers --promo-bleed so CSS animates it smoothly
+     (interpolates as <length>). Without @property, custom properties
+     don't tween — they swap. Drives both slide margin AND content
+     padding-left so text stays visually anchored. */
+  @property --promo-bleed { syntax: '<length>'; inherits: true; initial-value: 0px; }
+  .promo-banner__slide {
+    position: relative;
+    aspect-ratio: 1600 / 890;
+    min-height: 542px;
+    max-height: 890px;
+    overflow: clip;
+    background: #060A14;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    --promo-bleed: 0px;
+    /* Negative margin equal to --promo-bleed extends the slide past
+       its container on both sides. At full bleed, slide spans viewport. */
+    margin-inline: calc(0px - var(--promo-bleed));
+    animation: promo-banner-elastic linear both;
+    animation-timeline: view();
+    animation-range: entry 0% contain 60%;
+  }
+  .promo-banner__bg {
+    position: absolute; inset: 0; z-index: 0;
+  }
+  .promo-banner__bg img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: right center;
+    display: block;
+  }
+  .promo-banner__fade {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(90deg,
+      rgba(6,10,20,0.95) 0%,
+      rgba(6,10,20,0.85) 30%,
+      rgba(6,10,20,0.55) 50%,
+      rgba(6,10,20,0.0) 70%);
+  }
+  .promo-banner__content {
+    position: relative; z-index: 2;
+    padding: clamp(32px, 5vw, 64px);
+    /* Padding-left grows by --promo-bleed at full-bleed and shrinks
+       to base padding at settled — keeps text visually anchored
+       (so it doesn't slide right as the slide contracts). */
+    padding-left: calc(clamp(32px, 5vw, 64px) + var(--promo-bleed, 0px));
+    max-width: 620px;
+  }
+  .promo-banner__content h3 {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(32px, 3.6vw, 48px); line-height: 1.05;
+    letter-spacing: -0.8px; margin: 0 0 16px; color: #fff;
+  }
+  .promo-banner__content p {
+    font-size: 17px; line-height: 1.5;
+    margin: 0 0 28px; color: rgba(255,255,255,0.85);
+  }
+  @keyframes promo-banner-elastic {
+    0%   {
+      /* Full-bleed: extend slide past the container's max-width to
+         span the viewport. Uses --max-w (the page's content width
+         token) so 100% / percentages aren't needed — @property
+         <length> doesn't accept calc with percentages. Clamped to
+         non-negative so it works on viewports narrower than --max-w. */
+      --promo-bleed: max(0px, calc((100vw - var(--max-w, 1440px)) / 2));
+      border-radius: 0;
+      opacity: 0.85;
+    }
+    100% {
+      --promo-bleed: 0px;
+      border-radius: 16px;
+      opacity: 1;
+    }
+  }
+  @media (max-width: 768px) {
+    .promo-banner__content { max-width: 100%; }
+    .promo-banner__fade {
+      background: linear-gradient(180deg,
+        rgba(6,10,20,0.95) 0%,
+        rgba(6,10,20,0.6)  60%,
+        rgba(6,10,20,0.0)  100%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .promo-banner__slide { animation: none; opacity: 1; transform: none; }
+  }
+
+  /* ───── Merch-cards plans component (from plans-library reference) ─── */
+  /* Designer's pattern: cards take an equal fraction of the container
+     based on count. 2 cards = 50% each (wide), 3 = 33%, 4 = 25%.
+     1 card is the exception — capped so it doesn't span the full
+     container, then centered (per request: always centered even at N=1). */
+  .merch-cards {
+    display: grid;
+    column-gap: 16px;
+    row-gap: 0;
+    grid-auto-rows: max-content;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding-inline: 16px;
+    justify-content: center;
+  }
+  /* one-up: single card matches the width of ONE card in the 2-up
+     layout (= half container minus half the gap). With justify-content
+     centered, the card sits in the middle of the row. */
+  .merch-cards.one-up   { grid-template-columns: calc(50% - 8px); }
+  .merch-cards.two-up   { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .merch-cards.three-up { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .merch-cards.four-up  { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  /* Default when no count class is set — single-column safe fallback. */
+  .merch-cards:not(.one-up):not(.two-up):not(.three-up):not(.four-up) {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+  /* Subgrid: each card spans 2 rows so its top + bottom align with
+     siblings — all cards' "top" sections (pricing area) end at the
+     same Y, and their features sections start at the same Y. */
+  .merch-card { display: grid; grid-row: span 2; grid-template-rows: subgrid; gap: 0; }
+
+  /* Scroll-driven slide-up + fade-in for merch-cards. Inline
+     style.opacity and style.transform are written by the rAF tick
+     in the scaffold's script block (Lenis-aware) — no CSS transition
+     needed, the scroll progress IS the timeline. Initial values set
+     via JS at register() time. Reduced-motion respected by the JS. */
+  .merch-card { will-change: opacity, transform; }
+  /* Image zoom on hover — matches sr-homepage base-card pattern. */
+  .merch-card img.merch-card__product-icon { transition: none; }
+  .merch-card { transition: outline-color 200ms ease; }
+  @media (max-width: 900px) {
+    .merch-cards.four-up, .merch-cards.three-up {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 16px;
+    }
+  }
+  @media (max-width: 600px) {
+    .merch-cards, .merch-cards.two-up, .merch-cards.three-up, .merch-cards.four-up {
+      grid-template-columns: 1fr;
+      row-gap: 16px;
+    }
+    .merch-card { grid-row: auto; grid-template-rows: none; }
+  }
+
+  /* Light variant: gray wrap + white inner — see designer's
+     references/sources/acrobat-plans.html. The wrap's 4px outline
+     creates the visible "frame" effect. */
+  .merch-card--light {
+    background: #f5f5f7;
+    outline: 4px solid #f5f5f7;
+    border-radius: 16px;
+  }
+  /* Dark variant: black wrap with same 4px outline; inner stays
+     light gray on top, bottom features turn dark. */
+  .merch-card--dark {
+    background: #060A14;
+    outline: 4px solid #060A14;
+    border-radius: 16px;
+    color: #fff;
+  }
+  /* Featured (legacy alias) — keep for backward compat. */
+  .merch-card--featured { background: #060A14; outline-color: #060A14; color: #fff; border-radius: 16px; }
+
+  .merch-card__inner {
+    background: #fff;
+    border-radius: 12px;
+    display: flex; flex-direction: column;
+  }
+  .merch-card--dark .merch-card__inner { background: #fff; color: #000; }
+
+  .merch-card__top { padding: 24px; display: flex; flex-direction: column; gap: 20px; flex: 1; }
+
+  .merch-card__mnemonic { display: flex; align-items: center; gap: 12px; }
+  .merch-card__product-icon { width: 24px; height: 24px; flex-shrink: 0; }
+  .merch-card__eyebrow {
+    font-family: var(--font-text); font-size: 14px; font-weight: 700;
+    line-height: 1.286; letter-spacing: 0; color: rgba(0, 0, 0, 0.64);
+  }
+  .merch-card__name-desc { display: flex; flex-direction: column; gap: 8px; }
+  .merch-card__name {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 24px; line-height: 1.2; letter-spacing: -0.48px;
+    color: #000; margin: 0;
+  }
+  .merch-card__desc {
+    font-family: var(--font-text); font-size: 14px; line-height: 1.4;
+    color: rgba(0, 0, 0, 0.64); margin: 0;
+  }
+  .merch-card__pricing { display: flex; flex-direction: column; gap: 12px; margin-top: auto; }
+  .merch-card__price-area { display: flex; flex-direction: column; gap: 4px; }
+  .merch-card__price {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 18px; line-height: 1.167; letter-spacing: -0.48px;
+    color: #000; margin: 0;
+  }
+  .merch-card__price-strike {
+    text-decoration: line-through; color: rgba(0, 0, 0, 0.48);
+    margin-right: 8px; font-weight: 400;
+  }
+  .merch-card__price-note {
+    font-family: var(--font-text); font-size: 14px; line-height: 1.286;
+    color: rgba(0, 0, 0, 0.64); margin: 0;
+  }
+  .merch-card__ctas { display: flex; gap: 8px; }
+  .merch-card__ctas .btn { flex: 1; height: 40px; }
+  .merch-card__secure {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 24px 16px;
+    font-size: 12px; font-weight: 700; color: rgba(0, 0, 0, 0.48);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    margin-top: -1px;
+  }
+  .merch-card__secure-icon { width: 14px; height: 14px; opacity: 0.5; }
+
+  /* Bottom section — features list */
+  .merch-card__bottom {
+    display: flex; flex-direction: column;
+    padding: 24px;
+    color: rgba(0, 0, 0, 0.64);
+  }
+  .merch-card--dark .merch-card__bottom { color: rgba(255, 255, 255, 0.64); }
+  .merch-card__features { display: flex; flex-direction: column; gap: 24px; }
+  .merch-card__features-inner { display: flex; flex-direction: column; gap: 24px; }
+  .merch-card__section { display: flex; flex-direction: column; gap: 12px; }
+  .merch-card__section + .merch-card__section {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 24px;
+  }
+  .merch-card--dark .merch-card__section + .merch-card__section {
+    border-top-color: rgba(255, 255, 255, 0.12);
+  }
+  .merch-card__section-title {
+    display: flex; align-items: center; gap: 8px;
+    font-family: var(--font-text); font-size: 14px; font-weight: 700;
+    color: rgba(0, 0, 0, 0.88);
+    line-height: 1.286;
+  }
+  .merch-card--dark .merch-card__section-title { color: #fff; }
+  .merch-card__section-icon { width: 20px; height: 20px; flex-shrink: 0; }
+  .merch-card--dark .merch-card__section-icon:not(.icon-sparkle) { filter: invert(1); }
+  .merch-card__items { display: flex; flex-direction: column; gap: 8px; padding-left: 28px; }
+  .merch-card__item {
+    font-family: var(--font-text); font-size: 14px; line-height: 1.4;
+    color: rgba(0, 0, 0, 0.64);
+  }
+  .merch-card--dark .merch-card__item { color: rgba(255, 255, 255, 0.64); }
+
+  /* Tabbed merch-cards — pill container with active state.
+     Designer's .plans-tabs: gray pill wraps the buttons; active tab
+     is solid black with white text. */
+  .merch-cards-shell { display: flex; flex-direction: column; align-items: center; }
+  .merch-cards-tabs {
+    display: inline-flex;
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 24px;
+    padding: 4px;
+    gap: 4px;
+    margin: 0 auto 40px;
+  }
+  .merch-cards-tab {
+    appearance: none; background: transparent; border: 0; cursor: pointer;
+    height: 32px; padding: 0 20px;
+    font-family: var(--font-text); font-weight: 700; font-size: 14px;
+    line-height: 1.2; letter-spacing: 0;
+    color: rgba(0, 0, 0, 0.64);
+    border-radius: 50px;
+    white-space: nowrap;
+    transition: background 160ms ease, color 160ms ease;
+  }
+  .merch-cards-tab:hover { color: rgba(0, 0, 0, 0.88); }
+  .merch-cards-tab[aria-selected="true"], .merch-cards-tab.active {
+    background: #000; color: #fff;
+  }
+  .merch-cards-panel { width: 100%; }
+  .merch-cards-panel[hidden] { display: none; }
+
+  /* ───── section-intro — long-form editorial intro paragraph block.
+     Used by resources/SDK pages between use-case sections. Centered
+     max-width column, large display heading, readable body text. ── */
+  .section-intro { background: #fff; padding: clamp(48px, 6vw, 96px) var(--pad-x); }
+  .section-intro .container { max-width: 880px; margin: 0 auto; padding: 0; text-align: left; }
+  .section-intro__heading {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.4vw, 48px);
+    line-height: 1.08; letter-spacing: -1px;
+    font-weight: 900; color: var(--fg-ink);
+    margin: 0 0 24px;
+  }
+  .section-intro__body { font-size: 17px; line-height: 1.55; color: var(--fg-muted); text-align: left; }
+  .section-intro__body p { margin: 0 0 8px; }
+  .section-intro__body p:last-child { margin-bottom: 0; }
+  .section-intro__body strong { color: var(--fg-ink); font-weight: 700; }
+  .section-intro__body ul, .section-intro__body ol {
+    text-align: left;
+    margin: 8px 0;
+    padding-left: 24px;
+    max-width: 640px;
+  }
+  .section-intro__body li { margin: 3px 0; line-height: 1.55; }
+  /* Inline links inside a long-form prose body. */
+  .section-intro__body a {
+    color: var(--accent, #1473e6); text-decoration: none; border-bottom: 1px solid transparent;
+  }
+  .section-intro__body a:hover { border-bottom-color: currentColor; }
+  /* Page-level table-of-contents navigation. A small JS handler
+     hoists the `[data-page-toc]` element to `<body>` so its
+     positioning is page-relative; it sits ABSOLUTE just below the
+     hero by default, then switches to FIXED once the viewport
+     scrolls past its initial top (so it sticks under the header on
+     scroll-down, and returns to its initial position on scroll-up).
+     On viewports < 1100px it falls back to a centered in-flow list. */
+  .page-toc {
+    position: absolute;
+    left: 74px;
+    width: 320px;
+    z-index: 50;
+    text-align: left;
+    font-size: 14px;
+    color: var(--fg-muted);
+  }
+  .page-toc.page-toc--stuck {
+    position: fixed;
+    top: 96px;
+  }
+  .page-toc__eyebrow {
+    font-family: var(--font-display);
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.6px; text-transform: uppercase;
+    color: var(--accent, #1473e6);
+    margin: 0 0 12px;
+  }
+  .page-toc__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .page-toc__list a {
+    color: var(--fg-muted);
+    text-decoration: underline;
+    text-decoration-color: rgba(0,0,0,0.18);
+    text-underline-offset: 3px;
+    border: none;
+    line-height: 1.35;
+    transition: color 150ms ease, text-decoration-color 150ms ease;
+  }
+  .page-toc__list a:hover {
+    color: var(--accent, #1473e6);
+    text-decoration-color: currentColor;
+  }
+  /* Narrow viewports — drop the sidebar back into the body flow. */
+  @media (max-width: 1099px) {
+    .page-toc, .page-toc.page-toc--stuck { position: static; top: auto; left: auto; width: auto; margin: 0 auto 32px; text-align: center; max-width: 520px; }
+    .page-toc__list { align-items: center; }
+  }
+  /* Tinted variants — sections marked with bg-light or bg-tint in source
+     metadata get a subtle neutral wash. */
+  .section-intro.section-intro--tint { background: #fafafa; }
+
+  /* ───── use-case-block — labeled case study with tinted result callout.
+     Used 3x per legal-teams-style resources/SDK page. ── */
+  .use-case-block { background: #fff; padding: clamp(48px, 6vw, 96px) var(--pad-x); }
+  .use-case-block .container { max-width: 880px; margin: 0 auto; padding: 0; }
+  .use-case-block__eyebrow {
+    font-family: var(--font-display);
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.4px; text-transform: uppercase;
+    color: var(--accent, #1473e6);
+    margin: 0 0 12px;
+  }
+  .use-case-block__heading {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3vw, 40px);
+    line-height: 1.1; letter-spacing: -0.6px;
+    font-weight: 900; color: var(--fg-ink);
+    margin: 0 0 28px;
+  }
+  .use-case-block__body { font-size: 17px; line-height: 1.55; color: var(--fg-ink); text-align: left; }
+  .use-case-block__body p { margin: 0 0 8px; }
+  .use-case-block__body p strong { font-weight: 700; color: var(--fg-ink); }
+  .use-case-block__body p:last-child { margin-bottom: 0; }
+  /* H3 sub-headings inside a use-case body — "The challenge:", "How
+     Acrobat Studio helps:" — rendered as small caps eyebrows above
+     each paragraph cluster. */
+  .use-case-block__body h3 {
+    font-family: var(--font-display);
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.4px; text-transform: uppercase;
+    color: var(--accent, #1473e6);
+    margin: 28px 0 8px;
+  }
+  .use-case-block__body h3:first-child { margin-top: 0; }
+  .use-case-block__body ul, .use-case-block__body ol { padding-left: 24px; margin: 12px 0; }
+  .use-case-block__body li { margin: 6px 0; line-height: 1.55; }
+  .use-case-block__body img {
+    display: block;
+    max-width: 100%; height: auto;
+    margin: 24px auto;
+    border-radius: 12px;
+  }
+  .use-case-block__result {
+    display: block;
+    margin-top: 40px;
+    padding: 28px 32px;
+    /* Source uses #E5F0FE as the result section background; mirror that. */
+    background: #E5F0FE;
+    border-left: 4px solid var(--accent, #1473e6);
+    border-radius: 8px;
+    font-size: 17px; line-height: 1.55;
+  }
+  .use-case-block__result-label {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.4px; text-transform: uppercase;
+    color: var(--accent, #1473e6);
+    margin-right: 6px;
+  }
+  .use-case-block__result-text { color: var(--fg-ink); }
+
+  /* ───── icon-feature-list — vertical list of icon + label + desc rows.
+     Used by EDS resources/SDK pages where each row shows a workflow
+     name and a short descriptor. ── */
+  .icon-feature-list { background: #fff; padding: clamp(40px, 5vw, 64px) var(--pad-x); }
+  .icon-feature-list .container { max-width: 880px; margin: 0 auto; padding: 0; }
+  .icon-feature-list__items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
+  .icon-feature-list__item {
+    display: flex; align-items: flex-start; gap: 20px;
+    padding: 16px 0;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+  .icon-feature-list__item:first-child { border-top: none; }
+  .icon-feature-list__icon { width: 40px; height: 40px; flex-shrink: 0; margin-top: 2px; }
+  .icon-feature-list__text { display: flex; flex-direction: column; gap: 4px; }
+  .icon-feature-list__label {
+    font-family: var(--font-display);
+    font-size: 18px; font-weight: 700;
+    line-height: 1.3; color: var(--fg-ink);
+    margin: 0;
+  }
+  .icon-feature-list__desc {
+    font-size: 15px; line-height: 1.5;
+    color: var(--fg-muted); margin: 0;
+  }
+
+  /* ───── recommended-cards — card grid for the "Recommended for you"
+     resources tail. Image-on-top cards with title + date. ── */
+  .recommended-cards { background: #fafafa; padding: clamp(48px, 6vw, 96px) var(--pad-x); }
+  .recommended-cards .container { max-width: var(--max-w); margin: 0 auto; padding: 0; }
+  .recommended-cards__header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .recommended-cards__heading {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 2.6vw, 36px);
+    line-height: 1.1; letter-spacing: -0.5px;
+    font-weight: 900; color: var(--fg-ink);
+    margin: 0;
+  }
+  .recommended-cards__supplemental {
+    color: var(--accent, #1473e6);
+    text-decoration: none;
+    font-size: 15px; font-weight: 600;
+    border-bottom: 1px solid currentColor;
+  }
+  .recommended-cards__supplemental:hover { color: var(--fg-ink); }
+  .recommended-cards__grid {
+    display: grid;
+    /* 3-up layout matching the source's "Recommended for you" rail.
+       Falls back to 2-up < 900px content width and 1-up < 600px. */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    justify-content: start;
+  }
+  @media (max-width: 900px) {
+    .recommended-cards__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 600px) {
+    .recommended-cards__grid { grid-template-columns: 1fr; }
+  }
+  .recommended-cards__card {
+    display: flex; flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  .recommended-cards__card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+  .recommended-cards__image {
+    aspect-ratio: 3 / 2;
+    background-size: cover;
+    background-position: center;
+    background-color: #eee;
+    /* Card-placeholder fallback when no image (e.g. CaaS-only entries
+       we couldn't hydrate) — a soft neutral gradient instead of a
+       blank box. */
+    background-image: linear-gradient(135deg, #e9eefa 0%, #d8e2f5 100%);
+  }
+  .recommended-cards__date:empty { display: none; }
+  .recommended-cards__body { padding: 20px; }
+  .recommended-cards__title {
+    font-family: var(--font-display);
+    font-size: 18px; line-height: 1.25;
+    font-weight: 700; color: var(--fg-ink);
+    margin: 0 0 8px;
+  }
+  .recommended-cards__text {
+    font-size: 14px; line-height: 1.45;
+    color: var(--fg-muted); margin: 0 0 12px;
+    /* Clamp body to a tidy 3 lines so cards keep a consistent height. */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .recommended-cards__date {
+    font-size: 13px; color: var(--fg-muted); margin: 0;
+  }
+  .recommended-cards__date:empty { display: none; }
+
+  /* ───── Footer (bizpro-hub: 6-col dark, wordmark at bottom) ───────── */
+  .footer { position: relative; background: #000; }
+  .footer__main {
+    display: flex; flex-direction: column;
+    gap: var(--s2a-spacing-2xl);
+    padding: 64px var(--grid-margin-sm) 0;
+    position: relative;
+    z-index: 2;
+    /* Black background so it occludes the wordmark sliding from
+       behind it (wordmark sits below and slides DOWN into view). */
+    background: #000;
+  }
+  @media (min-width: 768px) { .footer__main { padding-inline: var(--s2a-layout-lg); } }
+  .footer__cols {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 32px 20px;
+  }
+  @media (min-width: 900px) {
+    .footer__cols { grid-template-columns: repeat(6, 1fr); gap: 0 var(--s2a-spacing-xs); }
+  }
+  .footer__col { display: flex; flex-direction: column; gap: var(--s2a-spacing-lg); }
+  .footer__col-title {
+    font-size: 16px; font-weight: 700; color: #fff;
+    line-height: 20px; letter-spacing: -0.2px;
+  }
+  .footer__col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--s2a-spacing-xs); }
+  .footer__col ul li a {
+    font-size: 16px; font-weight: 400;
+    color: rgba(255,255,255,0.64);
+    line-height: 20px; letter-spacing: 0.16px;
+    text-decoration: none;
+  }
+  .footer__col ul li a:hover { color: rgba(255,255,255,0.9); }
+  .footer__featured { display: flex; flex-direction: column; gap: var(--s2a-spacing-lg); }
+  .footer__feat-label {
+    font-size: 16px; font-weight: 700; color: #fff;
+    line-height: 20px; letter-spacing: -0.2px; margin: 0;
+  }
+  .footer__prods { display: flex; gap: 24px; flex-wrap: wrap; align-items: center; }
+  .footer__prod { display: flex; align-items: center; gap: 8px; }
+  .footer__prod-icon { width: 16px; height: 16px; flex-shrink: 0; display: block; }
+  .footer__prod-name {
+    font-size: 12px; font-weight: 700;
+    color: rgba(255,255,255,0.64);
+    line-height: 15.6px; letter-spacing: 0.24px; white-space: nowrap;
+  }
+  .footer__bottom {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+    padding-bottom: 24px;
+  }
+  .footer__legal { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+  .footer__legal-item {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 12px; font-weight: 700;
+    color: rgba(255,255,255,0.64);
+    line-height: 15.6px; letter-spacing: 0.24px; white-space: nowrap;
+  }
+  .footer__legal-item a { color: rgba(255,255,255,0.64); text-decoration: none; }
+  .footer__legal-item a:hover { color: rgba(255,255,255,0.9); }
+  .footer__adchoices { display: flex; align-items: center; gap: 4px; }
+  .footer__ccpa { width: 49px; height: 13px; display: block; flex-shrink: 0; }
+  .footer__social { display: flex; gap: 16px; align-items: center; width: 192px; flex-shrink: 0; }
+  .footer__social-icon {
+    position: relative; width: 18px; height: 18px;
+    flex-shrink: 0; overflow: hidden; display: block;
+  }
+  .footer__social-icon img {
+    position: absolute; inset: 0; width: 100%; height: 100%; display: block;
+  }
+  /* Wordmark: natural layout BELOW footer__main; initially translated
+     UP by its full height so it visually sits behind main (occluded
+     by main's black bg). As it enters the viewport, animation slides
+     it DOWN to translateY(0), revealing it just below main. Footer
+     content stays static — only the wordmark moves. */
+  .footer__wordmark {
+    aspect-ratio: 1440 / 338; width: 100%; position: relative;
+    overflow: hidden; margin-top: 0; z-index: 0;
+    transform: translateY(-100%);
+    animation: wordmark-slide-down linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 100%;
+  }
+  @keyframes wordmark-slide-down {
+    0%   { transform: translateY(-100%); }
+    100% { transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .footer__wordmark { animation: none; transform: translateY(0); }
+  }
+  .footer__wordmark img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  /* ───── Responsive ────────────────────────────────────────────────── */
+  @media (max-width: 1000px) {
+    .acrobat-cards, .plans-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .stories__viewport { overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+    .stories__track { padding-inline: 16px; }
+    .story-card { flex: 0 0 280px; scroll-snap-align: start; }
+    /* nav links hide via their own 900px breakpoint */
+  }
+  @media (max-width: 600px) {
+    .acrobat-cards, .plans-grid { grid-template-columns: 1fr; }
+    .quote__inner { grid-template-columns: 1fr; }
+    .brands__inner { flex-direction: column; align-items: flex-start; }
+    .story-card { flex: 0 0 240px; }
+  }
+
+  /* ── scroll-driven motions (lifted from sr-homepage) ──────────────── */
+  :root {
+    --parallax-easing: cubic-bezier(0.42, 0, 0, 1);
+  }
+  html { scroll-behavior: smooth; }
+
+  /* base parallax — applies to anything with a class starting "parallax-" */
+  @supports (animation-timeline: view()) {
+    [class*="parallax-"] {
+      --parallax-opacity-from: 1;
+      --parallax-translate-y: 0;
+      --parallax-translate-x: 0;
+      --parallax-scale: 1;
+      --parallax-blur: 0;
+      --parallax-stagger-drift: 48px;
+      animation-name: enable-parallax;
+      animation-timing-function: var(--parallax-easing);
+      animation-fill-mode: both;
+      animation-timeline: view(40% 10%);
+      animation-range: entry 0% entry 100%;
+      will-change: opacity, transform, filter;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      [class*="parallax-"], [class*="parallax-"] *, [class*="parallax-"]::before, [class*="parallax-"]::after {
+        animation: auto ease 0s 1 normal none running none !important;
+      }
+      .section.parallax-move-up-fast { position: static !important; }
+    }
+    .parallax-move-up { --parallax-translate-y: 100px; }
+    .parallax-scale-up { --parallax-scale: 0.9; }
+    .parallax-scale-down { --parallax-scale: 1.1; }
+    .parallax-blur { --parallax-blur: 10px; }
+    .parallax-opacity { --parallax-opacity-from: 0; }
+    @keyframes enable-parallax {
+      0% { opacity: var(--parallax-opacity-from); transform: translate3d(var(--parallax-translate-x), var(--parallax-translate-y), 0) scale(var(--parallax-scale)); filter: blur(var(--parallax-blur)); }
+      100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); filter: blur(0); }
+    }
+
+    /* parallax-stagger-ltr — grid children reveal staggered left → right.
+       Each child uses its OWN anonymous view() timeline. The animation
+       progresses through the "entry" phase: 0% when element top is at
+       viewport bottom, 100% when element bottom is at viewport bottom. */
+    [class*="parallax-stagger-"] {
+      @media (width >= 768px) { animation-name: none; }
+    }
+    @media (width >= 768px) {
+      [class*="parallax-stagger-"] > :not([class*="section-"]) {
+        --parallax-stagger-row-index: 0;
+        --parallax-stagger-index: 0;
+        animation-name: enable-parallax-stagger;
+        animation-timing-function: var(--parallax-easing);
+        animation-fill-mode: both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 30%;
+        will-change: transform, opacity;
+      }
+      .parallax-stagger-ltr.two-up > :nth-child(2n+1), .parallax-stagger-ltr.three-up > :nth-child(3n+1), .parallax-stagger-ltr.four-up > :nth-child(4n+1) { --parallax-stagger-index: 0.5; }
+      .parallax-stagger-ltr.two-up > :nth-child(2n+2), .parallax-stagger-ltr.three-up > :nth-child(3n+2), .parallax-stagger-ltr.four-up > :nth-child(4n+2) { --parallax-stagger-index: 1.5; }
+      .parallax-stagger-ltr.three-up > :nth-child(3n+3), .parallax-stagger-ltr.four-up > :nth-child(4n+3) { --parallax-stagger-index: 2.5; }
+      .parallax-stagger-ltr.four-up > :nth-child(4n+4) { --parallax-stagger-index: 3.5; }
+      .parallax-stagger-ltr > * {
+        --parallax-stagger-from: calc(
+          (var(--parallax-stagger-index, 0) + var(--parallax-stagger-row-index, 0))
+          * var(--parallax-stagger-drift)
+        );
+      }
+    }
+    @keyframes enable-parallax-stagger {
+      0%   { transform: translate3d(0, var(--parallax-stagger-from, 0px), 0); }
+      100% { transform: translate3d(0, 0, 0); }
+    }
+
+    /* Fade-in for acrobat-card grid children — driven by the JS
+       IntersectionObserver below (not view-timeline; Chrome was
+       reporting "finished" before the timeline ever started, so
+       opacity wasn't interpolating). The transform-only stagger
+       above still animates via view-timeline; this overlays the
+       opacity fade so cards start transparent and fade to opaque
+       as they reach their final position. */
+    /* Acrobat-cards fade-in is driven by the same JS tick as merch-cards
+       (see scaffold script block). No CSS transition; the rAF loop
+       writes opacity + transform inline per frame. The view-timeline
+       slide-up animation above (enable-parallax-stagger) is bypassed
+       in favor of the JS pattern for consistent feel across both
+       card families. */
+    .acrobat-cards > .acrobat-card { will-change: opacity, transform; }
+
+    /* garage-door reveal — closer "door" lifts up while bg scales */
+    .parallax-garage-door-reveal {
+      --gd-grow-from: -50vh;
+      --gd-reveal-from: 20vh;
+      overflow: clip;
+      transform-origin: center top;
+      animation-name: garage-door-grow;
+      animation-timeline: view();
+      animation-range: entry cover 40%;
+      animation-timing-function: ease-out;
+      animation-fill-mode: both;
+    }
+    @media (width >= 1280px) {
+      /* Cap the grow distance so the dark background doesn't extend
+         hundreds of pixels above the section into preceding content.
+         Previously -110vh on a 1080px viewport = -1188px, which
+         visibly bled the closer's black bg up into the how-to /
+         merch-cards areas during scroll. */
+      .parallax-garage-door-reveal { --gd-grow-from: -20vh; --gd-reveal-from: 50vh; animation-range: entry cover 50%; }
+    }
+    .parallax-garage-door-reveal .foreground {
+      position: relative; z-index: 1;
+      animation-name: garage-door-reveal;
+      animation-timeline: view();
+      animation-range: cover -10% cover 70%;
+      animation-timing-function: ease-out;
+      animation-fill-mode: both;
+    }
+    @keyframes garage-door-grow {
+      0% { transform: translateY(var(--gd-grow-from)); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes garage-door-reveal {
+      0% { transform: translateY(var(--gd-reveal-from)); }
+      100% { transform: translateY(0); }
+    }
+
+    /* move-up-fast — sticky hero scrolls up faster than scroll, with fade-to-dark */
+    .section.parallax-move-up-fast {
+      will-change: transform;
+      position: sticky;
+      top: 0;
+      z-index: 0;
+      animation-name: parallax-move-up-fast;
+      animation-timeline: scroll(root);
+      animation-range: 0px 80vh;
+      animation-timing-function: ease-out;
+    }
+    .section.parallax-move-up-fast::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: black; opacity: 0;
+      pointer-events: none;
+      animation-name: parallax-fade-to-dark;
+      animation-timeline: scroll(root);
+      animation-range: 0px 80vh;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      z-index: 2;
+    }
+    /* every section AFTER the sticky hero must layer above its receding overlay */
+    .section.parallax-move-up-fast ~ .section,
+    .section.parallax-move-up-fast ~ section,
+    .section.parallax-move-up-fast ~ * { position: relative; z-index: 3; }
+    /* …but the garage-door section sits BELOW its preceding siblings, so they mask
+       its "growing from -50vh" lift into the section above */
+    .section.parallax-move-up-fast ~ .parallax-garage-door-reveal { z-index: 1; }
+    /* The closer must ALSO sit ABOVE the footer__main (z-index: 2)
+       so footer__main's scroll-rise (-380px) doesn't overlap the
+       closer's content above it. z-index: 4 puts closer above both
+       the rising footer AND the preceding sections. */
+    .section.parallax-move-up-fast ~ .closer { z-index: 4; }
+    @keyframes parallax-move-up-fast {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-35vh); }
+    }
+    @keyframes parallax-fade-to-dark {
+      0% { opacity: 0; }
+      100% { opacity: 0.75; }
+    }
+  }
+
+  /* ───── Page-TOC reserved space (last in cascade — overrides per-section
+     container rules). On wide viewports AND only when a TOC sidebar
+     exists (body.has-page-toc is set by the sticky-TOC JS), push EDS
+     resources/SDK sections to the right of the fixed-left sidebar.
+     Pages without a TOC keep their normal centered layout. */
+  @media (min-width: 1100px) {
+    body.has-page-toc .section-intro .container,
+    body.has-page-toc .use-case-block .container,
+    body.has-page-toc .icon-feature-list .container,
+    body.has-page-toc .recommended-cards .container {
+      margin-left: 420px;
+      margin-right: auto;
+    }
+  }
+
+
+/* synthesized */
+
+  .ax-panels__panel { background: transparent; padding-top: 0; }
+  /* Composed inner gets full ax-panels width; container inside re-establishes
+     the 1440px max so the how-to cards align with other sections' width. */
+  .ax-panels__panel-inner:has(> .section.features--composed) { max-width: 100%; padding-inline: 0; }
+  .ax-panels__panel-inner > .section.features--composed { padding: 0; background: transparent; }
+  .ax-panels__panel-inner > .section.features--composed > .container { max-width: var(--max-w); margin: 0 auto; padding-inline: var(--pad-x); }
