@@ -3,35 +3,200 @@
   padding: 0;
 }
 
-.hero {
-  position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+/* Hero split — text-left, full-viewport height */
+.hero.block.hero--split {
+  text-align: left;
+  padding: 30px var(--pad-x) clamp(48px, 6vw, 96px);
+  background: #fff;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+.hero.block.hero--split .container {
+  padding-top: 0;
+  max-width: var(--max-w);
 }
 
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+.hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(40px, 6vw, 96px);
+  align-items: center;
+  min-height: calc(100vh - 80px);
 }
 
-.hero img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+/* No-image variant: single column, centered */
+.hero.block.hero--split-noimage .hero-split {
+  grid-template-columns: 1fr;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-@media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
+.hero.block.hero--split-noimage .hero-split__copy {
+  max-width: none;
+}
+
+.hero.block.hero--split-noimage .hero-split__actions {
+  justify-content: center;
+}
+
+.hero-split__copy {
+  max-width: 560px;
+}
+
+.hero-split__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--fg-ink);
+  animation: enter-up 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0ms both;
+}
+
+.hero-split__logo img {
+  width: 28px;
+  height: 28px;
+}
+
+.hero-split__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(40px, 4.6vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -1px;
+  margin: 0 0 24px;
+  animation: enter-up 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 80ms both;
+}
+
+.hero-split__actions {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 12px 14px;
+  align-items: center;
+  margin-top: 8px;
+  animation: enter-up 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 240ms both;
+}
+
+@keyframes enter-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-split__logo,
+  .hero-split__title,
+  .hero-split__actions {
+    animation: none;
   }
+}
+
+@media (width <= 900px) {
+  .hero.block.hero--split {
+    padding: 56px 0 64px;
+  }
+
+  .hero-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    min-height: 0;
+  }
+}
+
+/* Stories strip (compound sibling — appended after block by JS) */
+.stories.is-compound-sibling {
+  padding: 0 0 clamp(48px, 6vw, 80px);
+}
+
+.stories__viewport {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--pad-x);
+}
+
+.stories__track {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+  will-change: transform;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+.story-card {
+  flex: 1 1 0;
+  min-width: 0;
+  aspect-ratio: 3 / 4;
+  border-radius: 16px;
+  border: 0;
+  padding: 0;
+  appearance: none;
+  overflow: hidden;
+  position: relative;
+  background: #f8f8f8;
+  cursor: pointer;
+  text-align: left;
+}
+
+.story-card__photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.story-card:hover .story-card__photo {
+  transform: scale(1.03);
+}
+
+.story-card__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgb(0 0 0 / 0%) 50%, rgb(0 0 0 / 78%) 100%);
+  pointer-events: none;
+}
+
+.story-card__icon {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 40px;
+  height: 40px;
+  background: rgb(255 255 255 / 92%);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(8px);
+}
+
+.story-card__icon img {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.story-card__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #fff;
+}
+
+.story-card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.18;
+  letter-spacing: -0.4px;
+  color: #fff;
 }

@@ -1,0 +1,59 @@
+.closer-container .closer-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.closer.block {
+  background: var(--bg-ink);
+  color: var(--fg-on-dark);
+  padding: clamp(80px, 10vw, 140px) var(--pad-x);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.closer__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.closer__copy h2 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 1;
+  letter-spacing: -1.5px;
+  color: #fff;
+  animation: text-reveal-up linear both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 40%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .closer__copy h2 {
+    animation: none;
+  }
+}
+
+.closer__actions .btn--primary {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+.closer__actions .btn--primary:hover {
+  background: rgb(255 255 255 / 92%);
+}
+
+.closer__actions .btn--outline {
+  background: transparent;
+  color: #fff;
+  border-color: rgb(255 255 255 / 60%);
+}
+
+.closer__actions .btn--outline:hover {
+  background: rgb(255 255 255 / 8%);
+  border-color: #fff;
+}

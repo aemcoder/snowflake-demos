@@ -1,0 +1,75 @@
+.merch-cards-container .merch-cards-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.merch-cards.block {
+  background: #fff;
+  padding: clamp(64px, 7vw, 112px) var(--pad-x);
+}
+
+.merch-cards.three-up {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (width <= 900px) {
+  .merch-cards.three-up {
+    grid-template-columns: 1fr;
+  }
+}
+
+.merch-card {
+  background: var(--bg-light);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-card);
+  padding: 28px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.merch-card--featured {
+  border-color: var(--accent);
+}
+
+.merch-card__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.merch-card__desc {
+  font-size: 13.5px;
+  color: var(--fg-muted);
+  line-height: 1.55;
+  min-height: 70px;
+  margin-bottom: 22px;
+}
+
+.merch-card__price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.4px;
+}
+
+.merch-card__billing {
+  font-size: 12px;
+  color: var(--fg-muted);
+  margin-bottom: 26px;
+}
+
+.merch-card .btn {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.merch-card__ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}

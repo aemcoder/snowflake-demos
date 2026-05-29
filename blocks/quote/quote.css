@@ -1,0 +1,44 @@
+.quote-container .quote-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.quote.block {
+  background: var(--bg-light);
+  padding: clamp(48px, 5vw, 80px) var(--pad-x);
+  padding-top: 0 !important; /* compound sibling */
+}
+
+.quote__inner {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 24px;
+  align-items: start;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.quote__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.quote__text {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.45;
+  margin-bottom: 16px;
+}
+
+.quote__attr {
+  font-size: 13px;
+  color: var(--fg-muted);
+}
+
+@media (width <= 600px) {
+  .quote__inner {
+    grid-template-columns: 1fr;
+  }
+}

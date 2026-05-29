@@ -1,0 +1,39 @@
+.brands-container .brands-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.brands.block {
+  background: var(--bg-light);
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-inline: var(--pad-x);
+}
+
+.brands__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.brands__label {
+  font-weight: 700;
+  font-size: 16px;
+  max-width: 280px;
+}
+
+.brands__logos {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.brands__logos img {
+  height: 38px;
+  opacity: 0.85;
+}
