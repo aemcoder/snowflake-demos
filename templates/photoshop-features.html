@@ -1,0 +1,690 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+
+<main><section class="hero section parallax-move-up-fast">
+  <div class="container">
+    <div class="hero__logo">
+      <img data-slot="logo-icon" src="https://www.adobe.com/cc-shared/assets/img/product-icons/svg/photoshop.svg" alt="">
+      <span data-slot="logo-label">Photoshop</span>
+    </div>
+    <h1 data-slot="title" class="hero__title">Explore new Adobe Photoshop features.</h1>
+    <p data-slot="body" class="hero__body">Learn all about the tools and techniques you can use to create gorgeous photos, rich graphics, and incredible art.</p>
+    <div class="hero__ctas">
+      <a data-slot="cta-primary" class="btn btn--primary" href="https://creativecloud.adobe.com/campaign/photoshop?workflow=launch&amp;source=acom">Update Photoshop</a>
+    </div>
+  </div>
+</section>
+
+<section class="ax-panels section">
+  <div class="container parallax-move-up">
+    <div class="ax-panels__tabs" role="tablist" id="axTabs">
+    <button class="ax-panels__tab" role="tab" aria-selected="true" data-panel="what-s-new-0">
+        <svg viewBox="0 0 18 18" fill="currentColor" aria-hidden="true"><path d="M16.819,10.231l-.082-.034.481-1.122A1.962,1.962,0,0,0,15.727,6.36V5.091A4.1,4.1,0,0,0,11.636,1H7.265a2.435,2.435,0,0,0-1.735.719L1.718,5.529A2.443,2.443,0,0,0,1,7.265v6.008a4.1,4.1,0,0,0,4.091,4.091h5.727a.818.818,0,0,0,.319-.065,1.982,1.982,0,0,0,3.132.216l3.35-3.764a2.22,2.22,0,0,0-.8-3.523ZM6.686,2.876c.011-.012.029-.016.041-.028V5.909a.818.818,0,0,1-.818.818H2.848c.011-.013.016-.029.028-.042Zm-4.05,10.4V8.364H5.909A2.455,2.455,0,0,0,8.364,5.909V2.636h3.273a2.455,2.455,0,0,1,2.455,2.455V6.727a.675.675,0,0,0,.016.082,2,2,0,0,0-.2.178L10.563,10.75a2.218,2.218,0,0,0,.8,3.518l.082.035-.481,1.122a1.947,1.947,0,0,0-.092.313c-.019,0-.034-.011-.054-.011H5.091A2.455,2.455,0,0,1,2.636,13.273ZM16.4,12.666l-3.355,3.764a.345.345,0,0,1-.58-.357L13.6,13.436,12,12.763a.583.583,0,0,1-.214-.927l3.355-3.764a.339.339,0,0,1,.255-.119.343.343,0,0,1,.327.475l-1.142,2.635,1.6.673a.583.583,0,0,1,.218.929Z"></path></svg> <span data-slot="tab-1.label">What's new</span> </button><button class="ax-panels__tab" role="tab" aria-selected="false" data-panel="image-adjustments-1">
+        <svg viewBox="0 0 18 18" fill="currentColor" aria-hidden="true"><path d="M16.819,10.231l-.082-.034.481-1.122A1.962,1.962,0,0,0,15.727,6.36V5.091A4.1,4.1,0,0,0,11.636,1H7.265a2.435,2.435,0,0,0-1.735.719L1.718,5.529A2.443,2.443,0,0,0,1,7.265v6.008a4.1,4.1,0,0,0,4.091,4.091h5.727a.818.818,0,0,0,.319-.065,1.982,1.982,0,0,0,3.132.216l3.35-3.764a2.22,2.22,0,0,0-.8-3.523ZM6.686,2.876c.011-.012.029-.016.041-.028V5.909a.818.818,0,0,1-.818.818H2.848c.011-.013.016-.029.028-.042Zm-4.05,10.4V8.364H5.909A2.455,2.455,0,0,0,8.364,5.909V2.636h3.273a2.455,2.455,0,0,1,2.455,2.455V6.727a.675.675,0,0,0,.016.082,2,2,0,0,0-.2.178L10.563,10.75a2.218,2.218,0,0,0,.8,3.518l.082.035-.481,1.122a1.947,1.947,0,0,0-.092.313c-.019,0-.034-.011-.054-.011H5.091A2.455,2.455,0,0,1,2.636,13.273ZM16.4,12.666l-3.355,3.764a.345.345,0,0,1-.58-.357L13.6,13.436,12,12.763a.583.583,0,0,1-.214-.927l3.355-3.764a.339.339,0,0,1,.255-.119.343.343,0,0,1,.327.475l-1.142,2.635,1.6.673a.583.583,0,0,1,.218.929Z"></path></svg> <span data-slot="tab-2.label">Image adjustments</span> </button><button class="ax-panels__tab" role="tab" aria-selected="false" data-panel="retouch-2">
+        <svg viewBox="0 0 18 18" fill="currentColor" aria-hidden="true"><path d="M16.819,10.231l-.082-.034.481-1.122A1.962,1.962,0,0,0,15.727,6.36V5.091A4.1,4.1,0,0,0,11.636,1H7.265a2.435,2.435,0,0,0-1.735.719L1.718,5.529A2.443,2.443,0,0,0,1,7.265v6.008a4.1,4.1,0,0,0,4.091,4.091h5.727a.818.818,0,0,0,.319-.065,1.982,1.982,0,0,0,3.132.216l3.35-3.764a2.22,2.22,0,0,0-.8-3.523ZM6.686,2.876c.011-.012.029-.016.041-.028V5.909a.818.818,0,0,1-.818.818H2.848c.011-.013.016-.029.028-.042Zm-4.05,10.4V8.364H5.909A2.455,2.455,0,0,0,8.364,5.909V2.636h3.273a2.455,2.455,0,0,1,2.455,2.455V6.727a.675.675,0,0,0,.016.082,2,2,0,0,0-.2.178L10.563,10.75a2.218,2.218,0,0,0,.8,3.518l.082.035-.481,1.122a1.947,1.947,0,0,0-.092.313c-.019,0-.034-.011-.054-.011H5.091A2.455,2.455,0,0,1,2.636,13.273ZM16.4,12.666l-3.355,3.764a.345.345,0,0,1-.58-.357L13.6,13.436,12,12.763a.583.583,0,0,1-.214-.927l3.355-3.764a.339.339,0,0,1,.255-.119.343.343,0,0,1,.327.475l-1.142,2.635,1.6.673a.583.583,0,0,1,.218.929Z"></path></svg> <span data-slot="tab-3.label">Retouch</span> </button><button class="ax-panels__tab" role="tab" aria-selected="false" data-panel="add-and-remove-objects-3">
+        <svg viewBox="0 0 18 18" fill="currentColor" aria-hidden="true"><path d="M16.819,10.231l-.082-.034.481-1.122A1.962,1.962,0,0,0,15.727,6.36V5.091A4.1,4.1,0,0,0,11.636,1H7.265a2.435,2.435,0,0,0-1.735.719L1.718,5.529A2.443,2.443,0,0,0,1,7.265v6.008a4.1,4.1,0,0,0,4.091,4.091h5.727a.818.818,0,0,0,.319-.065,1.982,1.982,0,0,0,3.132.216l3.35-3.764a2.22,2.22,0,0,0-.8-3.523ZM6.686,2.876c.011-.012.029-.016.041-.028V5.909a.818.818,0,0,1-.818.818H2.848c.011-.013.016-.029.028-.042Zm-4.05,10.4V8.364H5.909A2.455,2.455,0,0,0,8.364,5.909V2.636h3.273a2.455,2.455,0,0,1,2.455,2.455V6.727a.675.675,0,0,0,.016.082,2,2,0,0,0-.2.178L10.563,10.75a2.218,2.218,0,0,0,.8,3.518l.082.035-.481,1.122a1.947,1.947,0,0,0-.092.313c-.019,0-.034-.011-.054-.011H5.091A2.455,2.455,0,0,1,2.636,13.273ZM16.4,12.666l-3.355,3.764a.345.345,0,0,1-.58-.357L13.6,13.436,12,12.763a.583.583,0,0,1-.214-.927l3.355-3.764a.339.339,0,0,1,.255-.119.343.343,0,0,1,.327.475l-1.142,2.635,1.6.673a.583.583,0,0,1,.218.929Z"></path></svg> <span data-slot="tab-4.label">Add and remove objects</span> </button><button class="ax-panels__tab" role="tab" aria-selected="false" data-panel="paint-and-draw-4">
+        <svg viewBox="0 0 18 18" fill="currentColor" aria-hidden="true"><path d="M16.819,10.231l-.082-.034.481-1.122A1.962,1.962,0,0,0,15.727,6.36V5.091A4.1,4.1,0,0,0,11.636,1H7.265a2.435,2.435,0,0,0-1.735.719L1.718,5.529A2.443,2.443,0,0,0,1,7.265v6.008a4.1,4.1,0,0,0,4.091,4.091h5.727a.818.818,0,0,0,.319-.065,1.982,1.982,0,0,0,3.132.216l3.35-3.764a2.22,2.22,0,0,0-.8-3.523ZM6.686,2.876c.011-.012.029-.016.041-.028V5.909a.818.818,0,0,1-.818.818H2.848c.011-.013.016-.029.028-.042Zm-4.05,10.4V8.364H5.909A2.455,2.455,0,0,0,8.364,5.909V2.636h3.273a2.455,2.455,0,0,1,2.455,2.455V6.727a.675.675,0,0,0,.016.082,2,2,0,0,0-.2.178L10.563,10.75a2.218,2.218,0,0,0,.8,3.518l.082.035-.481,1.122a1.947,1.947,0,0,0-.092.313c-.019,0-.034-.011-.054-.011H5.091A2.455,2.455,0,0,1,2.636,13.273ZM16.4,12.666l-3.355,3.764a.345.345,0,0,1-.58-.357L13.6,13.436,12,12.763a.583.583,0,0,1-.214-.927l3.355-3.764a.339.339,0,0,1,.255-.119.343.343,0,0,1,.327.475l-1.142,2.635,1.6.673a.583.583,0,0,1,.218.929Z"></path></svg> <span data-slot="tab-5.label">Paint and draw</span> </button></div>
+
+  <div class="ax-panels__panel" data-panel="what-s-new-0"><div class="ax-panels__panel-inner"><section class="section features features--composed">
+  <div class="container">
+    <div class="sec-head">
+      <h2 data-slot="panel-1.heading">New features are rolling out all the time to make Photoshop faster and smarter.</h2>
+    </div>
+    <div class="acrobat-cards parallax-stagger-ltr three-up">
+      <article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-1.card-1.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/features/media_15624e5c57ea9c7342804b7d78e3cb95d62e6e609.jpg?width=750&amp;format=jpg&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-1.card-1.title" class="acrobat-card__title">Explore new angles faster.</h3>
+            <p data-slot="panel-1.card-1.body" class="acrobat-card__body">Mock up new directions quickly with Rotate Object. Tilt, rotate, and scale objects in real time — without rebuilding all the details.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-1.card-2.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/features/media_14b43bf340cc27efb5771d58d4440514280a7f6ac.jpg?width=750&amp;format=jpg&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-1.card-2.title" class="acrobat-card__title">Tidy up messy layers in a click.</h3>
+            <p data-slot="panel-1.card-2.body" class="acrobat-card__body">Organize your stack with Layer Cleanup. Automatically add descriptive labels and remove empty layers. Declutter quickly so you can hand off files with clarity.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-1.card-3.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/features/media_1a2d79983204d78c19a4eaee9edf05d79b1918af0.png?width=750&amp;format=png&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-1.card-3.title" class="acrobat-card__title">New adjustment layers: Clarity &amp; Dehaze, and Grain.</h3>
+            <p data-slot="panel-1.card-3.body" class="acrobat-card__body">Now you can adjust texture, atmosphere, and sharpness nondestructively right in the Layers panel, and apply masks for pinpoint control.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-1.card-4.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/features/media_1b7eba4057fa7c0c964a05818cbff4f058550aae9.png?width=750&amp;format=png&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-1.card-4.title" class="acrobat-card__title">Go bigger and sharper with Topaz Labs.</h3>
+            <p data-slot="panel-1.card-4.body" class="acrobat-card__body">Upscale images with unmatched power and flexibility using partner AI models from Topaz Labs in Photoshop. Instantly boost quality, clarity, and sharpness.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-1.card-5.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/features/media_15dd9d92e87469f2866e80b57d8bf5597d50bc130.png?width=750&amp;format=png&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-1.card-5.title" class="acrobat-card__title">Generative composition with Harmonize.</h3>
+            <p data-slot="panel-1.card-5.body" class="acrobat-card__body">Instantly blend people and objects into any background. Harmonize matches the lighting, shadows, colors, and other details for a seamless scene in seconds.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-1.card-6.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/features/media_11748f13909953825c8654530e2f975d334cc7ea5.png?width=750&amp;format=png&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-1.card-6.title" class="acrobat-card__title">Ideate in Firefly Boards.</h3>
+            <p data-slot="panel-1.card-6.body" class="acrobat-card__body">Generate multiple images and iterations all on one canvas in Firefly Boards. Then take your images further, refining them with precise tools in Photoshop.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section></div></div><div class="ax-panels__panel" data-panel="image-adjustments-1" hidden=""><div class="ax-panels__panel-inner"><section class="section features features--composed">
+  <div class="container">
+    <div class="sec-head">
+      <h2 data-slot="panel-2.heading">Make dramatic edits and fine-tune adjustments.</h2>
+    </div>
+    <div class="acrobat-cards parallax-stagger-ltr three-up">
+      <article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-2.card-1.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/features/media_15624e5c57ea9c7342804b7d78e3cb95d62e6e609.jpg?width=750&amp;format=jpg&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-2.card-1.title" class="acrobat-card__title">Explore new angles faster.</h3>
+            <p data-slot="panel-2.card-1.body" class="acrobat-card__body">Mock up new directions quickly with Rotate Object. Tilt, rotate, and scale objects in real time — without rebuilding all the details.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-2.card-2.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/features/media_1b2b29cc21257452eaf62fd0f9a45f461349f3d3d.jpg?width=750&amp;format=jpg&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-2.card-2.title" class="acrobat-card__title">Flawless colors in fewer steps.</h3>
+            <p data-slot="panel-2.card-2.body" class="acrobat-card__body">Experiment with color faster than ever, right from your canvas. Plus, larger swatches offer more visibility and greater control.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-2.card-3.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/features/media_1b7eba4057fa7c0c964a05818cbff4f058550aae9.png?width=750&amp;format=png&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-2.card-3.title" class="acrobat-card__title">Go bigger and sharper with Topaz Labs.</h3>
+            <p data-slot="panel-2.card-3.body" class="acrobat-card__body">Upscale images with unmatched power and flexibility using partner AI models from Topaz Labs in Photoshop. Instantly boost quality, clarity, and sharpness.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-2.card-4.image" src="https://www.adobe.com/federal/assets/svgs/accessibility-pause.svg" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-2.card-4.title" class="acrobat-card__title">Apply filters for a new look.</h3>
+            <p data-slot="panel-2.card-4.body" class="acrobat-card__body">Use over 30 Adjustment Presets to change images in one click. Create and save custom presets, export them to share, and import new favorites. Plus, apply presets to multiple images at once.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-2.card-5.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/features/media_1a2d79983204d78c19a4eaee9edf05d79b1918af0.png?width=750&amp;format=png&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-2.card-5.title" class="acrobat-card__title">New adjustment layers: Clarity &amp; Dehaze, and Grain.</h3>
+            <p data-slot="panel-2.card-5.body" class="acrobat-card__body">Now you can adjust texture, atmosphere, and sharpness nondestructively right in the Layers panel, and apply masks for pinpoint control.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-2.card-6.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/features/media_1768c591de4724309d37c253a2d52f53ac981b1f4.png?width=750&amp;format=png&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-2.card-6.title" class="acrobat-card__title">Reference objects in Generative Fill.</h3>
+            <p data-slot="panel-2.card-6.body" class="acrobat-card__body">Reference Image now adjusts the scale, rotation, lighting, color, and perspective of an object to match your scene.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section></div></div><div class="ax-panels__panel" data-panel="retouch-2" hidden=""><div class="ax-panels__panel-inner"><section class="section features features--composed">
+  <div class="container">
+    <div class="sec-head">
+      <h2 data-slot="panel-3.heading">Fix imperfections in your photos.</h2>
+    </div>
+    <div class="acrobat-cards parallax-stagger-ltr three-up">
+      <article class="acrobat-card">
+        <div class="acrobat-card__asset"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-3.card-1.title" class="acrobat-card__title">Replace image elements.</h3>
+            <p data-slot="panel-3.card-1.body" class="acrobat-card__body">Select part of your image with the Patch tool, then drag the selection to another area to replace it with.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-3.card-2.title" class="acrobat-card__title">Refine blurry objects and edges.</h3>
+            <p data-slot="panel-3.card-2.body" class="acrobat-card__body">Enhance image clarity with the Sharpen tool. Click and drag over unclear areas to highlight details and define edges.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-3.card-3.title" class="acrobat-card__title">Copy and add objects.</h3>
+            <p data-slot="panel-3.card-3.body" class="acrobat-card__body">Use the Clone Stamp tool to copy content from one part of your image and paint it into a new area.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-3.card-4.title" class="acrobat-card__title">Make flaws vanish.</h3>
+            <p data-slot="panel-3.card-4.body" class="acrobat-card__body">Click and drag the Spot Healing Brush tool over small objects or flaws in your image to remove them.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-3.card-5.title" class="acrobat-card__title">Blur areas in an image.</h3>
+            <p data-slot="panel-3.card-5.body" class="acrobat-card__body">Bring focus, amplify motion, and add other artistic elements to your images with the Blur tool.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-3.card-6.title" class="acrobat-card__title">Lighten parts of a photo.</h3>
+            <p data-slot="panel-3.card-6.body" class="acrobat-card__body">Use the Dodge tool to lighten specific areas of your image without affecting the color.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section></div></div><div class="ax-panels__panel" data-panel="add-and-remove-objects-3" hidden=""><div class="ax-panels__panel-inner"><section class="section features features--composed">
+  <div class="container">
+    <div class="sec-head">
+      <h2 data-slot="panel-4.heading">Swiftly isolate objects to adjust or remove, add text, and more.</h2>
+    </div>
+    <div class="acrobat-cards parallax-stagger-ltr three-up">
+      <article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-4.card-1.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/features/media_16bde6224c3af5139b57b23af093906ce1a979884.jpg?width=750&amp;format=jpg&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-4.card-1.title" class="acrobat-card__title">Pro precision for selections and backgrounds.</h3>
+            <p data-slot="panel-4.card-1.body" class="acrobat-card__body">Select complex subjects and remove backgrounds with greater precision, speed, and control — now improved for higher quality results, online or off.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-4.card-2.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/features/media_1768c591de4724309d37c253a2d52f53ac981b1f4.png?width=750&amp;format=png&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-4.card-2.title" class="acrobat-card__title">Reference objects in Generative Fill.</h3>
+            <p data-slot="panel-4.card-2.body" class="acrobat-card__body">Reference Image now adjusts the scale, rotation, lighting, color, and perspective of an object to match your scene.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-4.card-3.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/features/media_15f4be8d9b65ed1b850360b2fe947f03bb31ea0e6.png?width=750&amp;format=png&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-4.card-3.title" class="acrobat-card__title">Go bigger and sharper with Topaz Labs.</h3>
+            <p data-slot="panel-4.card-3.body" class="acrobat-card__body">Upscale images with unmatched power and flexibility using partner AI models from Topaz Labs in Photoshop. Instantly boost quality, clarity, and sharpness.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-4.card-4.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/features/media_156025642911e52c120c6115199cd2bcd834af665.png?width=750&amp;format=png&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-4.card-4.title" class="acrobat-card__title">Generative composition with Harmonize.</h3>
+            <p data-slot="panel-4.card-4.body" class="acrobat-card__body">Instantly blend people and objects into any background. Harmonize matches the lighting, shadows, colors, and other details for a seamless scene in seconds.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-4.card-5.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/features/media_1bdb69c70c73894bb587e77004123f3d23ff905f2.jpg?width=750&amp;format=jpg&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-4.card-5.title" class="acrobat-card__title">Design sophisticated text layouts quickly.</h3>
+            <p data-slot="panel-4.card-5.body" class="acrobat-card__body">Build text layouts in fewer steps and try multiple options faster, with Dynamic Text that automatically resizes to fit as you adjust the shape of its boundary.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="panel-4.card-6.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/features/media_1866efd6c49d4eb614bae84d2d5d546a97de25654.png?width=750&amp;format=png&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-4.card-6.title" class="acrobat-card__title">New Firefly models for the best results yet.</h3>
+            <p data-slot="panel-4.card-6.body" class="acrobat-card__body">Higher resolution. Cleaner edges. Sharper details. Get more realistic results with the latest Generative Fill, Expand, and Remove Tool models.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section></div></div><div class="ax-panels__panel" data-panel="paint-and-draw-4" hidden=""><div class="ax-panels__panel-inner"><section class="section features features--composed">
+  <div class="container">
+    <div class="sec-head">
+      <h2 data-slot="panel-5.heading">Create artwork and add type to your designs.</h2>
+    </div>
+    <div class="acrobat-cards parallax-stagger-ltr three-up">
+      <article class="acrobat-card">
+        <div class="acrobat-card__asset"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-5.card-1.title" class="acrobat-card__title">Fix mistakes.</h3>
+            <p data-slot="panel-5.card-1.body" class="acrobat-card__body">Change parts of your image to the background color or make them transparent with the Eraser tool.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-5.card-2.title" class="acrobat-card__title">Organize your artwork.</h3>
+            <p data-slot="panel-5.card-2.body" class="acrobat-card__body">Create multiple canvases within the same workspace with the Artboard tool so you can view your designs side by side.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-5.card-3.title" class="acrobat-card__title">Paint a digital masterpiece.</h3>
+            <p data-slot="panel-5.card-3.body" class="acrobat-card__body">Use the Brush tool to make artwork from thousands of preset brushes based on mediums like watercolor and oil or make your own.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-5.card-4.title" class="acrobat-card__title">Draw and edit shapes.</h3>
+            <p data-slot="panel-5.card-4.body" class="acrobat-card__body">Click and drag to create precise rectangles, ellipses, lines, and even custom shapes with the Shape tools.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-5.card-5.title" class="acrobat-card__title">Smooth and blend colors.</h3>
+            <p data-slot="panel-5.card-5.body" class="acrobat-card__body">Use the Smudge tool to mix colors together like wet paint.</p>
+          </div>
+        </div>
+      </article>
+<article class="acrobat-card">
+        <div class="acrobat-card__asset"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="panel-5.card-6.title" class="acrobat-card__title">Instantly fill areas with color.</h3>
+            <p data-slot="panel-5.card-6.body" class="acrobat-card__body">Quickly fill parts of your design with a solid color or pattern using the Paint Bucket tool. Add color to shapes, backgrounds, selections, and more.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section></div></div></div>
+</section>
+
+<section class="merch-cards-section section" style="background:#fff;">
+  <div class="container">
+    <div class="sec-head">
+      <h2 data-slot="merch-heading">Get Photoshop.</h2>
+      <p data-slot="merch-body">Start with just Photoshop, or get Photoshop and 20+ other apps with the Creative Cloud Pro plan.</p>
+    </div>
+    <div class="merch-cards-shell">
+        <div class="merch-cards-tabs" role="tablist" id="merchCardsTabs">
+            <button class="merch-cards-tab active" role="tab" aria-selected="true" data-mc-panel="individuals-0"><span data-slot="merch-tab-1.label">Individuals</span></button>
+            <button class="merch-cards-tab" role="tab" aria-selected="false" data-mc-panel="students-and-teachers-1"><span data-slot="merch-tab-2.label">Students and teachers</span></button>
+            <button class="merch-cards-tab" role="tab" aria-selected="false" data-mc-panel="teams-2"><span data-slot="merch-tab-3.label">Teams</span></button>
+        </div>
+
+          <div class="merch-cards-panel" data-mc-panel="individuals-0">
+            <div class="merch-cards two-up">
+              <article class="merch-card merch-card--light">
+        <div class="merch-card__inner">
+          <div class="merch-card__top">
+            <div class="merch-card__mnemonic">
+              <img data-slot="merch-indiv-1.icon" class="merch-card__product-icon" src="https://www.adobe.com/cc-shared/assets/img/product-icons/svg/photoshop.svg" alt="" width="24" height="24">
+            </div>
+            <div class="merch-card__name-desc">
+              <h3 data-slot="merch-indiv-1.name" class="merch-card__name">Photoshop</h3>
+              <p data-slot="merch-indiv-1.desc" class="merch-card__desc">Photoshop on desktop, web, and mobile plus the Adobe Express Premium plan.</p>
+            </div>
+            <div class="merch-card__pricing">
+              <div class="merch-card__price-area">
+                <p data-slot="merch-indiv-1.price" class="merch-card__price">US$22.99/mo</p>
+                <p data-slot="merch-indiv-1.price-note" class="merch-card__price-note">Annual, billed monthly</p>
+              </div>
+              <div class="merch-card__ctas">
+                <a data-slot="merch-indiv-1.cta-primary" class="btn btn--primary" href="https://commerce.adobe.com/store/commitment?items%5B0%5D%5Bid%5D=E27CB5D79014ACAB6953B091CEA72228&amp;cli=adobe_com&amp;ctx=fp&amp;co=US&amp;lang=en">Free trial</a>
+                <a data-slot="merch-indiv-1.cta-secondary" class="btn btn--outline" href="https://commerce.adobe.com/store/commitment?items%5B0%5D%5Bid%5D=30404A88D89A328584307175B8B27616&amp;cli=adobe_com&amp;ctx=fp&amp;co=US&amp;lang=en">Buy now</a>
+              </div>
+            </div>
+          </div>
+          <div class="merch-card__secure">
+            <svg class="merch-card__secure-icon" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3.5 6V4a3.5 3.5 0 0 1 7 0v2M2.5 6h9v6.5h-9z" stroke="currentColor" stroke-width="1.2"></path></svg>
+            <span>Secure transaction</span>
+          </div>
+        </div>
+        <div class="merch-card__bottom">
+          <div class="merch-card__features">
+            <div class="merch-card__features-inner">
+              <div class="merch-card__section">
+                <div class="merch-card__section-title">
+                  <svg class="merch-card__section-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 2h7l3 3v13H5V2z" stroke="currentColor" stroke-width="1.2"></path></svg>
+                  <span>See what's included:</span>
+                </div>
+                <div class="merch-card__items">
+                  <div data-slot="merch-indiv-1.item-1" class="merch-card__item">Create gorgeous images, rich graphics, and incredible art with Photoshop</div>
+                  <div data-slot="merch-indiv-1.item-2" class="merch-card__item">Use thousands of templates to make standout content with an Adobe Express Premium plan</div>
+                  <div data-slot="merch-indiv-1.item-3" class="merch-card__item">Fonts, images, tutorials, and more</div>
+                  <div data-slot="merch-indiv-1.item-4" class="merch-card__item">100GB cloud storage</div>
+                  <div data-slot="merch-indiv-1.item-5" class="merch-card__item">25 monthly generative credits</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+<article class="merch-card merch-card--dark">
+        <div class="merch-card__inner">
+          <div class="merch-card__top">
+            <div class="merch-card__mnemonic">
+              <img data-slot="merch-indiv-2.icon" class="merch-card__product-icon" src="https://www.adobe.com/cc-shared/assets/img/product-icons/svg/creative-cloud-40.svg" alt="" width="24" height="24">
+            </div>
+            <div class="merch-card__name-desc">
+              <h3 data-slot="merch-indiv-2.name" class="merch-card__name">Creative Cloud Pro</h3>
+              <p data-slot="merch-indiv-2.desc" class="merch-card__desc"></p>
+            </div>
+            <div class="merch-card__pricing">
+              <div class="merch-card__price-area">
+                <p data-slot="merch-indiv-2.price" class="merch-card__price">US$34.99/mo</p>
+                <p data-slot="merch-indiv-2.price-note" class="merch-card__price-note">Annual, billed monthly</p>
+              </div>
+              <div class="merch-card__ctas">
+                <a data-slot="merch-indiv-2.cta-primary" class="btn btn--primary" href="https://commerce.adobe.com/store/segmentation?cli=mini_plans&amp;ctx=if&amp;co=US&amp;lang=en&amp;ms=COM&amp;ot=TRIAL&amp;cs=INDIVIDUAL&amp;pa=ccsn_direct_individual&amp;rtc=t&amp;lo=sl&amp;af=uc_new_user_iframe%2Cuc_new_system_close">Free trial</a>
+                <a data-slot="merch-indiv-2.cta-secondary" class="btn btn--outline" href="https://commerce.adobe.com/store/segmentation?cli=creative&amp;ctx=if&amp;co=US&amp;lang=en&amp;ms=COM&amp;ot=BASE&amp;cs=INDIVIDUAL&amp;pa=ccsn_direct_individual&amp;rtc=t&amp;lo=sl&amp;af=uc_new_user_iframe%2Cuc_new_system_close">Buy now</a>
+              </div>
+            </div>
+          </div>
+          <div class="merch-card__secure">
+            <svg class="merch-card__secure-icon" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3.5 6V4a3.5 3.5 0 0 1 7 0v2M2.5 6h9v6.5h-9z" stroke="currentColor" stroke-width="1.2"></path></svg>
+            <span>Secure transaction</span>
+          </div>
+        </div>
+        <div class="merch-card__bottom">
+          <div class="merch-card__features">
+            <div class="merch-card__features-inner">
+              <div class="merch-card__section">
+                <div class="merch-card__section-title">
+                  <svg class="merch-card__section-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 2h7l3 3v13H5V2z" stroke="currentColor" stroke-width="1.2"></path></svg>
+                  <span>See what's included:</span>
+                </div>
+                <div class="merch-card__items">
+                  <div data-slot="merch-indiv-2.item-1" class="merch-card__item">Create gorgeous images, rich graphics, and incredible art with Photoshop</div>
+                  <div data-slot="merch-indiv-2.item-2" class="merch-card__item">20+ photo, graphic design, and video apps</div>
+                  <div data-slot="merch-indiv-2.item-3" class="merch-card__item">Unlimited access to standard creative AI image and vector features like Text to Image and Generative Fill</div>
+                  <div data-slot="merch-indiv-2.item-4" class="merch-card__item">4,000 monthly generative credits for premium creative AI video and audio features like Text to Video</div>
+                  <div data-slot="merch-indiv-2.item-5" class="merch-card__item">Unlimited access to Firefly Boards for exploring ideas and developing storyboards</div>
+                  <div data-slot="merch-indiv-2.item-6" class="merch-card__item">Access to non-Adobe Generative AI models in Firefly</div>
+                  <div data-slot="merch-indiv-2.item-7" class="merch-card__item">Adobe Express Premium, Frame.io for Creative Cloud, tutorials, fonts, templates, and 100GB of cloud storage</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+            </div>
+          </div>
+
+          <div class="merch-cards-panel" data-mc-panel="students-and-teachers-1" hidden="">
+            <div class="merch-cards one-up">
+              <article class="merch-card merch-card--dark">
+        <div class="merch-card__inner">
+          <div class="merch-card__top">
+            <div class="merch-card__mnemonic">
+              <img data-slot="merch-student-1.icon" class="merch-card__product-icon" src="https://www.adobe.com/cc-shared/assets/img/product-icons/svg/creative-cloud-40.svg" alt="" width="24" height="24">
+            </div>
+            <div class="merch-card__name-desc">
+              <h3 data-slot="merch-student-1.name" class="merch-card__name">Creative Cloud Pro for students and teachers</h3>
+              <p data-slot="merch-student-1.desc" class="merch-card__desc">See terms | Check eligibility</p>
+            </div>
+            <div class="merch-card__pricing">
+              <div class="merch-card__price-area">
+                <p data-slot="merch-student-1.price" class="merch-card__price">US$19.99/mo</p>
+                <p data-slot="merch-student-1.price-note" class="merch-card__price-note">Annual, billed monthly</p>
+              </div>
+              <div class="merch-card__ctas">
+                <a data-slot="merch-student-1.cta-primary" class="btn btn--primary" href="https://commerce.adobe.com/store/commitment?items%5B0%5D%5Bid%5D=7FD7DFC9269A4AFB9BF24B8C53547DA7&amp;cli=adobe_com&amp;ctx=fp&amp;co=US&amp;lang=en">Free trial</a>
+                <a data-slot="merch-student-1.cta-secondary" class="btn btn--outline" href="https://commerce.adobe.com/store/commitment?items%5B0%5D%5Bid%5D=951DCCB08194F40B9C79951675547DF5&amp;cli=adobe_com&amp;ctx=fp&amp;co=US&amp;lang=en">Buy now</a>
+              </div>
+            </div>
+          </div>
+          <div class="merch-card__secure">
+            <svg class="merch-card__secure-icon" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3.5 6V4a3.5 3.5 0 0 1 7 0v2M2.5 6h9v6.5h-9z" stroke="currentColor" stroke-width="1.2"></path></svg>
+            <span>Secure transaction</span>
+          </div>
+        </div>
+        <div class="merch-card__bottom">
+          <div class="merch-card__features">
+            <div class="merch-card__features-inner">
+              <div class="merch-card__section">
+                <div class="merch-card__section-title">
+                  <svg class="merch-card__section-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 2h7l3 3v13H5V2z" stroke="currentColor" stroke-width="1.2"></path></svg>
+                  <span>See what's included:</span>
+                </div>
+                <div class="merch-card__items">
+                  <div data-slot="merch-student-1.item-1" class="merch-card__item">Create gorgeous images, rich graphics, and incredible art with Photoshop</div>
+                  <div data-slot="merch-student-1.item-2" class="merch-card__item">20+ photo, graphic design, and video apps</div>
+                  <div data-slot="merch-student-1.item-3" class="merch-card__item">Unlimited access to standard creative AI image and vector features like Text to Image and Generative Fill</div>
+                  <div data-slot="merch-student-1.item-4" class="merch-card__item">4,000 monthly generative credits for premium creative AI video and audio features like Text to Video</div>
+                  <div data-slot="merch-student-1.item-5" class="merch-card__item">Unlimited access to Firefly Boards for exploring ideas and developing storyboards</div>
+                  <div data-slot="merch-student-1.item-6" class="merch-card__item">Access to non-Adobe Generative AI models in Firefly</div>
+                  <div data-slot="merch-student-1.item-7" class="merch-card__item">Adobe Express Premium, Frame.io for Creative Cloud, tutorials, fonts, templates, and 100GB of cloud storage</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+            </div>
+          </div>
+
+          <div class="merch-cards-panel" data-mc-panel="teams-2" hidden="">
+            <div class="merch-cards two-up">
+              <article class="merch-card merch-card--light">
+        <div class="merch-card__inner">
+          <div class="merch-card__top">
+            <div class="merch-card__mnemonic">
+              <img data-slot="merch-team-1.icon" class="merch-card__product-icon" src="https://www.adobe.com/cc-shared/assets/img/product-icons/svg/photoshop.svg" alt="" width="24" height="24">
+            </div>
+            <div class="merch-card__name-desc">
+              <h3 data-slot="merch-team-1.name" class="merch-card__name">Photoshop for teams</h3>
+              <p data-slot="merch-team-1.desc" class="merch-card__desc">Photoshop on desktop, web, and mobile, Adobe Express Premium plan, plus exclusive business features.</p>
+            </div>
+            <div class="merch-card__pricing">
+              <div class="merch-card__price-area">
+                <p data-slot="merch-team-1.price" class="merch-card__price">US$37.99/mo per license</p>
+                <p data-slot="merch-team-1.price-note" class="merch-card__price-note">Annual, billed monthly</p>
+              </div>
+              <div class="merch-card__ctas">
+                <a data-slot="merch-team-1.cta-primary" class="btn btn--primary" href="https://commerce.adobe.com/store/segmentation?cli=mini_plans&amp;ctx=if&amp;co=US&amp;lang=en&amp;ms=COM&amp;ot=TRIAL&amp;cs=t&amp;pa=phsp_direct_individual&amp;rtc=t&amp;lo=sl&amp;af=uc_new_user_iframe%2Cuc_new_system_close">Free trial</a>
+                <a data-slot="merch-team-1.cta-secondary" class="btn btn--outline" href="https://commerce.adobe.com/store/segmentation?cli=acom_biz&amp;cs=t&amp;co=US&amp;pa=ccsn_direct_individual">Buy now</a>
+              </div>
+            </div>
+          </div>
+          <div class="merch-card__secure">
+            <svg class="merch-card__secure-icon" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3.5 6V4a3.5 3.5 0 0 1 7 0v2M2.5 6h9v6.5h-9z" stroke="currentColor" stroke-width="1.2"></path></svg>
+            <span>Secure transaction</span>
+          </div>
+        </div>
+        <div class="merch-card__bottom">
+          <div class="merch-card__features">
+            <div class="merch-card__features-inner">
+              <div class="merch-card__section">
+                <div class="merch-card__section-title">
+                  <svg class="merch-card__section-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 2h7l3 3v13H5V2z" stroke="currentColor" stroke-width="1.2"></path></svg>
+                  <span>See what's included:</span>
+                </div>
+                <div class="merch-card__items">
+                  <div data-slot="merch-team-1.item-1" class="merch-card__item">Create gorgeous images, rich graphics, and incredible art with Photoshop</div>
+                  <div data-slot="merch-team-1.item-2" class="merch-card__item">Use thousands of templates to make standout content with an Adobe Express Premium plan</div>
+                  <div data-slot="merch-team-1.item-3" class="merch-card__item">Fonts, images, tutorials, and more</div>
+                  <div data-slot="merch-team-1.item-4" class="merch-card__item">25 monthly generative credits</div>
+                  <div data-slot="merch-team-1.item-5" class="merch-card__item">100GB cloud storage</div>
+                  <div data-slot="merch-team-1.item-6" class="merch-card__item">Exclusive business features</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+<article class="merch-card merch-card--dark">
+        <div class="merch-card__inner">
+          <div class="merch-card__top">
+            <div class="merch-card__mnemonic">
+              <img data-slot="merch-team-2.icon" class="merch-card__product-icon" src="https://www.adobe.com/cc-shared/assets/img/product-icons/svg/creative-cloud-40.svg" alt="" width="24" height="24">
+            </div>
+            <div class="merch-card__name-desc">
+              <h3 data-slot="merch-team-2.name" class="merch-card__name">Creative Cloud Pro for teams</h3>
+              <p data-slot="merch-team-2.desc" class="merch-card__desc">20+ apps, including Photoshop on desktop, web, and mobile, plus Firefly creative AI for images, video, and audio, and exclusive business features.</p>
+            </div>
+            <div class="merch-card__pricing">
+              <div class="merch-card__price-area">
+                <p data-slot="merch-team-2.price" class="merch-card__price">US$99.99/mo per license</p>
+                <p data-slot="merch-team-2.price-note" class="merch-card__price-note">Annual, billed monthly</p>
+              </div>
+              <div class="merch-card__ctas">
+                <a data-slot="merch-team-2.cta-primary" class="btn btn--primary" href="https://commerce.adobe.com/store/segmentation?cli=mini_plans&amp;ctx=if&amp;co=US&amp;lang=en&amp;ms=COM&amp;ot=TRIAL&amp;cs=t&amp;pa=ccsn_direct_individual&amp;rtc=t&amp;lo=sl&amp;af=uc_new_user_iframe%2Cuc_new_system_close">Free trial</a>
+                <a data-slot="merch-team-2.cta-secondary" class="btn btn--outline" href="https://commerce.adobe.com/store/segmentation?cli=acom_biz&amp;cs=t&amp;co=US&amp;pa=ccsn_direct_individual">Buy now</a>
+              </div>
+            </div>
+          </div>
+          <div class="merch-card__secure">
+            <svg class="merch-card__secure-icon" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3.5 6V4a3.5 3.5 0 0 1 7 0v2M2.5 6h9v6.5h-9z" stroke="currentColor" stroke-width="1.2"></path></svg>
+            <span>Secure transaction</span>
+          </div>
+        </div>
+        <div class="merch-card__bottom">
+          <div class="merch-card__features">
+            <div class="merch-card__features-inner">
+              <div class="merch-card__section">
+                <div class="merch-card__section-title">
+                  <svg class="merch-card__section-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 2h7l3 3v13H5V2z" stroke="currentColor" stroke-width="1.2"></path></svg>
+                  <span>See what's included:</span>
+                </div>
+                <div class="merch-card__items">
+                  <div data-slot="merch-team-2.item-1" class="merch-card__item">Create gorgeous images, rich graphics, and incredible art with Photoshop</div>
+                  <div data-slot="merch-team-2.item-2" class="merch-card__item">20+ photo, graphic design, and video apps</div>
+                  <div data-slot="merch-team-2.item-3" class="merch-card__item">Unlimited access to standard creative AI image and vector features like Text to Image and Generative Fill</div>
+                  <div data-slot="merch-team-2.item-4" class="merch-card__item">4,000 monthly generative credits for premium creative AI video and audio features like Text to Video</div>
+                  <div data-slot="merch-team-2.item-5" class="merch-card__item">Unlimited access to Firefly Boards for exploring ideas and developing storyboards</div>
+                  <div data-slot="merch-team-2.item-6" class="merch-card__item">Access to non-Adobe Generative AI models in Firefly</div>
+                  <div data-slot="merch-team-2.item-7" class="merch-card__item">Adobe Express Premium, Frame.io for Creative Cloud, tutorials, fonts, templates, and 100GB of cloud storage</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+            </div>
+          </div>
+
+      </div>
+  </div>
+</section>
+
+<section class="features section">
+  <div class="container">
+    <div class="sec-head">
+      <h2 data-slot="how-to-heading">How-to: Swap backgrounds, colorize, and more.</h2>
+    <p data-slot="how-to-body" class="sec-head__body">Find out how to use the tools and features to make dramatic changes to your images and create incredible artwork.</p></div>
+    <div class="acrobat-cards parallax-stagger-ltr three-up">
+      <article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="how-to-card-1.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/media_1a0be4cfc56c44df5f336515c60a1f6c2ffb64fcf.jpg?width=750&amp;format=jpg&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="how-to-card-1.title" class="acrobat-card__title">Edit images with text prompts.</h3>
+          </div>
+          <a data-slot="how-to-card-1.cta" class="acrobat-cta" href="/products/photoshop/generative-fill.html">Edit images with text prompts.<svg viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l4 4-4 4"></path></svg></a>
+        </div>
+      </article><article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="how-to-card-2.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/media_116d4a037cfff9524b7daed7f2936f96c6e072d64.png?width=750&amp;format=png&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="how-to-card-2.title" class="acrobat-card__title">Remove and replace your background.</h3>
+          </div>
+          <a data-slot="how-to-card-2.cta" class="acrobat-cta" href="/products/photoshop/remove-background.html">Remove and replace your background.<svg viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l4 4-4 4"></path></svg></a>
+        </div>
+      </article><article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="how-to-card-3.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/media_11739de77fa693765600f08aa5003bb0d395c27ac.png?width=750&amp;format=png&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="how-to-card-3.title" class="acrobat-card__title">Add drama with Sky Replacement.</h3>
+          </div>
+          <a data-slot="how-to-card-3.cta" class="acrobat-cta" href="/products/photoshop/sky-replacement.html">Add drama with Sky Replacement.<svg viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l4 4-4 4"></path></svg></a>
+        </div>
+      </article><article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="how-to-card-4.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/media_1fb8553a89aa92f5b4a2ed1b627abe3a2dc160374.jpg?width=750&amp;format=jpg&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="how-to-card-4.title" class="acrobat-card__title">Remove unwanted objects in Adobe Photoshop.</h3>
+          </div>
+          <a data-slot="how-to-card-4.cta" class="acrobat-cta" href="https://helpx.adobe.com/photoshop/desktop/repair-retouch/remove-objects-fill-space/remove-objects-with-content-aware-fill.html">Remove unwanted objects in Adobe Photoshop.<svg viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l4 4-4 4"></path></svg></a>
+        </div>
+      </article><article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="how-to-card-5.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/media_17eace5b233f92b3f16f89aa73b765ae0db9a597e.png?width=750&amp;format=png&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="how-to-card-5.title" class="acrobat-card__title">Make your mark with Photoshop brushes.</h3>
+          </div>
+          <a data-slot="how-to-card-5.cta" class="acrobat-cta" href="/products/photoshop/photoshop-brushes.html">Make your mark with Photoshop brushes.<svg viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l4 4-4 4"></path></svg></a>
+        </div>
+      </article><article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="how-to-card-6.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/media_1ab470067c6b15786626d6716cdc2588bfd44b752.jpg?width=750&amp;format=jpg&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="how-to-card-6.title" class="acrobat-card__title">Add color to black-and-white photos.</h3>
+          </div>
+          <a data-slot="how-to-card-6.cta" class="acrobat-cta" href="/products/photoshop/colorize.html">Add color to black-and-white photos.<svg viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l4 4-4 4"></path></svg></a>
+        </div>
+      </article><article class="acrobat-card">
+        <div class="acrobat-card__asset"><img data-slot="how-to-card-7.image" src="https://www.adobe.com/cc-shared/fragments/products/photoshop/media_15c788df09f219d667956f3b3ea2f3c7efc0230de.png?width=750&amp;format=png&amp;optimize=medium" alt="AI Assistant"></div>
+        <div class="acrobat-card__copy">
+          <div class="acrobat-card__text">
+            <h3 data-slot="how-to-card-7.title" class="acrobat-card__title">Make bold edits with layer masks.</h3>
+          </div>
+          <a data-slot="how-to-card-7.cta" class="acrobat-cta" href="/products/photoshop/masking.html">Make bold edits with layer masks.<svg viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l4 4-4 4"></path></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="closer parallax-garage-door-reveal">
+  <div class="closer__inner foreground">
+    <div class="closer__copy">
+      <h2 data-slot="closer-heading">Explore Photoshop plans.</h2>
+      <p data-slot="closer-body" class="closer__body">Browse plans for <a href="https://www.adobe.com/creativecloud/business/teams/photoshop.html">businesses</a> or <a href="https://www.adobe.com/creativecloud/buy/students.html">students and teachers</a>.</p>
+    </div>
+    <div class="closer__actions" style="display:flex;justify-content:center;gap:12px;margin-top:32px">
+      <a data-slot="closer-cta-primary" class="btn btn--primary" href="/creativecloud/plans.html?plan=individual&amp;filter=all&amp;single_app=photoshop" style="background:#fff;color:#000">Buy now</a>
+      <a data-slot="closer-cta-secondary" class="btn btn--outline" href="https://commerce.adobe.com/store/segmentation?cli=mini_plans&amp;ctx=if&amp;co=US&amp;lang=en&amp;ms=COM&amp;ot=TRIAL&amp;cs=INDIVIDUAL&amp;pa=phsp_direct_individual&amp;rtc=t&amp;lo=sl&amp;af=uc_new_user_iframe%2Cuc_new_system_close" style="border-color:rgba(255,255,255,0.6);color:#fff">Free trial</a>
+    </div>
+  </div>
+</section>
+
+</main>
