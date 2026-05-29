@@ -1,0 +1,123 @@
+/* Closer block — dark CTA section */
+
+.closer-container .closer-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.closer {
+  position: relative;
+  background: #000;
+  padding: clamp(80px, 9vw, 124px) var(--pad-x);
+  text-align: center;
+}
+
+.closer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.closer__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 16px;
+  width: 100%;
+}
+
+.closer h2 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(32px, 4.4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.8px;
+  color: #fff;
+  margin: 0;
+}
+
+.closer__body {
+  font-size: 20px;
+  line-height: 1.3;
+  letter-spacing: -0.4px;
+  color: #fff;
+  margin: 0;
+}
+
+/* Closer bar — search-style input (used on some pages) */
+
+.closer-bar {
+  width: 100%;
+  max-width: 768px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-pill);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.closer-bar__sparkle {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 24px;
+}
+
+.closer-bar__sparkle svg {
+  width: 16px;
+  height: 16px;
+  color: var(--accent);
+}
+
+.closer-bar__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: inherit;
+  padding: 16px;
+}
+
+.closer-bar__input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.closer-bar__btn {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.closer-bar__btn svg {
+  width: 18px;
+  height: 18px;
+  color: #fff;
+}
+
+.closer__disclaimer {
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.closer__disclaimer a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: underline;
+}

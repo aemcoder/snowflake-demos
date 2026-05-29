@@ -1,0 +1,250 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+/* BEM class names mirror the adobe.com source component naming. */
+
+/* ───── ax-panels block ─────────────────────────────────────────────
+   Tabbed panel switcher with feature-card grids inside each panel.
+   Mirrors adobe.com's .ax-panels component. */
+
+/* EDS wrapper override — let the panel break out to full viewport width */
+.ax-panels-container .ax-panels-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/* Section-level background and top rounding */
+.ax-panels {
+  background: var(--bg-light, #fff);
+}
+
+.section.ax-panels {
+  padding-top: clamp(32px, 3vw, 48px);
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+}
+
+/* ── Tab bar ───────────────────────────────────────────────────────── */
+.ax-panels .ax-panels__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px;
+  background: var(--bg-light, #fff);
+  border: 1px solid var(--rule, rgb(0 0 0 / 8%));
+  border-radius: var(--radius-pill, 999px);
+  width: fit-content;
+  margin: 0 auto 32px;
+  animation: rise-into-view linear both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 40%;
+}
+
+/* Scroll-reveal entrance for tab bar */
+@keyframes rise-into-view {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ax-panels .ax-panels__tabs {
+    animation: none;
+  }
+}
+
+/* ── Individual tab pill ───────────────────────────────────────────── */
+.ax-panels .ax-panels__tab {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 18px;
+  font-family: var(--font-text, system-ui, sans-serif);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--fg-ink, #000);
+  cursor: pointer;
+  border-radius: var(--radius-pill, 999px);
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.ax-panels .ax-panels__tab[aria-selected="true"] {
+  background: #000;
+  color: #fff;
+}
+
+.ax-panels .ax-panels__tab svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ── Panel container ───────────────────────────────────────────────── */
+.ax-panels .ax-panels__panel {
+  background: transparent;
+  padding: 56px 0;
+  padding-top: 0;
+  overflow: hidden;
+
+  /* break out of container max-width to span the full viewport */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ax-panels .ax-panels__panel[hidden] {
+  display: none;
+}
+
+.ax-panels .ax-panels__panel-inner {
+  max-width: var(--max-w, 1440px);
+  margin: 0 auto;
+  padding: 0 var(--pad-x, clamp(20px, 4vw, 64px));
+}
+
+/* When panel contains a composed features section, let it fill width */
+.ax-panels .ax-panels__panel-inner:has(> .section.features--composed) {
+  max-width: 100%;
+  padding-inline: 0;
+}
+
+.ax-panels .ax-panels__panel-inner > .section.features--composed {
+  padding: 0;
+  background: transparent;
+}
+
+.ax-panels .ax-panels__panel-inner > .section.features--composed > .container {
+  max-width: var(--max-w, 1440px);
+  margin: 0 auto;
+  padding-inline: var(--pad-x, clamp(20px, 4vw, 64px));
+}
+
+/* ── Composed features: sec-head override ──────────────────────────── */
+.ax-panels .features--composed .sec-head {
+  text-align: center;
+  max-width: 1000px;
+  margin: 80px auto 48px;
+}
+
+.ax-panels .features--composed .sec-head h2 {
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-weight: 900;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.8px;
+  margin-bottom: 12px;
+  will-change: transform;
+}
+
+/* ── Acrobat-card grid ─────────────────────────────────────────────── */
+.ax-panels .acrobat-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 56px 12px;
+}
+
+.ax-panels .acrobat-cards.three-up {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ax-panels .acrobat-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.ax-panels .acrobat-card__asset {
+  aspect-ratio: 488 / 366;
+  background: #eceae7;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ax-panels .acrobat-card__asset img,
+.ax-panels .acrobat-card__asset picture {
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  display: block;
+  width: 100%;
+}
+
+.ax-panels .acrobat-card:hover .acrobat-card__asset img,
+.ax-panels .acrobat-card:hover .acrobat-card__asset picture {
+  transform: scale(1.05);
+}
+
+.ax-panels .acrobat-card__asset img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.ax-panels .acrobat-card__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 24px 0;
+}
+
+.ax-panels .acrobat-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ax-panels .acrobat-card__title {
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: -0.48px;
+  color: #000;
+  margin: 0;
+}
+
+.ax-panels .acrobat-card__body {
+  font-family: var(--font-text, system-ui, sans-serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.16px;
+  color: rgb(0 0 0 / 64%);
+  margin: 0;
+}
+
+/* ── Responsive ────────────────────────────────────────────────────── */
+@media (width <= 1000px) {
+  .ax-panels .acrobat-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width <= 720px) {
+  .ax-panels .ax-panels__tabs {
+    flex-wrap: wrap;
+    width: auto;
+    margin-inline: var(--pad-x, 20px);
+  }
+
+  .ax-panels .ax-panels__panel {
+    padding: 32px 0;
+  }
+}
+
+@media (width <= 600px) {
+  .ax-panels .acrobat-cards {
+    grid-template-columns: 1fr;
+  }
+}

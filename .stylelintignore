@@ -1,0 +1,16 @@
+# Per-template CSS is vendor — extracted verbatim from the source
+# generator's inline <style>. Ignore everything in styles/ except the
+# boilerplate files we own.
+styles/*.css
+!styles/styles.css
+!styles/fonts.css
+!styles/lazy-styles.css
+experiments/
+# Block-level conversion: block CSS is vendor (extracted from source DOM)
+blocks/hero/hero.css
+blocks/ax-panels/ax-panels.css
+blocks/merch-cards/merch-cards.css
+blocks/features/features.css
+blocks/closer/closer.css
+blocks/header/header.css
+blocks/footer/footer.css

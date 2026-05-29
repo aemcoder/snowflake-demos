@@ -11,20 +11,20 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
+import { applyTemplateOverlay } from './overlay-engine.js';
 
 /**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
  */
 function buildHeroBlock(main) {
+  // Skip if a .hero block already exists as authored content
+  if (main.querySelector('.hero')) return;
+
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
   // eslint-disable-next-line no-bitwise
   if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
-    // Check if h1 or picture is already inside a hero block
-    if (h1.closest('.hero') || picture.closest('.hero')) {
-      return; // Don't create a duplicate hero block
-    }
     const section = document.createElement('div');
     section.append(buildBlock('hero', { elems: [picture, h1] }));
     main.prepend(section);
@@ -134,6 +134,10 @@ async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
+  if (main && await applyTemplateOverlay(main)) {
+    document.body.classList.add('appear');
+    return;
+  }
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');

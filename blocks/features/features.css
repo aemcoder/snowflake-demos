@@ -1,0 +1,17 @@
+/* Features block — full-bleed + section padding.
+   Card styles (.acrobat-card, .acrobat-cta) live in global styles.css. */
+
+.features-container .features-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.features {
+  background: var(--bg-light);
+  padding: clamp(64px, 7vw, 112px) var(--pad-x);
+}
+
+.features .sec-head__body {
+  font-size: 16px;
+  color: var(--fg-muted);
+}
