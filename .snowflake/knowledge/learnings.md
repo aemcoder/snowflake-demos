@@ -18,6 +18,20 @@ extraction).
 
 ---
 
+## 2026-05-29 — Block-level DA docs use positional rows, NOT key-value pairs
+
+Page-level snowflake DA docs use key-value pair rows (`slot-name | slot-value`) because the
+overlay engine needs names to match rows to `[data-slot]` markers in the template.
+
+Block-level DA docs use **positional rows** — one value per row, no label cell. This is the
+canonical EDS block authoring format. The decorator reads `rows[0]`, `rows[1]`, etc. directly.
+There is no overlay engine in the block-level path, so no keys are needed or expected.
+
+Do NOT add label cells to block-level DA docs — it would shift every row index and break all
+decorators.
+
+---
+
 ## 2026-05-28 — `aem content clone` syntax
 
 `aem content clone` takes `--path` as a flag, NOT positional args.
