@@ -12,3 +12,7 @@ helix-importer-ui
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
+# Snowflake skill: in-progress run state (committed only on close)
+.snowflake/projects/*/state.json
+
+.playwright-cli/
