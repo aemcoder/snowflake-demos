@@ -1,0 +1,204 @@
+{
+  "levelParam": "block",
+  "conversionLevel": "block-level",
+  "feasibility": {
+    "recommendation": "block-level",
+    "sections": [
+      {
+        "name": "hero",
+        "level": "block",
+        "checks": {
+          "structure": "pass",
+          "cssScope": "pass",
+          "contentModel": "pass",
+          "jsIndependence": "pass",
+          "visualIndependence": "pass"
+        }
+      },
+      {
+        "name": "stories",
+        "level": "block",
+        "checks": {
+          "structure": "pass — not a <section> but clear boundary; wrap as <section> in block",
+          "cssScope": "pass",
+          "contentModel": "pass",
+          "jsIndependence": "pass",
+          "visualIndependence": "pass — compound-sibling coupling is CSS-only padding/margin"
+        }
+      },
+      {
+        "name": "audience",
+        "level": "block",
+        "checks": {
+          "structure": "pass",
+          "cssScope": "pass",
+          "contentModel": "pass",
+          "jsIndependence": "pass",
+          "visualIndependence": "pass"
+        }
+      },
+      {
+        "name": "features",
+        "level": "block",
+        "checks": {
+          "structure": "pass",
+          "cssScope": "pass",
+          "contentModel": "pass",
+          "jsIndependence": "pass — scroll animation is per-element, not cross-section state",
+          "visualIndependence": "pass"
+        }
+      },
+      {
+        "name": "merch-cards-section",
+        "level": "block",
+        "checks": {
+          "structure": "pass",
+          "cssScope": "pass",
+          "contentModel": "pass — complex cards but fixed structure, 3 plans",
+          "jsIndependence": "pass — scroll animation is per-element",
+          "visualIndependence": "pass"
+        }
+      },
+      {
+        "name": "quote",
+        "level": "block",
+        "checks": {
+          "structure": "pass",
+          "cssScope": "pass",
+          "contentModel": "pass",
+          "jsIndependence": "pass",
+          "visualIndependence": "pass"
+        }
+      },
+      {
+        "name": "brands",
+        "level": "block",
+        "checks": {
+          "structure": "pass",
+          "cssScope": "pass",
+          "contentModel": "pass",
+          "jsIndependence": "pass",
+          "visualIndependence": "pass"
+        }
+      },
+      {
+        "name": "closer",
+        "level": "block",
+        "checks": {
+          "structure": "pass",
+          "cssScope": "pass",
+          "contentModel": "pass",
+          "jsIndependence": "pass — closer-sync is one-shot fallback, DA content replaces it",
+          "visualIndependence": "pass"
+        }
+      }
+    ]
+  },
+  "templateName": "express",
+  "synthesizeMain": false,
+  "headerBoundary": {
+    "startLine": 2287,
+    "endLine": 2392,
+    "selector": ".nav-wrap"
+  },
+  "footerBoundary": {
+    "startLine": 2756,
+    "endLine": 2890,
+    "selector": "footer.footer"
+  },
+  "sections": [
+    {
+      "firstClass": "hero",
+      "originalClasses": "section hero hero--split hero--split-noimage",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "lineStart": 2394,
+      "lineEnd": 2410
+    },
+    {
+      "firstClass": "stories",
+      "originalClasses": "stories is-compound-sibling",
+      "originalTag": "div",
+      "rewriteToSection": true,
+      "lineStart": 2412,
+      "lineEnd": 2453
+    },
+    {
+      "firstClass": "audience",
+      "originalClasses": "section audience",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "lineStart": 2455,
+      "lineEnd": 2499
+    },
+    {
+      "firstClass": "features",
+      "originalClasses": "section features",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "lineStart": 2501,
+      "lineEnd": 2567
+    },
+    {
+      "firstClass": "merch-cards-section",
+      "originalClasses": "section merch-cards-section",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "lineStart": 2569,
+      "lineEnd": 2711
+    },
+    {
+      "firstClass": "quote",
+      "originalClasses": "section quote is-compound-sibling",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "lineStart": 2713,
+      "lineEnd": 2723
+    },
+    {
+      "firstClass": "brands",
+      "originalClasses": "section brands",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "lineStart": 2725,
+      "lineEnd": 2738
+    },
+    {
+      "firstClass": "closer",
+      "originalClasses": "closer parallax-garage-door-reveal",
+      "originalTag": "section",
+      "rewriteToSection": false,
+      "lineStart": 2740,
+      "lineEnd": 2751
+    }
+  ],
+  "headLinks": [
+    {
+      "rel": "stylesheet",
+      "href": "https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.css"
+    }
+  ],
+  "externalLibs": [
+    {
+      "name": "lenis",
+      "version": "1.3.4",
+      "css": "https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.css",
+      "js": "https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js",
+      "strategy": "cdn"
+    }
+  ],
+  "inlineStyleLines": [7, 2282],
+  "inlineScriptLines": [[2893, 3312]],
+  "assetStrategy": "absolute",
+  "fontStrategy": "vendor",
+  "fonts": [
+    {"family": "adobe-clean-display", "weight": 600, "file": "../../assets/86cdac7850.otf"},
+    {"family": "adobe-clean-display", "weight": 700, "file": "../../assets/a9025161e6.otf"},
+    {"family": "adobe-clean-display", "weight": 800, "file": "../../assets/c2da5ba976.otf"},
+    {"family": "adobe-clean", "weight": 300, "file": "../../assets/708e17d2f8.otf"},
+    {"family": "adobe-clean", "weight": 400, "file": "../../assets/38916e7cb4.otf"},
+    {"family": "adobe-clean", "weight": 500, "file": "../../assets/492597c3cb.otf"},
+    {"family": "adobe-clean", "weight": 700, "file": "../../assets/aab77bf505.otf"}
+  ],
+  "strip": []
+}

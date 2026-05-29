@@ -1,0 +1,221 @@
+/* stylelint-disable selector-class-pattern -- BEM classes match source snowflake DOM */
+
+.merch-cards-section-container .merch-cards-section-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.merch-cards-section {
+  background: #fff;
+}
+
+/* Grid */
+.merch-cards-section .merch-cards {
+  display: grid;
+  gap: 0 16px;
+  grid-auto-rows: max-content;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-inline: 16px;
+  justify-content: center;
+}
+
+.merch-cards-section .merch-cards.three-up {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Card — subgrid for aligned top/bottom sections */
+.merch-cards-section .merch-card {
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  gap: 0;
+  will-change: opacity, transform;
+  transition: outline-color 200ms ease;
+}
+
+/* Light variant */
+.merch-cards-section .merch-card--light {
+  background: #f5f5f7;
+  outline: 4px solid #f5f5f7;
+  border-radius: 16px;
+}
+
+/* Inner white card */
+.merch-cards-section .merch-card__inner {
+  background: #fff;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top section */
+.merch-cards-section .merch-card__top {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+.merch-cards-section .merch-card__mnemonic {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.merch-cards-section .merch-card__name-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.merch-cards-section .merch-card__name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.48px;
+  color: #000;
+  margin: 0;
+}
+
+.merch-cards-section .merch-card__desc {
+  font-family: var(--font-text);
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgb(0 0 0 / 64%);
+  margin: 0;
+}
+
+/* Pricing */
+.merch-cards-section .merch-card__pricing {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.merch-cards-section .merch-card__price-area {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.merch-cards-section .merch-card__price {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 1.167;
+  letter-spacing: -0.48px;
+  color: #000;
+  margin: 0;
+}
+
+/* CTA buttons */
+.merch-cards-section .merch-card__ctas {
+  display: flex;
+  gap: 8px;
+}
+
+.merch-cards-section .merch-card__ctas .btn {
+  flex: 1;
+  height: 40px;
+}
+
+/* Secure row */
+.merch-cards-section .merch-card__secure {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgb(0 0 0 / 48%);
+  border-top: 1px solid rgb(0 0 0 / 8%);
+  margin-top: -1px;
+}
+
+.merch-cards-section .merch-card__secure-icon {
+  width: 14px;
+  height: 14px;
+  opacity: 0.5;
+}
+
+/* Bottom section — features */
+.merch-cards-section .merch-card__bottom {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  color: rgb(0 0 0 / 64%);
+}
+
+.merch-cards-section .merch-card__features {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.merch-cards-section .merch-card__features-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.merch-cards-section .merch-card__section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.merch-cards-section .merch-card__section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-text);
+  font-size: 14px;
+  font-weight: 700;
+  color: rgb(0 0 0 / 88%);
+  line-height: 1.286;
+}
+
+.merch-cards-section .merch-card__section-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.merch-cards-section .merch-card__items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 28px;
+}
+
+.merch-cards-section .merch-card__item {
+  font-family: var(--font-text);
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgb(0 0 0 / 64%);
+}
+
+/* Responsive */
+@media (width <= 900px) {
+  .merch-cards-section .merch-cards.three-up {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 16px;
+  }
+}
+
+@media (width <= 600px) {
+  .merch-cards-section .merch-cards,
+  .merch-cards-section .merch-cards.three-up {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+
+  .merch-cards-section .merch-card {
+    grid-row: auto;
+    grid-template-rows: none;
+  }
+}

@@ -11,6 +11,7 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
+import { applyTemplateOverlay } from './overlay-engine.js';
 
 /**
  * Builds hero block and prepends to main in a new section.
@@ -134,6 +135,10 @@ async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
+  if (main && await applyTemplateOverlay(main)) {
+    document.body.classList.add('appear');
+    return;
+  }
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');

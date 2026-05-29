@@ -1,4 +1,5 @@
-.snowflake/
+.snowflake/projects/*/state.json
+.snowflake/.backup/
 .hlx/*
 coverage/*
 logs/*

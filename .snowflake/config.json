@@ -1,0 +1,9 @@
+{
+  "projectsDir": ".snowflake/projects",
+  "daRoot": "/marketing",
+  "branchPrefix": "snowflake-",
+  "trunkBranch": "main",
+  "tagPrefix": "snowflake-",
+  "substrateVersion": "1.1.0",
+  "installedAt": "2026-05-29T11:29:47.962Z"
+}

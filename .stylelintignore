@@ -1,0 +1,4 @@
+# Source-derived CSS uses BEM naming from the original design
+styles/*.css
+blocks/
+experiments/
