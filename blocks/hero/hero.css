@@ -4,34 +4,108 @@
 }
 
 .hero {
-  position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  text-align: center;
+  padding: clamp(64px, 7vw, 112px) var(--pad-x);
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+.hero .container {
+  padding-top: 100px;
 }
 
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+.hero-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  animation: enter-up 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0ms both;
 }
 
-.hero img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+.hero-logo img {
+  width: 28px;
+  height: 28px;
 }
 
-@media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(40px, 5.6vw, 80px);
+  line-height: 0.95;
+  letter-spacing: -1.5px;
+  max-width: 1068px;
+  margin: 0 auto 16px;
+  animation: enter-up 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 80ms both;
+}
+
+.hero-body {
+  font-size: 17px;
+  color: var(--fg-muted);
+  max-width: 640px;
+  margin: 0 auto 28px;
+  animation: enter-up 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 160ms both;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+  animation: enter-up 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 240ms both;
+}
+
+/* Page-load entrance animation */
+@keyframes enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
   }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-logo,
+  .hero-title,
+  .hero-body,
+  .hero-ctas {
+    animation: none;
+  }
+}
+
+/* Drop trailing margin when CTAs are last child */
+.hero .container > .hero-ctas:last-child {
+  margin-bottom: 0;
+}
+
+.hero:not(:has(.hero-mockup, .ratings)) {
+  padding-bottom: clamp(40px, 4vw, 56px);
+}
+
+.hero-free-tags {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hero-free-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-muted);
+}
+
+.hero-free-tag::before {
+  content: "\2713";
+  color: var(--accent);
+  font-weight: 700;
 }

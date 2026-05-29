@@ -1,20 +1,9 @@
-import { getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
-
 /**
- * loads and decorates the footer
- * @param {Element} block The footer block element
+ * Loads the Photoshop Features footer fragment from the code bus.
+ * Fragment lives at /fragments/photoshop-features/footer.html.
  */
 export default async function decorate(block) {
-  // load footer as fragment
-  const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
-  const fragment = await loadFragment(footerPath);
-
-  // decorate footer DOM
-  block.textContent = '';
-  const footer = document.createElement('div');
-  while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
-
-  block.append(footer);
+  const resp = await fetch(`${window.hlx.codeBasePath}/fragments/photoshop-features/footer.html`);
+  if (!resp.ok) return;
+  block.innerHTML = await resp.text();
 }

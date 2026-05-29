@@ -1,0 +1,266 @@
+/* ── Container overrides ─────────────────────────────────────────────── */
+.ax-panels-container .ax-panels-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/* ── Section surface ────────────────────────────────────────────────── */
+.ax-panels {
+  background: var(--bg-light);
+  padding: clamp(64px, 7vw, 112px) var(--pad-x);
+}
+
+.ax-panels .container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+/* Tighten gap between hero and tabs */
+.section.ax-panels {
+  padding-top: clamp(32px, 3vw, 48px);
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+}
+
+/* ── Heading ────────────────────────────────────────────────────────── */
+.ax-panels__heading {
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -1.2px;
+  color: var(--fg-ink);
+  margin: 0 0 32px;
+}
+
+/* ── Tab bar ────────────────────────────────────────────────────────── */
+.ax-panels__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px;
+  background: var(--bg-light);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-pill);
+  width: fit-content;
+  margin: 0 auto 32px;
+}
+
+.ax-panels__tab {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 18px;
+  font-family: var(--font-text);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--fg-ink);
+  cursor: pointer;
+  border-radius: var(--radius-pill);
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.ax-panels__tab[aria-selected="true"] {
+  background: #000;
+  color: #fff;
+}
+
+.ax-panels__tab svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ── Panels ─────────────────────────────────────────────────────────── */
+.ax-panels__panel {
+  background: transparent;
+  padding: 56px 0;
+  padding-top: 0;
+  overflow: hidden;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ax-panels__panel-inner {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.ax-panels__panel[hidden] {
+  display: none;
+}
+
+/* ── Composed features inside panels ────────────────────────────────── */
+.ax-panels .features--composed {
+  padding: 0;
+  background: transparent;
+}
+
+.ax-panels .features--composed > .container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-inline: var(--pad-x);
+}
+
+.ax-panels .features--composed .sec-head {
+  text-align: center;
+  max-width: 1000px;
+  margin: 80px auto 48px;
+}
+
+.ax-panels .features--composed .sec-head h2 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.8px;
+  margin-bottom: 12px;
+  will-change: transform;
+}
+
+/* ── Acrobat cards grid ─────────────────────────────────────────────── */
+.ax-panels .acrobat-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 56px 12px;
+}
+
+.ax-panels .acrobat-cards.two-up {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ax-panels .acrobat-cards.three-up {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ax-panels .acrobat-cards.four-up {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* ── Acrobat card ───────────────────────────────────────────────────── */
+.ax-panels .acrobat-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.ax-panels .acrobat-card__asset {
+  aspect-ratio: 488 / 366;
+  background: #eceae7;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ax-panels .acrobat-card__asset img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  display: block;
+}
+
+.ax-panels .acrobat-card__asset picture {
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  display: block;
+  width: 100%;
+}
+
+.ax-panels .acrobat-card:hover .acrobat-card__asset img,
+.ax-panels .acrobat-card:hover .acrobat-card__asset picture {
+  transform: scale(1.05);
+}
+
+.ax-panels .acrobat-card__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 24px 0;
+}
+
+.ax-panels .acrobat-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ax-panels .acrobat-card__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: -0.48px;
+  color: #000;
+  margin: 0;
+}
+
+.ax-panels .acrobat-card__body {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.16px;
+  color: rgb(0 0 0 / 64%);
+  margin: 0;
+}
+
+.ax-panels .acrobat-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-text);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28;
+  color: #000;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 120ms ease;
+}
+
+.ax-panels .acrobat-cta:hover {
+  opacity: 0.7;
+}
+
+.ax-panels .acrobat-cta svg {
+  width: 6px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+.ax-panels .acrobat-cards > .acrobat-card {
+  will-change: opacity, transform;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────── */
+@media (width <= 1000px) {
+  .ax-panels .acrobat-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width <= 720px) {
+  .ax-panels__panel {
+    padding: 32px 0;
+  }
+
+  .ax-panels__tabs {
+    flex-wrap: wrap;
+  }
+}
+
+@media (width <= 600px) {
+  .ax-panels .acrobat-cards {
+    grid-template-columns: 1fr;
+  }
+}
