@@ -33,13 +33,15 @@
 }
 
 /* Base typography */
-html,
-body {
-  display: none;  /* EDS lifecycle: body revealed via body.appear */
+html {
   background: var(--bg-light);
   color: var(--fg-ink);
   font-family: var(--font-text);
   -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: none;
 }
 
 body.appear {
