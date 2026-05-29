@@ -1,7 +1,4 @@
-  /* Adobe Clean fonts — original source references 404, so the page
-     falls through to the system-font fallback stack declared in :root
-     (--font-display / --font-text). Keeping the @font-face with the
-     original broken paths preserves identical fallback behavior. */
+  /* Adobe Clean fonts vendored from the bizpro-hub design source. */
   @font-face { font-family: 'adobe-clean-display'; src: url("../../assets/86cdac7850.otf") format('opentype'); font-weight: 600; font-style: normal; }
   @font-face { font-family: 'adobe-clean-display'; src: url("../../assets/a9025161e6.otf") format('opentype'); font-weight: 700; font-style: normal; }
   @font-face { font-family: 'adobe-clean-display'; src: url("../../assets/c2da5ba976.otf") format('opentype'); font-weight: 800; font-style: normal; }
