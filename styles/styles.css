@@ -141,6 +141,10 @@ main > .section > div {
   padding: 0;
 }
 
+main > .section > .metadata-wrapper {
+  display: none;
+}
+
 /* ── Button family ─────────────────────────────────────────────────── */
 
 .btn {
