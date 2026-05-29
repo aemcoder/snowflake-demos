@@ -1,0 +1,114 @@
+/* Full-bleed override */
+.hero-split-container .hero-split-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/* Hero split base */
+.hero-split {
+  text-align: left;
+  padding: 30px var(--pad-x) clamp(48px, 6vw, 96px);
+  background: #fff;
+}
+
+.hero-split .hero-split__copy {
+  max-width: 560px;
+}
+
+/* No-image variant: single column centered */
+.hero-split.hero--split-noimage .hero-split__copy {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-split.hero--split-noimage .hero-split__actions {
+  justify-content: center;
+}
+
+/* Container override */
+.hero-split > div {
+  padding-top: 100px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+/* Logo */
+.hero-split__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--fg-ink);
+}
+
+.hero-split__logo img {
+  width: 28px;
+  height: 28px;
+}
+
+/* Title */
+.hero-split__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(40px, 4.6vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -1px;
+  margin: 0 0 24px;
+}
+
+/* Actions */
+.hero-split__actions {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 12px 14px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+/* Entrance animations */
+@keyframes enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-split .hero-split__logo {
+  animation: enter-up 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0ms both;
+}
+
+.hero-split .hero-split__title {
+  animation: enter-up 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 80ms both;
+}
+
+.hero-split .hero-split__actions {
+  animation: enter-up 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 240ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-split .hero-split__logo,
+  .hero-split .hero-split__title,
+  .hero-split .hero-split__actions {
+    animation: none;
+  }
+}
+
+/* Section bottom padding when no mockup/ratings present */
+.hero-split-container {
+  padding-bottom: clamp(40px, 4vw, 56px);
+}
+
+@media (width <= 900px) {
+  .hero-split {
+    padding: 56px 0 64px;
+  }
+}
