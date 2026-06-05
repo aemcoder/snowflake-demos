@@ -1,3 +1,5 @@
+import { loadCSS } from './aem.js';
+
 /**
  * Shared template-literal + named-slot engine for hybrid EDS blocks.
  *
@@ -214,7 +216,15 @@ function parseRows(block) {
  * @param {Element} block        - the block element (div.name.block)
  * @param {string}  templateHTML - verbatim source markup with slot markers
  */
+let knackCSSLoaded = false;
+
 export function renderTemplate(block, templateHTML) {
+  if (!knackCSSLoaded) {
+    knackCSSLoaded = true;
+    loadCSS(`${window.hlx.codeBasePath}/styles/knack.css`);
+    document.documentElement.classList.add('js');
+  }
+
   const { singletons, repeats } = parseRows(block);
 
   const tpl = document.createElement('template');

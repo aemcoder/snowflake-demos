@@ -1,4 +1,8 @@
 /* stylelint-disable max-line-length */
+
+/* Inter — used by the knack template. Loaded lazily via loadFonts() → fonts.css. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 @font-face {
   font-family: roboto-condensed;
   font-style: normal;
