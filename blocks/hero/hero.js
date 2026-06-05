@@ -71,7 +71,7 @@ export default async function decorate(block) {
     }
   });
   block.querySelectorAll('.bar i[data-fill]').forEach((el) => {
-    if (!reduce) setTimeout(() => { el.style.width = el.dataset.fill; }, 700);
+    if (!reduce) setTimeout(() => { el.style.transform = `scaleX(${parseFloat(el.dataset.fill) / 100})`; }, 700);
   });
 
   cascadeRows(block);

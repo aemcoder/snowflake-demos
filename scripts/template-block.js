@@ -65,7 +65,7 @@ function getCountupObserver() {
           if (!e.isIntersecting) return;
           if (e.target.dataset.countup !== undefined) runCountup(e.target);
           if (e.target.tagName === 'I' && e.target.dataset.fill) {
-            e.target.style.width = e.target.dataset.fill;
+            e.target.style.transform = `scaleX(${parseFloat(e.target.dataset.fill) / 100})`;
           }
           countupObserver.unobserve(e.target);
         });
