@@ -72,8 +72,10 @@ body.knack .app-bar { display: flex; align-items: center; gap: 8px; padding: 12p
 body.knack .app-bar .d { width: 11px; height: 11px; border-radius: 50%; background: #e7c9e1; }
 body.knack .app-bar .title { margin-left: 10px; font-weight: 700; font-size: .85rem; color: var(--primary); }
 body.knack .app-bar .live { margin-left: auto; display: flex; align-items: center; gap: 7px; font-size: .72rem; font-weight: 700; color: #16a34a; text-transform: uppercase; letter-spacing: .06em; }
-body.knack .app-bar .pulse { width: 9px; height: 9px; border-radius: 50%; background: #16c784; animation: knack-pulse 1.6s var(--e-enter) infinite; }
-@keyframes knack-pulse { 0% { box-shadow: 0 0 0 0 rgba(22,199,132,.5); } 70% { box-shadow: 0 0 0 8px rgba(22,199,132,0); } 100% { box-shadow: 0 0 0 0 rgba(22,199,132,0); } }
+/* Pulse dot — compositor-only (transform+opacity on ::after, not box-shadow) */
+body.knack .app-bar .pulse { position: relative; width: 9px; height: 9px; border-radius: 50%; background: #16c784; }
+body.knack .app-bar .pulse::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: #16c784; animation: knack-pulse 1.6s var(--e-enter) infinite; }
+@keyframes knack-pulse { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(3); opacity: 0; } }
 body.knack .app-body { padding: 18px; position: relative; }
 body.knack .kpis { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 14px; }
 body.knack .kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; }
@@ -91,7 +93,9 @@ body.knack .pill-s { font-size: .68rem; font-weight: 700; padding: 3px 9px; bord
 body.knack .s-live  { background: #e6f8ef; color: #16a34a; }
 body.knack .s-build { background: #fdeef8; color: var(--primary); }
 body.knack .s-queue { background: #fff3e6; color: #c2710c; }
-body.knack .rowdot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #16c784; margin-right: 7px; vertical-align: middle; animation: knack-pulse 1.6s var(--e-enter) infinite; }
+/* rowdot reuses same compositor-only animation via its own ::after ring */
+body.knack .rowdot { position: relative; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #16c784; margin-right: 7px; vertical-align: middle; }
+body.knack .rowdot::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: #16c784; animation: knack-pulse 1.6s var(--e-enter) infinite; }
 body.knack .sweep { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(100deg,transparent 30%,rgba(255,52,154,.10) 50%,transparent 70%); transform: translateX(-120%); }
 body.knack .build-anim .sweep { animation: knack-sweep 5.4s var(--e-enter) 2.5s infinite; }
 @keyframes knack-sweep { 0% { transform: translateX(-120%); } 60%, 100% { transform: translateX(120%); } }

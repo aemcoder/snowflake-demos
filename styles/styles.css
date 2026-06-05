@@ -323,3 +323,40 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+/*
+ * Knack template — critical CWV rules loaded synchronously with styles.css.
+ * Prevents CLS when knack.css arrives lazily: EDS boilerplate sets 22px/Roboto
+ * on body and 40px margins on sections; without these overrides every element
+ * shifts the moment knack.css resets them, tanking CLS.
+ * Scoped to body.knack so zero impact on any other demo or page.
+ */
+body.knack {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 16px;
+}
+
+body.knack h1,
+body.knack h2,
+body.knack h3,
+body.knack h4,
+body.knack h5,
+body.knack h6 {
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body.knack header {
+  height: 0;
+}
+
+body.knack main > .section {
+  margin: 0;
+  padding: 0;
+  max-width: none;
+}
+
+body.knack main > .section > div {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
