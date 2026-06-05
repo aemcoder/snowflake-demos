@@ -19,8 +19,8 @@ const TEMPLATE = `
   </details>
 </section>`;
 
-export default function decorate(block) {
-  renderTemplate(block, TEMPLATE);
+export default async function decorate(block) {
+  await renderTemplate(block, TEMPLATE);
   const first = block.querySelector('details');
   if (first) first.open = true;
 }

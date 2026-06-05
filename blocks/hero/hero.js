@@ -59,8 +59,8 @@ const TEMPLATE = `
   </div>
 </div>`;
 
-export default function decorate(block) {
-  renderTemplate(block, TEMPLATE);
+export default async function decorate(block) {
+  await renderTemplate(block, TEMPLATE);
 
   // Hero KPIs fire immediately rather than on scroll (matches source behavior)
   const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;

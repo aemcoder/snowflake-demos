@@ -26,6 +26,6 @@ const TEMPLATE = `
   </div>
 </section>`;
 
-export default function decorate(block) {
-  renderTemplate(block, TEMPLATE);
+export default async function decorate(block) {
+  await renderTemplate(block, TEMPLATE);
 }

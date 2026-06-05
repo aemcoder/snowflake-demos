@@ -216,14 +216,21 @@ function parseRows(block) {
  * @param {Element} block        - the block element (div.name.block)
  * @param {string}  templateHTML - verbatim source markup with slot markers
  */
-let knackCSSLoaded = false;
+// Stored once; all subsequent awaits on this promise resolve instantly.
+let knackCSSPromise = null;
 
-export function renderTemplate(block, templateHTML) {
-  if (!knackCSSLoaded) {
-    knackCSSLoaded = true;
-    loadCSS(`${window.hlx.codeBasePath}/styles/knack.css`);
+/**
+ * Render a block from an inline HTML template string.
+ * Async so callers (block decorate functions) can await it — EDS will not
+ * show the section until decorate() resolves, guaranteeing knack.css is
+ * applied before any content is visible (zero CLS from lazy CSS load).
+ */
+export async function renderTemplate(block, templateHTML) {
+  if (!knackCSSPromise) {
     document.documentElement.classList.add('js');
+    knackCSSPromise = loadCSS(`${window.hlx.codeBasePath}/styles/knack.css`);
   }
+  await knackCSSPromise;
 
   const { singletons, repeats } = parseRows(block);
 
