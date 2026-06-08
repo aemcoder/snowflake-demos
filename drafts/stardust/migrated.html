@@ -3,20 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--
-    template → body.knack via decorateTemplateAndTheme (aem.js)
-    This activates the EDS ↔ Stardust bridge CSS in head.html.
-  -->
   <meta name="template" content="knack">
   <title>Knack — Hybrid EDS Demo</title>
-
-  <!-- EDS bootstrap (mirrors what head.html injects in production) -->
   <script nonce="aem" src="/scripts/aem.js" type="module"></script>
   <script nonce="aem" src="/scripts/scripts.js" type="module"></script>
   <link rel="stylesheet" href="/styles/styles.css">
-
-  <!-- knack.css loaded lazily by template-block.js; linked here for local drafts testing -->
-  <!-- html.js must be set before knack.css so reveal animations hide correctly -->
   <script nonce="aem">document.documentElement.classList.add('js')</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +18,6 @@
 <main>
 
   <!-- ── 1. HERO ──────────────────────────────────────────────────────────── -->
-  <!-- 4 positional field rows (no key column): eyebrow | sub | cta-primary | cta-secondary -->
   <div>
     <div class="hero">
       <div><div>No-code · AI · Enterprise-grade security</div></div>
@@ -38,7 +28,6 @@
   </div>
 
   <!-- ── 2. PROOF ─────────────────────────────────────────────────────────── -->
-  <!-- 1 positional field row: tagline -->
   <div>
     <div class="proof">
       <div><div>Trusted by 100,000+ users across the world</div></div>
@@ -46,12 +35,12 @@
   </div>
 
   <!-- ── 3. FEATURE TABS ──────────────────────────────────────────────────── -->
-  <!-- 3 leading fields + 6 item rows (4 cells: eyebrow | h3 | body | img) -->
+  <!-- default content: eyebrow + h2 + intro | block: 6 tab panels -->
   <div>
+    <p class="eyebrow">See it work</p>
+    <h2>Create, deploy &amp; scale custom apps — without code.</h2>
+    <p>Flip through what you'll build in your first afternoon.</p>
     <div class="feature-tabs">
-      <div><div>See it work</div></div>
-      <div><div>Create, deploy &amp; scale custom apps — without code.</div></div>
-      <div><div>Flip through what you'll build in your first afternoon.</div></div>
       <div>
         <div>Scalable core</div>
         <div>A real relational database, visually.</div>
@@ -92,10 +81,10 @@
   </div>
 
   <!-- ── 4. VALUE CARDS ───────────────────────────────────────────────────── -->
-  <!-- 1 leading field + 3 item rows (2 cells: title | body) -->
+  <!-- default content: h2 | block: 3 icon cards -->
   <div>
+    <h2>No code. No delay. No hassle.</h2>
     <div class="value-cards">
-      <div><div>No code. No delay. No hassle.</div></div>
       <div>
         <div>Business-ready from day one</div>
         <div>Security, permissions, and scale are the foundation every Knack app starts on.</div>
@@ -112,11 +101,11 @@
   </div>
 
   <!-- ── 5. COMPARE ───────────────────────────────────────────────────────── -->
-  <!-- 2 leading fields + 3 item rows (3 cells: vs-label | h3 | <ul> bullets) -->
+  <!-- default content: eyebrow + h2 | block: 3-col comparison | section: gray -->
   <div>
+    <p class="eyebrow">The honest comparison</p>
+    <h2>How Knack stands apart</h2>
     <div class="compare">
-      <div><div>The honest comparison</div></div>
-      <div><div>How Knack stands apart</div></div>
       <div>
         <div>vs. Coding tools</div>
         <div>Lovable, Bolt, Replit</div>
@@ -139,10 +128,10 @@
   </div>
 
   <!-- ── 6. FEATURES GRID (6-up) ──────────────────────────────────────────── -->
-  <!-- 1 leading field + 6 item rows (2 cells: title | body; icons baked in) -->
+  <!-- default content: h2 | block: 6 icon cards -->
   <div>
+    <h2>Built on enterprise-grade components</h2>
     <div class="features-grid">
-      <div><div>Built on enterprise-grade components</div></div>
       <div><div>Scalable database core</div><div>Relational data that scales without breaking.</div></div>
       <div><div>Modern UI/UX components</div><div>Forms, tables, charts, dashboards.</div></div>
       <div><div>User management &amp; security</div><div>Granular roles and access control.</div></div>
@@ -153,7 +142,6 @@
   </div>
 
   <!-- ── 7. INTEGRATIONS ──────────────────────────────────────────────────── -->
-  <!-- 3 positional field rows: heading | sub | cta -->
   <div>
     <div class="integ">
       <div><div>Move beyond patchwork integrations</div></div>
@@ -165,12 +153,12 @@
     </div>
   </div>
 
-  <!-- ── 8. RESULTS (stats + testimonial) ─────────────────────────────────── -->
-  <!-- 2 leading fields + 3 stat rows (1 cell each) + 2 trailing fields -->
+  <!-- ── 8. RESULTS ───────────────────────────────────────────────────────── -->
+  <!-- default content: eyebrow + h2 | block: 3 stats + quote + story link -->
   <div>
+    <p class="eyebrow">Results</p>
+    <h2>Real outcomes, measured.</h2>
     <div class="results">
-      <div><div>Results</div></div>
-      <div><div>Real outcomes, measured.</div></div>
       <div><div>saved per year</div></div>
       <div><div>customer retention rate</div></div>
       <div><div>faster program administration</div></div>
@@ -180,10 +168,10 @@
   </div>
 
   <!-- ── 9. FAQ ────────────────────────────────────────────────────────────── -->
-  <!-- 1 leading field + repeating item rows (2 cells: question | answer) -->
+  <!-- default content: h2 | block: accordion items -->
   <div>
+    <h2>FAQs</h2>
     <div class="faq">
-      <div><div>FAQs</div></div>
       <div>
         <div>What makes Knack unique as a no-code AI app builder?</div>
         <div>Knack pairs a true relational database with enterprise-grade security and an AI builder — so non-technical teams ship real, scalable applications, not throwaway prototypes.</div>
@@ -204,7 +192,6 @@
   </div>
 
   <!-- ── 10. FINAL CTA ─────────────────────────────────────────────────────── -->
-  <!-- 3 positional field rows: heading | sub | cta -->
   <div>
     <div class="final">
       <div><div>Get started in 30 seconds.</div></div>

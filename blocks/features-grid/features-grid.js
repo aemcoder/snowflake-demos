@@ -1,7 +1,9 @@
 import { renderTemplate } from '../../scripts/template-block.js';
 
 /**
- * DA block table (1 leading field + 6 item rows, 2 cells each: title | body):
+ * DA block table (6 item rows, 2 cells each: title | body):
+ * The section heading is default content above the block.
+ * (previously: 1 leading field + 6 item rows)
  *   | features-grid |
  *   | Built on enterprise-grade components |                    (heading)
  *   | Scalable database core  | Relational data…               (card 1)
@@ -15,7 +17,6 @@ import { renderTemplate } from '../../scripts/template-block.js';
  */
 const TEMPLATE = `
 <section class="wrap">
-  <div class="center"><h2 data-field></h2></div>
   <div class="grid6">
     <div class="ccard reveal" data-group>
       <div class="ic">

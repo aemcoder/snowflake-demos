@@ -1,10 +1,10 @@
 import { renderTemplate } from '../../scripts/template-block.js';
 
 /**
- * DA block table (1 leading field + repeating item rows, 2 cells each):
+ * DA block table (repeating item rows, 2 cells each):
  *   | faq |
- *   | FAQs |                                              (heading)
  *   | Question text | Answer text |                       (item 1)
+ * The section heading is default content above the block.
  *   | Question text | Answer text |                       (item 2)
  *   …
  *
@@ -12,7 +12,6 @@ import { renderTemplate } from '../../scripts/template-block.js';
  */
 const TEMPLATE = `
 <section class="wrap">
-  <div class="center"><h2 data-field></h2></div>
   <details data-repeat>
     <summary data-slot></summary>
     <p data-slot></p>

@@ -1,11 +1,10 @@
 import { renderTemplate, initCountup } from '../../scripts/template-block.js';
 
 /**
- * DA block table (2 leading fields + 3 stat rows (1 cell each) + 2 trailing fields):
+ * DA block table (3 stat rows (1 cell each) + 2 trailing fields):
  *   | results |
- *   | Results                                    |  (eyebrow — leading)
- *   | Real outcomes, measured.                   |  (heading — leading)
  *   | saved per year                             |  (stat 1 label)
+ * Eyebrow and heading are default content above the block. Trailing quote/link stay in block.
  *   | customer retention rate                    |  (stat 2 label)
  *   | faster program administration              |  (stat 3 label)
  *   | "We replaced four…"                        |  (quote — trailing)
@@ -15,10 +14,6 @@ import { renderTemplate, initCountup } from '../../scripts/template-block.js';
  */
 const TEMPLATE = `
 <section class="wrap">
-  <div class="center">
-    <p class="eyebrow" data-field></p>
-    <h2 data-field></h2>
-  </div>
   <div class="stats">
     <div class="stat" data-group>
       <div class="n" data-countup="250" data-prefix="$" data-suffix="k+">$250k+</div>

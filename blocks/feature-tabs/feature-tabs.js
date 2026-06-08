@@ -1,12 +1,10 @@
 import { renderTemplate, initTabs } from '../../scripts/template-block.js';
 
 /**
- * DA block table (3 leading fields + 6 item rows, 4 cells each: eyebrow | h3 | body | img):
+ * DA block table (6 item rows, 4 cells each: eyebrow | h3 | body | img):
  *   | feature-tabs |
- *   | See it work                                    |  (eyebrow)
- *   | Create, deploy & scale custom apps…            |  (heading)
- *   | Flip through what you'll build in an afternoon.|  (intro)
  *   | Scalable core | A real relational… | Model records… | <img> |  (panel 1)
+ * Eyebrow, heading, and intro are default content above the block in the same section.
  *   | AI builder    | Describe it…       | Generate…      | <img> |  (panel 2)
  *   | Workflow engine | Automate…        | Trigger…       | <img> |  (panel 3)
  *   | UI components | Pages that…        | Drag in…       | <img> |  (panel 4)
@@ -17,11 +15,6 @@ import { renderTemplate, initTabs } from '../../scripts/template-block.js';
  */
 const TEMPLATE = `
 <section class="wrap">
-  <div class="center">
-    <p class="eyebrow" data-field></p>
-    <h2 data-field></h2>
-    <p style="margin-top:14px;font-size:1.1rem" data-field></p>
-  </div>
   <div class="switch-tabs" role="tablist">
     <button class="tab" role="tab" aria-selected="true"  data-p="database">Build a Database</button>
     <button class="tab" role="tab" aria-selected="false" data-p="ai">Edit with AI</button>

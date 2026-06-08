@@ -1,0 +1,2115 @@
+{
+  "data": {
+    "tag": "BODY",
+    "selector": "body",
+    "bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 4986
+    },
+    "children": [
+      {
+        "tag": "DIV",
+        "selector": "body > div",
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 43
+        },
+        "children": [],
+        "className": "promo",
+        "text": "⚡ New Customer Offer — for a l",
+        "background": {
+          "type": "color",
+          "value": "rgb(130, 21, 112)",
+          "raw": "rgb(130, 21, 112) none repeat scroll 0% 0% / auto padding-box border-box",
+          "source": "css"
+        }
+      },
+      {
+        "tag": "HEADER",
+        "selector": "body > header",
+        "bounds": {
+          "x": 0,
+          "y": 43,
+          "width": 1280,
+          "height": 73
+        },
+        "children": [
+          {
+            "tag": "NAV",
+            "selector": "body > header > div.wrap.nav-in > nav",
+            "bounds": {
+              "x": 241,
+              "y": 67,
+              "width": 390,
+              "height": 24
+            },
+            "children": [],
+            "className": "nav-links",
+            "layout": "4x1",
+            "text": "Solutions Templates Resources "
+          },
+          {
+            "tag": "DIV",
+            "selector": "body > header > div.wrap.nav-in > div",
+            "bounds": {
+              "x": 918,
+              "y": 52,
+              "width": 288,
+              "height": 54
+            },
+            "children": [],
+            "className": "nav-cta",
+            "text": "Start Building For Free",
+            "background": {
+              "type": "color",
+              "value": "rgb(255, 52, 154)",
+              "raw": "rgb(255, 52, 154) none repeat scroll 0% 0% / auto padding-box border-box",
+              "source": "css"
+            }
+          }
+        ],
+        "className": "nav",
+        "background": {
+          "type": "color",
+          "value": "rgba(255, 255, 255, 0.85)",
+          "raw": "rgba(255, 255, 255, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+          "source": "css"
+        },
+        "layout": "2x2"
+      },
+      {
+        "tag": "SECTION",
+        "selector": "body > section.hero",
+        "bounds": {
+          "x": 0,
+          "y": 116,
+          "width": 1280,
+          "height": 637
+        },
+        "children": [
+          {
+            "tag": "DIV",
+            "selector": "body > section.hero > div > div:nth-child(1)",
+            "bounds": {
+              "x": 74,
+              "y": 188,
+              "width": 529,
+              "height": 501
+            },
+            "children": [
+              {
+                "tag": "P",
+                "selector": "body > section.hero > div > div:nth-child(1) > p.eyebrow",
+                "bounds": {
+                  "x": 74,
+                  "y": 188,
+                  "width": 529,
+                  "height": 20
+                },
+                "children": [],
+                "className": "eyebrow",
+                "text": "No-code · AI · Enterprise-grad"
+              },
+              {
+                "tag": "H1",
+                "selector": "body > section.hero > div > div:nth-child(1) > h1",
+                "bounds": {
+                  "x": 74,
+                  "y": 223,
+                  "width": 529,
+                  "height": 212
+                },
+                "children": [],
+                "text": "Don't read about the app.",
+                "background": {
+                  "type": "gradient",
+                  "value": "linear-gradient(90deg, rgb(152, 42, 134) 0%, rgb(250, 129, 110) 100%)",
+                  "raw": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(152, 42, 134) 0%, rgb(250, 129, 110) 100%) repeat scroll 0% 0% / auto padding-box text",
+                  "source": "css"
+                }
+              },
+              {
+                "tag": "P",
+                "selector": "body > section.hero > div > div:nth-child(1) > p.sub",
+                "bounds": {
+                  "x": 74,
+                  "y": 457,
+                  "width": 520,
+                  "height": 100
+                },
+                "children": [],
+                "className": "sub",
+                "text": "The most secure app & database"
+              },
+              {
+                "tag": "DIV",
+                "selector": "body > section.hero > div > div:nth-child(1) > div.hero-cta",
+                "bounds": {
+                  "x": 74,
+                  "y": 587,
+                  "width": 529,
+                  "height": 54
+                },
+                "children": [],
+                "className": "hero-cta",
+                "text": "Start Building For Free",
+                "background": {
+                  "type": "color",
+                  "value": "rgb(255, 52, 154)",
+                  "raw": "rgb(255, 52, 154) none repeat scroll 0% 0% / auto padding-box border-box",
+                  "source": "css"
+                }
+              },
+              {
+                "tag": "DIV",
+                "selector": "body > section.hero > div > div:nth-child(1) > div.trust",
+                "bounds": {
+                  "x": 74,
+                  "y": 666,
+                  "width": 529,
+                  "height": 23
+                },
+                "children": [],
+                "className": "trust",
+                "text": "Trusted by users worldwide",
+                "layout": "2x1"
+              }
+            ]
+          },
+          {
+            "tag": "DIV",
+            "selector": "#app",
+            "bounds": {
+              "x": 651,
+              "y": 244,
+              "width": 555,
+              "height": 389
+            },
+            "children": [
+              {
+                "tag": "DIV",
+                "selector": "#app > div.app-bar",
+                "bounds": {
+                  "x": 652,
+                  "y": 245,
+                  "width": 553,
+                  "height": 47
+                },
+                "children": [],
+                "className": "app-bar",
+                "background": {
+                  "type": "color",
+                  "value": "rgb(251, 247, 251)",
+                  "raw": "rgb(251, 247, 251) none repeat scroll 0% 0% / auto padding-box border-box",
+                  "source": "css"
+                },
+                "layout": "3x2",
+                "text": "Operations · Live App Live"
+              },
+              {
+                "tag": "DIV",
+                "selector": "#app > div.app-body",
+                "bounds": {
+                  "x": 652,
+                  "y": 292,
+                  "width": 553,
+                  "height": 340
+                },
+                "children": [
+                  {
+                    "tag": "DIV",
+                    "selector": "#app > div.app-body > div.kpis",
+                    "bounds": {
+                      "x": 670,
+                      "y": 310,
+                      "width": 517,
+                      "height": 96
+                    },
+                    "children": [],
+                    "className": "kpis",
+                    "layout": "3x1",
+                    "text": "Open work orders248 Saved / yr"
+                  },
+                  {
+                    "tag": "TABLE",
+                    "selector": "#app > div.app-body > table",
+                    "bounds": {
+                      "x": 670,
+                      "y": 420,
+                      "width": 517,
+                      "height": 194
+                    },
+                    "children": [
+                      {
+                        "tag": "THEAD",
+                        "selector": "#app > div.app-body > table > thead",
+                        "bounds": {
+                          "x": 670,
+                          "y": 420,
+                          "width": 517,
+                          "height": 34
+                        },
+                        "children": [],
+                        "text": "Record",
+                        "layout": "3x1"
+                      },
+                      {
+                        "tag": "TBODY",
+                        "selector": "#app > div.app-body > table > tbody",
+                        "bounds": {
+                          "x": 670,
+                          "y": 454,
+                          "width": 517,
+                          "height": 160
+                        },
+                        "children": [
+                          {
+                            "tag": "TR",
+                            "selector": "#app > div.app-body > table > tbody > tr:nth-child(1)",
+                            "bounds": {
+                              "x": 670,
+                              "y": 454,
+                              "width": 517,
+                              "height": 40
+                            },
+                            "children": [],
+                            "className": "row",
+                            "layout": "3x1",
+                            "text": "WO-1043 · HVAC"
+                          },
+                          {
+                            "tag": "TR",
+                            "selector": "#app > div.app-body > table > tbody > tr:nth-child(2)",
+                            "bounds": {
+                              "x": 670,
+                              "y": 494,
+                              "width": 517,
+                              "height": 40
+                            },
+                            "children": [],
+                            "className": "row",
+                            "layout": "3x1",
+                            "text": "WO-1044 · Electrical"
+                          },
+                          {
+                            "tag": "TR",
+                            "selector": "#app > div.app-body > table > tbody > tr:nth-child(3)",
+                            "bounds": {
+                              "x": 670,
+                              "y": 534,
+                              "width": 517,
+                              "height": 40
+                            },
+                            "children": [],
+                            "className": "row",
+                            "layout": "3x1",
+                            "text": "WO-1045 · Plumbing"
+                          },
+                          {
+                            "tag": "TR",
+                            "selector": "#app > div.app-body > table > tbody > tr:nth-child(4)",
+                            "bounds": {
+                              "x": 670,
+                              "y": 574,
+                              "width": 517,
+                              "height": 40
+                            },
+                            "children": [],
+                            "className": "row",
+                            "layout": "3x1",
+                            "text": "WO-1046 · Inspection"
+                          }
+                        ]
+                      }
+                    ],
+                    "className": "rows"
+                  }
+                ],
+                "className": "app-body"
+              }
+            ],
+            "id": "app",
+            "className": "app",
+            "background": {
+              "type": "color",
+              "value": "rgb(255, 255, 255)",
+              "raw": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+              "source": "css"
+            }
+          }
+        ],
+        "className": "hero",
+        "background": {
+          "type": "gradient",
+          "value": "linear-gradient(rgb(253, 238, 248) 0%, rgb(255, 255, 255) 70%)",
+          "raw": "rgba(0, 0, 0, 0) linear-gradient(rgb(253, 238, 248) 0%, rgb(255, 255, 255) 70%) repeat scroll 0% 0% / auto padding-box border-box",
+          "source": "css"
+        },
+        "layout": "2x1"
+      },
+      {
+        "tag": "SECTION",
+        "selector": "body > section.proof.wrap",
+        "bounds": {
+          "x": 50,
+          "y": 753,
+          "width": 1180,
+          "height": 175
+        },
+        "children": [
+          {
+            "tag": "P",
+            "selector": "body > section.proof.wrap > p",
+            "bounds": {
+              "x": 50,
+              "y": 801,
+              "width": 1180,
+              "height": 26
+            },
+            "children": [],
+            "text": "Trusted by 100,000+ users acro"
+          },
+          {
+            "tag": "DIV",
+            "selector": "body > section.proof.wrap > div",
+            "bounds": {
+              "x": 50,
+              "y": 851,
+              "width": 1180,
+              "height": 29
+            },
+            "children": [],
+            "className": "logos",
+            "layout": "7x1",
+            "text": "PanasonicHondaIntelHarperColli"
+          }
+        ],
+        "className": "proof"
+      },
+      {
+        "tag": "SECTION",
+        "selector": "body > section:nth-child(5)",
+        "bounds": {
+          "x": 50,
+          "y": 928,
+          "width": 1180,
+          "height": 728
+        },
+        "children": [
+          {
+            "tag": "DIV",
+            "selector": "body > section:nth-child(5) > div.center",
+            "bounds": {
+              "x": 300,
+              "y": 928,
+              "width": 680,
+              "height": 152
+            },
+            "children": [
+              {
+                "tag": "P",
+                "selector": "body > section:nth-child(5) > div.center > p.eyebrow",
+                "bounds": {
+                  "x": 300,
+                  "y": 928,
+                  "width": 680,
+                  "height": 20
+                },
+                "children": [],
+                "className": "eyebrow",
+                "text": "See it work"
+              },
+              {
+                "tag": "H2",
+                "selector": "body > section:nth-child(5) > div.center > h2",
+                "bounds": {
+                  "x": 300,
+                  "y": 949,
+                  "width": 680,
+                  "height": 90
+                },
+                "children": [],
+                "text": "Create, deploy & scale custom "
+              },
+              {
+                "tag": "P",
+                "selector": "body > section:nth-child(5) > div.center > p:nth-child(3)",
+                "bounds": {
+                  "x": 300,
+                  "y": 1053,
+                  "width": 680,
+                  "height": 28
+                },
+                "children": [],
+                "text": "Flip through what you'll build"
+              }
+            ],
+            "className": "center"
+          },
+          {
+            "tag": "DIV",
+            "selector": "body > section:nth-child(5) > div.switch-tabs",
+            "bounds": {
+              "x": 74,
+              "y": 1129,
+              "width": 1132,
+              "height": 41
+            },
+            "children": [],
+            "className": "switch-tabs",
+            "role": "tablist",
+            "layout": "6x1",
+            "text": "Build a Database Edit with AI "
+          },
+          {
+            "tag": "DIV",
+            "selector": "#p-database",
+            "bounds": {
+              "x": 74,
+              "y": 1204,
+              "width": 1132,
+              "height": 452
+            },
+            "children": [
+              {
+                "tag": "DIV",
+                "selector": "#p-database > div",
+                "bounds": {
+                  "x": 105,
+                  "y": 1374,
+                  "width": 439,
+                  "height": 111
+                },
+                "children": [
+                  {
+                    "tag": "P",
+                    "selector": "#p-database > div > p.eyebrow",
+                    "bounds": {
+                      "x": 105,
+                      "y": 1374,
+                      "width": 439,
+                      "height": 20
+                    },
+                    "children": [],
+                    "className": "eyebrow",
+                    "text": "Scalable core"
+                  },
+                  {
+                    "tag": "H3",
+                    "selector": "#p-database > div > h3",
+                    "bounds": {
+                      "x": 105,
+                      "y": 1395,
+                      "width": 439,
+                      "height": 28
+                    },
+                    "children": [],
+                    "text": "A real relational database, vi"
+                  },
+                  {
+                    "tag": "P",
+                    "selector": "#p-database > div > p:nth-child(3)",
+                    "bounds": {
+                      "x": 105,
+                      "y": 1434,
+                      "width": 439,
+                      "height": 51
+                    },
+                    "children": [],
+                    "text": "Model records, connections, an"
+                  }
+                ]
+              },
+              {
+                "tag": "IMG",
+                "selector": "#p-database > img",
+                "bounds": {
+                  "x": 580,
+                  "y": 1235,
+                  "width": 595,
+                  "height": 390
+                },
+                "children": []
+              }
+            ],
+            "id": "p-database",
+            "className": "panel",
+            "background": {
+              "type": "gradient",
+              "value": "linear-gradient(160deg, rgb(253, 238, 248), rgb(255, 255, 255))",
+              "raw": "rgba(0, 0, 0, 0) linear-gradient(160deg, rgb(253, 238, 248), rgb(255, 255, 255)) repeat scroll 0% 0% / auto padding-box border-box",
+              "source": "css"
+            }
+          }
+        ],
+        "className": "wrap"
+      },
+      {
+        "tag": "SECTION",
+        "selector": "body > section:nth-child(6)",
+        "bounds": {
+          "x": 50,
+          "y": 1656,
+          "width": 1180,
+          "height": 315
+        },
+        "children": [
+          {
+            "tag": "DIV",
+            "selector": "body > section:nth-child(6) > div.center",
+            "bounds": {
+              "x": 300,
+              "y": 1656,
+              "width": 680,
+              "height": 45
+            },
+            "children": [],
+            "className": "center",
+            "text": "No code. No delay. No hassle."
+          },
+          {
+            "tag": "DIV",
+            "selector": "body > section:nth-child(6) > div.cards3",
+            "bounds": {
+              "x": 74,
+              "y": 1749,
+              "width": 1132,
+              "height": 222
+            },
+            "children": [],
+            "className": "cards3",
+            "text": "Business-ready from day oneSec"
+          }
+        ],
+        "className": "wrap"
+      },
+      {
+        "tag": "SECTION",
+        "selector": "body > section.compare",
+        "bounds": {
+          "x": 0,
+          "y": 1971,
+          "width": 1280,
+          "height": 519
+        },
+        "children": [
+          {
+            "tag": "DIV",
+            "selector": "body > section.compare > div > div.center",
+            "bounds": {
+              "x": 300,
+              "y": 2055,
+              "width": 680,
+              "height": 65
+            },
+            "children": [
+              {
+                "tag": "P",
+                "selector": "body > section.compare > div > div.center > p",
+                "bounds": {
+                  "x": 300,
+                  "y": 2055,
+                  "width": 680,
+                  "height": 20
+                },
+                "children": [],
+                "className": "eyebrow",
+                "text": "The honest comparison"
+              },
+              {
+                "tag": "H2",
+                "selector": "body > section.compare > div > div.center > h2",
+                "bounds": {
+                  "x": 300,
+                  "y": 2076,
+                  "width": 680,
+                  "height": 45
+                },
+                "children": [],
+                "text": "How Knack stands apart"
+              }
+            ],
+            "className": "center"
+          },
+          {
+            "tag": "DIV",
+            "selector": "body > section.compare > div > div.cmp-grid",
+            "bounds": {
+              "x": 74,
+              "y": 2169,
+              "width": 1132,
+              "height": 237
+            },
+            "children": [
+              {
+                "tag": "DIV",
+                "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(1)",
+                "bounds": {
+                  "x": 74,
+                  "y": 2169,
+                  "width": 364,
+                  "height": 237
+                },
+                "children": [
+                  {
+                    "tag": "DIV",
+                    "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(1) > div",
+                    "bounds": {
+                      "x": 101,
+                      "y": 2196,
+                      "width": 310,
+                      "height": 20
+                    },
+                    "children": [],
+                    "className": "vs",
+                    "text": "vs. Coding tools"
+                  },
+                  {
+                    "tag": "H3",
+                    "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(1) > h3",
+                    "bounds": {
+                      "x": 101,
+                      "y": 2222,
+                      "width": 310,
+                      "height": 18
+                    },
+                    "children": [],
+                    "text": "Lovable, Bolt, Replit"
+                  },
+                  {
+                    "tag": "UL",
+                    "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(1) > ul",
+                    "bounds": {
+                      "x": 101,
+                      "y": 2254,
+                      "width": 310,
+                      "height": 91
+                    },
+                    "children": [
+                      {
+                        "tag": "LI",
+                        "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(1) > ul > li:nth-child(1)",
+                        "bounds": {
+                          "x": 101,
+                          "y": 2254,
+                          "width": 310,
+                          "height": 24
+                        },
+                        "children": [],
+                        "text": "Insecure, throwaway output"
+                      },
+                      {
+                        "tag": "LI",
+                        "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(1) > ul > li:nth-child(2)",
+                        "bounds": {
+                          "x": 101,
+                          "y": 2288,
+                          "width": 310,
+                          "height": 24
+                        },
+                        "children": [],
+                        "text": "Breaks at real scale"
+                      },
+                      {
+                        "tag": "LI",
+                        "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(1) > ul > li:nth-child(3)",
+                        "bounds": {
+                          "x": 101,
+                          "y": 2322,
+                          "width": 310,
+                          "height": 24
+                        },
+                        "children": [],
+                        "text": "You own the maintenance"
+                      }
+                    ]
+                  }
+                ],
+                "className": "cmp",
+                "background": {
+                  "type": "color",
+                  "value": "rgb(255, 255, 255)",
+                  "raw": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+                  "source": "css"
+                }
+              },
+              {
+                "tag": "DIV",
+                "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(3)",
+                "bounds": {
+                  "x": 842,
+                  "y": 2169,
+                  "width": 364,
+                  "height": 237
+                },
+                "children": [
+                  {
+                    "tag": "DIV",
+                    "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(3) > div",
+                    "bounds": {
+                      "x": 869,
+                      "y": 2196,
+                      "width": 310,
+                      "height": 20
+                    },
+                    "children": [],
+                    "className": "vs",
+                    "text": "vs. No-code tools"
+                  },
+                  {
+                    "tag": "H3",
+                    "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(3) > h3",
+                    "bounds": {
+                      "x": 869,
+                      "y": 2222,
+                      "width": 310,
+                      "height": 18
+                    },
+                    "children": [],
+                    "text": "Airtable, Bubble, Quickbase"
+                  },
+                  {
+                    "tag": "UL",
+                    "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(3) > ul",
+                    "bounds": {
+                      "x": 869,
+                      "y": 2254,
+                      "width": 310,
+                      "height": 91
+                    },
+                    "children": [
+                      {
+                        "tag": "LI",
+                        "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(3) > ul > li:nth-child(1)",
+                        "bounds": {
+                          "x": 869,
+                          "y": 2254,
+                          "width": 310,
+                          "height": 24
+                        },
+                        "children": [],
+                        "text": "Spreadsheet, not a database"
+                      },
+                      {
+                        "tag": "LI",
+                        "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(3) > ul > li:nth-child(2)",
+                        "bounds": {
+                          "x": 869,
+                          "y": 2288,
+                          "width": 310,
+                          "height": 24
+                        },
+                        "children": [],
+                        "text": "Permissions bolted on"
+                      },
+                      {
+                        "tag": "LI",
+                        "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(3) > ul > li:nth-child(3)",
+                        "bounds": {
+                          "x": 869,
+                          "y": 2322,
+                          "width": 310,
+                          "height": 24
+                        },
+                        "children": [],
+                        "text": "Hits a complexity ceiling"
+                      }
+                    ]
+                  }
+                ],
+                "className": "cmp",
+                "background": {
+                  "type": "color",
+                  "value": "rgb(255, 255, 255)",
+                  "raw": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+                  "source": "css"
+                }
+              }
+            ],
+            "className": "cmp-grid",
+            "layout": "3x1"
+          },
+          {
+            "tag": "DIV",
+            "selector": "body > section.compare > div > div.cmp-grid > div.cmp.knack",
+            "bounds": {
+              "x": 453,
+              "y": 2165,
+              "width": 375,
+              "height": 244
+            },
+            "children": [
+              {
+                "tag": "DIV",
+                "selector": "body > section.compare > div > div.cmp-grid > div.cmp.knack > div",
+                "bounds": {
+                  "x": 480,
+                  "y": 2193,
+                  "width": 319,
+                  "height": 21
+                },
+                "children": [],
+                "className": "vs",
+                "text": "Knack"
+              },
+              {
+                "tag": "H3",
+                "selector": "body > section.compare > div > div.cmp-grid > div.cmp.knack > h3",
+                "bounds": {
+                  "x": 480,
+                  "y": 2220,
+                  "width": 319,
+                  "height": 19
+                },
+                "children": [],
+                "text": "Secure by default"
+              },
+              {
+                "tag": "UL",
+                "selector": "body > section.compare > div > div.cmp-grid > div.cmp.knack > ul",
+                "bounds": {
+                  "x": 480,
+                  "y": 2253,
+                  "width": 319,
+                  "height": 129
+                },
+                "children": [
+                  {
+                    "tag": "LI",
+                    "selector": "body > section.compare > div > div.cmp-grid > div.cmp.knack > ul > li:nth-child(1)",
+                    "bounds": {
+                      "x": 480,
+                      "y": 2253,
+                      "width": 319,
+                      "height": 25
+                    },
+                    "children": [],
+                    "text": "Enterprise-grade security"
+                  },
+                  {
+                    "tag": "LI",
+                    "selector": "body > section.compare > div > div.cmp-grid > div.cmp.knack > ul > li:nth-child(2)",
+                    "bounds": {
+                      "x": 480,
+                      "y": 2288,
+                      "width": 319,
+                      "height": 25
+                    },
+                    "children": [],
+                    "text": "Scales to millions of rows"
+                  },
+                  {
+                    "tag": "LI",
+                    "selector": "body > section.compare > div > div.cmp-grid > div.cmp.knack > ul > li:nth-child(3)",
+                    "bounds": {
+                      "x": 480,
+                      "y": 2323,
+                      "width": 319,
+                      "height": 25
+                    },
+                    "children": [],
+                    "text": "Hosted & maintained for you"
+                  },
+                  {
+                    "tag": "LI",
+                    "selector": "body > section.compare > div > div.cmp-grid > div.cmp.knack > ul > li:nth-child(4)",
+                    "bounds": {
+                      "x": 480,
+                      "y": 2357,
+                      "width": 319,
+                      "height": 25
+                    },
+                    "children": [],
+                    "text": "No code required"
+                  }
+                ]
+              }
+            ],
+            "className": "cmp",
+            "background": {
+              "type": "color",
+              "value": "rgb(152, 42, 134)",
+              "raw": "rgb(152, 42, 134) none repeat scroll 0% 0% / auto padding-box border-box",
+              "source": "css"
+            }
+          }
+        ],
+        "className": "compare",
+        "background": {
+          "type": "color",
+          "value": "rgb(245, 243, 245)",
+          "raw": "rgb(245, 243, 245) none repeat scroll 0% 0% / auto padding-box border-box",
+          "source": "css"
+        }
+      },
+      {
+        "tag": "SECTION",
+        "selector": "body > section:nth-child(8)",
+        "bounds": {
+          "x": 50,
+          "y": 2490,
+          "width": 1180,
+          "height": 475
+        },
+        "children": [
+          {
+            "tag": "DIV",
+            "selector": "body > section:nth-child(8) > div.center",
+            "bounds": {
+              "x": 300,
+              "y": 2490,
+              "width": 680,
+              "height": 90
+            },
+            "children": [],
+            "className": "center",
+            "text": "Built on enterprise-grade comp"
+          },
+          {
+            "tag": "DIV",
+            "selector": "body > section:nth-child(8) > div.grid6",
+            "bounds": {
+              "x": 74,
+              "y": 2628,
+              "width": 1132,
+              "height": 337
+            },
+            "children": [],
+            "className": "grid6",
+            "text": "Scalable database coreRelation"
+          }
+        ],
+        "className": "wrap"
+      },
+      {
+        "tag": "SECTION",
+        "selector": "body > section.integ",
+        "bounds": {
+          "x": 0,
+          "y": 2965,
+          "width": 1280,
+          "height": 479
+        },
+        "children": [
+          {
+            "tag": "DIV",
+            "selector": "body > section.integ > div > div.center",
+            "bounds": {
+              "x": 300,
+              "y": 3049,
+              "width": 680,
+              "height": 115
+            },
+            "children": [
+              {
+                "tag": "H2",
+                "selector": "body > section.integ > div > div.center > h2",
+                "bounds": {
+                  "x": 300,
+                  "y": 3049,
+                  "width": 680,
+                  "height": 90
+                },
+                "children": [],
+                "text": "Move beyond patchwork integrat"
+              },
+              {
+                "tag": "P",
+                "selector": "body > section.integ > div > div.center > p",
+                "bounds": {
+                  "x": 300,
+                  "y": 3139,
+                  "width": 680,
+                  "height": 26
+                },
+                "children": [],
+                "text": "Connect the tools you already "
+              }
+            ],
+            "className": "center"
+          },
+          {
+            "tag": "DIV",
+            "selector": "body > section.integ > div > div.integ-logos",
+            "bounds": {
+              "x": 260,
+              "y": 3212,
+              "width": 760,
+              "height": 64
+            },
+            "children": [],
+            "className": "integ-logos",
+            "layout": "8x1",
+            "text": "ZSGMStQTwHb"
+          },
+          {
+            "tag": "DIV",
+            "selector": "body > section.integ > div > div:nth-child(3)",
+            "bounds": {
+              "x": 74,
+              "y": 3306,
+              "width": 1132,
+              "height": 54
+            },
+            "children": [],
+            "text": "See All Integrations",
+            "background": {
+              "type": "color",
+              "value": "rgb(255, 255, 255)",
+              "raw": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+              "source": "css"
+            }
+          }
+        ],
+        "className": "integ",
+        "background": {
+          "type": "gradient",
+          "value": "linear-gradient(120deg, rgb(152, 42, 134) 0%, rgb(230, 24, 117) 55%, rgb(250, 129, 110) 100%)",
+          "raw": "rgba(0, 0, 0, 0) linear-gradient(120deg, rgb(152, 42, 134) 0%, rgb(230, 24, 117) 55%, rgb(250, 129, 110) 100%) repeat scroll 0% 0% / auto padding-box border-box",
+          "source": "css"
+        }
+      },
+      {
+        "tag": "SECTION",
+        "selector": "body > section:nth-child(10)",
+        "bounds": {
+          "x": 50,
+          "y": 3444,
+          "width": 1180,
+          "height": 390
+        },
+        "children": [
+          {
+            "tag": "DIV",
+            "selector": "body > section:nth-child(10) > div.center",
+            "bounds": {
+              "x": 300,
+              "y": 3444,
+              "width": 680,
+              "height": 65
+            },
+            "children": [
+              {
+                "tag": "P",
+                "selector": "body > section:nth-child(10) > div.center > p",
+                "bounds": {
+                  "x": 300,
+                  "y": 3444,
+                  "width": 680,
+                  "height": 20
+                },
+                "children": [],
+                "className": "eyebrow",
+                "text": "Results"
+              },
+              {
+                "tag": "H2",
+                "selector": "body > section:nth-child(10) > div.center > h2",
+                "bounds": {
+                  "x": 300,
+                  "y": 3464,
+                  "width": 680,
+                  "height": 45
+                },
+                "children": [],
+                "text": "Real outcomes, measured."
+              }
+            ],
+            "className": "center"
+          },
+          {
+            "tag": "DIV",
+            "selector": "body > section:nth-child(10) > div.stats",
+            "bounds": {
+              "x": 74,
+              "y": 3557,
+              "width": 1132,
+              "height": 102
+            },
+            "children": [
+              {
+                "tag": "DIV",
+                "selector": "body > section:nth-child(10) > div.stats > div:nth-child(1)",
+                "bounds": {
+                  "x": 74,
+                  "y": 3557,
+                  "width": 361,
+                  "height": 102
+                },
+                "children": [
+                  {
+                    "tag": "DIV",
+                    "selector": "body > section:nth-child(10) > div.stats > div:nth-child(1) > div",
+                    "bounds": {
+                      "x": 74,
+                      "y": 3557,
+                      "width": 361,
+                      "height": 77
+                    },
+                    "children": [],
+                    "className": "n",
+                    "text": "$0k+",
+                    "background": {
+                      "type": "gradient",
+                      "value": "linear-gradient(90deg, rgb(152, 42, 134) 0%, rgb(250, 129, 110) 100%)",
+                      "raw": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(152, 42, 134) 0%, rgb(250, 129, 110) 100%) repeat scroll 0% 0% / auto padding-box text",
+                      "source": "css"
+                    }
+                  },
+                  {
+                    "tag": "P",
+                    "selector": "body > section:nth-child(10) > div.stats > div:nth-child(1) > p",
+                    "bounds": {
+                      "x": 74,
+                      "y": 3634,
+                      "width": 361,
+                      "height": 26
+                    },
+                    "children": [],
+                    "text": "saved per year"
+                  }
+                ],
+                "className": "stat"
+              },
+              {
+                "tag": "DIV",
+                "selector": "body > section:nth-child(10) > div.stats > div:nth-child(2)",
+                "bounds": {
+                  "x": 459,
+                  "y": 3557,
+                  "width": 361,
+                  "height": 102
+                },
+                "children": [
+                  {
+                    "tag": "DIV",
+                    "selector": "body > section:nth-child(10) > div.stats > div:nth-child(2) > div",
+                    "bounds": {
+                      "x": 459,
+                      "y": 3557,
+                      "width": 361,
+                      "height": 77
+                    },
+                    "children": [],
+                    "className": "n",
+                    "text": "0%",
+                    "background": {
+                      "type": "gradient",
+                      "value": "linear-gradient(90deg, rgb(152, 42, 134) 0%, rgb(250, 129, 110) 100%)",
+                      "raw": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(152, 42, 134) 0%, rgb(250, 129, 110) 100%) repeat scroll 0% 0% / auto padding-box text",
+                      "source": "css"
+                    }
+                  },
+                  {
+                    "tag": "P",
+                    "selector": "body > section:nth-child(10) > div.stats > div:nth-child(2) > p",
+                    "bounds": {
+                      "x": 459,
+                      "y": 3634,
+                      "width": 361,
+                      "height": 26
+                    },
+                    "children": [],
+                    "text": "customer retention rate"
+                  }
+                ],
+                "className": "stat"
+              },
+              {
+                "tag": "DIV",
+                "selector": "body > section:nth-child(10) > div.stats > div:nth-child(3)",
+                "bounds": {
+                  "x": 845,
+                  "y": 3557,
+                  "width": 361,
+                  "height": 102
+                },
+                "children": [
+                  {
+                    "tag": "DIV",
+                    "selector": "body > section:nth-child(10) > div.stats > div:nth-child(3) > div",
+                    "bounds": {
+                      "x": 845,
+                      "y": 3557,
+                      "width": 361,
+                      "height": 77
+                    },
+                    "children": [],
+                    "className": "n",
+                    "text": "0x",
+                    "background": {
+                      "type": "gradient",
+                      "value": "linear-gradient(90deg, rgb(152, 42, 134) 0%, rgb(250, 129, 110) 100%)",
+                      "raw": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(152, 42, 134) 0%, rgb(250, 129, 110) 100%) repeat scroll 0% 0% / auto padding-box text",
+                      "source": "css"
+                    }
+                  },
+                  {
+                    "tag": "P",
+                    "selector": "body > section:nth-child(10) > div.stats > div:nth-child(3) > p",
+                    "bounds": {
+                      "x": 845,
+                      "y": 3634,
+                      "width": 361,
+                      "height": 26
+                    },
+                    "children": [],
+                    "text": "faster program administration"
+                  }
+                ],
+                "className": "stat"
+              }
+            ],
+            "className": "stats",
+            "layout": "3x1"
+          }
+        ],
+        "className": "wrap"
+      },
+      {
+        "tag": "SECTION",
+        "selector": "body > section:nth-child(11)",
+        "bounds": {
+          "x": 50,
+          "y": 3834,
+          "width": 1180,
+          "height": 463
+        },
+        "children": [
+          {
+            "tag": "DIV",
+            "selector": "body > section:nth-child(11) > div.center",
+            "bounds": {
+              "x": 300,
+              "y": 3834,
+              "width": 680,
+              "height": 45
+            },
+            "children": [],
+            "className": "center",
+            "text": "FAQs"
+          },
+          {
+            "tag": "DIV",
+            "selector": "body > section:nth-child(11) > div.faq",
+            "bounds": {
+              "x": 230,
+              "y": 3927,
+              "width": 820,
+              "height": 371
+            },
+            "children": [
+              {
+                "tag": "DETAILS",
+                "selector": "body > section:nth-child(11) > div.faq > details:nth-child(1)",
+                "bounds": {
+                  "x": 230,
+                  "y": 3927,
+                  "width": 820,
+                  "height": 140
+                },
+                "children": [
+                  {
+                    "tag": "SUMMARY",
+                    "selector": "body > section:nth-child(11) > div.faq > details:nth-child(1) > summary",
+                    "bounds": {
+                      "x": 234,
+                      "y": 3947,
+                      "width": 812,
+                      "height": 36
+                    },
+                    "children": [],
+                    "text": "What makes Knack unique as a n"
+                  },
+                  {
+                    "tag": "P",
+                    "selector": "body > section:nth-child(11) > div.faq > details:nth-child(1) > p",
+                    "bounds": {
+                      "x": 234,
+                      "y": 3994,
+                      "width": 812,
+                      "height": 51
+                    },
+                    "children": [],
+                    "text": "Knack pairs a true relational "
+                  }
+                ]
+              },
+              {
+                "tag": "DETAILS",
+                "selector": "body > section:nth-child(11) > div.faq > details:nth-child(2)",
+                "bounds": {
+                  "x": 230,
+                  "y": 4067,
+                  "width": 820,
+                  "height": 77
+                },
+                "children": [
+                  {
+                    "tag": "SUMMARY",
+                    "selector": "body > section:nth-child(11) > div.faq > details:nth-child(2) > summary",
+                    "bounds": {
+                      "x": 234,
+                      "y": 4087,
+                      "width": 812,
+                      "height": 36
+                    },
+                    "children": [],
+                    "text": "Can non-technical users build "
+                  }
+                ]
+              },
+              {
+                "tag": "DETAILS",
+                "selector": "body > section:nth-child(11) > div.faq > details:nth-child(3)",
+                "bounds": {
+                  "x": 230,
+                  "y": 4143,
+                  "width": 820,
+                  "height": 77
+                },
+                "children": [
+                  {
+                    "tag": "SUMMARY",
+                    "selector": "body > section:nth-child(11) > div.faq > details:nth-child(3) > summary",
+                    "bounds": {
+                      "x": 234,
+                      "y": 4163,
+                      "width": 812,
+                      "height": 36
+                    },
+                    "children": [],
+                    "text": "How does Knack handle database"
+                  }
+                ]
+              },
+              {
+                "tag": "DETAILS",
+                "selector": "body > section:nth-child(11) > div.faq > details:nth-child(4)",
+                "bounds": {
+                  "x": 230,
+                  "y": 4220,
+                  "width": 820,
+                  "height": 77
+                },
+                "children": [
+                  {
+                    "tag": "SUMMARY",
+                    "selector": "body > section:nth-child(11) > div.faq > details:nth-child(4) > summary",
+                    "bounds": {
+                      "x": 234,
+                      "y": 4240,
+                      "width": 812,
+                      "height": 36
+                    },
+                    "children": [],
+                    "text": "Does Knack support white-label"
+                  }
+                ]
+              },
+              {
+                "tag": "P",
+                "selector": "body > section:nth-child(11) > div.faq > details:nth-child(2) > p",
+                "bounds": {
+                  "x": 234,
+                  "y": 4134,
+                  "width": 812,
+                  "height": 26
+                },
+                "children": [],
+                "text": "Yes. If you can describe your "
+              },
+              {
+                "tag": "P",
+                "selector": "body > section:nth-child(11) > div.faq > details:nth-child(3) > p",
+                "bounds": {
+                  "x": 234,
+                  "y": 4211,
+                  "width": 812,
+                  "height": 26
+                },
+                "children": [],
+                "text": "A real relational model with c"
+              }
+            ],
+            "className": "faq"
+          }
+        ],
+        "className": "wrap"
+      },
+      {
+        "tag": "SECTION",
+        "selector": "body > section.final",
+        "bounds": {
+          "x": 0,
+          "y": 4297,
+          "width": 1280,
+          "height": 345
+        },
+        "children": [
+          {
+            "tag": "H2",
+            "selector": "body > section.final > div > h2",
+            "bounds": {
+              "x": 74,
+              "y": 4381,
+              "width": 1132,
+              "height": 52
+            },
+            "children": [],
+            "text": "Get started in 30 seconds."
+          },
+          {
+            "tag": "P",
+            "selector": "body > section.final > div > p",
+            "bounds": {
+              "x": 74,
+              "y": 4447,
+              "width": 1132,
+              "height": 29
+            },
+            "children": [],
+            "text": "No credit card required."
+          },
+          {
+            "tag": "A",
+            "selector": "body > section.final > div > a",
+            "bounds": {
+              "x": 528,
+              "y": 4504,
+              "width": 223,
+              "height": 54
+            },
+            "children": [],
+            "className": "btn",
+            "text": "Start Building For Free",
+            "background": {
+              "type": "color",
+              "value": "rgb(255, 255, 255)",
+              "raw": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+              "source": "css"
+            }
+          }
+        ],
+        "className": "final",
+        "background": {
+          "type": "gradient",
+          "value": "linear-gradient(120deg, rgb(152, 42, 134) 0%, rgb(230, 24, 117) 55%, rgb(250, 129, 110) 100%)",
+          "raw": "rgba(0, 0, 0, 0) linear-gradient(120deg, rgb(152, 42, 134) 0%, rgb(230, 24, 117) 55%, rgb(250, 129, 110) 100%) repeat scroll 0% 0% / auto padding-box border-box",
+          "source": "css"
+        }
+      },
+      {
+        "tag": "FOOTER",
+        "selector": "body > footer",
+        "bounds": {
+          "x": 0,
+          "y": 4642,
+          "width": 1280,
+          "height": 344
+        },
+        "children": [
+          {
+            "tag": "DIV",
+            "selector": "body > footer > div > div.foot-grid",
+            "bounds": {
+              "x": 74,
+              "y": 4702,
+              "width": 1132,
+              "height": 157
+            },
+            "children": [],
+            "className": "foot-grid",
+            "layout": "5x1",
+            "text": "The most secure app and databa"
+          },
+          {
+            "tag": "DIV",
+            "selector": "body > footer > div > div.foot-bot",
+            "bounds": {
+              "x": 74,
+              "y": 4899,
+              "width": 1132,
+              "height": 47
+            },
+            "children": [
+              {
+                "tag": "SPAN",
+                "selector": "body > footer > div > div.foot-bot > span:nth-child(1)",
+                "bounds": {
+                  "x": 74,
+                  "y": 4924,
+                  "width": 222,
+                  "height": 22
+                },
+                "children": [],
+                "text": "© 2026 Knack. All rights reser"
+              },
+              {
+                "tag": "SPAN",
+                "selector": "body > footer > div > div.foot-bot > span:nth-child(2)",
+                "bounds": {
+                  "x": 918,
+                  "y": 4924,
+                  "width": 288,
+                  "height": 22
+                },
+                "children": [],
+                "text": "Redesigned copy · direction C "
+              }
+            ],
+            "className": "foot-bot",
+            "layout": "2x1"
+          }
+        ],
+        "background": {
+          "type": "color",
+          "value": "rgb(22, 21, 26)",
+          "raw": "rgb(22, 21, 26) none repeat scroll 0% 0% / auto padding-box border-box",
+          "source": "css"
+        }
+      },
+      {
+        "tag": "DIV",
+        "selector": "#app > div.app-body > div.sweep",
+        "bounds": {
+          "x": 831,
+          "y": 292,
+          "width": 553,
+          "height": 340
+        },
+        "children": [],
+        "className": "sweep",
+        "background": {
+          "type": "gradient",
+          "value": "linear-gradient(100deg, rgba(0, 0, 0, 0) 30%, rgba(255, 52, 154, 0.1) 50%, rgba(0, 0, 0, 0) 70%)",
+          "raw": "rgba(0, 0, 0, 0) linear-gradient(100deg, rgba(0, 0, 0, 0) 30%, rgba(255, 52, 154, 0.1) 50%, rgba(0, 0, 0, 0) 70%) repeat scroll 0% 0% / auto padding-box border-box",
+          "source": "css"
+        }
+      },
+      {
+        "tag": "P",
+        "selector": "body > section:nth-child(11) > div.faq > details:nth-child(4) > p",
+        "bounds": {
+          "x": 234,
+          "y": 4288,
+          "width": 812,
+          "height": 26
+        },
+        "children": [],
+        "text": "Yes — custom domains and full "
+      }
+    ],
+    "background": {
+      "type": "color",
+      "value": "rgb(255, 255, 255)",
+      "raw": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+      "source": "css"
+    }
+  },
+  "textFormat": "r @0,0 1280x4986\n  rc1 [bg:color] @0,0 1280x43 \"⚡ New Customer Offer — for a l...\"\n  rc2 [2x2] @0,43 1280x73\n    rc2c1 [4x1] @241,67 390x24 \"Solutions Templates Resources ...\"\n    rc2c2 [bg:color] @918,52 288x54 \"Start Building For Free\"\n  rc3 [2x1] [bg:gradient] @0,116 1280x637\n    rc3c1 @74,188 529x501\n      rc3c1c1 @74,188 529x20 \"No-code · AI · Enterprise-grad...\"\n      rc3c1c2 [bg:gradient] @74,223 529x212 \"Don't read about the app.\"\n      rc3c1c3 @74,457 520x100 \"The most secure app & database...\"\n      rc3c1c4 [bg:color] @74,587 529x54 \"Start Building For Free\"\n      rc3c1c5 [2x1] @74,666 529x23 \"Trusted by users worldwide\"\n    rc3c2 @651,244 555x389\n      rc3c2c1 [3x2] @652,245 553x47 \"Operations · Live App Live\"\n      rc3c2c2 @652,292 553x340\n        rc3c2c2c1 [3x1] @670,310 517x96 \"Open work orders248 Saved / yr...\"\n        rc3c2c2c2 @670,420 517x194\n          rc3c2c2c2c1 [3x1] @670,420 517x34 \"Record\"\n          rc3c2c2c2c2 @670,454 517x160\n            rc3c2c2c2c2c1 [3x1] @670,454 517x40 \"WO-1043 · HVAC\"\n            rc3c2c2c2c2c2 [3x1] @670,494 517x40 \"WO-1044 · Electrical\"\n            rc3c2c2c2c2c3 [3x1] @670,534 517x40 \"WO-1045 · Plumbing\"\n            rc3c2c2c2c2c4 [3x1] @670,574 517x40 \"WO-1046 · Inspection\"\n  rc4 @50,753 1180x175\n    rc4c1 @50,801 1180x26 \"Trusted by 100,000+ users acro...\"\n    rc4c2 [7x1] @50,851 1180x29 \"PanasonicHondaIntelHarperColli...\"\n  rc5 @50,928 1180x728\n    rc5c1 @300,928 680x152\n      rc5c1c1 @300,928 680x20 \"See it work\"\n      rc5c1c2 @300,949 680x90 \"Create, deploy & scale custom ...\"\n      rc5c1c3 @300,1053 680x28 \"Flip through what you'll build...\"\n    rc5c2 [tablist] [6x1] @74,1129 1132x41 \"Build a Database Edit with AI ...\"\n    rc5c3 [bg:gradient] @74,1204 1132x452\n      rc5c3c1 @105,1374 439x111\n        rc5c3c1c1 @105,1374 439x20 \"Scalable core\"\n        rc5c3c1c2 @105,1395 439x28 \"A real relational database, vi...\"\n        rc5c3c1c3 @105,1434 439x51 \"Model records, connections, an...\"\n      rc5c3c2 @580,1235 595x390\n  rc6 @50,1656 1180x315\n    rc6c1 @300,1656 680x45 \"No code. No delay. No hassle.\"\n    rc6c2 @74,1749 1132x222 \"Business-ready from day oneSec...\"\n  rc7 @0,1971 1280x519\n    rc7c1 @300,2055 680x65\n      rc7c1c1 @300,2055 680x20 \"The honest comparison\"\n      rc7c1c2 @300,2076 680x45 \"How Knack stands apart\"\n    rc7c2 [3x1] @74,2169 1132x237\n      rc7c2c1 @74,2169 364x237\n        rc7c2c1c1 @101,2196 310x20 \"vs. Coding tools\"\n        rc7c2c1c2 @101,2222 310x18 \"Lovable, Bolt, Replit\"\n        rc7c2c1c3 @101,2254 310x91\n          rc7c2c1c3c1 @101,2254 310x24 \"Insecure, throwaway output\"\n          rc7c2c1c3c2 @101,2288 310x24 \"Breaks at real scale\"\n          rc7c2c1c3c3 @101,2322 310x24 \"You own the maintenance\"\n      rc7c2c2 @842,2169 364x237\n        rc7c2c2c1 @869,2196 310x20 \"vs. No-code tools\"\n        rc7c2c2c2 @869,2222 310x18 \"Airtable, Bubble, Quickbase\"\n        rc7c2c2c3 @869,2254 310x91\n          rc7c2c2c3c1 @869,2254 310x24 \"Spreadsheet, not a database\"\n          rc7c2c2c3c2 @869,2288 310x24 \"Permissions bolted on\"\n          rc7c2c2c3c3 @869,2322 310x24 \"Hits a complexity ceiling\"\n    rc7c3 [bg:color] @453,2165 375x244\n      rc7c3c1 @480,2193 319x21 \"Knack\"\n      rc7c3c2 @480,2220 319x19 \"Secure by default\"\n      rc7c3c3 @480,2253 319x129\n        rc7c3c3c1 @480,2253 319x25 \"Enterprise-grade security\"\n        rc7c3c3c2 @480,2288 319x25 \"Scales to millions of rows\"\n        rc7c3c3c3 @480,2323 319x25 \"Hosted & maintained for you\"\n        rc7c3c3c4 @480,2357 319x25 \"No code required\"\n  rc8 @50,2490 1180x475\n    rc8c1 @300,2490 680x90 \"Built on enterprise-grade comp...\"\n    rc8c2 @74,2628 1132x337 \"Scalable database coreRelation...\"\n  rc9 [bg:gradient] @0,2965 1280x479\n    rc9c1 @300,3049 680x115\n      rc9c1c1 @300,3049 680x90 \"Move beyond patchwork integrat...\"\n      rc9c1c2 @300,3139 680x26 \"Connect the tools you already ...\"\n    rc9c2 [8x1] @260,3212 760x64 \"ZSGMStQTwHb\"\n    rc9c3 @74,3306 1132x54 \"See All Integrations\"\n  rc10 @50,3444 1180x390\n    rc10c1 @300,3444 680x65\n      rc10c1c1 @300,3444 680x20 \"Results\"\n      rc10c1c2 @300,3464 680x45 \"Real outcomes, measured.\"\n    rc10c2 [3x1] @74,3557 1132x102\n      rc10c2c1 @74,3557 361x102\n        rc10c2c1c1 [bg:gradient] @74,3557 361x77 \"$0k+\"\n        rc10c2c1c2 @74,3634 361x26 \"saved per year\"\n      rc10c2c2 @459,3557 361x102\n        rc10c2c2c1 [bg:gradient] @459,3557 361x77 \"0%\"\n        rc10c2c2c2 @459,3634 361x26 \"customer retention rate\"\n      rc10c2c3 @845,3557 361x102\n        rc10c2c3c1 [bg:gradient] @845,3557 361x77 \"0x\"\n        rc10c2c3c2 @845,3634 361x26 \"faster program administration\"\n  rc11 @50,3834 1180x463\n    rc11c1 @300,3834 680x45 \"FAQs\"\n    rc11c2 @230,3927 820x371\n      rc11c2c1 @230,3927 820x140\n        rc11c2c1c1 @234,3947 812x36 \"What makes Knack unique as a n...\"\n        rc11c2c1c2 @234,3994 812x51 \"Knack pairs a true relational ...\"\n      rc11c2c2 @230,4067 820x77\n        rc11c2c2c1 @234,4087 812x36 \"Can non-technical users build ...\"\n      rc11c2c3 @230,4143 820x77\n        rc11c2c3c1 @234,4163 812x36 \"How does Knack handle database...\"\n      rc11c2c4 @230,4220 820x77\n        rc11c2c4c1 @234,4240 812x36 \"Does Knack support white-label...\"\n      rc11c2c5 @234,4134 812x26 \"Yes. If you can describe your ...\"\n      rc11c2c6 @234,4211 812x26 \"A real relational model with c...\"\n  rc12 [bg:gradient] @0,4297 1280x345\n    rc12c1 @74,4381 1132x52 \"Get started in 30 seconds.\"\n    rc12c2 @74,4447 1132x29 \"No credit card required.\"\n    rc12c3 @528,4504 223x54 \"Start Building For Free\"\n  rc13 [bg:color] @0,4642 1280x344\n    rc13c1 [5x1] @74,4702 1132x157 \"The most secure app and databa...\"\n    rc13c2 [2x1] @74,4899 1132x47\n      rc13c2c1 @74,4924 222x22 \"© 2026 Knack. All rights reser...\"\n      rc13c2c2 @918,4924 288x22 \"Redesigned copy · direction C ...\"\n  rc14 [bg:gradient] @831,292 553x340\n  rc15 @234,4288 812x26 \"Yes — custom domains and full ...\"\n",
+  "nodeMap": {
+    "r": {
+      "selector": "body",
+      "background": {
+        "type": "color",
+        "value": "rgb(255, 255, 255)",
+        "raw": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc1": {
+      "selector": "body > div",
+      "background": {
+        "type": "color",
+        "value": "rgb(130, 21, 112)",
+        "raw": "rgb(130, 21, 112) none repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc2": {
+      "selector": "body > header",
+      "background": {
+        "type": "color",
+        "value": "rgba(255, 255, 255, 0.85)",
+        "raw": "rgba(255, 255, 255, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc2c1": {
+      "selector": "body > header > div.wrap.nav-in > nav"
+    },
+    "rc2c2": {
+      "selector": "body > header > div.wrap.nav-in > div",
+      "background": {
+        "type": "color",
+        "value": "rgb(255, 52, 154)",
+        "raw": "rgb(255, 52, 154) none repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc3": {
+      "selector": "body > section.hero",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(rgb(253, 238, 248) 0%, rgb(255, 255, 255) 70%)",
+        "raw": "rgba(0, 0, 0, 0) linear-gradient(rgb(253, 238, 248) 0%, rgb(255, 255, 255) 70%) repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc3c1": {
+      "selector": "body > section.hero > div > div:nth-child(1)"
+    },
+    "rc3c1c1": {
+      "selector": "body > section.hero > div > div:nth-child(1) > p.eyebrow"
+    },
+    "rc3c1c2": {
+      "selector": "body > section.hero > div > div:nth-child(1) > h1",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(90deg, rgb(152, 42, 134) 0%, rgb(250, 129, 110) 100%)",
+        "raw": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(152, 42, 134) 0%, rgb(250, 129, 110) 100%) repeat scroll 0% 0% / auto padding-box text",
+        "source": "css"
+      }
+    },
+    "rc3c1c3": {
+      "selector": "body > section.hero > div > div:nth-child(1) > p.sub"
+    },
+    "rc3c1c4": {
+      "selector": "body > section.hero > div > div:nth-child(1) > div.hero-cta",
+      "background": {
+        "type": "color",
+        "value": "rgb(255, 52, 154)",
+        "raw": "rgb(255, 52, 154) none repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc3c1c5": {
+      "selector": "body > section.hero > div > div:nth-child(1) > div.trust"
+    },
+    "rc3c2": {
+      "selector": "#app",
+      "background": {
+        "type": "color",
+        "value": "rgb(255, 255, 255)",
+        "raw": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc3c2c1": {
+      "selector": "#app > div.app-bar",
+      "background": {
+        "type": "color",
+        "value": "rgb(251, 247, 251)",
+        "raw": "rgb(251, 247, 251) none repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc3c2c2": {
+      "selector": "#app > div.app-body"
+    },
+    "rc3c2c2c1": {
+      "selector": "#app > div.app-body > div.kpis"
+    },
+    "rc3c2c2c2": {
+      "selector": "#app > div.app-body > table"
+    },
+    "rc3c2c2c2c1": {
+      "selector": "#app > div.app-body > table > thead"
+    },
+    "rc3c2c2c2c2": {
+      "selector": "#app > div.app-body > table > tbody"
+    },
+    "rc3c2c2c2c2c1": {
+      "selector": "#app > div.app-body > table > tbody > tr:nth-child(1)"
+    },
+    "rc3c2c2c2c2c2": {
+      "selector": "#app > div.app-body > table > tbody > tr:nth-child(2)"
+    },
+    "rc3c2c2c2c2c3": {
+      "selector": "#app > div.app-body > table > tbody > tr:nth-child(3)"
+    },
+    "rc3c2c2c2c2c4": {
+      "selector": "#app > div.app-body > table > tbody > tr:nth-child(4)"
+    },
+    "rc4": {
+      "selector": "body > section.proof.wrap"
+    },
+    "rc4c1": {
+      "selector": "body > section.proof.wrap > p"
+    },
+    "rc4c2": {
+      "selector": "body > section.proof.wrap > div"
+    },
+    "rc5": {
+      "selector": "body > section:nth-child(5)"
+    },
+    "rc5c1": {
+      "selector": "body > section:nth-child(5) > div.center"
+    },
+    "rc5c1c1": {
+      "selector": "body > section:nth-child(5) > div.center > p.eyebrow"
+    },
+    "rc5c1c2": {
+      "selector": "body > section:nth-child(5) > div.center > h2"
+    },
+    "rc5c1c3": {
+      "selector": "body > section:nth-child(5) > div.center > p:nth-child(3)"
+    },
+    "rc5c2": {
+      "selector": "body > section:nth-child(5) > div.switch-tabs"
+    },
+    "rc5c3": {
+      "selector": "#p-database",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(160deg, rgb(253, 238, 248), rgb(255, 255, 255))",
+        "raw": "rgba(0, 0, 0, 0) linear-gradient(160deg, rgb(253, 238, 248), rgb(255, 255, 255)) repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc5c3c1": {
+      "selector": "#p-database > div"
+    },
+    "rc5c3c1c1": {
+      "selector": "#p-database > div > p.eyebrow"
+    },
+    "rc5c3c1c2": {
+      "selector": "#p-database > div > h3"
+    },
+    "rc5c3c1c3": {
+      "selector": "#p-database > div > p:nth-child(3)"
+    },
+    "rc5c3c2": {
+      "selector": "#p-database > img"
+    },
+    "rc6": {
+      "selector": "body > section:nth-child(6)"
+    },
+    "rc6c1": {
+      "selector": "body > section:nth-child(6) > div.center"
+    },
+    "rc6c2": {
+      "selector": "body > section:nth-child(6) > div.cards3"
+    },
+    "rc7": {
+      "selector": "body > section.compare",
+      "background": {
+        "type": "color",
+        "value": "rgb(245, 243, 245)",
+        "raw": "rgb(245, 243, 245) none repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc7c1": {
+      "selector": "body > section.compare > div > div.center"
+    },
+    "rc7c1c1": {
+      "selector": "body > section.compare > div > div.center > p"
+    },
+    "rc7c1c2": {
+      "selector": "body > section.compare > div > div.center > h2"
+    },
+    "rc7c2": {
+      "selector": "body > section.compare > div > div.cmp-grid"
+    },
+    "rc7c2c1": {
+      "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(1)",
+      "background": {
+        "type": "color",
+        "value": "rgb(255, 255, 255)",
+        "raw": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc7c2c1c1": {
+      "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(1) > div"
+    },
+    "rc7c2c1c2": {
+      "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(1) > h3"
+    },
+    "rc7c2c1c3": {
+      "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(1) > ul"
+    },
+    "rc7c2c1c3c1": {
+      "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(1) > ul > li:nth-child(1)"
+    },
+    "rc7c2c1c3c2": {
+      "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(1) > ul > li:nth-child(2)"
+    },
+    "rc7c2c1c3c3": {
+      "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(1) > ul > li:nth-child(3)"
+    },
+    "rc7c2c2": {
+      "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(3)",
+      "background": {
+        "type": "color",
+        "value": "rgb(255, 255, 255)",
+        "raw": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc7c2c2c1": {
+      "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(3) > div"
+    },
+    "rc7c2c2c2": {
+      "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(3) > h3"
+    },
+    "rc7c2c2c3": {
+      "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(3) > ul"
+    },
+    "rc7c2c2c3c1": {
+      "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(3) > ul > li:nth-child(1)"
+    },
+    "rc7c2c2c3c2": {
+      "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(3) > ul > li:nth-child(2)"
+    },
+    "rc7c2c2c3c3": {
+      "selector": "body > section.compare > div > div.cmp-grid > div:nth-child(3) > ul > li:nth-child(3)"
+    },
+    "rc7c3": {
+      "selector": "body > section.compare > div > div.cmp-grid > div.cmp.knack",
+      "background": {
+        "type": "color",
+        "value": "rgb(152, 42, 134)",
+        "raw": "rgb(152, 42, 134) none repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc7c3c1": {
+      "selector": "body > section.compare > div > div.cmp-grid > div.cmp.knack > div"
+    },
+    "rc7c3c2": {
+      "selector": "body > section.compare > div > div.cmp-grid > div.cmp.knack > h3"
+    },
+    "rc7c3c3": {
+      "selector": "body > section.compare > div > div.cmp-grid > div.cmp.knack > ul"
+    },
+    "rc7c3c3c1": {
+      "selector": "body > section.compare > div > div.cmp-grid > div.cmp.knack > ul > li:nth-child(1)"
+    },
+    "rc7c3c3c2": {
+      "selector": "body > section.compare > div > div.cmp-grid > div.cmp.knack > ul > li:nth-child(2)"
+    },
+    "rc7c3c3c3": {
+      "selector": "body > section.compare > div > div.cmp-grid > div.cmp.knack > ul > li:nth-child(3)"
+    },
+    "rc7c3c3c4": {
+      "selector": "body > section.compare > div > div.cmp-grid > div.cmp.knack > ul > li:nth-child(4)"
+    },
+    "rc8": {
+      "selector": "body > section:nth-child(8)"
+    },
+    "rc8c1": {
+      "selector": "body > section:nth-child(8) > div.center"
+    },
+    "rc8c2": {
+      "selector": "body > section:nth-child(8) > div.grid6"
+    },
+    "rc9": {
+      "selector": "body > section.integ",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(120deg, rgb(152, 42, 134) 0%, rgb(230, 24, 117) 55%, rgb(250, 129, 110) 100%)",
+        "raw": "rgba(0, 0, 0, 0) linear-gradient(120deg, rgb(152, 42, 134) 0%, rgb(230, 24, 117) 55%, rgb(250, 129, 110) 100%) repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc9c1": {
+      "selector": "body > section.integ > div > div.center"
+    },
+    "rc9c1c1": {
+      "selector": "body > section.integ > div > div.center > h2"
+    },
+    "rc9c1c2": {
+      "selector": "body > section.integ > div > div.center > p"
+    },
+    "rc9c2": {
+      "selector": "body > section.integ > div > div.integ-logos"
+    },
+    "rc9c3": {
+      "selector": "body > section.integ > div > div:nth-child(3)",
+      "background": {
+        "type": "color",
+        "value": "rgb(255, 255, 255)",
+        "raw": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc10": {
+      "selector": "body > section:nth-child(10)"
+    },
+    "rc10c1": {
+      "selector": "body > section:nth-child(10) > div.center"
+    },
+    "rc10c1c1": {
+      "selector": "body > section:nth-child(10) > div.center > p"
+    },
+    "rc10c1c2": {
+      "selector": "body > section:nth-child(10) > div.center > h2"
+    },
+    "rc10c2": {
+      "selector": "body > section:nth-child(10) > div.stats"
+    },
+    "rc10c2c1": {
+      "selector": "body > section:nth-child(10) > div.stats > div:nth-child(1)"
+    },
+    "rc10c2c1c1": {
+      "selector": "body > section:nth-child(10) > div.stats > div:nth-child(1) > div",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(90deg, rgb(152, 42, 134) 0%, rgb(250, 129, 110) 100%)",
+        "raw": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(152, 42, 134) 0%, rgb(250, 129, 110) 100%) repeat scroll 0% 0% / auto padding-box text",
+        "source": "css"
+      }
+    },
+    "rc10c2c1c2": {
+      "selector": "body > section:nth-child(10) > div.stats > div:nth-child(1) > p"
+    },
+    "rc10c2c2": {
+      "selector": "body > section:nth-child(10) > div.stats > div:nth-child(2)"
+    },
+    "rc10c2c2c1": {
+      "selector": "body > section:nth-child(10) > div.stats > div:nth-child(2) > div",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(90deg, rgb(152, 42, 134) 0%, rgb(250, 129, 110) 100%)",
+        "raw": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(152, 42, 134) 0%, rgb(250, 129, 110) 100%) repeat scroll 0% 0% / auto padding-box text",
+        "source": "css"
+      }
+    },
+    "rc10c2c2c2": {
+      "selector": "body > section:nth-child(10) > div.stats > div:nth-child(2) > p"
+    },
+    "rc10c2c3": {
+      "selector": "body > section:nth-child(10) > div.stats > div:nth-child(3)"
+    },
+    "rc10c2c3c1": {
+      "selector": "body > section:nth-child(10) > div.stats > div:nth-child(3) > div",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(90deg, rgb(152, 42, 134) 0%, rgb(250, 129, 110) 100%)",
+        "raw": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(152, 42, 134) 0%, rgb(250, 129, 110) 100%) repeat scroll 0% 0% / auto padding-box text",
+        "source": "css"
+      }
+    },
+    "rc10c2c3c2": {
+      "selector": "body > section:nth-child(10) > div.stats > div:nth-child(3) > p"
+    },
+    "rc11": {
+      "selector": "body > section:nth-child(11)"
+    },
+    "rc11c1": {
+      "selector": "body > section:nth-child(11) > div.center"
+    },
+    "rc11c2": {
+      "selector": "body > section:nth-child(11) > div.faq"
+    },
+    "rc11c2c1": {
+      "selector": "body > section:nth-child(11) > div.faq > details:nth-child(1)"
+    },
+    "rc11c2c1c1": {
+      "selector": "body > section:nth-child(11) > div.faq > details:nth-child(1) > summary"
+    },
+    "rc11c2c1c2": {
+      "selector": "body > section:nth-child(11) > div.faq > details:nth-child(1) > p"
+    },
+    "rc11c2c2": {
+      "selector": "body > section:nth-child(11) > div.faq > details:nth-child(2)"
+    },
+    "rc11c2c2c1": {
+      "selector": "body > section:nth-child(11) > div.faq > details:nth-child(2) > summary"
+    },
+    "rc11c2c3": {
+      "selector": "body > section:nth-child(11) > div.faq > details:nth-child(3)"
+    },
+    "rc11c2c3c1": {
+      "selector": "body > section:nth-child(11) > div.faq > details:nth-child(3) > summary"
+    },
+    "rc11c2c4": {
+      "selector": "body > section:nth-child(11) > div.faq > details:nth-child(4)"
+    },
+    "rc11c2c4c1": {
+      "selector": "body > section:nth-child(11) > div.faq > details:nth-child(4) > summary"
+    },
+    "rc11c2c5": {
+      "selector": "body > section:nth-child(11) > div.faq > details:nth-child(2) > p"
+    },
+    "rc11c2c6": {
+      "selector": "body > section:nth-child(11) > div.faq > details:nth-child(3) > p"
+    },
+    "rc12": {
+      "selector": "body > section.final",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(120deg, rgb(152, 42, 134) 0%, rgb(230, 24, 117) 55%, rgb(250, 129, 110) 100%)",
+        "raw": "rgba(0, 0, 0, 0) linear-gradient(120deg, rgb(152, 42, 134) 0%, rgb(230, 24, 117) 55%, rgb(250, 129, 110) 100%) repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc12c1": {
+      "selector": "body > section.final > div > h2"
+    },
+    "rc12c2": {
+      "selector": "body > section.final > div > p"
+    },
+    "rc12c3": {
+      "selector": "body > section.final > div > a",
+      "background": {
+        "type": "color",
+        "value": "rgb(255, 255, 255)",
+        "raw": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc13": {
+      "selector": "body > footer",
+      "background": {
+        "type": "color",
+        "value": "rgb(22, 21, 26)",
+        "raw": "rgb(22, 21, 26) none repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      }
+    },
+    "rc13c1": {
+      "selector": "body > footer > div > div.foot-grid"
+    },
+    "rc13c2": {
+      "selector": "body > footer > div > div.foot-bot"
+    },
+    "rc13c2c1": {
+      "selector": "body > footer > div > div.foot-bot > span:nth-child(1)"
+    },
+    "rc13c2c2": {
+      "selector": "body > footer > div > div.foot-bot > span:nth-child(2)"
+    },
+    "rc14": {
+      "selector": "#app > div.app-body > div.sweep",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(100deg, rgba(0, 0, 0, 0) 30%, rgba(255, 52, 154, 0.1) 50%, rgba(0, 0, 0, 0) 70%)",
+        "raw": "rgba(0, 0, 0, 0) linear-gradient(100deg, rgba(0, 0, 0, 0) 30%, rgba(255, 52, 154, 0.1) 50%, rgba(0, 0, 0, 0) 70%) repeat scroll 0% 0% / auto padding-box border-box",
+        "source": "css"
+      },
+      "overlay": {
+        "occluding": [
+          "rc3"
+        ]
+      }
+    },
+    "rc15": {
+      "selector": "body > section:nth-child(11) > div.faq > details:nth-child(4) > p",
+      "overlay": {
+        "occluding": [
+          "rc11",
+          "rc12"
+        ]
+      }
+    }
+  },
+  "rootBackground": "rgb(255, 255, 255)"
+}

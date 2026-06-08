@@ -1,19 +1,19 @@
 import { renderTemplate } from '../../scripts/template-block.js';
 
 /**
- * DA block table (1 leading field + 3 item rows, 2 cells each: title | body):
+ * DA block table (3 item rows, 2 cells each: title | body):
  *   | value-cards |
- *   | No code. No delay.           |                          (heading)
  *   | Business-ready from day one  | Security, permissions…   (card 1)
  *   | Minutes to production…       | Idea to a live app…      (card 2)
  *   | Break free from sheets       | Replace fragile…         (card 3)
+ *
+ * The section heading is default content above the block in the same section.
  *
  * SVG icons are baked into the template (Lucide zap / clock / bar-chart-3).
  * Authors control only the heading, card titles, and card body text.
  */
 const TEMPLATE = `
 <section class="wrap">
-  <div class="center"><h2 data-field></h2></div>
   <div class="cards3">
     <div class="vcard reveal" data-group>
       <div class="ic">
