@@ -136,11 +136,10 @@ html.js .row { opacity: 0; transform: translateY(14px) rotateX(8deg); transform-
 .vcard .ic { width: 46px; height: 46px; border-radius: 12px; background: var(--grad-coral); display: grid; place-items: center; color: #fff; font-size: 1.3rem; margin-bottom: 16px; }
 
 /* ── Section styles ────────────────────────────────────────────────────────── */
-/* Vertical breathing room for sections that have default content before a block. */
-.section:has(.default-content-wrapper) { padding: 84px 0; }
-/* Section Metadata style key values */
-main > .section.gray  { background: var(--surface2); }
-main > .section.brand { background: var(--grad-brand); }
+/* Colored sections carry their own padding (matches original section { padding: 84px 0 }
+   which applied only where no .wrap override was present — i.e. compare, integ, final). */
+main > .section.gray  { background: var(--surface2); padding: 84px 0; }
+main > .section.brand { background: var(--grad-brand); padding: 84px 0; }
 
 /* ── Compare ───────────────────────────────────────────────────────────────── */
 .cmp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 14px; }
