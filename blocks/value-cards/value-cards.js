@@ -1,21 +1,21 @@
 import { renderTemplate } from '../../scripts/template-block.js';
 
 /**
- * DA block table (slot-keyed rows; card-N rows fill by position: title | body):
- *   | value-cards |                           |
- *   | heading     | No code. No delay.         |
- *   | card-1      | Business-ready from day one | Security, permissions… |
- *   | card-2      | Minutes to production…      | Idea to a live app…    |
- *   | card-3      | Break free from sheets      | Replace fragile…       |
+ * DA block table (1 leading field + 3 item rows, 2 cells each: title | body):
+ *   | value-cards |
+ *   | No code. No delay.           |                          (heading)
+ *   | Business-ready from day one  | Security, permissions…   (card 1)
+ *   | Minutes to production…       | Idea to a live app…      (card 2)
+ *   | Break free from sheets       | Replace fragile…         (card 3)
  *
  * SVG icons are baked into the template (Lucide zap / clock / bar-chart-3).
  * Authors control only the heading, card titles, and card body text.
  */
 const TEMPLATE = `
 <section class="wrap">
-  <div class="center"><h2 data-slot="heading"></h2></div>
+  <div class="center"><h2 data-field></h2></div>
   <div class="cards3">
-    <div class="vcard reveal" data-group="card-1">
+    <div class="vcard reveal" data-group>
       <div class="ic">
         <svg class="lucide lucide-zap" xmlns="http://www.w3.org/2000/svg"
           width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -27,7 +27,7 @@ const TEMPLATE = `
       <h3 data-slot="title"></h3>
       <p data-slot="body"></p>
     </div>
-    <div class="vcard reveal" data-group="card-2">
+    <div class="vcard reveal" data-group>
       <div class="ic">
         <svg class="lucide lucide-clock" xmlns="http://www.w3.org/2000/svg"
           width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -40,7 +40,7 @@ const TEMPLATE = `
       <h3 data-slot="title"></h3>
       <p data-slot="body"></p>
     </div>
-    <div class="vcard reveal" data-group="card-3">
+    <div class="vcard reveal" data-group>
       <div class="ic">
         <svg class="lucide lucide-bar-chart-3" xmlns="http://www.w3.org/2000/svg"
           width="24" height="24" viewBox="0 0 24 24" fill="none"

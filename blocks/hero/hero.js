@@ -1,12 +1,12 @@
 import { renderTemplate, runCountup, cascadeRows } from '../../scripts/template-block.js';
 
 /**
- * DA block table:
- *   | hero           |                                             |
- *   | eyebrow        | No-code · AI · Enterprise-grade security    |
- *   | sub            | The most secure app & database builder…     |
- *   | cta-primary    | <a href="…">Start Building For Free</a>     |
- *   | cta-secondary  | <a href="…">Talk to sales →</a>             |
+ * DA block table (4 positional field rows, no key column):
+ *   | hero |
+ *   | No-code · AI · Enterprise-grade security      |  (eyebrow)
+ *   | The most secure app & database builder…       |  (sub)
+ *   | <a href="…">Start Building For Free</a>       |  (cta-primary)
+ *   | <a href="…">Talk to sales →</a>               |  (cta-secondary)
  *
  * The h1, trust badge, and entire animated app mock are baked into the
  * template — they are structural chrome, not authored content.
@@ -14,12 +14,12 @@ import { renderTemplate, runCountup, cascadeRows } from '../../scripts/template-
 const TEMPLATE = `
 <div class="wrap hero-grid">
   <div>
-    <p class="eyebrow" data-slot="eyebrow"></p>
+    <p class="eyebrow" data-field></p>
     <h1 style="margin-top:14px">Don't read about the app. <span>Watch it build.</span></h1>
-    <p class="sub" data-slot="sub"></p>
+    <p class="sub" data-field></p>
     <div class="hero-cta">
-      <a href="#" class="btn btn-primary" data-slot="cta-primary"></a>
-      <a href="#" class="link-sec" data-slot="cta-secondary"></a>
+      <a href="#" class="btn btn-primary" data-field></a>
+      <a href="#" class="link-sec" data-field></a>
     </div>
     <div class="trust"><span class="stars">★★★★★</span> Trusted by <b>100,000+</b> users worldwide</div>
   </div>

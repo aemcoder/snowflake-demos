@@ -1,23 +1,23 @@
 import { renderTemplate } from '../../scripts/template-block.js';
 
 /**
- * DA block table (ccard-N rows fill positionally: title | body):
- *   | features-grid |                                      |
- *   | heading       | Built on enterprise-grade components |
- *   | ccard-1       | Scalable database core | Relational data… |
- *   | ccard-2       | Modern UI/UX components | Forms, tables… |
- *   | ccard-3       | User management & security | Granular… |
- *   | ccard-4       | Workflow automation | Event-driven…    |
- *   | ccard-5       | Analytics & reporting | Live dashboards… |
- *   | ccard-6       | Business logic engine | Rules and…      |
+ * DA block table (1 leading field + 6 item rows, 2 cells each: title | body):
+ *   | features-grid |
+ *   | Built on enterprise-grade components |                    (heading)
+ *   | Scalable database core  | Relational data…               (card 1)
+ *   | Modern UI/UX components | Forms, tables…                 (card 2)
+ *   | User management & security | Granular…                   (card 3)
+ *   | Workflow automation     | Event-driven…                  (card 4)
+ *   | Analytics & reporting   | Live dashboards…               (card 5)
+ *   | Business logic engine   | Rules and…                     (card 6)
  *
  * Each card's Lucide SVG icon is baked into the template.
  */
 const TEMPLATE = `
 <section class="wrap">
-  <div class="center"><h2 data-slot="heading"></h2></div>
+  <div class="center"><h2 data-field></h2></div>
   <div class="grid6">
-    <div class="ccard reveal" data-group="ccard-1">
+    <div class="ccard reveal" data-group>
       <div class="ic">
         <svg class="lucide lucide-database" xmlns="http://www.w3.org/2000/svg"
           width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -30,7 +30,7 @@ const TEMPLATE = `
       <h3 data-slot="title"></h3>
       <p data-slot="body"></p>
     </div>
-    <div class="ccard reveal" data-group="ccard-2">
+    <div class="ccard reveal" data-group>
       <div class="ic">
         <svg class="lucide lucide-palette" xmlns="http://www.w3.org/2000/svg"
           width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -45,7 +45,7 @@ const TEMPLATE = `
       <h3 data-slot="title"></h3>
       <p data-slot="body"></p>
     </div>
-    <div class="ccard reveal" data-group="ccard-3">
+    <div class="ccard reveal" data-group>
       <div class="ic">
         <svg class="lucide lucide-shield-check" xmlns="http://www.w3.org/2000/svg"
           width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -57,7 +57,7 @@ const TEMPLATE = `
       <h3 data-slot="title"></h3>
       <p data-slot="body"></p>
     </div>
-    <div class="ccard reveal" data-group="ccard-4">
+    <div class="ccard reveal" data-group>
       <div class="ic">
         <svg class="lucide lucide-settings" xmlns="http://www.w3.org/2000/svg"
           width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -69,7 +69,7 @@ const TEMPLATE = `
       <h3 data-slot="title"></h3>
       <p data-slot="body"></p>
     </div>
-    <div class="ccard reveal" data-group="ccard-5">
+    <div class="ccard reveal" data-group>
       <div class="ic">
         <svg class="lucide lucide-line-chart" xmlns="http://www.w3.org/2000/svg"
           width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -81,7 +81,7 @@ const TEMPLATE = `
       <h3 data-slot="title"></h3>
       <p data-slot="body"></p>
     </div>
-    <div class="ccard reveal" data-group="ccard-6">
+    <div class="ccard reveal" data-group>
       <div class="ic">
         <svg class="lucide lucide-sparkles" xmlns="http://www.w3.org/2000/svg"
           width="24" height="24" viewBox="0 0 24 24" fill="none"

@@ -1,18 +1,18 @@
 import { renderTemplate } from '../../scripts/template-block.js';
 
 /**
- * DA block table:
- *   | final   |                          |
- *   | heading | Get started in 30 seconds. |
- *   | sub     | No credit card required.   |
- *   | cta     | <a href="…">Label</a>      |
+ * DA block table (3 positional field rows):
+ *   | final |
+ *   | Get started in 30 seconds. |  (heading)
+ *   | No credit card required.   |  (sub)
+ *   | <a href="…">Label</a>      |  (cta)
  */
 const TEMPLATE = `
 <section class="final">
   <div class="wrap">
-    <h2 data-slot="heading"></h2>
-    <p data-slot="sub"></p>
-    <a href="#" class="btn btn-primary" data-slot="cta"></a>
+    <h2 data-field></h2>
+    <p data-field></p>
+    <a href="#" class="btn btn-primary" data-field></a>
   </div>
 </section>`;
 

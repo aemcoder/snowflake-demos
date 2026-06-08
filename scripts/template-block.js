@@ -3,17 +3,19 @@ import { loadCSS } from './aem.js';
 /**
  * Shared template-literal + named-slot engine for hybrid EDS blocks.
  *
- * DA block rows are slot-keyed: the first cell of each row is the slot key,
- * remaining cells are the values.  Rows with the same key repeat.
+ * DA block rows are positional — no key column. The engine splits rows into
+ * leading fields, a collection region, and trailing fields by reading the
+ * template's own marker structure.
  *
  * Template attribute API:
- *   data-slot="s"    — replaced with content from the singleton row keyed "s"
- *   data-repeat="r"  — cloned once per DA row keyed "r"; each clone's inner
- *                      [data-slot] elements are filled positionally from that
- *                      row's value cells
- *   data-group="g"   — node with a baked-in structure (e.g. unique SVG icon);
- *                      its inner [data-slot] elements are filled positionally
- *                      from the first DA row keyed "g"
+ *   data-field    — standalone whole-row field; filled from the matching
+ *                   leading or trailing DA row's single cell (by position)
+ *   data-group    — fixed item with baked-in chrome (e.g. SVG icon); its inner
+ *                   [data-slot] children are filled positionally from the
+ *                   matching collection row's cells
+ *   data-repeat   — variable-length item; cloned once per collection row; each
+ *                   clone's inner [data-slot] children filled positionally
+ *   data-slot     — inner item part, used only inside data-group / data-repeat
  */
 
 // ─── Observers (module-level singletons) ─────────────────────────────────────
@@ -148,14 +150,17 @@ function normalizeCell(cell) {
 }
 
 /**
- * Fill a template slot element with content from a DA value cell.
+ * Fill a template element with content from a DA cell div.
  *
  * Dispatch rules:
  *   <img>  → replaced with the authored <picture> or <img> from the cell
  *   <a>    → href + text copied from the authored link; template classes kept
- *   other  → innerHTML set from the normalized cell content
+ *   other  → children replaced with cloned child nodes from the cell
  *
- * @param {Element} slotEl    - element bearing the data-slot attribute
+ * Used for both data-field elements (outer fields) and data-slot elements
+ * (inner item parts inside data-group / data-repeat).
+ *
+ * @param {Element} slotEl    - template element to fill
  * @param {Element} valueCell - cell div from the DA row
  */
 function fillSlot(slotEl, valueCell) {
@@ -184,44 +189,24 @@ function fillSlot(slotEl, valueCell) {
   slotEl.replaceChildren(...[...content.childNodes].map((n) => n.cloneNode(true)));
 }
 
-/**
- * Parse a block's DA rows into two maps for slot resolution.
- *
- * singletons  Map<key, firstValueCell>     used by standalone data-slot
- * repeats     Map<key, valueCells[][]>     used by data-repeat and data-group
- */
-function parseRows(block) {
-  const singletons = new Map();
-  const repeats = new Map();
-  [...block.children].forEach((row) => {
-    const cells = [...row.children];
-    if (!cells.length) return;
-    const key = cells[0].textContent.trim().toLowerCase();
-    const valueCells = cells.slice(1);
-    if (!singletons.has(key)) singletons.set(key, valueCells[0]);
-    if (!repeats.has(key)) repeats.set(key, []);
-    repeats.get(key).push(valueCells);
-  });
-  return { singletons, repeats };
-}
-
-/**
- * Render a block from an inline HTML template string.
- *
- * Processing order: data-repeat → data-group → data-slot (standalone).
- * All marker attributes are stripped from the final DOM.
- *
- * @param {Element} block        - the block element (div.name.block)
- * @param {string}  templateHTML - verbatim source markup with slot markers
- */
 // Stored once; all subsequent awaits on this promise resolve instantly.
 let knackCSSPromise = null;
 
 /**
  * Render a block from an inline HTML template string.
+ *
+ * DA rows are positional — no key column. The engine partitions the block's rows
+ * into three regions by counting the template's own markers:
+ *   leading fields  → first L rows, one cell each (standalone content)
+ *   collection rows → middle rows, one per group/repeat item
+ *   trailing fields → last T rows, one cell each (content after the items)
+ *
  * Async so callers (block decorate functions) can await it — EDS will not
  * show the section until decorate() resolves, guaranteeing knack.css is
  * applied before any content is visible (zero CLS from lazy CSS load).
+ *
+ * @param {Element} block        - the block element (div.name.block)
+ * @param {string}  templateHTML - verbatim source markup with slot markers
  */
 export async function renderTemplate(block, templateHTML) {
   if (!knackCSSPromise) {
@@ -230,45 +215,76 @@ export async function renderTemplate(block, templateHTML) {
   }
   await knackCSSPromise;
 
-  const { singletons, repeats } = parseRows(block);
-
   const tpl = document.createElement('template');
   tpl.innerHTML = templateHTML;
   const frag = tpl.content;
 
-  // 1. data-repeat: clone once per matching DA row, fill inner slots positionally
-  frag.querySelectorAll('[data-repeat]').forEach((repeatEl) => {
-    const key = repeatEl.dataset.repeat.toLowerCase();
-    (repeats.get(key) ?? []).forEach((valueCells) => {
+  // Collect markers in document order
+  const fields = [...frag.querySelectorAll('[data-field]')];
+  const repeatEl = frag.querySelector('[data-repeat]');
+  const groups = [...frag.querySelectorAll('[data-group]')];
+  const collectionStart = repeatEl ?? groups[0] ?? null;
+  const collectionEnd = repeatEl ?? (groups.length ? groups[groups.length - 1] : null);
+
+  // Split fields into leading (before collection) and trailing (after collection)
+  const leadingFields = fields.filter((f) => {
+    if (!collectionStart) return true;
+    // DOCUMENT_POSITION_PRECEDING (2): f appears before collectionStart
+    // eslint-disable-next-line no-bitwise
+    return !!(collectionStart.compareDocumentPosition(f) & Node.DOCUMENT_POSITION_PRECEDING);
+  });
+  const trailingFields = fields.filter((f) => {
+    if (!collectionEnd) return false;
+    // DOCUMENT_POSITION_FOLLOWING (4): f appears after collectionEnd
+    // eslint-disable-next-line no-bitwise
+    return !!(collectionEnd.compareDocumentPosition(f) & Node.DOCUMENT_POSITION_FOLLOWING);
+  });
+
+  // Partition DA rows to match the three template regions
+  const rows = [...block.children];
+  const L = leadingFields.length;
+  const T = trailingFields.length;
+  const leadingRows = rows.slice(0, L);
+  const trailingRows = T > 0 ? rows.slice(rows.length - T) : [];
+  const collectionRows = rows.slice(L, T > 0 ? rows.length - T : rows.length);
+
+  // Fill leading fields (one cell per row, matched by position)
+  leadingFields.forEach((fieldEl, i) => {
+    fieldEl.removeAttribute('data-field');
+    const row = leadingRows[i];
+    if (row?.children[0]) fillSlot(fieldEl, row.children[0]);
+  });
+
+  // Fill trailing fields
+  trailingFields.forEach((fieldEl, i) => {
+    fieldEl.removeAttribute('data-field');
+    const row = trailingRows[i];
+    if (row?.children[0]) fillSlot(fieldEl, row.children[0]);
+  });
+
+  // Fill collection: repeat (variable-length) or groups (fixed count)
+  if (repeatEl) {
+    collectionRows.forEach((row) => {
+      const cells = [...row.children];
       const clone = repeatEl.cloneNode(true);
       clone.removeAttribute('data-repeat');
       [...clone.querySelectorAll('[data-slot]')].forEach((slotEl, i) => {
-        if (valueCells[i]) fillSlot(slotEl, valueCells[i]);
+        if (cells[i]) fillSlot(slotEl, cells[i]);
         else slotEl.removeAttribute('data-slot');
       });
       repeatEl.before(clone);
     });
     repeatEl.remove();
-  });
-
-  // 2. data-group: fixed node; fill inner slots positionally from first match
-  frag.querySelectorAll('[data-group]').forEach((groupEl) => {
-    const key = groupEl.dataset.group.toLowerCase();
-    groupEl.removeAttribute('data-group');
-    const valueCells = repeats.get(key)?.[0] ?? [];
-    [...groupEl.querySelectorAll('[data-slot]')].forEach((slotEl, i) => {
-      if (valueCells[i]) fillSlot(slotEl, valueCells[i]);
-      else slotEl.removeAttribute('data-slot');
+  } else {
+    groups.forEach((groupEl, i) => {
+      groupEl.removeAttribute('data-group');
+      const cells = collectionRows[i] ? [...collectionRows[i].children] : [];
+      [...groupEl.querySelectorAll('[data-slot]')].forEach((slotEl, j) => {
+        if (cells[j]) fillSlot(slotEl, cells[j]);
+        else slotEl.removeAttribute('data-slot');
+      });
     });
-  });
-
-  // 3. data-slot (standalone): fill from singleton map by key name
-  frag.querySelectorAll('[data-slot]').forEach((slotEl) => {
-    const key = slotEl.dataset.slot.toLowerCase();
-    const cell = singletons.get(key);
-    if (cell) fillSlot(slotEl, cell);
-    else slotEl.removeAttribute('data-slot');
-  });
+  }
 
   block.replaceChildren(frag);
   observeReveals(block);
