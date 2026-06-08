@@ -181,9 +181,7 @@ function fillSlot(slotEl, valueCell) {
     return;
   }
 
-  slotEl.innerHTML = content.innerHTML !== undefined
-    ? content.innerHTML
-    : content.textContent;
+  slotEl.replaceChildren(...[...content.childNodes].map((n) => n.cloneNode(true)));
 }
 
 /**
