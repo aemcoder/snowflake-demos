@@ -49,14 +49,14 @@ body.knack .wrap   { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
 body.knack .center { text-align: center; max-width: 680px; margin: 0 auto 48px; }
 body.knack .eyebrow { font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--primary); }
 
-/* Default content heading region — appears before a block in the same section.
-   Replicates .center behavior without requiring a wrapper class in the DA document. */
-body.knack .section:has(> div > .block) > div:first-child {
+/* Default content heading region — EDS wraps default content elements in a
+   .default-content-wrapper div. Replicates .center behavior for section intros. */
+body.knack .default-content-wrapper {
   text-align: center;
   max-width: 680px;
   margin: 0 auto 48px;
 }
-body.knack .section:has(> div > .block) > div:first-child > p:not(.eyebrow) { font-size: 1.1rem; }
+body.knack .default-content-wrapper > p:not(.eyebrow) { font-size: 1.1rem; }
 body.knack .btn { display: inline-flex; align-items: center; gap: .5rem; font-weight: 600; font-size: 1rem; border-radius: 12px; padding: 14px 26px; border: 0; cursor: pointer; transition: .18s; }
 body.knack .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 6px 18px rgba(255,52,154,.32); }
 body.knack .btn-primary:hover { transform: translateY(-2px); }
