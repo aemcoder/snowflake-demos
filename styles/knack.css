@@ -123,8 +123,11 @@ body.knack .vcard { background: #fff; border: 1px solid var(--border); border-ra
 body.knack .vcard:hover { transform: translateY(-4px); box-shadow: var(--md); }
 body.knack .vcard .ic { width: 46px; height: 46px; border-radius: 12px; background: var(--grad-coral); display: grid; place-items: center; color: #fff; font-size: 1.3rem; margin-bottom: 16px; }
 
+/* ── Section styles (set via Section Metadata style key) ───────────────────── */
+body.knack main > .section.gray  { background: var(--surface2); }
+body.knack main > .section.brand { background: var(--grad-brand); }
+
 /* ── Compare ───────────────────────────────────────────────────────────────── */
-body.knack .compare { background: var(--surface2); }
 body.knack .cmp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 14px; }
 body.knack .cmp { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 26px; }
 body.knack .cmp.knack { background: var(--primary); color: #fff; box-shadow: var(--lg); transform: scale(1.03); }
@@ -143,7 +146,7 @@ body.knack .ccard h3 { font-size: 1.1rem; margin-bottom: 8px; }
 body.knack .ccard p { font-size: .92rem; color: var(--muted); }
 
 /* ── Integrations ──────────────────────────────────────────────────────────── */
-body.knack .integ { background: var(--grad-brand); color: #fff; }
+body.knack .integ { color: #fff; }
 body.knack .integ .center p { color: rgba(255,255,255,.9); }
 body.knack .integ-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; max-width: 760px; margin: 0 auto 30px; }
 body.knack .integ-logos div { width: 64px; height: 64px; border-radius: 14px; background: rgba(255,255,255,.16); display: grid; place-items: center; font-weight: 800; }
@@ -166,7 +169,7 @@ body.knack details[open] summary::after { content: "–"; }
 body.knack details p { margin-top: 12px; color: var(--muted); }
 
 /* ── Final CTA ─────────────────────────────────────────────────────────────── */
-body.knack .final { background: var(--grad-brand); color: #fff; text-align: center; }
+body.knack .final { color: #fff; text-align: center; }
 body.knack .final h2 { font-size: clamp(2rem,4vw,3rem); }
 body.knack .final p { color: rgba(255,255,255,.92); font-size: 1.15rem; margin: 14px 0 28px; }
 body.knack .final .btn-primary { background: #fff; color: var(--primary); }
