@@ -52,11 +52,6 @@ body.knack :where(h1, h2, h3, h4, h5, h6) {
   font-family: Inter, system-ui, sans-serif;
 }
 
-/* Collapse header — body-only conversion (no chrome fragment). */
-body.knack header {
-  height: 0;
-}
-
 /* Reset EDS default section margins/padding — theme.css owns section layout. */
 body.knack main > .section {
   margin: 0;
