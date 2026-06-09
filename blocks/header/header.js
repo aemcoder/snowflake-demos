@@ -1,16 +1,11 @@
 import { getMetadata } from '../../scripts/aem.js';
 
 /**
- * Static-fragment header loader (replaces the boilerplate nav decorator).
+ * Static-fragment header loader with megamenu behavior.
  *
- * Hybrid conversions keep the header as committed static markup (code-managed
- * chrome, not DA-authored). The fragment is chosen by the page's `template`
- * metadata — the same value that drives body.<template> — and lives in the code
- * bus at /fragments/<template>/header.html (flat /fragments/header.html if no
- * template is set).
- *
- * If the source header is interactive (mobile menu toggle, sticky behavior),
- * wire that here after setting innerHTML.
+ * The fragment HTML is committed verbatim from the source (no inline <script>
+ * because innerHTML does not execute scripts). Megamenu toggle logic is
+ * ported here and runs after the fragment is injected.
  */
 export default async function decorate(block) {
   const template = getMetadata('template');
@@ -25,29 +20,39 @@ export default async function decorate(block) {
   }
   block.innerHTML = await resp.text();
 
-  // Wire mobile hamburger toggle
-  const toggle = block.querySelector('.nav-toggle');
-  const navLinks = block.querySelector('.nav-links');
-  if (toggle && navLinks) {
-    toggle.addEventListener('click', () => {
-      const isOpen = navLinks.style.display === 'flex';
-      if (isOpen) {
-        navLinks.style.display = '';
-      } else {
-        Object.assign(navLinks.style, {
-          display: 'flex',
-          flexDirection: 'column',
-          position: 'absolute',
-          top: '72px',
-          left: '0',
-          right: '0',
-          background: '#fff',
-          padding: '16px 24px',
-          borderBottom: '1px solid var(--border)',
-          gap: '14px',
-        });
-      }
-      toggle.setAttribute('aria-expanded', String(!isOpen));
-    });
+  // Megamenu toggle — ported from source inline script
+  const h = block.querySelector('header.nav') ?? block;
+  const btns = h.querySelectorAll('.mm-btn');
+  const pans = h.querySelectorAll('.megamenu');
+  const wide = () => matchMedia('(min-width:901px)').matches;
+
+  function closeAll() {
+    pans.forEach((p) => p.classList.remove('open'));
+    btns.forEach((b) => b.setAttribute('aria-expanded', 'false'));
   }
+
+  btns.forEach((b) => {
+    const p = h.querySelector(`#mm-${b.dataset.mm}`);
+    if (!p) return;
+    b.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = p.classList.contains('open');
+      closeAll();
+      if (wide() || !isOpen) {
+        p.classList.add('open');
+        b.setAttribute('aria-expanded', 'true');
+      }
+    });
+    b.parentElement.addEventListener('mouseenter', () => {
+      if (wide()) {
+        closeAll();
+        p.classList.add('open');
+        b.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  h.addEventListener('mouseleave', () => { if (wide()) closeAll(); });
+  document.addEventListener('click', (e) => { if (!h.contains(e.target)) closeAll(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
 }
