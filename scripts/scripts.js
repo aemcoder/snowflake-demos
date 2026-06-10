@@ -1,5 +1,4 @@
 import {
-  buildBlock,
   loadHeader,
   loadFooter,
   decorateIcons,
@@ -11,25 +10,6 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
-
-/**
- * Builds hero block and prepends to main in a new section.
- * @param {Element} main The container element
- */
-function buildHeroBlock(main) {
-  const h1 = main.querySelector('h1');
-  const picture = main.querySelector('picture');
-  // eslint-disable-next-line no-bitwise
-  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
-    // Check if h1 or picture is already inside a hero block
-    if (h1.closest('.hero') || picture.closest('.hero')) {
-      return; // Don't create a duplicate hero block
-    }
-    const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
-    main.prepend(section);
-  }
-}
 
 /**
  * load fonts.css and set a session storage flag
@@ -66,8 +46,6 @@ function buildAutoBlocks(main) {
         });
       });
     }
-
-    buildHeroBlock(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
@@ -124,6 +102,10 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+  // prose sections are pure default content; restore the source's entrance reveal
+  main.querySelectorAll('.section.prose .default-content-wrapper').forEach((w) => {
+    w.classList.add('reveal');
+  });
 }
 
 /**
@@ -168,6 +150,10 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
+
+  // observe default-content reveals (block-internal ones are observed by the engine)
+  const { observeReveals } = await import('./template-block.js');
+  observeReveals(main);
 }
 
 /**
