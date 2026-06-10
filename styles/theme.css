@@ -1,0 +1,150 @@
+/* stylelint-disable */
+/*
+ * theme.css — single global design-system stylesheet for the Knack
+ * templates-listing hybrid conversion. Lifted from the source's shared
+ * _theme.css (Variant C · live-systems). Lazy-loaded once by
+ * scripts/template-block.js before any block content becomes visible.
+ */
+
+/* ── Design tokens (verbatim from source) ──────────────────────────────────── */
+:root {
+  --bg:#fff;--surface:#fafafa;--surface2:#f1f1f1;--ink:#1a181d;--muted:#75787b;
+  --primary:#982a86;--primary-dark:#821570;--accent:#ff349a;--coral:#fa816e;--border:#e9e5e9;
+  --grad-brand:linear-gradient(120deg,#982a86 0%,#e61875 55%,#fa816e 100%);
+  --grad-coral:linear-gradient(90deg,#982a86 0%,#fa816e 100%);
+  --wash:linear-gradient(180deg,#fdeef8 0%,#ffffff 70%);
+  --sm:0 1px 2px rgba(26,24,29,.06);--md:0 8px 24px rgba(26,24,29,.10);--lg:0 24px 60px rgba(130,21,112,.18);
+  --e-enter:cubic-bezier(.25,.46,.45,.94);--e-expo:cubic-bezier(.16,1,.3,1);
+}
+
+/* ── Base ──────────────────────────────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{letter-spacing:-.02em;line-height:1.1;font-weight:700}
+h1{font-size:clamp(2.4rem,4.8vw,3.6rem)}
+h2{font-size:clamp(1.8rem,3.2vw,2.5rem)}
+h3{font-size:1.5rem}h4{font-size:1.15rem}
+p{color:#3a3640}a{color:inherit;text-decoration:none}
+.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--primary)}
+.lead{font-size:1.2rem;color:#4a454f}
+.muted{color:var(--muted)}
+.grad-text,.listing-hero h1 em{background:var(--grad-coral);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:1rem;border-radius:12px;padding:14px 26px;border:0;cursor:pointer;transition:.18s}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(255,52,154,.32)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,52,154,.4)}
+.link-sec{font-weight:600;color:var(--primary)}.link-sec:hover{text-decoration:underline}
+
+/* ── EDS bridge — sections + default content ───────────────────────────────── */
+
+/* chrome wrapper: the EDS <header> reserves 116px synchronously (styles.css);
+   once the fragment loads it becomes the sticky container. top:-43px lets the
+   promo bar scroll away while the nav row stays stuck, matching the source. */
+body > header{position:sticky;top:-43px;z-index:50;height:auto;min-height:116px}
+
+/* CTA band (Section Metadata style: band) — pure default content */
+main > .section.band{background:var(--grad-brand);color:#fff;padding:76px 0;margin-top:44px}
+.default-content-wrapper{text-align:center;max-width:720px;margin:0 auto;padding:0 24px}
+main > .section.band h2{color:#fff}
+main > .section.band .default-content-wrapper > p{color:rgba(255,255,255,.9);font-size:1.15rem;margin:14px 0 28px}
+main > .section.band .default-content-wrapper a{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:1rem;border-radius:12px;padding:14px 26px;background:#fff;color:var(--primary);box-shadow:0 6px 18px rgba(255,52,154,.32);transition:.18s}
+main > .section.band .default-content-wrapper a:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,52,154,.4)}
+
+/* ── Chrome: promo + nav + megamenu (verbatim) ─────────────────────────────── */
+.promo{background:var(--primary-dark);color:#fff;text-align:center;font-size:.9rem;font-weight:500;padding:10px}
+.promo b{color:#ffd6ec}
+header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;gap:32px;height:72px}
+.nav-in img{height:30px}
+.nav-links{display:flex;gap:26px;margin-left:8px;align-items:center}
+.nav-links a{font-size:.95rem;font-weight:500;color:#3a3640}
+.nav-links a:hover{color:var(--primary)}
+.nav-cta{margin-left:auto;display:flex;align-items:center;gap:18px}
+
+.mm-item{position:static;display:inline-flex;align-items:center}
+.mm-btn{font:inherit;font-size:.95rem;font-weight:500;color:#3a3640;background:none;border:0;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:6px}
+.mm-btn::after{content:"";width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-3px;opacity:.55;transition:.2s}
+.mm-btn:hover{color:var(--primary)}
+.mm-btn[aria-expanded=true]{color:var(--primary)}
+.mm-btn[aria-expanded=true]::after{transform:rotate(-135deg);margin-top:2px;opacity:1}
+.megamenu{position:absolute;left:0;right:0;top:100%;background:#fff;border-top:1px solid var(--border);box-shadow:0 30px 60px rgba(26,24,29,.16);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .18s,transform .18s,visibility .18s;z-index:60}
+.megamenu.open{opacity:1;visibility:visible;transform:none}
+.mm-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;min-height:300px}
+.mm-main{padding:34px 28px}
+.mm-head{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:4px;color:var(--ink)}
+.mm-sub{color:var(--muted);font-size:.95rem;margin-bottom:22px}
+.mm-eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+.mm-cols{display:grid;gap:22px 30px}
+.mm-cols.c3{grid-template-columns:repeat(3,1fr)}
+.mm-cols.c2{grid-template-columns:repeat(2,1fr)}
+.mm-link{display:flex;gap:12px;align-items:flex-start;padding:9px 8px;border-radius:10px;transition:background .14s}
+.mm-link:hover{background:var(--surface)}
+.mm-link .ic{flex:none;width:34px;height:34px;border-radius:9px;background:#fdeef8;color:var(--primary);display:grid;place-items:center;font-size:1rem}
+.mm-link .tx b{font-weight:600;font-size:.95rem;display:block;color:var(--ink)}
+.mm-link .tx span{color:var(--muted);font-size:.82rem;line-height:1.4}
+.mm-foot{grid-column:1/-1;border-top:1px solid var(--border);margin-top:18px;padding-top:18px;display:flex;gap:30px;flex-wrap:wrap}
+.mm-foot a{font-weight:700;color:var(--primary);font-size:.92rem}
+.mm-promo{background:linear-gradient(160deg,#3a0a33,#2a0826);color:#fff;padding:34px 30px;display:flex;flex-direction:column}
+.mm-promo h3{color:#fff;font-size:1.45rem;letter-spacing:-.01em;margin-bottom:6px}
+.mm-promo>p{color:rgba(255,255,255,.8);font-size:.9rem;margin-bottom:6px}
+.mm-promo a.pl{display:block;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.16)}
+.mm-promo a.pl b{color:#fff;font-weight:700;font-size:.95rem}
+.mm-promo a.pl span{color:rgba(255,255,255,.72);font-size:.84rem;display:block;margin-top:4px}
+.mm-promo .pbtn{margin-top:auto;background:var(--accent);color:#fff;font-weight:700;padding:12px 18px;border-radius:10px;text-align:center;font-size:.9rem;align-self:flex-start;margin-top:24px}
+
+/* ── Listing hero (block) ──────────────────────────────────────────────────── */
+.listing-hero{background:var(--wash);padding:60px 0 26px;text-align:center}
+.listing-hero h1{font-size:clamp(2.3rem,4.4vw,3.3rem);margin:8px auto 0;max-width:20ch}
+.listing-hero .lead{margin:14px auto 0;max-width:580px}
+.lsearch{display:flex;align-items:center;gap:10px;max-width:480px;margin:24px auto 0;background:#fff;border:1px solid var(--border);border-radius:14px;padding:12px 16px;box-shadow:var(--sm)}
+.lsearch svg{width:20px;height:20px;color:var(--muted);flex:none}
+.lsearch input{border:0;outline:0;font:inherit;font-size:1rem;width:100%;background:none;color:var(--ink)}
+
+/* ── Template-cards (block) ────────────────────────────────────────────────── */
+.template-cards{padding:48px 0 4px}
+.lgroup-head{display:flex;align-items:baseline;gap:12px;margin-bottom:20px}
+.lcards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.lcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);border-radius:14px;transition:.18s;overflow:hidden;text-decoration:none}
+.lcard:hover{transform:translateY(-3px);box-shadow:var(--md);border-color:#e6c9e0}
+.lcard-body{padding:20px;display:flex;flex-direction:column;flex:1}
+.lcard b{font-size:1.05rem;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.lcard p{color:var(--muted);font-size:.9rem;margin-top:6px;line-height:1.5;flex:1}
+.lcard .go{margin-top:14px;font-weight:700;color:var(--primary);font-size:.86rem}
+.lcard--media .lcard-media{aspect-ratio:16/10;background:#f4eef3;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.lcard--media .lcard-media picture{display:block;width:100%;height:100%}
+.lcard--media .lcard-media img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ── Footer (verbatim; padding scoped to the inner fragment element) ───────── */
+footer{background:#16151a;color:#b8b4bd}
+footer footer{padding:60px 0 40px}
+.foot-grid{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:30px}
+footer img{height:28px;filter:brightness(0) invert(1);margin-bottom:14px}
+footer h4{color:#fff;font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+footer ul{list-style:none;padding:0;display:grid;gap:9px;font-size:.92rem}
+footer a:hover{color:#fff}
+.foot-bot{border-top:1px solid #2a2830;margin-top:40px;padding-top:24px;font-size:.85rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* ── Motion (compositor-only: transform + opacity) ─────────────────────────── */
+.reveal{opacity:1;transform:none}
+html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s var(--e-enter),transform .6s var(--e-enter)}
+html.js .reveal.in{opacity:1;transform:none}
+
+/* ── Responsive ────────────────────────────────────────────────────────────── */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .megamenu{display:none}
+  .foot-grid{grid-template-columns:1fr}
+  .lcards{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .lcards{grid-template-columns:1fr}
+}
+
+/* ── Reduced motion ────────────────────────────────────────────────────────── */
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+}
