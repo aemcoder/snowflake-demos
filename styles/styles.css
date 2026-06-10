@@ -58,6 +58,9 @@ body.knack main > .section {
   max-width: none;
 }
 
+/* no `margin` here: at (0,1,2) it would out-rank the theme's design margins
+   (e.g. `.listing-hero h1 { margin: 8px auto 0 }` at (0,1,1)) — the gotcha §3
+   specificity trap. theme.css's `* { margin: 0 }` handles the reset. */
 body.knack h1,
 body.knack h2,
 body.knack h3,
@@ -65,5 +68,4 @@ body.knack h4 {
   letter-spacing: -0.02em;
   line-height: 1.1;
   font-weight: 700;
-  margin: 0;
 }
