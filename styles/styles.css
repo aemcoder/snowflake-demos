@@ -52,9 +52,10 @@ main .section[data-section-status='loading'] {
   display: none;
 }
 
-/* critical CLS baseline — matches theme.css so late CSS causes no shift */
+/* critical CLS baseline — no `margin` here either: at (0,2,2) it would
+   out-rank theme section rules like `main > .section.band { margin-top: 44px }`
+   at (0,2,1). theme.css's `* { margin: 0 }` handles the reset. */
 body.knack main > .section {
-  margin: 0;
   max-width: none;
 }
 
