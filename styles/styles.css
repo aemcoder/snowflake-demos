@@ -6,27 +6,35 @@
 body {
   display: none;
   margin: 0;
-  background: #0a0a0a;
-  color: #f4f4f0;
-  font-family: Archivo, system-ui, -apple-system, sans-serif;
+  font-family: "Barlow", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 body.appear { display: block; }
 
-body > header,
-body > footer {
+/* Header/footer visibility gates — direct-child selector so fragment-
+   internal .header/.footer classes are not caught. */
+header > .header,
+footer > .footer {
   visibility: hidden;
 }
 
-body.wc26 > header {
-  height: 72px;
+header > .header[data-block-status="loaded"],
+footer > .footer[data-block-status="loaded"] {
+  visibility: visible;
 }
 
-body > header:has(.header[data-block-status='loaded']),
-body > footer:has(.footer[data-block-status='loaded']) {
-  visibility: visible;
+/* Reset padding/margin on the EDS landmark elements. Source page's
+   generic `section, header, footer` padding rules leak in otherwise. */
+body > header,
+body > footer {
+  padding: 0;
+  margin: 0;
+}
+
+/* Chrome reserve for sticky header */
+body.wheelercat > header {
+  height: 172px;
 }
 
 main img {
@@ -36,13 +44,21 @@ main img {
 }
 
 input,
-button { font-family: inherit; }
+button { font: inherit; }
 
-main .section[data-section-status='initialized'],
-main .section[data-section-status='loading'] {
+/* Section visibility lifecycle (aem.js decorateSections) */
+main .section[data-section-status="initialized"],
+main .section[data-section-status="loading"] {
   display: none;
 }
 
-body.wc26 main > .section {
+/* Overlay pages: no max-width constraint on sections */
+body.wheelercat main > .section {
   max-width: none;
+}
+
+/* Section padding ONLY on themed sections */
+main > .section.brand,
+main > .section.paper {
+  padding: 84px 0;
 }

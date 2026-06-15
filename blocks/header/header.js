@@ -1,12 +1,13 @@
-import { getMetadata } from '../../scripts/aem.js';
-
 /**
- * Static-fragment header loader with scroll-opacity behavior.
- * Ports the React Nav component's useEffect scroll listener to vanilla JS.
+ * Loads the template-specific header fragment from the code bus.
+ * Each overlay-controlled page sets main.dataset.overlay = <template>
+ * during loadEager; we read it here to pick the right fragment.
+ * Fragments live at /fragments/<template>/header.html.
  */
 export default async function decorate(block) {
-  const template = getMetadata('template');
-  const path = template ? `/fragments/${template}/header.html` : '/fragments/header.html';
+  const template = document.querySelector('main')?.dataset?.overlay;
+  if (!template) return;
+  const path = `/fragments/${template}/header.html`;
   const resp = await fetch(`${window.hlx.codeBasePath}${path}`);
   if (!resp.ok) {
     // eslint-disable-next-line no-console
@@ -15,15 +16,31 @@ export default async function decorate(block) {
   }
   block.innerHTML = await resp.text();
 
-  // scroll-based transparency (ports React Nav's useEffect)
-  const nav = block.querySelector('.wc-nav');
-  if (!nav) return;
-  const onScroll = () => {
-    const scrolled = window.scrollY > 24;
-    nav.style.background = scrolled ? 'rgba(10,10,10,0.82)' : 'transparent';
-    nav.style.backdropFilter = scrolled ? 'blur(14px) saturate(1.1)' : 'none';
-    nav.style.borderBottomColor = scrolled ? 'var(--line)' : 'transparent';
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  // header shadow on scroll
+  const siteHeader = block.querySelector('#siteHeader');
+  if (siteHeader) {
+    window.addEventListener('scroll', () => {
+      siteHeader.classList.toggle('scrolled', window.scrollY > 8);
+    }, { passive: true });
+  }
+
+  // mobile menu open/close
+  const mnav = block.querySelector('#mnav');
+  const menuOpen = block.querySelector('#menuOpen');
+  const menuClose = block.querySelector('#menuClose');
+
+  if (mnav && menuOpen) {
+    menuOpen.addEventListener('click', () => mnav.classList.add('open'));
+  }
+  if (mnav && menuClose) {
+    menuClose.addEventListener('click', () => mnav.classList.remove('open'));
+  }
+  if (mnav) {
+    mnav.addEventListener('click', (e) => {
+      if (e.target === mnav) mnav.classList.remove('open');
+    });
+    mnav.querySelectorAll('a.ml').forEach((a) => {
+      a.addEventListener('click', () => mnav.classList.remove('open'));
+    });
+  }
 }
