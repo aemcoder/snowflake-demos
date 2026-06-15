@@ -5,8 +5,8 @@
 body {
   display: none;
   margin: 0;
-  background: #fff;
-  color: #0e0e0e;
+  background: #ffffff;
+  color: #0E0E0E;
   font-family: Barlow, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -19,8 +19,8 @@ body > footer {
   visibility: hidden;
 }
 
-body.wheeler > header {
-  height: 172px;
+body.wheeler-cat > header {
+  height: 135px;
 }
 
 body > header:has(.header[data-block-status='loaded']),
@@ -42,6 +42,6 @@ main .section[data-section-status='loading'] {
   display: none;
 }
 
-body.wheeler main > .section {
+body.wheeler-cat main > .section {
   max-width: none;
 }
